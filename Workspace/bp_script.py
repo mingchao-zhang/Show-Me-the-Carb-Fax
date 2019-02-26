@@ -3,13 +3,14 @@ import mysql.connector
 
 # The branded food products database
 # File names
-dcd_file = "BFPD_csv_07132018/Derivation_Code_Description.csv"
-nutrients_file = "BFPD_csv_07132018/Nutrients.csv"
-products_file = "BFPD_csv_07132018/Products.csv"
-servings_file = "BFPD_csv_07132018/Serving_size.csv"
+dcd_file = "../BFPD_csv_07132018/Derivation_Code_Description.csv"
+nutrients_file = "../BFPD_csv_07132018/Nutrients.csv"
+products_file = "../BFPD_csv_07132018/Products.csv"
+servings_file = "../BFPD_csv_07132018/Serving_size.csv"
+results = "BFPD_csv_07132018/bp.csv"
 
 items = {}
-results = "BFPD_csv_07132018/results.csv"
+nutrients = {}
 
 with open(products_file, newline='') as f:
     csvreader = csv.reader(f, delimiter = ",")
@@ -32,14 +33,13 @@ with open(servings_file, newline = '') as f:
                 continue
 
 """
-The values are for the quantity found in 100gms or 100 ml
-Calories, Carbs, Sugars, Dietary Fiber, Soluble Fiber, InSoluble Fiber, Protein, Total_Fat, Sodium, Cholestrol,
-vitaminA,vitaminB6,vitaminB12,vitaminC,vitaminD,vitaminE,niacin,thiamin,calcium,iron,magnesium
-phosphorus,potassium,riboflavin,zinc
+    The values are for the quantities found in 100gms or 100 ml
+    calories, carbs, sugars, dietary fiber, soluble fiber, inSoluble fiber, protein, total_fat, sodium, cholestrol,
+    vitaminA,vitaminB6,vitaminB12,vitaminC,vitaminD,vitaminE,niacin,thiamin,calcium,iron,magnesium
+    phosphorus,potassium,riboflavin,zinc
 """
 
-nutrients = {}
-pattern = [208,205,269,291,295,297,203,204,307,601,318,415,418,401,324,340,406,404,301,303,304,305,306,405,309]
+pattern = [208,205,269,291,295,297,203,204,307,601,318,415,418,401,324,340,406,404, 301,303,304,305,306,405,309]
 
 with open(nutrients_file,newline = '') as f:
     csvreader = csv.reader(f, delimiter = ",")
@@ -48,7 +48,7 @@ with open(nutrients_file,newline = '') as f:
     for i, line in enumerate(csvreader):
         if(i != 0):
             if(int(line[0]) not in nutrients):
-                nutrients[int(line[0])] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+                nutrients[int(line[0])] = [0]*25
         try:
             if(int(line[1]) in pattern):
                 nutrients[int(line[0])][pattern.index(int(line[1]))] = float(line[4])
@@ -63,8 +63,7 @@ with open(results, "w") as output:
             line += nutrients[each_num]
             writer.writerow(line)
 
-print(len(nutrients))
-print(len(items))
+print("Num records: " + str(len(nutrients)))
 
 mydb = mysql.connector.connect(
                                host="localhost",
@@ -85,41 +84,3 @@ with open(results, "r") as data:
         mycursor.execute(sql, val)
         mydb.commit()
 
-
-
-"""
-
-the_set = set()
-with open(results,newline = '') as f:
-csvreader = csv.reader(f, delimiter = ",")
-for i,line in enumerate(csvreader):
-the_set.add(len(line))
-if(len(line) == 53 or len(line) == 6):
-print(line)
-
-# Init for first element
-if(i == 1):
-curr = int(line[0])
-values= [line[0]]
-values.append(line[2] + " " + line[-2] + " " + line[-1])
-
-# When we run out of nutrients for a particular product
-elif(int(line[0]) != curr):
-num_items += 1
-values.append(line[2] + " " + line[-2] + " " + line[-1])
-the_line = values[0] + "," + items[int(values[0])] + ","
-the_line += ",".join(values[1:])
-result_fp.write(the_line + "\n")
-
-curr = int(line[0])
-values = [line[0]]
-values.append(line[2] + " " + line[-2] + " " + line[-1])
-
-# Otherwise, just add to the current product's list
-else:
-values.append(line[2] + " " + line[-2] + " " + line[-1])
-
-the_line = values[0] + "," + items[int(values[0])] + ","
-the_line += ",".join(values[1:])
-result_fp.write(the_line + "\n")
-"""
