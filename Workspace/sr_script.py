@@ -1,21 +1,24 @@
 import csv
 import re
-import mysql.connector
+#import mysql.connector
 
 # Files for the standard reference database
 
 
-desc_file = "../SR-Leg_ASC/FOOD_DES.txt"
-nutrients_file = "../SR-Leg_ASC/NUT_DATA.txt"
-fdgrps_file = "../SR-Leg_ASC/FD_GROUP.txt"
-weights_file = "../SR-Leg_ASC/WEIGHT.txt"
-results = "../SR-Leg_ASC/sr.csv"
+desc_file = "SR-Leg_ASC/FOOD_DES.txt"
+nutrients_file = "SR-Leg_ASC/NUT_DATA.txt"
+fdgrps_file = "SR-Leg_ASC/FD_GROUP.txt"
+weights_file = "SR-Leg_ASC/WEIGHT.txt"
+results = "sr.csv"
 
 items = {}
 groups = {}
 
 def remove_char(line):
     return re.sub('~', '', line)
+
+def process(string):
+    return re.sub('"','',string)
 
 def process_row(list):
     for i in range(len(list)):
@@ -25,7 +28,7 @@ def process_row(list):
 with open(fdgrps_file, newline='') as f:
     csvreader = csv.reader(f, delimiter = "^")
     for row in csvreader:
-        groups[int(remove_char(row[0]))] = remove_char(row[1])
+        groups[int(remove_char(row[0]))] = process(row[1])
 
 with open(desc_file, newline = '',encoding = "ISO-8859-1") as f:
     csvreader = csv.reader(f, delimiter = "^")

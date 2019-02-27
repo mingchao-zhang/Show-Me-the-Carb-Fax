@@ -1,16 +1,23 @@
 import csv
-import mysql.connector
+import re
+#import mysql.connector
 
 # The branded food products database
 # File names
-dcd_file = "../BFPD_csv_07132018/Derivation_Code_Description.csv"
-nutrients_file = "../BFPD_csv_07132018/Nutrients.csv"
-products_file = "../BFPD_csv_07132018/Products.csv"
-servings_file = "../BFPD_csv_07132018/Serving_size.csv"
-results = "BFPD_csv_07132018/bp.csv"
+dcd_file = "BFPD_csv_07132018/Derivation_Code_Description.csv"
+nutrients_file = "BFPD_csv_07132018/Nutrients.csv"
+products_file = "BFPD_csv_07132018/Products.csv"
+servings_file = "BFPD_csv_07132018/Serving_size.csv"
+results = "bp.csv"
 
 items = {}
 nutrients = {}
+
+def process(line):
+    print(line)
+    line = re.sub('\"','',line)
+    print(line)
+    return line
 
 with open(products_file, newline='') as f:
     csvreader = csv.reader(f, delimiter = ",")
@@ -18,7 +25,7 @@ with open(products_file, newline='') as f:
     for row in csvreader:
         num_items += 1
         if(num_items != 1):
-            items[int(row[0])] = [int(row[0]),row[1],row[3],1,"Packaging"]
+            items[int(row[0])] = [int(row[0]),process(str(row[1]).title()),row[3],1,"Packaging"]
 
 with open(servings_file, newline = '') as f:
     csvreader = csv.reader(f, delimiter = ",")
