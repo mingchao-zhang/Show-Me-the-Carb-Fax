@@ -1,6 +1,5 @@
 import csv
 import re
-import mysql
 from tempfile import mkstemp
 from shutil import move
 from os import fdopen, remove
@@ -79,7 +78,7 @@ with open(nutrients_file,newline = '') as f:
 
 
 with open(results, "w") as output:
-        writer = csv.writer(output, lineterminator='\n')
+        writer = csv.writer(output, delimiter ='!',lineterminator='\n')
         for each_num in nutrients.keys():
             line = items[each_num]
             line += nutrients[each_num]
