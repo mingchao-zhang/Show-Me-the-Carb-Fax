@@ -1,6 +1,27 @@
 import csv
 import re
-#import mysql.connector
+import mysql
+from tempfile import mkstemp
+from shutil import move
+from os import fdopen, remove
+
+# From https://stackoverflow.com/questions/39086/search-and-replace-a-line-in-a-file-in-python
+def replace(file_path, pattern, subst):
+    #Create temp file
+    fh, abs_path = mkstemp()
+    with fdopen(fh,'w') as new_file:
+        with open(file_path) as old_file:
+            for line in old_file:
+                new_file.write(line.replace(pattern, subst))
+    #Remove original file
+    remove(file_path)
+    #Move new file
+    move(abs_path, file_path)
+
+
+def process(line):
+    line = re.sub('\"','',line)
+    return line
 
 # The branded food products database
 # File names
@@ -12,12 +33,6 @@ results = "bp.csv"
 
 items = {}
 nutrients = {}
-
-def process(line):
-    print(line)
-    line = re.sub('\"','',line)
-    print(line)
-    return line
 
 with open(products_file, newline='') as f:
     csvreader = csv.reader(f, delimiter = ",")
@@ -72,22 +87,7 @@ with open(results, "w") as output:
 
 print("Num records: " + str(len(nutrients)))
 
-mydb = mysql.connector.connect(
-                               host="localhost",
-                               user="yourusername",
-                               passwd="yourpassword",
-                               database="mydatabase"
-                               )
+replace(results,"\"","")
 
-mycursor = mydb.cursor()
 schema = "(foodID,name,upc,serving_size,quantity_units,calories,total_carbs,sugars,dietary_fiber,soluble_fiber,insoluble_fiber,protein,total_fat,sodium,cholesterol,vitaminA,vitaminB6,vitaminB12,vitaminC,vitaminD,vitaminE,niacin,thiamin,calcium,iron,magnesium,phosphorus,potassium,riboflavin,zinc)"
 schema_format = "(%u,%s,%s,%f,%s,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f)"
-
-with open(results, "r") as data:
-    csvreader = csv.reader(data, delimiter = ",")
-    for i,line in enumerate(csvreader):
-        sql = "INSERT INTO products " + schema + " VALUES " + schema_format
-        val = tuple(line)
-        mycursor.execute(sql, val)
-        mydb.commit()
-
