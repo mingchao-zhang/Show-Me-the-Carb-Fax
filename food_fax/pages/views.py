@@ -9,3 +9,9 @@ def about(request):
 
 def demo(request):
     return render(request, 'pages/demo.html')
+
+def sign_in(request):
+    return render(request, 'pages/sign_in.html')
+
+def contact(request):
+    return render(request, 'pages/contact.html')
