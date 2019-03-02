@@ -6,3 +6,6 @@ def index(request):
 
 def about(request):
     return render(request, 'pages/about.html')
+
+def demo(request):
+    return render(request, 'pages/demo.html')
