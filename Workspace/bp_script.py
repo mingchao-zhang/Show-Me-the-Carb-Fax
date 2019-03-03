@@ -77,13 +77,17 @@ with open(nutrients_file,newline = '') as f:
                 print(line)
 
 
+the_set = set()
+
 with open(results, "w") as output:
         writer = csv.writer(output, delimiter ='!',lineterminator='\n')
         for each_num in nutrients.keys():
             line = items[each_num]
             line += nutrients[each_num]
+            the_set.add(len(line))
             writer.writerow(line)
 
+print(the_set)
 print("Num records: " + str(len(nutrients)))
 
 replace(results,"\"","")
