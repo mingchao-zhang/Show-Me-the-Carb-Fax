@@ -16,3 +16,19 @@ class Sample(models.Model):
     def __str__(self):
         return self.Food_ID
 
+class Pet(models.Model):
+    name = models.CharField(primary_key=True, max_length=20, blank=True)
+    owner = models.CharField(max_length=20, blank=True, null=True)
+    species = models.CharField(max_length=20, blank=True, null=True)
+    sex = models.CharField(max_length=1, blank=True, null=True)
+    birth = models.DateField(blank=True, null=True)
+    death = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return (self.owner, self.name)
+
+    class Meta:
+        unique_together = (("name", "owner"),)
+        managed = False
+        db_table = 'pet'
+    
