@@ -129,6 +129,9 @@
                           Here is a sample of the data we collect
                         </h3>
                         <div class="table-responsive">
+                          {% if not samples %}
+                            <p>No samples</p>
+                          {% endif %}
                           <table class="table table-striped table-dark">
                               <thead>
                                   <tr>
@@ -165,16 +168,16 @@
                                 <tbody>
                                   <tr>
                                     <th scope="row">1</th>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
-                                    <td>TEST</td>
+                                    <td>{{ samples.0.Food_ID }}</td>
+                                    <td>{{ samples.0.UPC }}</td>
+                                    <td>{{ samples.0.Product_Name }}</td>
+                                    <td>{{ samples.0.Calories }}</td>
+                                    <td>{{ samples.0.Total_Carbohydrates }}</td>
+                                    <td>{{ samples.0.Protein }}</td>
+                                    <td>{{ samples.0.Total_Fat }}</td>
+                                    <td>{{ samples.0.Sodium }}</td>
+                                    <td>{{ samples.0.Cholesterol }}</td>
+                                    <td>{{ samples.0.Sugars }}</td>
                                     <td>TEST</td>
                                     <td>TEST</td>
                                     <td>TEST</td>
