@@ -39,7 +39,7 @@ with open(products_file, newline='') as f:
     for row in csvreader:
         num_items += 1
         if(num_items != 1):
-            items[int(row[0])] = [int(row[0]),process(str(row[1]).title()),row[3],1,"Packaging"]
+            items[int(row[0])] = [int(row[0]),process(str(row[1]).title()),row[3],1,"g"]
 
 with open(servings_file, newline = '') as f:
     csvreader = csv.reader(f, delimiter = ",")
