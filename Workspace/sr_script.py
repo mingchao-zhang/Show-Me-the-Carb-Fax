@@ -110,7 +110,7 @@ with open(results, "w") as output:
         if(line[0] in weights):
              line += weights[line[0]]
         else:
-             line += ["gms","1"]
+             line += ["1","gms"]
         line += nutrients[each_num]
         the_set.add(len(line))
         writer.writerow(line)
