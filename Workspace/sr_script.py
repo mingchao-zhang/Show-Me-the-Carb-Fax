@@ -104,7 +104,7 @@ with open(weights_file,newline = '') as f:
 
 the_set = set()
 with open(results, "w") as output:
-    writer = csv.writer(output, delimiter ='!',lineterminator='\n')
+    writer = csv.writer(output, delimiter ='~',lineterminator='\n')
     for each_num in nutrients.keys():
         line = items[each_num]
         if(line[0] in weights):
