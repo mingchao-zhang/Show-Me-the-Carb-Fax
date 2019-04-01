@@ -168,14 +168,10 @@
                       <div class="col-md-5">
                       <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                            <h3 class="h3 mb-3 font-weight-normal">Update Your Profile Information</h3>
-                            <label for="inputEmail">Email Address</label>
+                            <h3 class="h3 mb-3 font-weight-normal">Update Your Profile</h3>
                             <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email Address" required>
-                            <label for="inputAge">Age</label>
                             <input type="number" id="inputAge" class="form-control form-control-sm" name="age" placeholder="Age" required>
-                            <label for="inputHeight">Height</label>
                             <input type="number" id="inputHeight" class="form-control form-control-sm" name="height" placeholder="Height (In Inches)" required>
-                            <label for="inputWeight">Weight</label>
                             <input type="number" id="inputWeight" class="form-control form-control-sm" name="weight" placeholder="Weight (In Pounds)" required>
                             <label for="inputCalories">What is Your Daily Calorie Target?</label>
                             <input type="number" id="inputCalories" class="form-control form-control-sm" name="calories" placeholder="Number of Calories" required>
@@ -185,7 +181,7 @@
                             <input type="number" id="inputCarbs" class="form-control form-control-sm" name="carbs" placeholder="Grams of Carbohydrates" required>
                             <label for="inputFat">What is Your Daily Fat Target?</label>
                             <input type="number" id="inputHeight" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
-                            <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Create Account</button>
+                            <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Update Information</button>
                         </form>
                         </div>
                       </div>      
