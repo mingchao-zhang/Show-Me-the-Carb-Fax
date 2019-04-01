@@ -24,7 +24,7 @@
         }
 
         $query = "UPDATE users SET email_address = '$new_email', age = '$new_age', height = '$new_height', weight = '$new_weight', 
-                    calorie_target = '$new_cals', carb_target = '$new_carbs', fat_target = '$new_fat, protein_target = '$new_protein' WHERE username = '$username'";
+                    calorie_target = '$new_cals', carb_target = '$new_carbs', fat_target = '$new_fat', protein_target = '$new_protein' WHERE username = '$username'";
         $result = mysql_query($query, $dbconnect);
 
         if(!$result){
