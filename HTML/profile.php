@@ -130,6 +130,7 @@
                       <div class="col-md-8 blog-main">
                         <div class="jumbotron">
                             <h4 class="display-4">About You</h4>
+                            <div class="list-group">
                             <?php
                                  // Database Connection
                                 $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
@@ -146,9 +147,13 @@
                                     die('Invalid Query: ' . mysql_error());
                                 }
                                 $row = mysql_fetch_assoc($result);
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Name:" . $row['name'] . "</a>";
+
                                  // Close Database Connection
+                                mysql_free_result($result);
                                 mysql_close($dbconnect);
                             ?>
+                            </div>
 
                         </div>
                         
