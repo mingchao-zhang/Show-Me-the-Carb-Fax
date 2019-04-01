@@ -8,18 +8,19 @@
    if(!$dbconnect){
        die('Cannot connect: ' . mysql_error());
    }
-   echo "connected";
+   
    $db_selected = mysql_select_db("411_project_db", $dbconnect);
 
    if(!$db_selected){
        die('Cant use database: ' . mysql_error());
    }
   // Check for submit
-  /*
+  
   if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $query = "SELECT username FROM users WHERE username = '$username'";
     $result = mysql_query($query, $dbconnect);
+  /*
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
