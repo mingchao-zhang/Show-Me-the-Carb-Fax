@@ -102,6 +102,8 @@
         <main role="main" class="inner cover">
           <?php if($msg != ''): ?>
             <div class = "<?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+          <?php endif; ?>
+          <?php if($successful): ?>
             <a class="btn btn-sm btn-success" href="profile.php" role="button">Go to Profile</a>
           <?php endif; ?>
             <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
