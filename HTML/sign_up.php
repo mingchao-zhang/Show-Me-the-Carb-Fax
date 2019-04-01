@@ -16,7 +16,8 @@
    }
   // Check for submit
   if(isset($_POST['submit'])){
-    $query = "SELECT username FROM users WHERE username = $_POST['username']";
+    $username = $_POST['username'];
+    $query = "SELECT username FROM users WHERE username = '$username'";
     $result = mysql_query($query);
     if(!$result){
       die('Invalid Query: ' . mysql_error());
@@ -31,8 +32,6 @@
       $msgClass = 'alert alert-danger';
     }
 
-
-    
 
   }
   
