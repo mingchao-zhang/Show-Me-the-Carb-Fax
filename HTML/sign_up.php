@@ -1,3 +1,21 @@
+<?php
+  
+  $msg = '';
+  $msgClass = '';
+  // Check for submit
+  /*
+  if(filter_has_var(INPUT_POST, 'submit')){
+    $msg = 'Account Created';
+    $msgClass = 'alert alert-success';
+
+  }
+  */
+  if(isset($_POST['submit'])){
+    session_start();
+
+    $_SESSION['username'] = $_POST['username'];
+  }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,15 +54,19 @@
                 <h3 class="masthead-brand">Show Me the Carb Fax</h3>
                 <nav class="nav nav-masthead justify-content-center">
                   <a class="nav-link" href="index.html">Home</a>
-                  <a class="nav-link" href="sign_in.html">Sign In</a>
-                  <a class="nav-link active" href="sign_up.html">Sign Up</a>
+                  <a class="nav-link" href="sign_in.php">Sign In</a>
+                  <a class="nav-link active" href="sign_up.php">Sign Up</a>
                   <a class="nav-link" href="contact.html">Contact</a>
                 </nav>
             </div>
         </header>
     
         <main role="main" class="inner cover">
-            <form class="form-group" action="sign_up.php" method="POST">
+          <?php if($msg != ''): ?>
+            <div class = "alert alert-success">Account Created</div>
+            <a class="btn btn-sm btn-success" href="profile.php" role="button">Go to Profile</a>
+          <?php endif; ?>
+            <form class="form-group" action="sign_up.php" method="post">
                 <h3 class="h3 mb-3 font-weight-normal">Please Complete This Form</h3>
                 <label for="inputUsername">Username</label>
                 <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
@@ -69,7 +91,7 @@
                 <label for="inputFat">What is Your Daily Fat Target?</label>
                 <input type="number" id="inputHeight" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
                 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+                <button name="submit" class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
             </form>
         </main>
     

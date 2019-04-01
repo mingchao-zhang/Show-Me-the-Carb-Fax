@@ -36,8 +36,8 @@
                 <h3 class="masthead-brand">Show Me the Carb Fax</h3>
                 <nav class="nav nav-masthead justify-content-center">
                   <a class="nav-link" href="index.html">Home</a>
-                  <a class="nav-link active" href="sign_in.html">Sign In</a>
-                  <a class="nav-link" href="sign_up.html">Sign Up</a>
+                  <a class="nav-link active" href="sign_in.php">Sign In</a>
+                  <a class="nav-link" href="sign_up.php">Sign Up</a>
                   <a class="nav-link" href="contact.html">Contact</a>
                 </nav>
             </div>
@@ -57,7 +57,7 @@
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </form>
-            <h4 class="h4 mb-3 font-weight-normal text-muted"> Not a registered user? <a href="sign_up.html" class="text-primary">Sign Up</a> </h4>
+            <h4 class="h4 mb-3 font-weight-normal text-muted"> Not a registered user? <a href="sign_up.php" class="text-primary">Sign Up</a> </h4>
         </main>
     
         <footer class="mastfoot mt-auto">
