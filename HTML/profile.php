@@ -30,6 +30,9 @@
         if(!$result){
             die('Invalid Query: ' . mysql_error());
         }
+        // Close Database Connection
+        mysql_free_result($result);
+        mysql_close($dbconnect);
     }
 ?>
 <!doctype html>
