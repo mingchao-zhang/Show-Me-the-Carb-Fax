@@ -127,7 +127,7 @@
                   
                   <main role="main" class="container">
                     <div class="row">
-                      <div class="col-md-8 blog-main">
+                      <div class="col-md-6 blog-main">
                         <div class="jumbotron">
                             <h4 class="display-4">About You</h4>
                             <div class="list-group">
@@ -164,28 +164,7 @@
                             </div>
 
                         </div>
-                        
-                  
-                        
-                  
-                  
-                  
-                      </div><!-- /.blog-main -->
-                  
-                      <aside class="col-md-4 blog-sidebar">
-                  
-                        <div class="p-4">
-                          <h4 class="font-italic">Elsewhere</h4>
-                          <ol class="list-unstyled">
-                            <li><a href="https://wiki.illinois.edu//wiki/display/cs411changsp19">CS411 Homepage</a></li>
-                            <li><a href="https://wiki.illinois.edu/wiki/display/CS411ChangSP19/Project+Show+Me+the+Carb+Fax">Team Project Page</a></li>
-                            <li><a href="#">Github</a></li>
-                          </ol>
-                        </div>
-                      </aside><!-- /.blog-sidebar -->
-                  
-                    </div><!-- /.row -->
-                    <div class="row">
+                        <div class="col-md-6 blog-main">
                         <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Update Your Profile Information</h3>
@@ -209,6 +188,22 @@
                         </form>
                         </div>
                     </div>
+                </div><!-- /.blog-main -->
+                    </div><!-- /.row -->
+                <div class="row">
+                <aside class="col-md-4 blog-sidebar">
+                  
+                  <div class="p-4">
+                    <h4 class="font-italic">Elsewhere</h4>
+                    <ol class="list-unstyled">
+                      <li><a href="https://wiki.illinois.edu//wiki/display/cs411changsp19">CS411 Homepage</a></li>
+                      <li><a href="https://wiki.illinois.edu/wiki/display/CS411ChangSP19/Project+Show+Me+the+Carb+Fax">Team Project Page</a></li>
+                      <li><a href="#">Github</a></li>
+                    </ol>
+                  </div>
+                </aside><!-- /.blog-sidebar -->
+                </div>
+                    
                   
                   </main><!-- /.container -->
                   
