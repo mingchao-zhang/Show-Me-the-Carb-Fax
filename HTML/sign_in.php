@@ -31,7 +31,7 @@
       $_SESSION['username'] = $row['username'];
       $_SESSION['name'] = $row['name'];
       $successful = TRUE;
-      $msg = 'Welcome, ' . $_SESSION['name'] . 'Login Successful';
+      $msg = 'Login Successful. Welcome, ' . $_SESSION['name'];
       $msgClass = 'alert alert-success';
     }
     else {
