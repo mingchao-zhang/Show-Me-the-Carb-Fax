@@ -20,6 +20,7 @@
     $username = $_POST['username'];
     $query = "SELECT username FROM users WHERE username = '$username'";
     $result = mysql_query($query, $dbconnect);
+  }
   /*
     if(!$result){
       die('Invalid Query: ' . mysql_error());
@@ -43,10 +44,10 @@
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['name'] = $_POST['name'];
   }
-
+*/
   // Close Database connection
   mysql_close($dbconnect);
-  */
+  
 ?>
 <!doctype html>
 <html lang="en">
