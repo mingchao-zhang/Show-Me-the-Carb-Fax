@@ -1,3 +1,38 @@
+<?php
+  session_start();
+  // Database Connection
+  $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+  if(!$dbconnect){
+      die('Cannot connect: ' . mysql_error());
+  }
+  
+  $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+  if(!$db_selected){
+      die('Cant use database: ' . mysql_error());
+  }
+  // Check for submit
+  if(isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $query = "SELECT username, name FROM users WHERE username = '$username' AND password = '$password'";
+    $result = mysql_query($query, $dbconnect);
+
+    if(!$result){
+      die('Invalid Query: ' . mysql_error());
+    }
+
+    if(mysql_num_rows($result) == 1){
+      $row = mysql_fetch_assoc($result);
+      $_SESSION['username'] = $row['username'];
+      $_SESSION['name'] = $row['name'];
+      header('Location:  /profile.php ');
+    }
+  }
+  // Close Database Connection
+  mysql_close($dbconnect);
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,7 +79,7 @@
         </header>
     
         <main role="main" class="inner cover">
-            <form class="form-signin" action="sign_in.php" method="POST">
+            <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label for="inputUsername" class="sr-only">Username</label>
                 <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
