@@ -3,12 +3,36 @@
   $msg = '';
   $msgClass = '';
   $successful = FALSE;
+   // Database Connection
+   $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
+   if(!$dbconnect){
+       die('Cannot connect: ' . mysql_error());
+   }
+
+   $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+   if(!$db_selected){
+       die('Cant use database: ' . mysql_error());
+   }
   // Check for submit
-  
   if(isset($_POST['submit'])){
-    $msg = 'Account Created';
-    $msgClass = 'alert alert-success';
-    $successful = TRUE;
+    $query = "SELECT username FROM users WHERE username = $_POST['username']";
+    $result = mysql_query($query);
+    if(!$result){
+      die('Invalid Query: ' . mysql_error());
+    }
+    if(my_sql_num_rows($result) == 0){
+      $msg = 'Account Created';
+      $msgClass = 'alert alert-success';
+      $successful = TRUE;
+    }
+    else {
+      $msg = 'That Username is Taken';
+      $msgClass = 'alert alert-danger';
+    }
+
+
+    
 
   }
   
@@ -18,6 +42,9 @@
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['name'] = $_POST['name'];
   }
+
+  // Close Database connection
+  mysql_close($dbconnect);
 ?>
 <!doctype html>
 <html lang="en">
