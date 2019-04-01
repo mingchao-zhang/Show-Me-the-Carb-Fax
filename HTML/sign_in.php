@@ -106,7 +106,7 @@
                         <input type="checkbox" checked="checked" value="remember-me" name="remember"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button name="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </form>
             <h4 class="h4 mb-3 font-weight-normal text-muted"> Not a registered user? <a href="sign_up.php" class="text-primary">Sign Up</a> </h4>
         </main>
