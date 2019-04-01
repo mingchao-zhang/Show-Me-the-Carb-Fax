@@ -14,6 +14,7 @@
     session_start();
 
     $_SESSION['username'] = $_POST['username'];
+    $_SESSION['name'] = $_POST['name'];
   }
 ?>
 <!doctype html>
@@ -63,7 +64,7 @@
     
         <main role="main" class="inner cover">
           <?php if($msg != ''): ?>
-            <div class = "alert alert-success">Account Created</div>
+            <div class = "<?php echo $msgClass; ?>"><?php echo $msg; ?></div>
             <a class="btn btn-sm btn-success" href="profile.php" role="button">Go to Profile</a>
           <?php endif; ?>
             <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
