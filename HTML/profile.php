@@ -128,9 +128,10 @@
                   <main role="main" class="container">
                     <div class="row">
                       <div class="col-md-8 blog-main">
-                        <h3 class="pb-4 mb-4 font-italic border-bottom">
-                          About You
-                        </h3>
+                        <div class="jumbotron">
+                            <h4 class="display -4">About You</h4>
+                        
+                        </div>
                         
                   
                         

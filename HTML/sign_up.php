@@ -2,15 +2,17 @@
   
   $msg = '';
   $msgClass = '';
+  $successful = FALSE;
   // Check for submit
   
   if(isset($_POST['submit'])){
     $msg = 'Account Created';
     $msgClass = 'alert alert-success';
+    $successful = TRUE;
 
   }
   
-  if(isset($_POST['submit'])){
+  if($successful){
     session_start();
 
     $_SESSION['username'] = $_POST['username'];
