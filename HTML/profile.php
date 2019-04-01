@@ -164,7 +164,7 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6 blog-main">
+                        <div class="col-md-6 blog-sidebar">
                         <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Update Your Profile Information</h3>
