@@ -20,11 +20,13 @@
     $username = $_POST['username'];
     $query = "SELECT username FROM users WHERE username = '$username'";
     $result = mysql_query($query, $dbconnect);
-  }
-  /*
+  
+  
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
+  }
+  /*
     if(my_sql_num_rows($result) == 0){
       $msg = 'Account Created';
       $msgClass = 'alert alert-success';
