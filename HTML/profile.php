@@ -186,6 +186,7 @@
                   
                     </div><!-- /.row -->
                     <div class="row">
+                        <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Update Your Profile Information</h3>
                             <label for="inputEmail">Email Address</label>
@@ -206,6 +207,7 @@
                             <input type="number" id="inputHeight" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
                             <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Create Account</button>
                         </form>
+                        </div>
                     </div>
                   
                   </main><!-- /.container -->
