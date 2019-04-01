@@ -1,5 +1,8 @@
 <?php
   session_start();
+  $msg = '';
+  $msgClass = '';
+  $successful = FALSE;
   // Database Connection
   $dbconnect = mysql_connect("localhost", "root", "carbfax411");
   if(!$dbconnect){
@@ -27,7 +30,13 @@
       $row = mysql_fetch_assoc($result);
       $_SESSION['username'] = $row['username'];
       $_SESSION['name'] = $row['name'];
-      header('Location:  /profile.php ');
+      $successful = TRUE;
+      $msg = 'Login Successful';
+      $msgClass = 'alert alert-success';
+    }
+    else {
+      $msg = 'Invalid Login Details'
+      $msgClass = 'alert alert-danger';
     }
   }
   // Close Database Connection
@@ -79,6 +88,12 @@
         </header>
     
         <main role="main" class="inner cover">
+          <?php if($msg != ''): ?>
+            <div class = "<?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+          <?php endif; ?>
+          <?php if($successful): ?>
+            <a class="btn btn-sm btn-success" href="profile.php" role="button">Go to Profile</a>
+          <?php endif; ?>
             <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label for="inputUsername" class="sr-only">Username</label>
