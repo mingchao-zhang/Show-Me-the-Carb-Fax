@@ -4,7 +4,7 @@
   $msgClass = '';
   $successful = FALSE;
    // Database Connection
-   $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
+   $dbconnect = mysql_connect("localhost", "root", "carbfax411");
    if(!$dbconnect){
        die('Cannot connect: ' . mysql_error());
    }
@@ -18,7 +18,7 @@
   if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $query = "SELECT username FROM users WHERE username = '$username'";
-    $result = mysql_query($query);
+    $result = mysql_query($query, $dbconnect);
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
