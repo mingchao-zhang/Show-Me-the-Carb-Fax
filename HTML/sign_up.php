@@ -130,7 +130,7 @@
                 <label for="inputCarbs">What is Your Daily Carbohydrate Target?</label>
                 <input type="number" id="inputCarbs" class="form-control form-control-sm" name="carbs" placeholder="Grams of Carbohydrates" required>
                 <label for="inputFat">What is Your Daily Fat Target?</label>
-                <input type="number" id="inputHeight" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
+                <input type="number" id="inputFat" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
                 
                 <button name="submit" class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
             </form>

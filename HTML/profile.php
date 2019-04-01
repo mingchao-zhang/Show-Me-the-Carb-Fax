@@ -2,6 +2,35 @@
     session_start();
     $username = $_SESSION['username'];
     $name = $_SESSION['name'];
+    if(isset($_POST['update'])){
+        $new_email = $_POST['email'];
+        $new_age = $_POST['age'];
+        $new_height = $_POST['height'];
+        $new_weight = $_POST['weight'];
+        $new_cals = $_POST['calories'];
+        $new_protein = $_POST['protein'];
+        $new_carbs = $_POST['carbs'];
+        $new_fat = $_POST['fat'];
+         // Database Connection
+        $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+        if(!$dbconnect){
+            die('Cannot connect: ' . mysql_error());
+        }
+   
+        $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+        if(!$db_selected){
+            die('Cant use database: ' . mysql_error());
+        }
+
+        $query = "UPDATE users SET email_adress = '$new_email', age = '$new_age', height = '$new_height', weight = '$new_weight', 
+                    calorie_target = '$new_cals', carb_target = '$new_carbs', fat_target = '$new_fat, protein_target = '$new_protein' WHERE username = '$username'";
+        $result = mysql_query($query, $dbconnect);
+
+        if(!$result){
+            die('Invalid Query: ' . mysql_error());
+        }
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -180,7 +209,7 @@
                             <label for="inputCarbs">What is Your Daily Carbohydrate Target?</label>
                             <input type="number" id="inputCarbs" class="form-control form-control-sm" name="carbs" placeholder="Grams of Carbohydrates" required>
                             <label for="inputFat">What is Your Daily Fat Target?</label>
-                            <input type="number" id="inputHeight" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
+                            <input type="number" id="inputFat" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
                             <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Update Information</button>
                         </form>
                         </div>
