@@ -3,13 +3,13 @@
   $msg = '';
   $msgClass = '';
   // Check for submit
-  /*
-  if(filter_has_var(INPUT_POST, 'submit')){
+  
+  if(isset($_POST['submit'])){
     $msg = 'Account Created';
     $msgClass = 'alert alert-success';
 
   }
-  */
+  
   if(isset($_POST['submit'])){
     session_start();
 
@@ -66,7 +66,7 @@
             <div class = "alert alert-success">Account Created</div>
             <a class="btn btn-sm btn-success" href="profile.php" role="button">Go to Profile</a>
           <?php endif; ?>
-            <form class="form-group" action="sign_up.php" method="post">
+            <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <h3 class="h3 mb-3 font-weight-normal">Please Complete This Form</h3>
                 <label for="inputUsername">Username</label>
                 <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
