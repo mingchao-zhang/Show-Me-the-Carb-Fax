@@ -35,7 +35,7 @@
       $msgClass = 'alert alert-success';
     }
     else {
-      $msg = 'Invalid Login Details'
+      $msg = 'Invalid Login Details';
       $msgClass = 'alert alert-danger';
     }
   }
