@@ -25,13 +25,15 @@
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
-  }
-  /*
+  
+  
     if(my_sql_num_rows($result) == 0){
       $msg = 'Account Created';
       $msgClass = 'alert alert-success';
       $successful = TRUE;
     }
+  }
+  /*
     else {
       $msg = 'That Username is Taken';
       $msgClass = 'alert alert-danger';
