@@ -3,14 +3,7 @@
     $username = $_SESSION['username'];
     $name = $_SESSION['name'];
     if(isset($_POST['update'])){
-        $new_email = $_POST['email'];
-        $new_age = $_POST['age'];
-        $new_height = $_POST['height'];
-        $new_weight = $_POST['weight'];
-        $new_cals = $_POST['calories'];
-        $new_protein = $_POST['protein'];
-        $new_carbs = $_POST['carbs'];
-        $new_fat = $_POST['fat'];
+        
          // Database Connection
         $dbconnect = mysql_connect("localhost", "root", "carbfax411");
         if(!$dbconnect){
@@ -23,13 +16,9 @@
             die('Cant use database: ' . mysql_error());
         }
 
-        $query = "UPDATE users SET email_address = '$new_email', age = '$new_age', height = '$new_height', weight = '$new_weight', 
-                    calorie_target = '$new_cals', carb_target = '$new_carbs', fat_target = '$new_fat', protein_target = '$new_protein' WHERE username = '$username'";
-        $result = mysql_query($query, $dbconnect);
+        // Add query to add food item HERE
 
-        if(!$result){
-            die('Invalid Query: ' . mysql_error());
-        }
+
         // Close Database Connection
         mysql_free_result($result);
         mysql_close($dbconnect);
@@ -46,7 +35,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="blog.css">
-    <title>Show Me the Carb Fax Example</title>
+    <title>Nutrient Intake</title>
     <style>
        .bd-placeholder-img {
         font-size: 1.125rem;
@@ -82,7 +71,7 @@
                   
                 <div class="nav-scroller py-1 mb-2">
                     <nav class="nav d-flex justify-content-between">
-                        <a class="p-2 text-muted" href="#">Nutrient Profile</a>
+                        <a class="p-2 text-muted" href="intake.php">Nutrient Intake</a>
                         <a class="p-2 text-muted" href="#">Nutrient Targets</a>
                         <a class="p-2 text-muted" href="#">Recipes</a>
                         <a class="p-2 text-muted" href="#">Food Items</a>
@@ -91,19 +80,15 @@
                   
                 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
                     <div class="col-md-6 px-0">
-                        <h1 class="display-4 font-italic">Your Profile</h1>
+                        <h1 class="display-4 font-italic">Your Nutrient Intake</h1>
                     </div>
                 </div>
-                  
-                    
-                      
-                    
-                  
-                  <main role="main" class="container">
+
+                <main role="main" class="container">
                     <div class="row">
                       <div class="col-md-5">
                         <div class="jumbotron">
-                            <h4 class="display-4">About You</h4>
+                            <h4 class="display-4">This Week's Totals</h4>
                             <div class="list-group">
                             <?php
                                  // Database Connection
@@ -115,21 +100,9 @@
                                 if(!$db_selected){
                                     die('Cant use database: ' . mysql_error());
                                 }
-                                $query = "SELECT * FROM users WHERE username = '$username'";
-                                $result = mysql_query($query, $dbconnect);
-                                if(!$result){
-                                    die('Invalid Query: ' . mysql_error());
-                                }
-                                $row = mysql_fetch_assoc($result);
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Name:   " . $row['name'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">E-Mail Address:   " . $row['email_address'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Age:   " . $row['age'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Height:   " . $row['height'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Weight:   " . $row['weight'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calorie Target:   " . $row['calorie_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate Target:   " . $row['carb_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat Target:   " . $row['fat_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein Target:   " . $row['protein_target'] . "</a>";
+                                // TODO: ADD QUERY TO GET NUTRIENT AGGREGATION
+
+                                // TODO: OUTPUT RESULTS 
 
                                  // Close Database Connection
                                 mysql_free_result($result);
@@ -142,20 +115,10 @@
                       <div class="col-md-5">
                       <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                            <h3 class="h3 mb-3 font-weight-normal">Update Your Profile</h3>
-                            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email Address" required>
-                            <input type="number" id="inputAge" class="form-control form-control-sm" name="age" placeholder="Age" required>
-                            <input type="number" id="inputHeight" class="form-control form-control-sm" name="height" placeholder="Height (In Inches)" required>
-                            <input type="number" id="inputWeight" class="form-control form-control-sm" name="weight" placeholder="Weight (In Pounds)" required>
-                            <label for="inputCalories">What is Your Daily Calorie Target?</label>
-                            <input type="number" id="inputCalories" class="form-control form-control-sm" name="calories" placeholder="Number of Calories" required>
-                            <label for="inputProtein">What is Your Daily Protein Target?</label>
-                            <input type="number" id="inputProtein" class="form-control form-control-sm" name="protein" placeholder="Grams of Protein" required>
-                            <label for="inputCarbs">What is Your Daily Carbohydrate Target?</label>
-                            <input type="number" id="inputCarbs" class="form-control form-control-sm" name="carbs" placeholder="Grams of Carbohydrates" required>
-                            <label for="inputFat">What is Your Daily Fat Target?</label>
-                            <input type="number" id="inputFat" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
-                            <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Update Information</button>
+                            <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
+                            <input type="text" id="inputItemName" class="form-control" name="foodItem" placeholder="Name of Item" required>
+                            <input type="number" id="inputItemQuantity" class="form-control form-control-sm" name="quantity" placeholder="Quantity" required>
+                            <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Add Item</button>
                         </form>
                         </div>
                       </div>      
