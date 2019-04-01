@@ -127,7 +127,7 @@
                   
                   <main role="main" class="container">
                     <div class="row">
-                      <div class="col-md-6 blog-main">
+                      <div class="col-md-8 blog-main">
                         <div class="jumbotron">
                             <h4 class="display-4">About You</h4>
                             <div class="list-group">
@@ -164,6 +164,12 @@
                             </div>
 
                         </div>
+                        
+                  
+                        
+                  
+                  
+                  
                       </div><!-- /.blog-main -->
                   
                       <aside class="col-md-4 blog-sidebar">
