@@ -25,7 +25,7 @@
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
-
+    echo mysql_num_rows($result);
     if(mysql_num_rows($result) == 1){
       $row = mysql_fetch_assoc($result);
       $_SESSION['username'] = $row['username'];
@@ -40,6 +40,7 @@
     }
   }
   // Close Database Connection
+  mysql_free_result($result);
   mysql_close($dbconnect);
 ?>
 <!doctype html>
