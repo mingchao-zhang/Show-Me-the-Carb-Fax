@@ -134,6 +134,8 @@
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="searchType" id="product" value="product" checked>
                             <label class="form-check-label" for="product">Product</label>
+                          </div>
+                          <div class="form-check">
                             <input class="form-check-input" type="radio" name="searchType" id="recipe" value="recipe">
                             <label class="form-check-lable" for="recipe">Recipe</label>
                           </div>
