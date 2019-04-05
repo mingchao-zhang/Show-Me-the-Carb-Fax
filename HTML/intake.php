@@ -202,7 +202,16 @@
                       </div>
                       <div class="col-md-6">
                         <div class="jumbotron">
-
+                          <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                            <h3 class="h3 mb-3 font-weight-normal">Remove An Item</h3>
+                            <label for="removeItemId">Which Item Would You Like to Remove?</label>
+                            <input type="number" id="removeItemID" class="form-control form-control-sm" name="removeIDVal" placeholder="Item ID" required>
+                            <label for="removeDate">From Which Date?</label>
+                            <input type="text" id="removeDate" class="form-control form-control-sm" name="removeDateVal" placeholder="Date" required>
+                            <label for="removeQuantity">Quantity to Remove?</label>
+                            <input type="number" id="removeQuantity" clas="form-control form-control-sm" name="removeQuanVal" placeholder="Quantity" required>
+                            <button name="remove" class="btn btn-sm btn-primary btn-block" type="submit">Remove Item</button>
+                          </form>
                         </div>
                       </div>
                     </div>
