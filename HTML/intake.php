@@ -130,7 +130,7 @@
                           <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
                           <label for="">Item Name</label>
                           <input type="text" id="itemNameSearch" class="form-control" name="itemSearch" placeholder="Enter Item Name" required>
-                          <input type="text" id="searchsuggestion" class="form-control" name="suggestion" value="" readonly>
+                          <textarea rows="4" cols="50" readonly></textarea>
                           <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
                         <form class="form-group" action="" method="post">
                         </form>
