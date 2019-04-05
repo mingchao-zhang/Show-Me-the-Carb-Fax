@@ -109,9 +109,9 @@
                                 mysql_close($dbconnect);
                             ?>
                             </div>
-
+                          </div>
                         </div>
-                      </div><!-- /.blog-main -->
+                      </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
