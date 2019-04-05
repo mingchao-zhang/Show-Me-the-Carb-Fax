@@ -116,8 +116,25 @@
                       <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
-                            <input type="text" id="inputItemName" class="form-control" name="foodItem" placeholder="Name of Item" required>
+                            <label for="inputFoodItem">Add Food Item</label>
+                            <input type="text" id="inputFoodItem" class="form-control" name="foodItem" placeholder="Name of Food Item" >
+                            <label for="inputProduct">Add Product by UPC</label>
+                            <input type="number" id="inputProduct" class="form-control" name="productUPC" placeholder="Product UPC" >
+                            <label for="inputRecipe">Add Food Item</label>
+                            <input type="text" id="inputRecipe" class="form-control" name="RecipeItem" placeholder="Name of Recipe" >
                             <input type="number" id="inputItemQuantity" class="form-control form-control-sm" name="quantity" placeholder="Quantity" required>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="quantityType" id="grams" value="grams" checked>
+                                <label class="form-check-label" for="grams">Grams</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="quantityType" id="mL" value="volume">
+                                <label class="form-check-label" for="ml">Mililiters</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="quantityType" id="each" value="each">
+                                <label class="form-check-label" for="each">Recipe/Product Quantity</label>
+                            </div>
                             <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Add Item</button>
                         </form>
                         </div>
