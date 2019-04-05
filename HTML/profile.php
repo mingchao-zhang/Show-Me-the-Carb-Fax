@@ -238,7 +238,7 @@
                   <footer class="blog-footer">
                     <p>Copyright &copy; 2019 Team RSMS CS411 Spring 2019 UIUC</p>
                     <p>
-                      <a href="demo.html">Back to top</a>
+                      <a href="<?php echo $_SERVER['PHP_SELF']; ?>">Back to top</a>
                     </p>
                   </footer>   
         <!-- Optional JavaScript -->
