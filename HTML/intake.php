@@ -130,15 +130,15 @@
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
                             <label for="inputFoodItem">Add Food Item</label>
                             <input type="text" id="inputFoodItem" class="form-control" name="foodItem" placeholder="Name of Food Item">
-                            <label>Suggestions: </label>
+                            <label>Suggestions: </label><br>
                             <label for="inputFoodItem">Add Product by Name</label>
                             <input type="text" id="inputProductName" class="form-control" name="productName" placeholder="Name of Product">
-                            <label>Suggestions: </label>
+                            <label>Suggestions: </label><br>
                             <label for="inputProductUPC">Add Product by UPC</label>
                             <input type="number" id="inputProductUPC" class="form-control" name="productUPC" placeholder="Product UPC">
                             <label for="inputRecipe">Add Recipe</label>
                             <input type="text" id="inputRecipe" class="form-control" name="RecipeItem" placeholder="Name of Recipe">
-                            <label>Suggestions: </label>
+                            <label>Suggestions: </label><br>
                             <label for="inputItemQuantity">Enter Quantity</label>
                             <input type="number" id="inputItemQuantity" class="form-control form-control-sm" name="quantity" placeholder="Quantity" required>
                             <div class="form-check">
