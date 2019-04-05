@@ -84,7 +84,7 @@
                     </div>
                 </div>
 
-                <main role="main" class="container">
+                <main role="main">
                     <div class="row">
                       <div class="col-md-5">
                         <div class="jumbotron">
@@ -209,7 +209,7 @@
                         
                   
                   </main><!-- /.container -->
-                  <footer class="blog-footer">
+                  <footer class="footer">
                     <p>Copyright &copy; 2019 Team RSMS CS411 Spring 2019 UIUC</p>
                     <p>
                       <a href="demo.html">Back to top</a>
