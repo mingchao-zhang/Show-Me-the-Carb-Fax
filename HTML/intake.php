@@ -148,8 +148,6 @@
                             <input type="number" id="inputFoodItem" class="form-control" name="addItemID" placeholder="Enter Item ID, Use Search Above" required>
                             <label for="inputProductUPC">Add Item by UPC</label>
                             <input type="number" id="inputProductUPC" class="form-control" name="productUPC" placeholder="Product UPC">
-                            <label for="inputRecipe">Add Recipe</label>
-                            <input type="text" id="inputRecipe" class="form-control" name="RecipeItem" placeholder="Name of Recipe">
                             <label for="inputItemQuantity">Enter Quantity</label>
                             <input type="number" id="inputItemQuantity" class="form-control form-control-sm" name="quantity" placeholder="Quantity" required>
                             <div class="form-check">
