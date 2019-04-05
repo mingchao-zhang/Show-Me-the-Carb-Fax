@@ -131,6 +131,12 @@
                           <label for="">Item Name</label>
                           <input type="text" id="itemNameSearch" class="form-control" name="itemSearch" placeholder="Enter Item Name" required>
                           <textarea rows="4" cols="45" readonly></textarea>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="searchType" id="product" value="product" checked>
+                            <label class="form-check-label" for="product">Product</label>
+                            <input class="form-check-input" type="radio" name="searchType" id="recipe" value="recipe">
+                            <label class="form-check-lable" for="recipe">Recipe</label>
+                          </div>
                           <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
                         <form class="form-group" action="" method="post">
                         </form>
