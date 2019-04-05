@@ -21,7 +21,7 @@
     $query = "SELECT username FROM users WHERE username = '$username'";
     $result = mysql_query($query, $dbconnect);
   
-  
+    
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
@@ -39,7 +39,7 @@
       $msgClass = 'alert alert-danger';
     }
 
-    
+    mysql_free_result($result);
 
   }
   
@@ -48,6 +48,25 @@
 
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['name'] = $_POST['name'];
+    // New User Data
+    $username = $_POST['username'];
+    $password = $_POST['password']
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $age = $_POST['age'];
+    $height = $_POST['height'];
+    $weight = $_POST['weight'];
+    $cals = $_POST['calories'];
+    $protein = $_POST['protein'];
+    $carbs = $_POST['carbs'];
+    $fat = $_POST['fat'];
+    // Update Database
+    $query = "INSERT INTO users VALUES ('$username', '$password', '$name', '$email', '$age', '$height', '$weight', '$cals', '$carbs', '$fat', '$protein')";
+    $result = mysql_query($query, $dbconnect);
+    if(!$result){
+      die('Invalid Query: ' . mysql_error);
+    }
+
   }
 
   // Close Database connection
