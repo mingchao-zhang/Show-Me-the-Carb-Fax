@@ -50,7 +50,7 @@
     $_SESSION['name'] = $_POST['name'];
     // New User Data
     $username = $_POST['username'];
-    $password = $_POST['password']
+    $password = $_POST['password'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $age = $_POST['age'];
