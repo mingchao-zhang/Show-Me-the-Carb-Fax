@@ -154,8 +154,6 @@
                       </aside><!-- /.blog-sidebar -->
                   
                     </div><!-- /.row -->
-                    </main>
-                    <div class="container"
                     <div class="row">
                       <div class="col-md-6">
                         <div class="jumbotron">
@@ -210,7 +208,7 @@
                     </div>
                         
                   
-                  </div><!-- /.container -->
+                  </main><!-- /.container -->
                   <footer class="blog-footer">
                     <p>Copyright &copy; 2019 Team RSMS CS411 Spring 2019 UIUC</p>
                     <p>
