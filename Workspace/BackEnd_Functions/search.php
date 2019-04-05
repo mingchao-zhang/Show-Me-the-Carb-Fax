@@ -1,8 +1,35 @@
-function pc_permute($items, $perms = array())
+function query_db($dbconnect,$db_name,$regex)
+{
+    $query = "(SELECT foodId, name FROM '$db_name' WHERE name LIKE \"$regex\" GROUP BY LENGTH(name) LIMIT 5)";
+    $result = mysql_query($query, $dbconnect);
+    
+    return $result;
+}
+
+function search_db($query_string,$db_connect,$db_name)
+{
+    $query_string = strtolower($query_string);
+    $split_string = explode(' ', $query_string);
+    $regex = join('%',$split_string);
+    $regex = "%$regex%";
+    
+    return query_db($db_connect,$db_name,$regex);
+}
+
+function query_each_perm($perms,$db_name,$dbconnect)
+{
+    foreach($perms as $perm)
+    {
+        print_r($perm);
+        echo join('%',$perm);
+    }
+}
+
+function pc_permute($items, $perms = array(),$db_connect,$db_name)
 {
     if(empty($items))
     {
-        return $perms;
+        query_each_perm($perms,$db_connect,$db_name);
     }
     else
     {
@@ -12,31 +39,7 @@ function pc_permute($items, $perms = array())
             $newperms = $perms;
             list($foo) = array_splice($newitems, $i, 1);
             array_unshift($newperms, $foo);
-            pc_permute($newitems, $newperms);
+            pc_permute($newitems, $newperms,$db_connect,$db_name);
         }
     }
 }
-
-function query_db($dbconnect,$regex,$db_name)
-{
-    $query = "(SELECT foodId, name FROM '$db_name' WHERE name LIKE '$regex' GROUP BY LENGTH(name) LIMIT 5)";
-    $result = mysql_query($query, $dbconnect);
-    
-    return $result;
-}
-
-function search_db($query_string)
-{
-    $query_string = strtolower($query_string);
-    $split_string = explode(' ', $query_string);
-    
-    $permutations = pc_permute($split_string);
-    print_r($permutations);
-    for ($i = 0; $i < count($permutations); ++$i)
-    {
-        print_r($permutations[$i]);
-    }
-}
-
-search_db("Apple Banana");
-
