@@ -23,6 +23,53 @@
         mysql_free_result($result);
         mysql_close($dbconnect);
     }
+
+    if(isset($_POST['search'])){
+      // Database Connection
+      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+      if(!$dbconnect){
+          die('Cannot connect: ' . mysql_error());
+      }
+ 
+      $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+      if(!$db_selected){
+          die('Cant use database: ' . mysql_error());
+      }
+      function query_db($dbconnect,$db_name,$regex)
+      {
+        $query = "(SELECT foodId, name FROM '$db_name' WHERE name LIKE \"$regex\" GROUP BY LENGTH(name) LIMIT 5)";
+        $result = mysql_query($query, $dbconnect);
+    
+        return $result;
+      }
+
+      function search_db($query_string,$db_connect,$db_name)
+      {
+        $query_string = strtolower($query_string);
+        $split_string = explode(' ', $query_string);
+        $regex = join('%',$split_string);
+        $regex = "%$regex%";
+    
+        return query_db($db_connect,$db_name,$regex);
+      }
+      $db_name ='';
+      $string = $_POST['itemSearch'];
+      if($_POST['searchType'] == 'product'){
+        $db_name = 'products';
+      }
+      else {
+        $db_name = 'recipes';
+      }
+
+      $searchResults = search_db($string, $dbconnect, $db_name);
+      $suggestions = array();
+      $count = 0;
+      while($row = mysql_fetch_row($searchResults)){
+        array_push($suggestions, $row[$count]);
+        $count++;
+      }
+    }
 ?>
 <!doctype html>
 <html lang="en">
