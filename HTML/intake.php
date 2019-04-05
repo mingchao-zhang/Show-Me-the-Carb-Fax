@@ -90,6 +90,19 @@
                         <div class="jumbotron">
                             <h4 class="display-4">This Week's Totals</h4>
                             <div class="list-group">
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
                               <?php
                                  // Database Connection
                                 $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
