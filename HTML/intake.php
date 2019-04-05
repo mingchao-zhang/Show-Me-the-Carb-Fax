@@ -127,21 +127,21 @@
                       <div class="col-md-5">
                       <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                          <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
+                          <label for="">Item Name</label>
+                          <input type="text" id="itemNameSearch" class="form-control" name="itemSearch" placeholder="Enter Item Name" required>
+                          <input type="text" id="searchsuggestion" class="form-contrl" name="suggestion" value="" readonly>
+                          <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
+                        <form class="form-group" action="" method="post">
+                        </form>
+                        <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
-                            <label for="inputFoodItem">Add Food Item</label>
-                            <input type="text" id="inputFoodItem" class="form-control" name="foodItem" placeholder="Name of Food Item">
-                            <label for="foodItemSuggestion">Suggestions: </label>
-                            <input type="text" id="foodItemSuggestion" class="form-control" name="foodItemSuggestion" value="" readonly>
-                            <label for="inputFoodItem">Add Product by Name</label>
-                            <input type="text" id="inputProductName" class="form-control" name="productName" placeholder="Name of Product">
-                            <label for="productSuggestion">Suggestions: </label>
-                            <input type="text" id="productSuggestion" class="form-control" name="productSuggestion" value="" readonly>
-                            <label for="inputProductUPC">Add Product by UPC</label>
+                            <label for="inputFoodItem">Add Item by ID</label>
+                            <input type="number" id="inputFoodItem" class="form-control" name="addItemID" placeholder="Enter Item ID, Use Search Above" required>
+                            <label for="inputProductUPC">Add Item by UPC</label>
                             <input type="number" id="inputProductUPC" class="form-control" name="productUPC" placeholder="Product UPC">
                             <label for="inputRecipe">Add Recipe</label>
                             <input type="text" id="inputRecipe" class="form-control" name="RecipeItem" placeholder="Name of Recipe">
-                            <label for="recipeSuggestion">Suggestions: </label><br>
-                            <input type="text" id="recipeSuggestion" class="form-control" name="recipeSuggestion" value="" readonly>
                             <label for="inputItemQuantity">Enter Quantity</label>
                             <input type="number" id="inputItemQuantity" class="form-control form-control-sm" name="quantity" placeholder="Quantity" required>
                             <div class="form-check">
