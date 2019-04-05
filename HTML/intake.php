@@ -155,9 +155,9 @@
                   
                     </div><!-- /.row -->
                     <div class="row">
-                      <div class="col-md-8">
+                      <div class="col-md-6">
                         <div class="jumbotron">
-                          <table class="table table-hover table-dark table-responsive">
+                          <table class="table table-hover table-dark">
                             <thead>
                               <tr>
                                 <th scope="col">Item</th>
@@ -200,7 +200,7 @@
                             </tbody>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="jumbotron">
 
                         </div>
