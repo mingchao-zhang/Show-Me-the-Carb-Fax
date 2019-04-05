@@ -122,6 +122,7 @@
                             <input type="number" id="inputProduct" class="form-control" name="productUPC" placeholder="Product UPC" >
                             <label for="inputRecipe">Add Food Item</label>
                             <input type="text" id="inputRecipe" class="form-control" name="RecipeItem" placeholder="Name of Recipe" >
+                            <label for="inputItemQuantity">Enter Quantity</label>
                             <input type="number" id="inputItemQuantity" class="form-control form-control-sm" name="quantity" placeholder="Quantity" required>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="quantityType" id="grams" value="grams" checked>
