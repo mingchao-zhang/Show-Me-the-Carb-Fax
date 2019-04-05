@@ -154,6 +154,58 @@
                       </aside><!-- /.blog-sidebar -->
                   
                     </div><!-- /.row -->
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="jumbotron">
+                          <table class="table table-hover table-dark table-responsive">
+                            <thead>
+                              <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <?php
+                                // Database Connection
+                                $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+                                if(!$dbconnect){
+                                  die('Cannot connect: ' . mysql_error());
+                                }
+   
+                                $db_selected = mysql_select_db("411_project_db", $dbconnect);
+                                if(!$db_selected){
+                                  die('Cant use database: ' . mysql_error());
+                                }
+
+                                // Query to Get Eaten Items
+                                $queryAte = "SELECT * FROM ate WHERE username = '$username'";
+                                $ateResult = mysql_query($queryAte, $dbconnect);
+
+                                if(!$ateResult){
+                                  die('Invalid Query: ' . mysql_error());
+                                }
+                                while($row = mysql_fetch_assoc($ateResult)){
+                                  echo "<tr>";
+                                  echo "<td>" . $row['foodID'] . "</td>";
+                                  echo "<td>" . $row['date'] . "</td>";
+                                  echo "<td>" . $row['quantity'] . "</td>";
+                                  echo "</tr>";
+                                }
+
+                                // Close Database Connection
+                                mysql_free_result($ateResult);
+                                mysql_close($dbconnect);
+                              ?>
+                            </tbody>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="jumbotron">
+
+                        </div>
+                      </div>
+                    </div>
                         
                   
                   </main><!-- /.container -->
