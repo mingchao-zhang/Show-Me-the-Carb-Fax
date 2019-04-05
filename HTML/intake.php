@@ -84,13 +84,13 @@
                     </div>
                 </div>
 
-                <main role="main">
+                <main role="main" class="container">
                     <div class="row">
                       <div class="col-md-5">
                         <div class="jumbotron">
                             <h4 class="display-4">This Week's Totals</h4>
                             <div class="list-group">
-                            <?php
+                              <?php
                                  // Database Connection
                                 $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
                                 if(!$dbconnect){
@@ -107,11 +107,10 @@
                                  // Close Database Connection
                                 mysql_free_result($result);
                                 mysql_close($dbconnect);
-                            ?>
+                              ?>
                             </div>
                           </div>
                         </div>
-                      </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -138,11 +137,10 @@
                             </div>
                             <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Add Item</button>
                         </form>
-                        </div>
+                      </div>
                       </div>      
                   
                       <aside class="col-md-2 blog-sidebar">
-                  
                         <div class="p-4">
                           <h4 class="font-italic">Elsewhere</h4>
                           <ol class="list-unstyled">
@@ -151,7 +149,7 @@
                             <li><a href="#">Github</a></li>
                           </ol>
                         </div>
-                      </aside><!-- /.blog-sidebar -->
+                      </aside>
                   
                     </div><!-- /.row -->
                     <div class="row">
