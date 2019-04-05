@@ -85,7 +85,7 @@
                 </div>
 
                 <main role="main" class="container">
-                    <div class="row">
+                    <div class="row mb-2">
                       <div class="col-md-5">
                         <div class="jumbotron">
                             <h4 class="display-4">This Week's Totals</h4>
@@ -152,7 +152,7 @@
                       </aside>
                   
                     </div><!-- /.row -->
-                    <div class="row">
+                    <div class="row mb-2">
                       <div class="col-md-6">
                         <div class="jumbotron">
                           <table class="table table-hover table-dark">
