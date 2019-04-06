@@ -39,9 +39,10 @@
       function query_db($dbconnect,$db_name,$regex)
       {
         $query = "(SELECT foodId, name FROM '$db_name' WHERE name LIKE \"$regex\" GROUP BY LENGTH(name) LIMIT 5)";
+        echo $query;
         $result = mysql_query($query, $dbconnect);
         if(!$result){
-          echo "Querry ERROR";
+          die("Invalid Query: ". mysql_error());
         }
         return $result;
       }
