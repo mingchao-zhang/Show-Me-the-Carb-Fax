@@ -17,6 +17,21 @@
         }
 
         // Add query to add food item HERE
+        if(isset($_POST['addItemID'])){
+          $newItemID = $_POST['addItemID'];
+          $quantity = $_POST['quantity'];
+          
+          $query = "INSERT INTO ate(username, foodID, quantity) VALUES('$username', '$newItemID', '$quantity')";
+
+          $result = mysql_query($query, $dbconnect);
+
+          if(!$result){
+            die("Invalid Query: " . mysql_error());
+          }
+        }
+        elseif(isset($_POST['productUPC'])){
+
+        }
 
 
         // Close Database Connection
