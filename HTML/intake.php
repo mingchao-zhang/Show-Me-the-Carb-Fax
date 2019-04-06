@@ -67,7 +67,7 @@
       $suggestions_string = '';
       while($row = mysql_fetch_assoc($searchResults)){
         $suggestions_string = $suggestions_string . (string)$row['foodID'] . ", " . $row['name'] . "\n";
-        echo $suggestions_string;
+        echo $row['foodID'];
       }
     }
 ?>
