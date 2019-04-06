@@ -66,9 +66,8 @@
       $searchResults = search_db($string, $dbconnect, $db_name);
       $suggestions_string = '';
       while($row = mysql_fetch_assoc($searchResults)){
-        echo "Found Row";
-        $suggestions_string = $suggestions_string . $row['foodID'] . $row['name'] . "\n";
-        echo $row['name'];
+        $suggestions_string = $suggestions_string . $row['foodID'] . "," . $row['name'] . "\n";
+        echo $suggestions_string;
       }
     }
 ?>
