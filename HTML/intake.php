@@ -53,7 +53,17 @@
       }
       
       // Remove Item
-      echo $_POST['removeDateVal'];
+      $foodID = $_POST['removeIDVal'];
+      $date = $_POST['removeDateVal'];
+      $quan = $_POST['removeQuanVal'];
+
+      $query = "DELETE FROM ate WHERE username = '$username' and foodID = '$foodID' and date LIKE \"$date\" ";
+
+      $result = mysql_query($query, $dbconnect);
+
+      if(!$result){
+        die("Invalid Query: " . mysql_error());
+      }
 
       // Close Database Connection
       mysql_free_result($result);
