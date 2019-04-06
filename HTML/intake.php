@@ -266,7 +266,7 @@
                                 }
 
                                 // Query to Get Eaten Items
-                                $queryAte = "SELECT ate.FoodID, products.name, ate.date, ate.quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
+                                $queryAte = "SELECT ate.foodID, products.name, ate.date, ate.quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
                                 $ateResult = mysql_query($queryAte, $dbconnect);
 
                                 if(!$ateResult){
