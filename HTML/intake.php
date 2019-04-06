@@ -267,7 +267,7 @@
                                 }
 
                                 // Query to Get Eaten Items
-                                $queryAte = "SELECT products.name, ate.foodID, ate.date, ate.quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
+                                $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
                                 $ateResult = mysql_query($queryAte, $dbconnect);
 
                                 if(!$ateResult){
@@ -275,10 +275,10 @@
                                 }
                                 while($row = mysql_fetch_assoc($ateResult)){
                                   echo "<tr>";
-                                  echo "<td>" . $row['products.name'] . "</td>";
-                                  echo "<td>" . $row['ate.foodID'] . "</td>";
-                                  echo "<td>" . $row['ate.date'] . "</td>";
-                                  echo "<td>" . $row['ate.quantity'] . "</td>";
+                                  echo "<td>" . $row['name'] . "</td>";
+                                  echo "<td>" . $row['ID'] . "</td>";
+                                  echo "<td>" . $row['date'] . "</td>";
+                                  echo "<td>" . $row['quantity'] . "</td>";
                                   echo "</tr>";
                                 }
 
