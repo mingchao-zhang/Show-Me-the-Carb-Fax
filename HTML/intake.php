@@ -39,7 +39,6 @@
       function query_db($dbconnect,$db_name,$regex)
       {
         $query = "SELECT foodId, name FROM $db_name WHERE name LIKE \"$regex\" GROUP BY LENGTH(name) LIMIT 5";
-        echo $query;
         $result = mysql_query($query, $dbconnect);
         if(!$result){
           die("Invalid Query: ". mysql_error());
@@ -67,6 +66,7 @@
       $searchResults = search_db($string, $dbconnect, $db_name);
       $suggestions_string = '';
       while($row = mysql_fetch_assoc($searchResults)){
+        echo "Found Row";
         $suggestions_string = $suggestions_string . $row['foodID'] . $row['name'] . "\n";
         echo $row['name'];
       }
