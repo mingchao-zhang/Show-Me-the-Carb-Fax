@@ -40,17 +40,17 @@
       {
         $query = "(SELECT foodId, name FROM '$db_name' WHERE name LIKE \"$regex\" GROUP BY LENGTH(name) LIMIT 5)";
         $result = mysql_query($query, $dbconnect);
-    
+        echo "Inside query_db";
         return $result;
       }
-
+    
       function search_db($query_string,$db_connect,$db_name)
       {
         $query_string = strtolower($query_string);
         $split_string = explode(' ', $query_string);
         $regex = join('%',$split_string);
         $regex = "%$regex%";
-    
+        echo "Inside search_db";
         return query_db($db_connect,$db_name,$regex);
       }
       $db_name ='';
