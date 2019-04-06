@@ -281,7 +281,7 @@
                             <label for="removeDate">From Which Date?</label>
                             <input type="text" id="removeDate" class="form-control form-control-sm" name="removeDateVal" placeholder="Date" required>
                             <label for="removeQuantity">Quantity to Remove?</label>
-                            <input type="number" id="removeQuantity" clas="form-control form-control-sm" name="removeQuanVal" placeholder="Quantity" required>
+                            <input type="number" id="removeQuantity" class="form-control form-control-sm" name="removeQuanVal" placeholder="Quantity" required>
                             <button name="remove" class="btn btn-sm btn-primary btn-block" type="submit">Remove Item</button>
                           </form>
                         </div>
