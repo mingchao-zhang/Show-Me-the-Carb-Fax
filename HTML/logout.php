@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  session_destroy();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -43,13 +47,9 @@
         </header>
     
         <main role="main" class="inner cover">
-          <h1 class="cover-heading">Nutrition Management, Simplified.</h1>
-          <p class="lead">Build your profile, set your goals, and see your life change. <br> 
-          Share and discover recipes to guide your journey to a healthier you.
-          </p>
+          <h1 class="cover-heading">Successfully Logged Out</h1>
           <p class="lead">
             <a href="sign_in.php" class="btn btn-lg btn-primary">Sign In</a>
-            <a href="demo.html" class="btn btn-lg btn-secondary">Learn more</a>
           </p>
         </main>
     
