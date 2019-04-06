@@ -58,10 +58,10 @@
       $db_name ='';
       $string = $_POST['itemSearch'];
       if($_POST['searchType'] == 'product'){
-        $db_name = "products";
+        $db_name = products;
       }
       else {
-        $db_name = "recipes";
+        $db_name = recipes;
       }
 
       $searchResults = search_db($string, $dbconnect, $db_name);
