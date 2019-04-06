@@ -228,6 +228,7 @@
                     <div class="row mb-2">
                       <div class="col-md-6">
                         <div class="jumbotron">
+                          <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
                           <table class="table table-hover table-dark">
                             <thead>
                               <tr>
