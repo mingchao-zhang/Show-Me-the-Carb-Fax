@@ -58,6 +58,7 @@
       $quan = $_POST['removeQuanVal'];
 
       $query = "DELETE FROM ate WHERE username = '$username' and foodID = '$foodID' and date LIKE \"$date\" ";
+      echo $query;
 
       $result = mysql_query($query, $dbconnect);
 
