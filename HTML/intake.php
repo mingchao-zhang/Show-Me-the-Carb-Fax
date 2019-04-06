@@ -186,8 +186,8 @@
                             <label class="form-check-lable" for="recipe">Recipe</label>
                           </div>
                           <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
-                        <form class="form-group" action="" method="post">
                         </form>
+                        
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
                             <label for="inputFoodItem">Add Item by ID</label>
