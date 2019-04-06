@@ -177,7 +177,7 @@
                           <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
                           <label for="">Item Name</label>
                           <input type="text" id="itemNameSearch" class="form-control" name="itemSearch" placeholder="Enter Item Name" required>
-                          <textarea rows="4" cols="45" readonly></textarea>
+                          <textarea rows="4" cols="45" readonly> <?php echo $suggestions[0]; echo $suggestions[1]; echo $suggestions[2]; ?></textarea>
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="searchType" id="product" value="product" checked>
                             <label class="form-check-label" for="product">Product</label>
