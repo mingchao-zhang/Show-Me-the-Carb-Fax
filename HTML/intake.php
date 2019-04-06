@@ -40,7 +40,6 @@
       {
         $query = "(SELECT foodId, name FROM '$db_name' WHERE name LIKE \"$regex\" GROUP BY LENGTH(name) LIMIT 5)";
         $result = mysql_query($query, $dbconnect);
-        echo "Inside query_db";
         return $result;
       }
     
@@ -50,7 +49,6 @@
         $split_string = explode(' ', $query_string);
         $regex = join('%',$split_string);
         $regex = "%$regex%";
-        echo "Inside search_db";
         return query_db($db_connect,$db_name,$regex);
       }
       $db_name ='';
@@ -63,11 +61,10 @@
       }
 
       $searchResults = search_db($string, $dbconnect, $db_name);
-      $suggestions = array();
-      $count = 0;
-      while($row = mysql_fetch_row($searchResults)){
-        array_push($suggestions, $row[$count]);
-        $count++;
+      $suggestions_string = '';
+      while($row = mysql_fetch_assoc($searchResults)){
+        $suggestions_string = $suggestions_string . $row['foodID'] . $row['name'] . "\n";
+        echo $row['name'];
       }
     }
 ?>
@@ -177,7 +174,7 @@
                           <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
                           <label for="">Item Name</label>
                           <input type="text" id="itemNameSearch" class="form-control" name="itemSearch" placeholder="Enter Item Name" required>
-                          <textarea rows="4" cols="45" readonly> <?php echo $suggestions[0]; echo $suggestions[1]; echo $suggestions[2]; ?></textarea>
+                          <textarea rows="4" cols="45" readonly> <?php echo $suggestions_string; ?></textarea>
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="searchType" id="product" value="product" checked>
                             <label class="form-check-label" for="product">Product</label>
