@@ -247,7 +247,8 @@
                           <table class="table table-hover table-dark">
                             <thead>
                               <tr>
-                                <th scope="col">Item</th>
+                                <th scope="col">Item Name</th>
+                                <th scope="col">Item ID</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Quantity</th>
                               </tr>
