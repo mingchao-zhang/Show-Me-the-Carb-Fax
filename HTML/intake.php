@@ -151,19 +151,19 @@
                         <div class="jumbotron">
                             <h4 class="display-4">This Week's Totals</h4>
                             <div class="list-group">
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Calories: 50000</a>
+                              <a href="#" class="list-group-item list-group-item-action">Protein: 800</a>
+                              <a href="#" class="list-group-item list-group-item-action">Carbohydrates: 550</a>
+                              <a href="#" class="list-group-item list-group-item-action">Fat: 85</a>
+                              <a href="#" class="list-group-item list-group-item-action">Calcium: 500</a>
+                              <a href="#" class="list-group-item list-group-item-action">Sodium: 550</a>
+                              <a href="#" class="list-group-item list-group-item-action">Cholesterol: 120</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin A: 440</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 400</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 300</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin C: 600</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin D: 300</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin E: 600</a>
                               <?php
                                  // Database Connection
                                 $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
@@ -266,7 +266,7 @@
                                 }
 
                                 // Query to Get Eaten Items
-                                $queryAte = "SELECT * FROM ate WHERE username = '$username'";
+                                $queryAte = "SELECT ate.FoodID, products.name, ate.date, ate.quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
                                 $ateResult = mysql_query($queryAte, $dbconnect);
 
                                 if(!$ateResult){
@@ -274,9 +274,10 @@
                                 }
                                 while($row = mysql_fetch_assoc($ateResult)){
                                   echo "<tr>";
-                                  echo "<td>" . $row['foodID'] . "</td>";
-                                  echo "<td>" . $row['date'] . "</td>";
-                                  echo "<td>" . $row['quantity'] . "</td>";
+                                  echo "<td>" . $row['products.name'] . "</td>";
+                                  echo "<td>" . $row['ate.foodID'] . "</td>";
+                                  echo "<td>" . $row['ate.date'] . "</td>";
+                                  echo "<td>" . $row['ate.quantity'] . "</td>";
                                   echo "</tr>";
                                 }
 
