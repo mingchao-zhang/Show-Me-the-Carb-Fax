@@ -39,6 +39,27 @@
         mysql_close($dbconnect);
     }
 
+    if(isset($_POST['remove'])){
+      // Database Connection
+      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+      if(!$dbconnect){
+          die('Cannot connect: ' . mysql_error());
+      }
+ 
+      $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+      if(!$db_selected){
+          die('Cant use database: ' . mysql_error());
+      }
+      
+      // Remove Item
+      echo $_POST['removeDateVal'];
+
+      // Close Database Connection
+      mysql_free_result($result);
+      mysql_close($dbconnect);
+    }
+
     if(isset($_POST['search'])){
       // Database Connection
       $dbconnect = mysql_connect("localhost", "root", "carbfax411");
