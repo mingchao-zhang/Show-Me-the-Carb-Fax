@@ -25,15 +25,20 @@
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
-
-    // "Trigger Event": Delete outdated records
+    //----- Why doesn't the function work?
+/*
     function update_ate_records($username, $db_connect) {
-	echo 38;
+	$valid_time = 7 * 24 * 60;
+        $query = "DELETE FROM ate 
+		  WHERE username = '$username' AND
+		  	TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_hour";
+	$result = mysql_query($query, $dbconnect);
 	if (!$result) {
-       	    //die("Invalid Query: " . mysql_error());
+       	    die("Invalid Query: " . mysql_error());
      	}
     }
-    
+*/
+  
     if (mysql_num_rows($result) != 1) {
         $msg = 'Invalid Login Details';
         $msgClass = 'alert alert-danger';
@@ -45,14 +50,12 @@
         $successful = TRUE;
         $msg = 'Login Successful. Welcome, ' . $_SESSION['name'];
         $msgClass = 'alert alert-success';
-	echo 52;
-	//update_ate_records($username, $dbconnect);
-	$valid_hour = 0;
-	echo 32;
+
+   	// "Trigger Event": Delete outdated records
+	$valid_time = 7 * 24 * 60;
         $query = "DELETE FROM ate 
 		  WHERE username = '$username' AND
 		  	TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_hour";
-	echo 36;
 	$result = mysql_query($query, $dbconnect);
 	if (!$result) {
        	    die("Invalid Query: " . mysql_error());
