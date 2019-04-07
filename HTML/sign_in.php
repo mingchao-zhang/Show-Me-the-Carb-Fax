@@ -25,18 +25,38 @@
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
-    echo mysql_num_rows($result);
-    if(mysql_num_rows($result) == 1){
-      $row = mysql_fetch_assoc($result);
-      $_SESSION['username'] = $row['username'];
-      $_SESSION['name'] = $row['name'];
-      $successful = TRUE;
-      $msg = 'Login Successful. Welcome, ' . $_SESSION['name'];
-      $msgClass = 'alert alert-success';
+
+    // "Trigger Event": Delete outdated records
+    function update_ate_records($username, $db_connect) {
+	echo 38;
+	if (!$result) {
+       	    //die("Invalid Query: " . mysql_error());
+     	}
+    }
+    
+    if (mysql_num_rows($result) != 1) {
+        $msg = 'Invalid Login Details';
+        $msgClass = 'alert alert-danger';
     }
     else {
-      $msg = 'Invalid Login Details';
-      $msgClass = 'alert alert-danger';
+        $row = mysql_fetch_assoc($result);
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['name'] = $row['name'];
+        $successful = TRUE;
+        $msg = 'Login Successful. Welcome, ' . $_SESSION['name'];
+        $msgClass = 'alert alert-success';
+	echo 52;
+	//update_ate_records($username, $dbconnect);
+	$valid_hour = 0;
+	echo 32;
+        $query = "DELETE FROM ate 
+		  WHERE username = '$username' AND
+		  	TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_hour";
+	echo 36;
+	$result = mysql_query($query, $dbconnect);
+	if (!$result) {
+       	    die("Invalid Query: " . mysql_error());
+     	}
     }
   }
   // Close Database Connection
