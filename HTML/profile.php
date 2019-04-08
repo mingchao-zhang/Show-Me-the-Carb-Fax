@@ -75,7 +75,7 @@
                           <a class="blog-header-logo text-dark" href="index.html">Show Me the Carb Fax</a>
                         </div>
                         <div class="col-4 d-flex justify-content-end align-items-center">
-                            <a class="text-muted" href="contact.html">Contact</a>
+                            <a class="text-primary" href="logout.php">Log Out</a>
                         </div>
                       </div>
                     </header>

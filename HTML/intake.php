@@ -17,11 +17,57 @@
         }
 
         // Add query to add food item HERE
+        if(isset($_POST['addItemID'])){
+          $newItemID = $_POST['addItemID'];
+          $quantity = $_POST['quantity'];
+          
+          $query = "INSERT INTO ate(username, foodID, quantity) VALUES('$username', '$newItemID', '$quantity')";
+
+          $result = mysql_query($query, $dbconnect);
+
+          if(!$result){
+            die("Invalid Query: " . mysql_error());
+          }
+        }
+        elseif(isset($_POST['productUPC'])){
+
+        }
 
 
         // Close Database Connection
         mysql_free_result($result);
         mysql_close($dbconnect);
+    }
+
+    if(isset($_POST['remove'])){
+      // Database Connection
+      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+      if(!$dbconnect){
+          die('Cannot connect: ' . mysql_error());
+      }
+ 
+      $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+      if(!$db_selected){
+          die('Cant use database: ' . mysql_error());
+      }
+      
+      // Remove Item
+      $foodID = $_POST['removeIDVal'];
+      $date = $_POST['removeDateVal'];
+      $quan = $_POST['removeQuanVal'];
+
+      $query = "DELETE FROM ate WHERE username = '$username' and foodID = '$foodID' and date LIKE \"$date%\" ";
+
+      $result = mysql_query($query, $dbconnect);
+
+      if(!$result){
+        die("Invalid Query: " . mysql_error());
+      }
+
+      // Close Database Connection
+      mysql_free_result($result);
+      mysql_close($dbconnect);
     }
 
     if(isset($_POST['search'])){
@@ -110,7 +156,7 @@
                           <a class="blog-header-logo text-dark" href="index.html">Show Me the Carb Fax</a>
                         </div>
                         <div class="col-4 d-flex justify-content-end align-items-center">
-                            <a class="text-muted" href="contact.html">Contact</a>
+                          <a class="text-primary" href="logout.php">Log Out</a>
                         </div>
                     </div>
                 </header>
@@ -136,19 +182,19 @@
                         <div class="jumbotron">
                             <h4 class="display-4">This Week's Totals</h4>
                             <div class="list-group">
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
-                              <a href="#" class="list-group-item list-group-item-action">Filler</a>
+                              <a href="#" class="list-group-item list-group-item-action">Calories: 50000</a>
+                              <a href="#" class="list-group-item list-group-item-action">Protein: 800</a>
+                              <a href="#" class="list-group-item list-group-item-action">Carbohydrates: 550</a>
+                              <a href="#" class="list-group-item list-group-item-action">Fat: 85</a>
+                              <a href="#" class="list-group-item list-group-item-action">Calcium: 500</a>
+                              <a href="#" class="list-group-item list-group-item-action">Sodium: 550</a>
+                              <a href="#" class="list-group-item list-group-item-action">Cholesterol: 120</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin A: 440</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 400</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 300</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin C: 600</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin D: 300</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin E: 600</a>
                               <?php
                                  // Database Connection
                                 $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
@@ -186,8 +232,8 @@
                             <label class="form-check-lable" for="recipe">Recipe</label>
                           </div>
                           <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
-                        <form class="form-group" action="" method="post">
                         </form>
+                        
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
                             <label for="inputFoodItem">Add Item by ID</label>
@@ -228,10 +274,12 @@
                     <div class="row mb-2">
                       <div class="col-md-6">
                         <div class="jumbotron">
+                          <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
                           <table class="table table-hover table-dark">
                             <thead>
                               <tr>
-                                <th scope="col">Item</th>
+                                <th scope="col">Item Name</th>
+                                <th scope="col">Item ID</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Quantity</th>
                               </tr>
@@ -250,7 +298,7 @@
                                 }
 
                                 // Query to Get Eaten Items
-                                $queryAte = "SELECT * FROM ate WHERE username = '$username'";
+                                $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
                                 $ateResult = mysql_query($queryAte, $dbconnect);
 
                                 if(!$ateResult){
@@ -258,7 +306,8 @@
                                 }
                                 while($row = mysql_fetch_assoc($ateResult)){
                                   echo "<tr>";
-                                  echo "<td>" . $row['foodID'] . "</td>";
+                                  echo "<td>" . $row['name'] . "</td>";
+                                  echo "<td>" . $row['ID'] . "</td>";
                                   echo "<td>" . $row['date'] . "</td>";
                                   echo "<td>" . $row['quantity'] . "</td>";
                                   echo "</tr>";
@@ -269,6 +318,7 @@
                                 mysql_close($dbconnect);
                               ?>
                             </tbody>
+                          </table>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -278,9 +328,9 @@
                             <label for="removeItemId">Which Item Would You Like to Remove?</label>
                             <input type="number" id="removeItemID" class="form-control form-control-sm" name="removeIDVal" placeholder="Item ID" required>
                             <label for="removeDate">From Which Date?</label>
-                            <input type="text" id="removeDate" class="form-control form-control-sm" name="removeDateVal" placeholder="Date" required>
+                            <input type="date" id="removeDate" class="form-control form-control-sm" name="removeDateVal" placeholder="Date" required>
                             <label for="removeQuantity">Quantity to Remove?</label>
-                            <input type="number" id="removeQuantity" clas="form-control form-control-sm" name="removeQuanVal" placeholder="Quantity" required>
+                            <input type="number" id="removeQuantity" class="form-control form-control-sm" name="removeQuanVal" placeholder="Quantity" required>
                             <button name="remove" class="btn btn-sm btn-primary btn-block" type="submit">Remove Item</button>
                           </form>
                         </div>
@@ -289,7 +339,7 @@
                         
                   
                   </main><!-- /.container -->
-                  <footer class="footer">
+                  <footer class="blog-footer">
                     <p>Copyright &copy; 2019 Team RSMS CS411 Spring 2019 UIUC</p>
                     <p>
                       <a href="<?php echo $_SERVER['PHP_SELF']; ?>">Back to top</a>

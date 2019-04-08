@@ -25,18 +25,41 @@
     if(!$result){
       die('Invalid Query: ' . mysql_error());
     }
-    echo mysql_num_rows($result);
-    if(mysql_num_rows($result) == 1){
-      $row = mysql_fetch_assoc($result);
-      $_SESSION['username'] = $row['username'];
-      $_SESSION['name'] = $row['name'];
-      $successful = TRUE;
-      $msg = 'Login Successful. Welcome, ' . $_SESSION['name'];
-      $msgClass = 'alert alert-success';
+    //----- Why doesn't the function work?
+/*
+    function update_ate_records($username, $db_connect) {
+	$valid_time = 7 * 24 * 60;
+        $query = "DELETE FROM ate 
+		  WHERE username = '$username' AND
+		  	TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_hour";
+	$result = mysql_query($query, $dbconnect);
+	if (!$result) {
+       	    die("Invalid Query: " . mysql_error());
+     	}
+    }
+*/
+  
+    if (mysql_num_rows($result) != 1) {
+        $msg = 'Invalid Login Details';
+        $msgClass = 'alert alert-danger';
     }
     else {
-      $msg = 'Invalid Login Details';
-      $msgClass = 'alert alert-danger';
+        $row = mysql_fetch_assoc($result);
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['name'] = $row['name'];
+        $successful = TRUE;
+        $msg = 'Login Successful. Welcome, ' . $_SESSION['name'];
+        $msgClass = 'alert alert-success';
+
+   	// "Trigger Event": Delete outdated records
+	$valid_time = 7 * 24 * 60;
+        $query = "DELETE FROM ate 
+		  WHERE username = '$username' AND
+		  	TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_hour";
+	$result = mysql_query($query, $dbconnect);
+	if (!$result) {
+       	    die("Invalid Query: " . mysql_error());
+     	}
     }
   }
   // Close Database Connection
