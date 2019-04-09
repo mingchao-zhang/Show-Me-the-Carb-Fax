@@ -224,6 +224,18 @@
                         <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
                         <input type="text" id="food_search" placeholder="Enter Food Name">
                         <div id="food_suggestion"></div>
+                        <div id="display_item_container" 
+                        style="height: 125px; 
+                               width: 350px; 
+                               overflow: auto;
+                               background-color: white;
+                               margin-top: 15px;
+                               border: solid;
+                               border-radius: 5px;
+                        ">
+                                <div id="food_suggestion"></div>
+                        </div>
+
 
                         <!--Live search end-->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
