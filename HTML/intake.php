@@ -116,6 +116,7 @@
       }
     }
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -219,6 +220,8 @@
                       <div class="col-md-5">
                       <div class="jumbotron">
                         <!--Live search start-->
+                        <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>
+                        <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
                         <input type="text" id="food_search" placeholder="Enter Food Name">
                         <div id="food_suggestion"></div>
 
@@ -359,17 +362,24 @@
         <!-- live food search -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
-        $("#food_search").keyup( function() {
-            var input = $("#food_search").val();
+        function search_food() {
+            var search_option = "product";
+            if ( document.getElementById('_recipe').checked ) {
+                search_option = "recipe";       
+            }
+            var search_name = $("#food_search").val();
             $.ajax({
                 cache: false,
                 url: "food_search.php",
-                data: "s=" + input,
+                data: "name=" + search_name + "&option=" + search_option,
                 success: function(data) {
                     $("#food_suggestion").html(data);
                 }
             })
-        })
+        } 
+
+        $("#food_search").bind("keyup mouseenter", search_food);
+        $('input[name="search_option"]').on('click change', search_food);
         </script>
     </body>
-</html>                                          
+</html>
