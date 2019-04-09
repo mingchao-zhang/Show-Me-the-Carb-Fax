@@ -361,7 +361,6 @@
         <script>
         $("#food_search").keyup( function() {
             var input = $("#food_search").val();
-                alert(input);
             $.ajax({
                 cache: false,
                 url: "food_search.php",
