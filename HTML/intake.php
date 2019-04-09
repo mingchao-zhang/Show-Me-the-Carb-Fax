@@ -1,3 +1,121 @@
+<?php
+    session_start();
+    $username = $_SESSION['username'];
+    $name = $_SESSION['name'];
+    if(isset($_POST['update'])){
+
+         // Database Connection
+        $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+        if(!$dbconnect){
+            die('Cannot connect: ' . mysql_error());
+        }
+
+        $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+        if(!$db_selected){
+            die('Cant use database: ' . mysql_error());
+        }
+
+        // Add query to add food item HERE
+        if(isset($_POST['addItemID'])){
+          $newItemID = $_POST['addItemID'];
+          $quantity = $_POST['quantity'];
+
+          $query = "INSERT INTO ate(username, foodID, quantity) VALUES('$username', '$newItemID', '$quantity')";
+
+          $result = mysql_query($query, $dbconnect);
+
+          if(!$result){
+            die("Invalid Query: " . mysql_error());
+          }
+        }
+        elseif(isset($_POST['productUPC'])){
+
+        }
+
+
+        // Close Database Connection
+        mysql_free_result($result);
+        mysql_close($dbconnect);
+    }
+
+    if(isset($_POST['remove'])){
+      // Database Connection
+      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+      if(!$dbconnect){
+          die('Cannot connect: ' . mysql_error());
+      }
+
+      $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+      if(!$db_selected){
+          die('Cant use database: ' . mysql_error());
+      }
+
+      // Remove Item
+      $foodID = $_POST['removeIDVal'];
+      $date = $_POST['removeDateVal'];
+      $quan = $_POST['removeQuanVal'];
+
+      $query = "DELETE FROM ate WHERE username = '$username' and foodID = '$foodID' and date LIKE \"$date%\" ";
+
+      $result = mysql_query($query, $dbconnect);
+
+      if(!$result){
+        die("Invalid Query: " . mysql_error());
+      }
+
+      // Close Database Connection
+      mysql_free_result($result);
+      mysql_close($dbconnect);
+    }
+
+    if(isset($_POST['search'])){
+      // Database Connection
+      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+      if(!$dbconnect){
+          die('Cannot connect: ' . mysql_error());
+      }
+
+      $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+      if(!$db_selected){
+          die('Cant use database: ' . mysql_error());
+      }
+      function query_db($dbconnect,$db_name,$regex)
+      {
+        $query = "SELECT foodId, name FROM $db_name WHERE name LIKE \"$regex\" GROUP BY LENGTH(name)";
+        $result = mysql_query($query, $dbconnect);
+        if(!$result){
+          die("Invalid Query: ". mysql_error());
+        }
+        return $result;
+      }
+
+      function search_db($query_string,$db_connect,$db_name)
+      {
+        $query_string = strtolower($query_string);
+        $split_string = explode(' ', $query_string);
+        $regex = join('%',$split_string);
+        $regex = "%$regex%";
+        return query_db($db_connect,$db_name,$regex);
+      }
+      $db_name ='';
+      $string = $_POST['itemSearch'];
+      if($_POST['searchType'] == 'product'){
+        $db_name = products;
+      }
+      else {
+        $db_name = recipes;
+      }
+
+      $searchResults = search_db($string, $dbconnect, $db_name);
+      $suggestions_string = '';
+      while($row = mysql_fetch_assoc($searchResults)){
+        $suggestions_string = $suggestions_string . (string)$row['foodId'] . ", " . $row['name'] . "\n";
+      }
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -255,4 +373,4 @@
         })
         </script>
     </body>
-</html>                                                                                                                                                           
+</html>                                          
