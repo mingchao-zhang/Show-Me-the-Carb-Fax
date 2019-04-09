@@ -374,25 +374,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!-- live food search -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script>
-        function search_food() {
-            var search_option = "product";
-            if ( document.getElementById('_recipe').checked ) {
-                search_option = "recipe";       
-            }
-            var search_name = $("#food_search").val();
-            $.ajax({
-                cache: false,
-                url: "food_search.php",
-                data: "name=" + search_name + "&option=" + search_option,
-                success: function(data) {
-                    $("#food_suggestion").html(data);
-                }
-            })
-        } 
-
-        $("#food_search").bind("keyup mouseenter", search_food);
-        $('input[name="search_option"]').on('click change', search_food);
-        </script>
+        <script src="food_search.js"></script>
     </body>
 </html>
