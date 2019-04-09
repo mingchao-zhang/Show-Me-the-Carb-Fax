@@ -1,121 +1,3 @@
-<?php
-    session_start();
-    $username = $_SESSION['username'];
-    $name = $_SESSION['name'];
-    if(isset($_POST['update'])){
-        
-         // Database Connection
-        $dbconnect = mysql_connect("localhost", "root", "carbfax411");
-        if(!$dbconnect){
-            die('Cannot connect: ' . mysql_error());
-        }
-   
-        $db_selected = mysql_select_db("411_project_db", $dbconnect);
-
-        if(!$db_selected){
-            die('Cant use database: ' . mysql_error());
-        }
-
-        // Add query to add food item HERE
-        if(isset($_POST['addItemID'])){
-          $newItemID = $_POST['addItemID'];
-          $quantity = $_POST['quantity'];
-          
-          $query = "INSERT INTO ate(username, foodID, quantity) VALUES('$username', '$newItemID', '$quantity')";
-
-          $result = mysql_query($query, $dbconnect);
-
-          if(!$result){
-            die("Invalid Query: " . mysql_error());
-          }
-        }
-        elseif(isset($_POST['productUPC'])){
-
-        }
-
-
-        // Close Database Connection
-        mysql_free_result($result);
-        mysql_close($dbconnect);
-    }
-
-    if(isset($_POST['remove'])){
-      // Database Connection
-      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
-      if(!$dbconnect){
-          die('Cannot connect: ' . mysql_error());
-      }
- 
-      $db_selected = mysql_select_db("411_project_db", $dbconnect);
-
-      if(!$db_selected){
-          die('Cant use database: ' . mysql_error());
-      }
-      
-      // Remove Item
-      $foodID = $_POST['removeIDVal'];
-      $date = $_POST['removeDateVal'];
-      $quan = $_POST['removeQuanVal'];
-
-      $query = "DELETE FROM ate WHERE username = '$username' and foodID = '$foodID' and date LIKE \"$date%\" ";
-
-      $result = mysql_query($query, $dbconnect);
-
-      if(!$result){
-        die("Invalid Query: " . mysql_error());
-      }
-
-      // Close Database Connection
-      mysql_free_result($result);
-      mysql_close($dbconnect);
-    }
-
-    if(isset($_POST['search'])){
-      // Database Connection
-      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
-      if(!$dbconnect){
-          die('Cannot connect: ' . mysql_error());
-      }
- 
-      $db_selected = mysql_select_db("411_project_db", $dbconnect);
-
-      if(!$db_selected){
-          die('Cant use database: ' . mysql_error());
-      }
-      function query_db($dbconnect,$db_name,$regex)
-      {
-        $query = "SELECT foodId, name FROM $db_name WHERE name LIKE \"$regex\" GROUP BY LENGTH(name)";
-        $result = mysql_query($query, $dbconnect);
-        if(!$result){
-          die("Invalid Query: ". mysql_error());
-        }
-        return $result;
-      }
-    
-      function search_db($query_string,$db_connect,$db_name)
-      {
-        $query_string = strtolower($query_string);
-        $split_string = explode(' ', $query_string);
-        $regex = join('%',$split_string);
-        $regex = "%$regex%";
-        return query_db($db_connect,$db_name,$regex);
-      }
-      $db_name ='';
-      $string = $_POST['itemSearch'];
-      if($_POST['searchType'] == 'product'){
-        $db_name = products;
-      }
-      else {
-        $db_name = recipes;
-      }
-
-      $searchResults = search_db($string, $dbconnect, $db_name);
-      $suggestions_string = '';
-      while($row = mysql_fetch_assoc($searchResults)){
-        $suggestions_string = $suggestions_string . (string)$row['foodId'] . ", " . $row['name'] . "\n";
-      }
-    }
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -160,7 +42,7 @@
                         </div>
                     </div>
                 </header>
-                  
+
                 <div class="nav-scroller py-1 mb-2">
                     <nav class="nav d-flex justify-content-between">
                         <a class="p-2 text-muted" href="intake.php">Nutrient Intake</a>
@@ -169,7 +51,7 @@
                         <a class="p-2 text-muted" href="#">Food Items</a>
                     </nav>
                 </div>
-                  
+
                 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
                     <div class="col-md-6 px-0">
                         <h1 class="display-4 font-italic">Your Nutrient Intake</h1>
@@ -218,6 +100,11 @@
                         </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
+                        <!--Live search start-->
+                        <input type="text" id="food_search" placeholder="Enter Food Name">
+                        <div id="food_suggestion"></div>
+
+                        <!--Live search end-->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                           <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
                           <label for="">Item Name</label>
@@ -233,7 +120,7 @@
                           </div>
                           <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
                         </form>
-                        
+
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
                             <label for="inputFoodItem">Add Item by ID</label>
@@ -257,8 +144,8 @@
                             <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Add Item</button>
                         </form>
                       </div>
-                      </div>      
-                  
+                      </div>
+
                       <aside class="col-md-2 blog-sidebar">
                         <div class="p-4">
                           <h4 class="font-italic">Elsewhere</h4>
@@ -269,7 +156,7 @@
                           </ol>
                         </div>
                       </aside>
-                  
+
                     </div><!-- /.row -->
                     <div class="row mb-2">
                       <div class="col-md-6">
@@ -291,7 +178,7 @@
                                 if(!$dbconnect){
                                   die('Cannot connect: ' . mysql_error());
                                 }
-   
+
                                 $db_selected = mysql_select_db("411_project_db", $dbconnect);
                                 if(!$db_selected){
                                   die('Cant use database: ' . mysql_error());
@@ -336,8 +223,8 @@
                         </div>
                       </div>
                     </div>
-                        
-                  
+
+
                   </main><!-- /.container -->
                   <footer class="blog-footer">
                     <p>Copyright &copy; 2019 Team RSMS CS411 Spring 2019 UIUC</p>
@@ -345,11 +232,27 @@
                       <a href="<?php echo $_SERVER['PHP_SELF']; ?>">Back to top</a>
                     </p>
                   </footer>
-        </div> 
+        </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- live food search -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        $("#food_search").keyup( function() {
+            var input = $("#food_search").val();
+                alert(input);
+            $.ajax({
+                cache: false,
+                url: "food_search.php",
+                data: "s=" + input,
+                success: function(data) {
+                    $("#food_suggestion").html(data);
+                }
+            })
+        })
+        </script>
     </body>
-</html>
+</html>                                                                                                                                                           
