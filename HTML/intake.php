@@ -69,14 +69,14 @@
       mysql_free_result($result);
       mysql_close($dbconnect);
     }
-
+/*
     if(isset($_POST['search'])){
       // Database Connection
       $dbconnect = mysql_connect("localhost", "root", "carbfax411");
       if(!$dbconnect){
           die('Cannot connect: ' . mysql_error());
       }
-
+ 
       $db_selected = mysql_select_db("411_project_db", $dbconnect);
 
       if(!$db_selected){
@@ -91,7 +91,7 @@
         }
         return $result;
       }
-
+    
       function search_db($query_string,$db_connect,$db_name)
       {
         $query_string = strtolower($query_string);
@@ -115,8 +115,8 @@
         $suggestions_string = $suggestions_string . (string)$row['foodId'] . ", " . $row['name'] . "\n";
       }
     }
+*/
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -220,24 +220,25 @@
                       <div class="col-md-5">
                       <div class="jumbotron">
                         <!--Live search start-->
+                        <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
                         <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>
                         <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
-                        <input type="text" id="food_search" placeholder="Enter Food Name">
-                        <div id="food_suggestion"></div>
+                        <input type="text" id="food_search" placeholder="Enter Item Name">
                         <div id="display_item_container" 
-                        style="height: 125px; 
+                        style="height: 100px; 
                                width: 350px; 
                                overflow: auto;
                                background-color: white;
                                margin-top: 15px;
+                               margin-bottom: 30px;
                                border: solid;
                                border-radius: 5px;
                         ">
                                 <div id="food_suggestion"></div>
                         </div>
 
-
                         <!--Live search end-->
+                        <!--
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                           <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
                           <label for="">Item Name</label>
@@ -253,7 +254,7 @@
                           </div>
                           <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
                         </form>
-
+                        -->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
                             <label for="inputFoodItem">Add Item by ID</label>
