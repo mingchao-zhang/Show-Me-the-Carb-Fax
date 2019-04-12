@@ -81,6 +81,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="blog.css">
+    <!-- weekly_log css -->  
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Nutrient Intake</title>
     <style>
        .bd-placeholder-img {
@@ -234,9 +237,13 @@
                       <div class="col-md-6">
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
-                          <span class="input-group-btn">
-              
-                          <button class='qtyplus input-mini btn btn-inverse' field='quantity'><i class="icon-plus icon-white"></i></button> 
+                          
+
+
+
+                          <button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+</button>
                           <!-- food item table start -->
                           <!--
                           <div id="weekly_log_container">
