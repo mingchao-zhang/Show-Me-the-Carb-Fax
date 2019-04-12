@@ -291,7 +291,8 @@
                                   echo "<td>" . $row['ID'] . "</td>";
                                   echo "<td>" . $row['date'] . "</td>";
                                   echo "<td>" . 
-                                  $row['quantity'] . "</td>";
+                                  "<button name='remove' class='btn btn-sm btn-primary btn-block' type='submit'>+</button>"
+                                  . $row['quantity'] . "</td>";
                                   echo "</tr>";
                                 }
                                 /*
@@ -319,7 +320,8 @@
                             <input type="date" id="removeDate" class="form-control form-control-sm" name="removeDateVal" placeholder="Date" required>
                             <label for="removeQuantity">Quantity to Remove?</label>
                             <input type="number" id="removeQuantity" class="form-control form-control-sm" name="removeQuanVal" placeholder="Quantity" required>
-                            <button name="remove" class="btn btn-sm btn-primary btn-block" type="submit">+Remove Item</button>
+                            <button name="remove" class="btn btn-sm btn-primary btn-block" type="submit">Remove Item
+                            </button>
                           </form>
                         </div>
                       </div>
