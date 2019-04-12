@@ -55,7 +55,7 @@
 	$valid_time = 7 * 24 * 60;
         $query = "DELETE FROM ate 
 		  WHERE username = '$username' AND
-		  	TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_hour";
+		  	TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_time";
 	$result = mysql_query($query, $dbconnect);
 	if (!$result) {
        	    die("Invalid Query: " . mysql_error());

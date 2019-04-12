@@ -69,7 +69,7 @@
       mysql_free_result($result);
       mysql_close($dbconnect);
     }
-
+/*
     if(isset($_POST['search'])){
       // Database Connection
       $dbconnect = mysql_connect("localhost", "root", "carbfax411");
@@ -115,6 +115,7 @@
         $suggestions_string = $suggestions_string . (string)$row['foodId'] . ", " . $row['name'] . "\n";
       }
     }
+*/
 ?>
 <!doctype html>
 <html lang="en">
@@ -218,6 +219,26 @@
                         </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
+			<!--Live search start-->
+			<h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
+			<input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>	
+			<input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
+			<input type="text" id="food_search" placeholder="Enter Item Name">
+			<div id="display_item_container" 
+			style="height: 100px; 
+			       width: 350px; 
+			       overflow: auto;
+			       background-color: white;
+			       margin-top: 15px;
+			       margin-bottom: 30px;
+			       border: solid;
+			       border-radius: 5px;
+			">
+				<div id="food_suggestion"></div>
+			</div>
+			
+			<!--Live search end-->
+			<!--
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                           <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
                           <label for="">Item Name</label>
@@ -233,7 +254,7 @@
                           </div>
                           <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
                         </form>
-                        
+                        -->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
                             <label for="inputFoodItem">Add Item by ID</label>
@@ -351,5 +372,8 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- live food search -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="food_search.js"></script>
     </body>
 </html>
