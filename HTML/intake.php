@@ -219,7 +219,6 @@
                         </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
-<<<<<<< HEAD
 			<!--Live search start-->
 			<h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
 			<input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>	
