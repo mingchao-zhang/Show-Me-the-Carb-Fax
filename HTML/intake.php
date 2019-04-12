@@ -97,6 +97,17 @@
           font-size: 3.5rem;
         }
       }
+
+      #display_item_container {
+        height: 100px; 
+        width: 350px; 
+        overflow: auto;
+        background-color: white;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        border: solid;
+        border-radius: 5px;
+      }
     </style>
   </head>
     <body>
@@ -177,17 +188,8 @@
                       <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>	
                       <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
                       <input type="text" id="food_search" placeholder="Enter Item Name">
-                      <div id="display_item_container" 
-                      style="height: 100px; 
-                            width: 350px; 
-                            overflow: auto;
-                            background-color: white;
-                            margin-top: 15px;
-                            margin-bottom: 30px;
-                            border: solid;
-                            border-radius: 5px;
-                      ">
-                      <div id="food_suggestion"></div>
+                      <div id="display_item_container">
+                        <div id="food_suggestion"></div>
                       </div>		
                       <!--Live search end-->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -232,6 +234,14 @@
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
                           <!-- food item table start -->
+                          <div id="weekly_log_container">
+                            <div id="weekly_log_content">
+                            </div>
+                          </div>
+                          <!-- food item table end -->
+
+
+
                           <!--
                           <table class="table table-hover table-dark">
                             <thead>
@@ -278,7 +288,7 @@
                             </tbody>
                           </table>
                           -->
-                          <!-- food item table end -->
+                          
                         </div>
                       </div>
                       <div class="col-md-6">
