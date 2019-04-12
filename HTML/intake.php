@@ -3,13 +3,13 @@
     $username = $_SESSION['username'];
     $name = $_SESSION['name'];
     if(isset($_POST['update'])){
-        
+
          // Database Connection
         $dbconnect = mysql_connect("localhost", "root", "carbfax411");
         if(!$dbconnect){
             die('Cannot connect: ' . mysql_error());
         }
-   
+
         $db_selected = mysql_select_db("411_project_db", $dbconnect);
 
         if(!$db_selected){
@@ -20,7 +20,7 @@
         if(isset($_POST['addItemID'])){
           $newItemID = $_POST['addItemID'];
           $quantity = $_POST['quantity'];
-          
+
           $query = "INSERT INTO ate(username, foodID, quantity) VALUES('$username', '$newItemID', '$quantity')";
 
           $result = mysql_query($query, $dbconnect);
@@ -45,13 +45,13 @@
       if(!$dbconnect){
           die('Cannot connect: ' . mysql_error());
       }
- 
+
       $db_selected = mysql_select_db("411_project_db", $dbconnect);
 
       if(!$db_selected){
           die('Cant use database: ' . mysql_error());
       }
-      
+
       // Remove Item
       $foodID = $_POST['removeIDVal'];
       $date = $_POST['removeDateVal'];
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                 </header>
-                  
+
                 <div class="nav-scroller py-1 mb-2">
                     <nav class="nav d-flex justify-content-between">
                         <a class="p-2 text-muted" href="intake.php">Nutrient Intake</a>
@@ -170,7 +170,7 @@
                         <a class="p-2 text-muted" href="#">Food Items</a>
                     </nav>
                 </div>
-                  
+
                 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
                     <div class="col-md-6 px-0">
                         <h1 class="display-4 font-italic">Your Nutrient Intake</h1>
@@ -219,6 +219,7 @@
                         </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
+<<<<<<< HEAD
 			<!--Live search start-->
 			<h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
 			<input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>	
@@ -239,6 +240,28 @@
 			
 			<!--Live search end-->
 			<!--
+=======
+                        <!--Live search start-->
+                        <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
+                        <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>
+                        <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
+                        <input type="text" id="food_search" placeholder="Enter Item Name">
+                        <div id="display_item_container" 
+                        style="height: 100px; 
+                               width: 350px; 
+                               overflow: auto;
+                               background-color: white;
+                               margin-top: 15px;
+                               margin-bottom: 30px;
+                               border: solid;
+                               border-radius: 5px;
+                        ">
+                                <div id="food_suggestion"></div>
+                        </div>
+
+                        <!--Live search end-->
+                        <!--
+>>>>>>> b01d6a49b821d25d5115a9ed6dc8f34eb051258e
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                           <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
                           <label for="">Item Name</label>
@@ -278,8 +301,8 @@
                             <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Add Item</button>
                         </form>
                       </div>
-                      </div>      
-                  
+                      </div>
+
                       <aside class="col-md-2 blog-sidebar">
                         <div class="p-4">
                           <h4 class="font-italic">Elsewhere</h4>
@@ -290,7 +313,7 @@
                           </ol>
                         </div>
                       </aside>
-                  
+
                     </div><!-- /.row -->
                     <div class="row mb-2">
                       <div class="col-md-6">
@@ -312,7 +335,7 @@
                                 if(!$dbconnect){
                                   die('Cannot connect: ' . mysql_error());
                                 }
-   
+
                                 $db_selected = mysql_select_db("411_project_db", $dbconnect);
                                 if(!$db_selected){
                                   die('Cant use database: ' . mysql_error());
@@ -357,8 +380,8 @@
                         </div>
                       </div>
                     </div>
-                        
-                  
+
+
                   </main><!-- /.container -->
                   <footer class="blog-footer">
                     <p>Copyright &copy; 2019 Team RSMS CS411 Spring 2019 UIUC</p>
@@ -366,14 +389,20 @@
                       <a href="<?php echo $_SERVER['PHP_SELF']; ?>">Back to top</a>
                     </p>
                   </footer>
-        </div> 
+        </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<<<<<<< HEAD
 	<!-- live food search -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="food_search.js"></script>
+=======
+        <!-- live food search -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="food_search.js"></script>
+>>>>>>> b01d6a49b821d25d5115a9ed6dc8f34eb051258e
     </body>
 </html>
