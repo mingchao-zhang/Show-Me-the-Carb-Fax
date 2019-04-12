@@ -98,7 +98,7 @@
         }
       }
 
-      #display_item_container {
+      #weekly_log_container, #display_item_container {
         height: 100px; 
         width: 350px; 
         overflow: auto;
@@ -108,6 +108,7 @@
         border: solid;
         border-radius: 5px;
       }
+
     </style>
   </head>
     <body>
