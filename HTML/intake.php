@@ -187,7 +187,7 @@
                             border: solid;
                             border-radius: 5px;
                       ">
-                        <div id="food_suggestion"></div>
+                      <div id="food_suggestion"></div>
                       </div>		
                       <!--Live search end-->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -231,6 +231,7 @@
                       <div class="col-md-6">
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
+                          <!-- food item table start -->
                           <table class="table table-hover table-dark">
                             <thead>
                               <tr>
@@ -275,6 +276,7 @@
                               ?>
                             </tbody>
                           </table>
+                          <!-- food item table end -->
                         </div>
                       </div>
                       <div class="col-md-6">
