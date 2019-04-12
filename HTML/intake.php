@@ -234,7 +234,11 @@
                       <div class="col-md-6">
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
-                          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+                </span>
                           <!-- food item table start -->
                           <!--
                           <div id="weekly_log_container">
