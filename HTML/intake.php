@@ -235,15 +235,17 @@
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
                           <!-- food item table start -->
+                          <!--
                           <div id="weekly_log_container">
                             <div id="weekly_log_content">
                             </div>
                           </div>
+                          -->
                           <!-- food item table end -->
 
 
 
-                          <!--
+                          
                           <table class="table table-hover table-dark">
                             <thead>
                               <tr>
@@ -288,7 +290,7 @@
                               ?>
                             </tbody>
                           </table>
-                          -->
+                          
                           
                         </div>
                       </div>
