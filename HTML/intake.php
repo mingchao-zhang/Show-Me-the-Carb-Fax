@@ -241,9 +241,7 @@
 
 
 
-                          <button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
-</button>
+                          
                           <!-- food item table start -->
                           <!--
                           <div id="weekly_log_container">
@@ -290,7 +288,8 @@
                                   echo "<td>" . $row['name'] . "</td>";
                                   echo "<td>" . $row['ID'] . "</td>";
                                   echo "<td>" . $row['date'] . "</td>";
-                                  echo "<td>" . $row['quantity'] . "</td>";
+                                  echo "<td>" . 
+                                  $row['quantity'] . "</td>";
                                   echo "</tr>";
                                 }
 
