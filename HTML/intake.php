@@ -236,19 +236,7 @@
                           <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
                           <span class="input-group-btn">
               
-                          <div class="input-group">
-                <span class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                  <span class="glyphicon glyphicon-minus"></span>
-                </button>
-                </span>
-                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                <span class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                  <span class="glyphicon glyphicon-plus"></span>
-                </button>
-                </span>
-            </div>
+                          <button class='qtyplus input-mini btn btn-inverse' field='quantity'><i class="icon-plus icon-white"></i></button> 
                           <!-- food item table start -->
                           <!--
                           <div id="weekly_log_container">
