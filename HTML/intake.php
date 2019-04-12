@@ -69,53 +69,6 @@
       mysql_free_result($result);
       mysql_close($dbconnect);
     }
-/*
-    if(isset($_POST['search'])){
-      // Database Connection
-      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
-      if(!$dbconnect){
-          die('Cannot connect: ' . mysql_error());
-      }
- 
-      $db_selected = mysql_select_db("411_project_db", $dbconnect);
-
-      if(!$db_selected){
-          die('Cant use database: ' . mysql_error());
-      }
-      function query_db($dbconnect,$db_name,$regex)
-      {
-        $query = "SELECT foodId, name FROM $db_name WHERE name LIKE \"$regex\" GROUP BY LENGTH(name)";
-        $result = mysql_query($query, $dbconnect);
-        if(!$result){
-          die("Invalid Query: ". mysql_error());
-        }
-        return $result;
-      }
-    
-      function search_db($query_string,$db_connect,$db_name)
-      {
-        $query_string = strtolower($query_string);
-        $split_string = explode(' ', $query_string);
-        $regex = join('%',$split_string);
-        $regex = "%$regex%";
-        return query_db($db_connect,$db_name,$regex);
-      }
-      $db_name ='';
-      $string = $_POST['itemSearch'];
-      if($_POST['searchType'] == 'product'){
-        $db_name = products;
-      }
-      else {
-        $db_name = recipes;
-      }
-
-      $searchResults = search_db($string, $dbconnect, $db_name);
-      $suggestions_string = '';
-      while($row = mysql_fetch_assoc($searchResults)){
-        $suggestions_string = $suggestions_string . (string)$row['foodId'] . ", " . $row['name'] . "\n";
-      }
-    }
-*/
 ?>
 <!doctype html>
 <html lang="en">
@@ -238,45 +191,6 @@
 			</div>
 			
 			<!--Live search end-->
-			<!--
-=======
-                        <!--Live search start-->
-                        <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
-                        <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>
-                        <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
-                        <input type="text" id="food_search" placeholder="Enter Item Name">
-                        <div id="display_item_container" 
-                        style="height: 100px; 
-                               width: 350px; 
-                               overflow: auto;
-                               background-color: white;
-                               margin-top: 15px;
-                               margin-bottom: 30px;
-                               border: solid;
-                               border-radius: 5px;
-                        ">
-                                <div id="food_suggestion"></div>
-                        </div>
-
-                        <!--Live search end-->
-                        <!--
->>>>>>> b01d6a49b821d25d5115a9ed6dc8f34eb051258e
-                        <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                          <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
-                          <label for="">Item Name</label>
-                          <input type="text" id="itemNameSearch" class="form-control" name="itemSearch" placeholder="Enter Item Name" required>
-                          <textarea rows="4" cols="45" readonly> <?php echo $suggestions_string; ?></textarea>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="searchType" id="product" value="product" checked>
-                            <label class="form-check-label" for="product">Product</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="searchType" id="recipe" value="recipe">
-                            <label class="form-check-lable" for="recipe">Recipe</label>
-                          </div>
-                          <button name="search" class="btn btn-sm btn-primary btn-block" type="submit">Search</button>
-                        </form>
-                        -->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
                             <label for="inputFoodItem">Add Item by ID</label>
@@ -397,7 +311,6 @@
 	<!-- live food search -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="food_search.js"></script>
-=======
         <!-- live food search -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="food_search.js"></script>
