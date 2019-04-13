@@ -5,4 +5,7 @@ function update_quantity(add) {
     }
 }
 
-$(".weekly_log_plus_button").on( "click", update_quantity(true) );
+$(".weekly_log_plus_button").on( "click", function() {
+    update_quantity(false)
+ }
+);
