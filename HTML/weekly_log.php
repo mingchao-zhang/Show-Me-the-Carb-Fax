@@ -17,6 +17,7 @@
     if ( !$ateResult ) {
         die('Invalid Query: ' . mysql_error());
     }
+    echo mysql_fetch_assoc($ateResult);
     while ( $row = mysql_fetch_assoc($ateResult) ) {
         $food_id = $row['ID'];
         $date = $row['date'];
