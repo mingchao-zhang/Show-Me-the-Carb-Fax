@@ -7,7 +7,7 @@ function update_quantity(add, id_and_date) {
                           "&date=" + params[2] + 
                           "&add=" + params[3]
     console.log(jquery_data_str)
-    
+    /*
     $.ajax({
         cache: false,
         url: "update_weekly_log.php",
@@ -16,7 +16,7 @@ function update_quantity(add, id_and_date) {
             $("#weekly_log_content").html(data)
         }
     })
-    
+    */
 }
 
 $(".weekly_log_plus_button").on( "click", function(event) {
