@@ -21,12 +21,12 @@ function update_quantity(add, id_and_date) {
 
 $(".weekly_log_plus_button").on( "click", function(event) {
     console.log(event.target.id)
-    update_quantity(true, event.target.id)
+    update_quantity(1, event.target.id)
  }
 );
 
 $(".weekly_log_minus_button").on( "click", function(event) {
     console.log(event.target.id)
-    update_quantity(false, event.target.id)
+    update_quantity(-1, event.target.id)
  }
 );
