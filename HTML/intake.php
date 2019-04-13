@@ -255,6 +255,7 @@
                               </tr>
                             </thead>
                             <tbody id="weekly_log_content">
+                            <?php include 'weekly_log.php';?>
                             <!--
                               <?php
                                 // Database Connection
