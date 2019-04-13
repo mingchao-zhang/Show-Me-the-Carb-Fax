@@ -16,8 +16,8 @@ function update_quantity(add, id_and_date) {
             $("#weekly_log_content").html(data)
         }
     })
-    var table = $('#weekly_log_content').html()
-    console.log(table)
+
+    
 }
 
 $(".weekly_log_plus_button").on( "click", function(event) {
@@ -32,3 +32,4 @@ $(".weekly_log_minus_button").on( "click", function(event) {
     update_quantity(-1, event.target.id)
  }
 );
+

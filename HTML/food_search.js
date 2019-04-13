@@ -12,6 +12,8 @@ function search_food() {
             $("#food_suggestion").html(data);
         }
     })
+    var table = $('#weekly_log_content').html()
+    console.log(table)
 }         
 
 $("#food_search").bind("keyup mouseenter", search_food);
