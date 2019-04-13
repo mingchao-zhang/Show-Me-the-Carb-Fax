@@ -27,7 +27,7 @@ $(document).on('click', ".weekly_log_plus_button",  function(event) {
  }
 );
 
-$(document).on('click', ".weekly_log_plus_button",   function(event) {
+$(document).on('click', ".weekly_log_minus_button",   function(event) {
     console.log(event.target.id)
     update_quantity(-1, event.target.id)
  }
