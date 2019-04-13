@@ -22,9 +22,14 @@
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>" . $row['ID'] . "</td>";
         echo "<td>" . $row['date'] . "</td>";
-        echo "<td>" . $row['quantity'] . "</td>";
+        echo "<td>" . 
+        "<button name='remove' class='btn btn-sm btn-primary btn-block' type='submit'>+</button>"
+        . $row['quantity'] 
+        . "<button name='remove' class='btn btn-sm btn-primary btn-block' type='submit'>-</button>"
+        . "</td>";
         echo "</tr>";
     }
+
 
     // Close Database Connection
     mysql_free_result($ateResult);
