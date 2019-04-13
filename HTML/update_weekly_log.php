@@ -17,9 +17,21 @@
     $add = $_GET['add'];
 
     // update quantity
-    //TODO
+    $update_query = "UPDATE 
+                     SET quantity = quantity + '$add'
+                     FROM ate
+                     WHERE username = '$username' AND 
+                           date = '$date' AND 
+                           foodID = '$foodID'
+                    ";
+    $update_result = mysql_query($update_query, $dbconnect);
+    if ( !$update_result ) {
+        die('Invalid Query: ' . mysql_error());
+    }
+
 
     // Query to Get Eaten Items
+    // Copied code from weekley_log.php
     $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
     $ateResult = mysql_query($queryAte, $dbconnect);
 
