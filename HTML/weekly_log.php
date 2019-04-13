@@ -11,14 +11,13 @@
     }
 
     // Query to Get Eaten Items
-    echo $username;
     $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
     $ateResult = mysql_query($queryAte, $dbconnect);
 
     if ( !$ateResult ) {
         die('Invalid Query: ' . mysql_error());
     }
-    echo mysql_fetch_assoc($ateResult);
+
     while ( $row = mysql_fetch_assoc($ateResult) ) {
         $food_id = $row['ID'];
         $date = $row['date'];
