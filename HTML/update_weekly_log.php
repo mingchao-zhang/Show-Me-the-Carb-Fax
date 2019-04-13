@@ -1,4 +1,6 @@
 <?php
+    include "weekly_log.php";
+/*
     // Database Connection
     $dbconnect = mysql_connect("localhost", "root", "carbfax411");
     if ( !$dbconnect ) {
@@ -22,4 +24,5 @@
     // Close Database Connection
     mysql_free_result($ateResult);
     mysql_close($dbconnect);
+    */
 ?>
