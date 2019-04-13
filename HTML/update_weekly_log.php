@@ -18,7 +18,7 @@
 
     // update quantity
     $update_query = "UPDATE 
-                     SET quantity = quantity + '$add', date = date
+                     SET quantity = quantity + $add, date = date
                      FROM ate
                      WHERE username = '$username' AND 
                            date = '$date' AND 
