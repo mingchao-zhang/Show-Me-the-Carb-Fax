@@ -18,14 +18,15 @@
         die('Invalid Query: ' . mysql_error());
     }
     while ( $row = mysql_fetch_assoc($ateResult) ) {
+        $id = $row['ID'];
         echo "<tr>";
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>" . $row['ID'] . "</td>";
         echo "<td>" . $row['date'] . "</td>";
         echo "<td>" . 
-        "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_plus_button' type='submit' id=$row['ID']>+</button>"
+        "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_plus_button' type='submit' id=$id>+</button>"
         . $row['quantity'] 
-        . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_minus_button' type='submit' id=$row['ID']>-</button>"
+        . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_minus_button' type='submit' id=$id>-</button>"
         . "</td>";
         echo "</tr>";
     }
