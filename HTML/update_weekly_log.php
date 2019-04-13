@@ -20,7 +20,7 @@
     $update_query = "UPDATE ate 
                      SET quantity = quantity + $add, date = date
                      WHERE username = '$username' AND 
-                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND 
+                     SUBSTRING('2019-04-13', 1, 4) = SUBSTRING('$date', 1, 4) AND 
                            foodID = '$foodID'
                     ";
     $update_result = mysql_query($update_query, $dbconnect);
@@ -32,7 +32,7 @@
     echo "AFTER UPDATE";
     // Query to Get Eaten Items
     // Copied code from weekley_log.php
-    /*
+    
     $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
     $ateResult = mysql_query($queryAte, $dbconnect);
 
@@ -55,7 +55,7 @@
         . "</td>";
         echo "</tr>";
     }
-    */
+    
     // Close Database Connection
     mysql_free_result($ateResult);
     mysql_close($dbconnect);
