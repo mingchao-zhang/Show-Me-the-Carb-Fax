@@ -31,7 +31,7 @@
         . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_minus_button' type='submit' id=$row_id>-</button>"
         . "</td>";
         echo "</tr>";
-       
+        echo "in while loop";
     }
     echo "executed in weekly_log.php";
     // Close Database Connection
