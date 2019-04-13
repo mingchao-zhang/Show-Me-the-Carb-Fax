@@ -292,8 +292,9 @@
                                   echo "<td>" . $row['date'] . "</td>";
                                   echo "<td>" . 
                                   "<button name='remove' class='btn btn-sm btn-primary btn-block' type='submit'>+</button>"
-                                  . $row['quantity'] . "</td>"
-                                  . "<button name='remove' class='btn btn-sm btn-primary btn-block' type='submit'>-</button>";
+                                  . $row['quantity'] 
+                                  . "<button name='remove' class='btn btn-sm btn-primary btn-block' type='submit'>-</button>"
+                                  . "</td>";
                                   echo "</tr>";
                                 }
                                 /*
