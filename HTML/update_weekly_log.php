@@ -1,5 +1,5 @@
 <?php
-    include 'weekly_log.php';
+    //include 'weekly_log.php';
     echo "why???";
 /*
     // Database Connection
