@@ -244,18 +244,7 @@
 
 
                           
-                          <!-- food item table start -->
-                          <!--
-                          <div id="weekly_log_container">
-                            <div id="weekly_log_content">
-                            </div>
-                          </div>
-                          -->
-                          <!-- food item table end -->
-
-
-
-                          
+                          <!-- food item table start -->                    
                           <table class="table table-hover table-dark">
                             <thead>
                               <tr>
@@ -264,14 +253,9 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Quantity</th>
                               </tr>
-                              <tr>
-                                <th scope="col">Item Name</th>
-                                <th scope="col">Item ID</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Quantity</th>
-                              </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="weekly_log_content">
+                            <!--
                               <?php
                                 // Database Connection
                                 $dbconnect = mysql_connect("localhost", "root", "carbfax411");
@@ -307,9 +291,10 @@
                                 mysql_free_result($ateResult);
                                 mysql_close($dbconnect);
                               ?>
+                            -->
                             </tbody>
                           </table>
-                          
+                          <!-- food item table end -->
                           
                         </div>
                       </div>
