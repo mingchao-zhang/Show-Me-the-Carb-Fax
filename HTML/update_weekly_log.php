@@ -20,7 +20,7 @@
     $update_query = "UPDATE ate 
                      SET quantity = quantity + $add, date = date
                      WHERE username = '$username' AND 
-                     convert(date, colDateTime) = '$date' AND 
+                     SUBSTRING('SQL Tutorial', 5, 3) = '$date' AND 
                            foodID = '$foodID'
                     ";
     $update_result = mysql_query($update_query, $dbconnect);
