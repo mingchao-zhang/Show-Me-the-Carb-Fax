@@ -28,7 +28,7 @@ function update_quantity(add, id) {
             $("#weekly_log_content").html(data)
         }
     })
-    *.
+    */
 }
 
 $(".weekly_log_plus_button").on( "click", function(event) {
