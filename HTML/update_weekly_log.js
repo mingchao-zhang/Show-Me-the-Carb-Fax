@@ -1,7 +1,7 @@
 function update_quantity(add, id) {
     console.log(id)
     if (add) {
-        console.log("increase the quantity by one");
+        console.log("increase the quantity by one???");
     }
     else {
         console.log("decrease the quantity by one");
