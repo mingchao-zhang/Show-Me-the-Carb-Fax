@@ -17,9 +17,8 @@
     $add = intval($_GET['add']);
 
     // update quantity
-    $update_query = "UPDATE 
+    $update_query = "UPDATE ate 
                      SET quantity = quantity + $add, date = date
-                     FROM ate
                      WHERE username = '$username' AND 
                            date = '$date' AND 
                            foodID = '$foodID'
