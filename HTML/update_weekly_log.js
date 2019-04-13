@@ -20,14 +20,14 @@ function update_quantity(add, id_and_date) {
     
 }
 
-$(".weekly_log_plus_button").on( "click", '.option', function(event) {
+$(".weekly_log_plus_button").live( "click",  function(event) {
 
     console.log(event.target.id)
     update_quantity(1, event.target.id)
  }
 );
 
-$(".weekly_log_minus_button").on( "click", '.option', function(event) {
+$(".weekly_log_minus_button").live( "click",  function(event) {
     console.log(event.target.id)
     update_quantity(-1, event.target.id)
  }
