@@ -35,7 +35,7 @@
         echo "</tr>";
     }
 
-
+    echo "line 38";
     // Close Database Connection
     mysql_free_result($ateResult);
     mysql_close($dbconnect);
