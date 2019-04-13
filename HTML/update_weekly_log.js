@@ -2,9 +2,12 @@ function update_quantity(add, id_and_date) {
     var params = id_and_date.split("&")
     params.push(add.toString())
     console.log(params)
-    var jquery_data_str = "id=" + params[0] + "&date=" + params[1] + "&add=" + params[2]
+    var jquery_data_str = "username=" + params[0] + 
+                          "&id=" + params[1] + 
+                          "&date=" + params[2] + 
+                          "&add=" + params[3]
     console.log(jquery_data_str)
-    
+    /*
     $.ajax({
         cache: false,
         url: "update_weekly_log.php",
@@ -13,6 +16,7 @@ function update_quantity(add, id_and_date) {
             $("#weekly_log_content").html(data)
         }
     })
+    */
 }
 
 $(".weekly_log_plus_button").on( "click", function(event) {

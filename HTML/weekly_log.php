@@ -22,7 +22,7 @@
     while ( $row = mysql_fetch_assoc($ateResult) ) {
         $food_id = $row['ID'];
         $date = $row['date'];
-        $row_id = $food_id . "&" . $date;
+        $row_id = $username . "&" . $food_id . "&" . $date;
         echo "<tr>";
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>" . $row['ID'] . "</td>";
