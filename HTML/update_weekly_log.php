@@ -17,7 +17,7 @@
     echo $id . $date . $add;
 
     include "weekly_log.php";
-
+    echo "update php line 20";
 
     // Close Database Connection
     mysql_free_result($ateResult);

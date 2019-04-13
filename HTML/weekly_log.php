@@ -1,5 +1,4 @@
 <?php
-    echo "HELLO???";
     // Database Connection
     $dbconnect = mysql_connect("localhost", "root", "carbfax411");
     if ( !$dbconnect ) {
@@ -15,7 +14,6 @@
     $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
     $ateResult = mysql_query($queryAte, $dbconnect);
 
-    echo "HELLOOOO???";
     if ( !$ateResult ) {
         die('Invalid Query: ' . mysql_error());
     }
@@ -35,7 +33,6 @@
         echo "</tr>";
     }
 
-    echo "line 38";
     // Close Database Connection
     mysql_free_result($ateResult);
     mysql_close($dbconnect);
