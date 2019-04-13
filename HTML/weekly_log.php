@@ -25,7 +25,7 @@
         echo "<td>" . 
         "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_plus_button' type='submit'>+</button>"
         . $row['quantity'] 
-        . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_plus_button' type='submit'>-</button>"
+        . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_minus_button' type='submit'>-</button>"
         . "</td>";
         echo "</tr>";
     }

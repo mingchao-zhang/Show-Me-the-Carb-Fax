@@ -13,7 +13,7 @@ $(".weekly_log_plus_button").on( "click", function() {
  }
 );
 
-$(".weekly_log_plus_button").on( "click", function() {
+$(".weekly_log_minus_button").on( "click", function() {
     update_quantity(false)
  }
 );
