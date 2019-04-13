@@ -30,7 +30,7 @@
         die('Invalid Query: ' . mysql_error());
     }
 
-
+    echo "AFTER UPDATE";
     // Query to Get Eaten Items
     // Copied code from weekley_log.php
     $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
