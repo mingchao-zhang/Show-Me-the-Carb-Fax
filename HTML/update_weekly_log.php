@@ -20,7 +20,7 @@
     $update_query = "UPDATE ate 
                      SET quantity = quantity + $add, date = date
                      WHERE username = '$username' AND 
-                           CONVERT(VARCHAR(10), date, 111) = '$date' AND 
+                           CAST(date AS varchar(10)) = '$date' AND 
                            foodID = '$foodID'
                     ";
     $update_result = mysql_query($update_query, $dbconnect);
