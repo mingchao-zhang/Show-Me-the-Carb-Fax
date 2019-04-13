@@ -16,11 +16,11 @@ function update_quantity(add, id_and_date) {
             $("#weekly_log_content").html(data)
         }
     })
-    
+    console.log(getElementbyID('#weekly_log_content').html)
 }
 
 $(".weekly_log_plus_button").on( "click", function(event) {
-    console.log(getElementbyID('#weekly_log_content').html)
+
     console.log(event.target.id)
     update_quantity(1, event.target.id)
  }
