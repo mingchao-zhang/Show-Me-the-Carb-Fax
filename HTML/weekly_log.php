@@ -35,6 +35,6 @@
     }
     echo "executed in weekly_log.php";
     // Close Database Connection
-    mysql_free_result($ateResult);
-    mysql_close($dbconnect);
+    //mysql_free_result($ateResult);
+    //mysql_close($dbconnect);
 ?>
