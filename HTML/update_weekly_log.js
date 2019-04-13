@@ -20,6 +20,8 @@ function update_quantity(add, id_and_date) {
     
 }
 
+// DO NOT USE $(".weekly_log_plus_button").on( "click", '.option', function(event)
+// IT WILL NOT WORK after one click!!!
 $(document).on('click', ".weekly_log_plus_button",  function(event) {
 
     console.log(event.target.id)

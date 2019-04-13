@@ -17,10 +17,13 @@
     $add = intval($_GET['add']);
     echo $username . $foodId . $date . $add;
     // update quantity
+    // date: yyyy-mm-dd
     $update_query = "UPDATE ate 
                      SET quantity = quantity + $add, date = date
                      WHERE username = '$username' AND 
-                     SUBSTRING('2019-04-13', 1, 4) = SUBSTRING('$date', 1, 4) AND 
+                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND 
+                     SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND 
+                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2)
                            foodID = '$foodId'
                     ";
     $update_result = mysql_query($update_query, $dbconnect);
@@ -28,8 +31,13 @@
     if ( !$update_result ) {
         die('Invalid Query: ' . mysql_error());
     }
+    /*
+    // delete the item with the quantity 0
+    $delete_query = "DELETE FROM ate 
+                     WHERE username = '$username' AND
+        TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_time";
+    */
 
-    echo "AFTER UPDATE";
     // Query to Get Eaten Items
     // Copied code from weekley_log.php
     
