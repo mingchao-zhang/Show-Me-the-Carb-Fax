@@ -15,7 +15,7 @@
     $id = $_GET['id'];
     $date = $_GET['date'];
     $add = intval($_GET['add']);
-
+    echo $username . $id . $date . $add;
     // update quantity
     $update_query = "UPDATE ate 
                      SET quantity = quantity + $add, date = date
