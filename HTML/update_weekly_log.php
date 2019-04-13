@@ -31,12 +31,21 @@
     if ( !$update_result ) {
         die('Invalid Query: ' . mysql_error());
     }
-    /*
+    
     // delete the item with the quantity 0
     $delete_query = "DELETE FROM ate 
                      WHERE username = '$username' AND
-        TIMESTAMPDIFF(MINUTE, date, CURRENT_TIMESTAMP()) > $valid_time";
-    */
+                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND 
+                     SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND 
+                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
+                     foodID = '$foodId' AND
+                     quantity = 0
+                    "
+    $delete_result = mysql_query($delete_query, $dbconnect);
+    if ( !$delete_result ) {
+        die('Invalid Query: ' . mysql_error());
+    }
+    
 
     // Query to Get Eaten Items
     // Copied code from weekley_log.php
