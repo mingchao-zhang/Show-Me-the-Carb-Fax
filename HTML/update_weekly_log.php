@@ -23,8 +23,8 @@
                      WHERE username = '$username' AND 
                      SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND 
                      SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND 
-                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2)
-                           foodID = '$foodId'
+                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
+                     foodID = '$foodId'
                     ";
     $update_result = mysql_query($update_query, $dbconnect);
 
