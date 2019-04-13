@@ -2,6 +2,8 @@ function update_quantity(add, id_and_date) {
     var params = id_and_date.split("&")
     params.push(add.toString())
     console.log(params)
+    var jquery_data_str = "id=" + params[0] + "&date=" + params[1] + "&add=" + params[2]
+    console.log(jquery_data_str)
     /*
     $.ajax({
         cache: false,
