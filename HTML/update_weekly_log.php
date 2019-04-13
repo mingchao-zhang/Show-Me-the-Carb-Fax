@@ -57,6 +57,7 @@
     }
     
     // Close Database Connection
+    mysql_free_result($update_result);
     mysql_free_result($ateResult);
     mysql_close($dbconnect);
 ?>
