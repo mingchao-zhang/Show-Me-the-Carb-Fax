@@ -14,11 +14,11 @@
     $username = $_GET['username'];
     $id = $_GET['id'];
     $date = $_GET['date'];
-    $add = $_GET['add'];
+    $add = intval($_GET['add']);
 
     // update quantity
     $update_query = "UPDATE 
-                     SET quantity = quantity + CONVERT(INT, '$add')
+                     SET quantity = quantity + '$add'
                      FROM ate
                      WHERE username = '$username' AND 
                            date = '$date' AND 
