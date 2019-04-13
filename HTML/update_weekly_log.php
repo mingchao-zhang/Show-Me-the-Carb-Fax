@@ -40,7 +40,8 @@
                      SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
                      foodID = '$foodId' AND
                      quantity = 0
-                    "
+                    ";
+
     $delete_result = mysql_query($delete_query, $dbconnect);
     if ( !$delete_result ) {
         die('Invalid Query: ' . mysql_error());
