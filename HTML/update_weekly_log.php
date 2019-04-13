@@ -25,6 +25,7 @@
                            foodID = '$foodID'
                     ";
     $update_result = mysql_query($update_query, $dbconnect);
+    echo "UPDATTTTT";
     if ( !$update_result ) {
         die('Invalid Query: ' . mysql_error());
     }
