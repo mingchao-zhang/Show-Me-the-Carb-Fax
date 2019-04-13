@@ -6,6 +6,6 @@ function update_quantity(add) {
 }
 
 $(".weekly_log_plus_button").on( "click", function() {
-    update_quantity(false)
+    update_quantity(true)
  }
 );
