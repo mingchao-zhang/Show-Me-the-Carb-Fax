@@ -1,5 +1,5 @@
-function update_quantity(add) {
-    console.log("hello???")
+function update_quantity(add, id) {
+    console.log(id)
     if (add) {
         console.log("increase the quantity by one");
     }
@@ -8,12 +8,12 @@ function update_quantity(add) {
     }
 }
 
-$(".weekly_log_plus_button").on( "click", function() {
-    update_quantity(true)
+$(".weekly_log_plus_button").on( "click", function(event) {
+    update_quantity(true, event.target.id)
  }
 );
 
-$(".weekly_log_minus_button").on( "click", function() {
-    update_quantity(false)
+$(".weekly_log_minus_button").on( "click", function(event) {
+    update_quantity(false, event.target.id)
  }
 );
