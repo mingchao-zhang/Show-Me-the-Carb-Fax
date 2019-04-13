@@ -12,16 +12,16 @@
 
     //get parameters
     $username = $_GET['username'];
-    $id = $_GET['id'];
+    $foodId = $_GET['id'];
     $date = $_GET['date'];
     $add = intval($_GET['add']);
-    echo $username . $id . $date . $add;
+    echo $username . $foodId . $date . $add;
     // update quantity
     $update_query = "UPDATE ate 
                      SET quantity = quantity + $add, date = date
                      WHERE username = '$username' AND 
                      SUBSTRING('2019-04-13', 1, 4) = SUBSTRING('$date', 1, 4) AND 
-                           foodID = '$foodID'
+                           foodID = '$foodId'
                     ";
     $update_result = mysql_query($update_query, $dbconnect);
 
