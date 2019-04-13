@@ -15,7 +15,6 @@
     $foodId = $_GET['id'];
     $date = $_GET['date'];
     $add = intval($_GET['add']);
-    echo $username . $foodId . $date . $add;
     // update quantity
     // date: yyyy-mm-dd
     $update_query = "UPDATE ate 
