@@ -1,4 +1,5 @@
 <?php
+    echo "HELLO???";
     // Database Connection
     $dbconnect = mysql_connect("localhost", "root", "carbfax411");
     if ( !$dbconnect ) {
