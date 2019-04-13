@@ -1,24 +1,7 @@
-function update_quantity(add, id) {
-    /*
-
-        $food_id = $row['ID'];
-        $date = $row['date'];
-        $row_id = $food_id . "&" . $date;
-        id is just $row_id
-    */
-    console.log(id)
-    if (add) {
-        console.log("increase the quantity by one???")
-        id += "&increase=true"
-    }
-    else {
-        console.log("decrease the quantity by one")
-        id += "&increase=false"
-    }
-    var param_arr = id.split("&")
-    console.log(param_arr)
-    //Now id has three attributes: 
-    console.log(id)
+function update_quantity(add, id_and_date) {
+    var params = id_and_date.split("&")
+    params.push(add.toString())
+    console.log(params)
     /*
     $.ajax({
         cache: false,
