@@ -15,6 +15,7 @@
     $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
     $ateResult = mysql_query($queryAte, $dbconnect);
 
+    echo "HELLOOOO???";
     if ( !$ateResult ) {
         die('Invalid Query: ' . mysql_error());
     }
