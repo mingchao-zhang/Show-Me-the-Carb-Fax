@@ -106,7 +106,7 @@
                             <a href="intake.php" class="stretched-link">View Intake</a>
                           </div>
                           <div class="col-auto d-none d-lg-block">
-                            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Intake Image"><title>Intake</title><image href="log.jpg" width="200" height="250"/></svg>
                           </div>
                         </div>
                       </div>
@@ -120,7 +120,7 @@
                             <a href="#" class="stretched-link">View Targets</a>
                           </div>
                           <div class="col-auto d-none d-lg-block">
-                            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Targets Image"><title>Target</title><image href="goals.jpg" width="200" height="250"/></svg>
                           </div>
                         </div>
                       </div>
@@ -136,7 +136,7 @@
                                   <a href="#" class="stretched-link">View Recipes</a>
                                 </div>
                                 <div class="col-auto d-none d-lg-block">
-                                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Recipe Image"><title>Recipe</title><image href="recipe.jpg" width="200" height="250"/></svg>
                                 </div>
                               </div>
                             </div>
@@ -144,13 +144,13 @@
                               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                                 <div class="col p-4 d-flex flex-column position-static">
                                   <strong class="d-inline-block mb-2 text-success">Food Items</strong>
-                                  <h3 class="mb-0">Your recommended raw foods!</h3>
+                                  <h3 class="mb-0">Your recommended foods!</h3>
                                   <div class="mb-1 text-muted">Today</div>
                                   <p class="mb-auto">Individual food items to help you reach your targets.</p>
-                                  <a href="#" class="stretched-link">View Raw Foods</a>
+                                  <a href="#" class="stretched-link">View Food Items</a>
                                 </div>
                                 <div class="col-auto d-none d-lg-block">
-                                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Food Image"><title>Food</title><image href="foods.jpg" width="200" height="250"/></svg>
                                 </div>
                               </div>
                             </div>
