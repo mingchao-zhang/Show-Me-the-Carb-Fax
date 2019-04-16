@@ -102,7 +102,7 @@
                             <strong class="d-inline-block mb-2 text-primary">Macro and Micro Nutrient Profile</strong>
                             <h3 class="mb-0">View your nutrient intake!</h3>
                             <div class="mb-1 text-muted">As of Feb 12</div>
-                            <p class="card-text mb-auto">A history of your nutrient intake for the last 10 days.</p>
+                            <p class="card-text mb-auto">A history of your nutrient intake for the last 7 days.</p>
                             <a href="intake.php" class="stretched-link">View Intake</a>
                           </div>
                           <div class="col-auto d-none d-lg-block">
