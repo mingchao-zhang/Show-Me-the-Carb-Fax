@@ -283,6 +283,8 @@
                   </main><!-- /.container -->
                   <footer class="blog-footer">
                     <p>Copyright &copy; 2019 Team RSMS CS411 Spring 2019 UIUC</p>
+                    <p>Food Data Courtesy of the <a href="https://ndb.nal.usda.gov/ndb">USDA Food Composition Databases</a></p>
+                    <p>Recipe Data Courtesy of <a href="https://www.kaggle.com/hugodarwood/epirecipes">HugoDarwood's Epicurious Recipe Collection</a></p>
                     <p>
                       <a href="<?php echo $_SERVER['PHP_SELF']; ?>">Back to top</a>
                     </p>
