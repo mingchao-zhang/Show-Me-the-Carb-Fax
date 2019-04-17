@@ -99,7 +99,7 @@
 
                 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
                     <div class="col-md-6 px-0">
-                        <h1 class="display-4 font-italic">Your Nutrient Intake</h1>
+                        <h1 class="display-4 font-italic">Your Nutrient Targets</h1>
                     </div>
                 </div>
 
@@ -107,14 +107,14 @@
                     <div class="row mb-2">
                       <div class="col-md-5">
                         <div class="jumbotron">
-                            <h4 class="display-4">This Week's Totals</h4>
+                            <h3 class="h3 mb-3 font-weight-normal">Current Macro Nutrient Targets</h3>
                            
                           </div>
                         </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
                       <!--Live search start-->
-                      <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
+                      <h3 class="h3 mb-3 font-weight-normal">Our Recommended Targets</h3>
                       
                       </div>
                       </div>
@@ -132,18 +132,14 @@
 
                     </div><!-- /.row -->
                     <div class="row mb-2">
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                         <div class="jumbotron">
-                          <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
+                          <h3 class="h3 mb-3 font-weight-normal">Update Your Macro Nutrient Targets</h3>
                           
                           
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="jumbotron">
-                          
-                        </div>
-                      </div>
+                      
                     </div>
 
 
