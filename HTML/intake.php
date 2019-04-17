@@ -201,23 +201,11 @@
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
                             <label for="inputFoodItem">Add Item by ID</label>
-                            <input type="number" id="inputFoodItem" class="form-control" name="addItemID" placeholder="Enter Item ID, Use Search Above" required>
+                            <input type="number" id="inputFoodItem" class="form-control" name="addItemID" placeholder="Enter Item ID, Use Search Above">
                             <label for="inputProductUPC">Add Item by UPC</label>
                             <input type="number" id="inputProductUPC" class="form-control" name="productUPC" placeholder="Product UPC">
                             <label for="inputItemQuantity">Enter Quantity</label>
                             <input type="number" id="inputItemQuantity" class="form-control form-control-sm" name="quantity" placeholder="Quantity" required>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="quantityType" id="grams" value="grams" checked>
-                                <label class="form-check-label" for="grams">Grams</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="quantityType" id="mL" value="volume">
-                                <label class="form-check-label" for="ml">Mililiters</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="quantityType" id="each" value="each">
-                                <label class="form-check-label" for="each">Recipe/Product Quantity</label>
-                            </div>
                             <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Add Item</button>
                         </form>
                       </div>
