@@ -83,7 +83,7 @@
                     <div class="nav-scroller py-1 mb-2">
                       <nav class="nav d-flex justify-content-between">
                         <a class="p-2 text-muted" href="intake.php">Nutrient Intake</a>
-                        <a class="p-2 text-muted" href="#">Nutrient Targets</a>
+                        <a class="p-2 text-muted" href="targets.php">Nutrient Targets</a>
                         <a class="p-2 text-muted" href="#">Recipes</a>
                         <a class="p-2 text-muted" href="#">Food Items</a>
                       </nav>
@@ -101,7 +101,7 @@
                           <div class="col p-4 d-flex flex-column position-static">
                             <strong class="d-inline-block mb-2 text-primary">Macro and Micro Nutrient Profile</strong>
                             <h3 class="mb-0">View your nutrient intake!</h3>
-                            <div class="mb-1 text-muted">As of Feb 12</div>
+                            <div class="mb-1 text-muted">Updated Daily</div>
                             <p class="card-text mb-auto">A history of your nutrient intake for the last 7 days.</p>
                             <a href="intake.php" class="stretched-link">View Intake</a>
                           </div>
@@ -117,7 +117,7 @@
                             <h3 class="mb-0">View your current nutrient targets!</h3>
                             <div class="mb-1 text-muted">Macro and Micro Nutrients</div>
                             <p class="mb-auto">As determined by your profile and FDA recommendations.</p>
-                            <a href="#" class="stretched-link">View Targets</a>
+                            <a href="targets.php" class="stretched-link">View Targets</a>
                           </div>
                           <div class="col-auto d-none d-lg-block">
                             <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Targets Image"><title>Target</title><image href="goals.jpg" width="200" height="250"/></svg>
@@ -131,7 +131,7 @@
                                 <div class="col p-4 d-flex flex-column position-static">
                                   <strong class="d-inline-block mb-2 text-success">Recipes</strong>
                                   <h3 class="mb-0">Your recommended recipes!</h3>
-                                  <div class="mb-1 text-muted">Today</div>
+                                  <div class="mb-1 text-muted">Updated Daily</div>
                                   <p class="card-text mb-auto">Delicious recipes to help you reach your targets.</p>
                                   <a href="#" class="stretched-link">View Recipes</a>
                                 </div>
@@ -143,11 +143,11 @@
                             <div class="col-md-6">
                               <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                                 <div class="col p-4 d-flex flex-column position-static">
-                                  <strong class="d-inline-block mb-2 text-success">Food Items</strong>
-                                  <h3 class="mb-0">Your recommended foods!</h3>
-                                  <div class="mb-1 text-muted">Today</div>
-                                  <p class="mb-auto">Individual food items to help you reach your targets.</p>
-                                  <a href="#" class="stretched-link">View Food Items</a>
+                                  <strong class="d-inline-block mb-2 text-success">Create Recipes</strong>
+                                  <h3 class="mb-0">Create a new recipe!</h3>
+                                  <div class="mb-1 text-muted">Create and Share</div>
+                                  <p class="mb-auto">Add a new recipe to our database to grow our digital cookbook.</p>
+                                  <a href="#" class="stretched-link">Create a Recipe</a>
                                 </div>
                                 <div class="col-auto d-none d-lg-block">
                                   <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Food Image"><title>Food</title><image href="foods.jpg" width="200" height="250"/></svg>
