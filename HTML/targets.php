@@ -100,7 +100,15 @@
                 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
                     <div class="col-md-6 px-0">
                         <h1 class="display-4 font-italic">Your Nutrient Targets</h1>
-                        <div class="list-group">
+                    </div>
+                </div>
+
+                <main role="main" class="container">
+                    <div class="row mb-2">
+                      <div class="col-md-5">
+                        <div class="jumbotron">
+                            <h3 class="h3 mb-3 font-weight-normal">Current Macro Nutrient Targets</h3>
+                            <div class="list-group">
                             <?php
                                  // Database Connection
                                 $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
@@ -127,16 +135,7 @@
                                 mysql_free_result($result);
                                 mysql_close($dbconnect);
                             ?>
-                        </div>
-                    </div>
-                </div>
-
-                <main role="main" class="container">
-                    <div class="row mb-2">
-                      <div class="col-md-5">
-                        <div class="jumbotron">
-                            <h3 class="h3 mb-3 font-weight-normal">Current Macro Nutrient Targets</h3>
-                           
+                            </div>
                           </div>
                         </div>
                       <div class="col-md-5">
