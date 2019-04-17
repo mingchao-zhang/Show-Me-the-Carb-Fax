@@ -140,8 +140,13 @@
                         </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
-                      <!--Live search start-->
-                      <h3 class="h3 mb-3 font-weight-normal">Our Recommended Targets</h3>
+                        <h3 class="h3 mb-3 font-weight-normal">Our Recommended Targets</h3>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">Calories</a>
+                            <a href="#" class="list-group-item list-group-item-action">Protein</a>
+                            <a href="#" class="list-group-item list-group-item-action">Carbohydrate</a>
+                            <a href="#" class="list-group-item list-group-item-action">Fat</a>
+                        </div>
                       
                       </div>
                       </div>
