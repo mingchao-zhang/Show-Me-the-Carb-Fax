@@ -2,6 +2,38 @@
     session_start();
     $username = $_SESSION['username'];
     $name = $_SESSION['name'];
+    // Database Connection
+    $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+    if(!$dbconnect){
+        die('Cannot connect: ' . mysql_error());
+    }
+
+    $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+    if(!$db_selected){
+        die('Cant use database: ' . mysql_error());
+    }
+
+    $query = "SELECT age, height, weight FROM users WHERE username = '$username'";
+    $result = mysql_query($query, $dbconnect);
+
+    if(!$result){
+      die('Invalid Query: ' . mysql_error());
+    }
+
+    $row = mysql_fetch_assoc($result);
+    $age = $row['age'];
+    $height_cms = $row['height'] * 2.54;
+    $weight_kgs = $row['weight'] * 0.453592;
+    $cals_recmnd = (10 * $weight_kgs) + (6.25 * $height_cms) - (5 * $age) + 5;
+    $carbs_recmnd = $cals_recmnd / 50 / 4;
+    $prot_recmnd = $cals_recmnd / 25/ 4;
+    $fat_recmnd = $cals_recmnd/ 25 / 9;
+
+     // Close Database Connection
+     mysql_free_result($result);
+     mysql_close($dbconnect);
+
     if(isset($_POST['update'])){
 
          // Database Connection
@@ -107,7 +139,7 @@
                     <div class="row mb-2">
                       <div class="col-md-5">
                         <div class="jumbotron">
-                            <h3 class="h3 mb-3 font-weight-normal">Current Macro Nutrient Targets</h3>
+                            <h3 class="h3 mb-3 font-weight-normal">Current Macro Nutrient Daily Targets</h3>
                             <div class="list-group">
                             <?php
                                  // Database Connection
@@ -140,12 +172,12 @@
                         </div>
                       <div class="col-md-5">
                       <div class="jumbotron">
-                        <h3 class="h3 mb-3 font-weight-normal">Our Recommended Targets</h3>
+                        <h3 class="h3 mb-3 font-weight-normal">Our Recommended Daily Targets</h3>
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">Calories</a>
-                            <a href="#" class="list-group-item list-group-item-action">Protein</a>
-                            <a href="#" class="list-group-item list-group-item-action">Carbohydrate</a>
-                            <a href="#" class="list-group-item list-group-item-action">Fat</a>
+                            <a href="#" class="list-group-item list-group-item-action">Calories: <?php echo "$cals_recmnd"; ?> </a>
+                            <a href="#" class="list-group-item list-group-item-action">Protein: <?php echo "$prot_recmnd"; ?> </a>
+                            <a href="#" class="list-group-item list-group-item-action">Carbohydrate: <?php echo "$carbs_recmnd"; ?> </a>
+                            <a href="#" class="list-group-item list-group-item-action">Fat: <?php echo "$fat_recmnd"; ?> </a>
                         </div>
                       
                       </div>
