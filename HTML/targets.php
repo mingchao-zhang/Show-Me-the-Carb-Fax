@@ -52,7 +52,7 @@
           die('Cant use database: ' . mysql_error());
       }
 
-      $query = "UPDATE users SET calorie_target = '$new_cals', carb_target = '$new_cals', protein_target = '$new_protein',
+      $query = "UPDATE users SET calorie_target = '$new_cals', carb_target = '$new_carbs', protein_target = '$new_protein',
                 fat_target = '$new_fat' WHERE username = '$username'";
       
       $result = mysql_query($query, $dbconnect);
