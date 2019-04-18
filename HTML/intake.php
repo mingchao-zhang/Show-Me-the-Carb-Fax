@@ -135,9 +135,9 @@
                 <div class="nav-scroller py-1 mb-2">
                     <nav class="nav d-flex justify-content-between">
                         <a class="p-2 text-muted" href="intake.php">Nutrient Intake</a>
-                        <a class="p-2 text-muted" href="#">Nutrient Targets</a>
-                        <a class="p-2 text-muted" href="#">Recipes</a>
-                        <a class="p-2 text-muted" href="#">Food Items</a>
+                        <a class="p-2 text-muted" href="targets.php">Nutrient Targets</a>
+                        <a class="p-2 text-muted" href="recipes.php">Recipes</a>
+                        <a class="p-2 text-muted" href="createrecipe.php">Create a Recipe</a>
                     </nav>
                 </div>
 

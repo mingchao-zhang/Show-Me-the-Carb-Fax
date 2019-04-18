@@ -84,8 +84,8 @@
                       <nav class="nav d-flex justify-content-between">
                         <a class="p-2 text-muted" href="intake.php">Nutrient Intake</a>
                         <a class="p-2 text-muted" href="targets.php">Nutrient Targets</a>
-                        <a class="p-2 text-muted" href="#">Recipes</a>
-                        <a class="p-2 text-muted" href="#">Food Items</a>
+                        <a class="p-2 text-muted" href="recipes.php">Recipes</a>
+                        <a class="p-2 text-muted" href="createrecipe.php">Create a Recipe</a>
                       </nav>
                     </div>
                   
@@ -133,7 +133,7 @@
                                   <h3 class="mb-0">Your recommended recipes!</h3>
                                   <div class="mb-1 text-muted">Updated Daily</div>
                                   <p class="card-text mb-auto">Delicious recipes to help you reach your targets.</p>
-                                  <a href="#" class="stretched-link">View Recipes</a>
+                                  <a href="recipes.php" class="stretched-link">View Recipes</a>
                                 </div>
                                 <div class="col-auto d-none d-lg-block">
                                   <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Recipe Image"><title>Recipe</title><image href="recipe.jpg" width="200" height="250"/></svg>
@@ -147,7 +147,7 @@
                                   <h3 class="mb-0">Create a new recipe!</h3>
                                   <div class="mb-1 text-muted">Create and Share</div>
                                   <p class="mb-auto">Add a new recipe to our database to grow our digital cookbook.</p>
-                                  <a href="#" class="stretched-link">Create a Recipe</a>
+                                  <a href="createrecipe.php" class="stretched-link">Create a Recipe</a>
                                 </div>
                                 <div class="col-auto d-none d-lg-block">
                                   <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Food Image"><title>Food</title><image href="foods.jpg" width="200" height="250"/></svg>

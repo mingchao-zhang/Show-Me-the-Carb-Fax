@@ -42,7 +42,7 @@
     <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     -->
-    <title>Nutrient Targets</title>
+    <title>Create a Recipe</title>
     <style>
        .bd-placeholder-img {
         font-size: 1.125rem;
@@ -99,57 +99,19 @@
 
                 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
                     <div class="col-md-6 px-0">
-                        <h1 class="display-4 font-italic">Your Nutrient Targets</h1>
+                        <h1 class="display-4 font-italic">Create a Recipe</h1>
                     </div>
                 </div>
 
                 <main role="main" class="container">
                     <div class="row mb-2">
-                      <div class="col-md-5">
+                      <div class="col-md-10">
                         <div class="jumbotron">
-                            <h3 class="h3 mb-3 font-weight-normal">Current Macro Nutrient Targets</h3>
-                            <div class="list-group">
-                            <?php
-                                 // Database Connection
-                                $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
-                                if(!$dbconnect){
-                                    die('Cannot connect: ' . mysql_error());
-                                }
-                                $db_selected = mysql_select_db("411_project_db", $dbconnect);
-                                if(!$db_selected){
-                                    die('Cant use database: ' . mysql_error());
-                                }
-                                $query = "SELECT calorie_target, carb_target, fat_target, protein_target FROM users WHERE username = '$username'";
-                                $result = mysql_query($query, $dbconnect);
-                                if(!$result){
-                                    die('Invalid Query: ' . mysql_error());
-                                }
-                                $row = mysql_fetch_assoc($result);
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calorie Target:   " . $row['calorie_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein Target:   " . $row['protein_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate Target:   " . $row['carb_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat Target:   " . $row['fat_target'] . "</a>";
-                                
-
-                                 // Close Database Connection
-                                mysql_free_result($result);
-                                mysql_close($dbconnect);
-                            ?>
-                            </div>
+                            <h3 class="h3 mb-3 font-weight-normal">Recipe Creation Form</h3>
+                            
                           </div>
                         </div>
-                      <div class="col-md-5">
-                      <div class="jumbotron">
-                        <h3 class="h3 mb-3 font-weight-normal">Our Recommended Targets</h3>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">Calories</a>
-                            <a href="#" class="list-group-item list-group-item-action">Protein</a>
-                            <a href="#" class="list-group-item list-group-item-action">Carbohydrate</a>
-                            <a href="#" class="list-group-item list-group-item-action">Fat</a>
-                        </div>
                       
-                      </div>
-                      </div>
 
                       <aside class="col-md-2 blog-sidebar">
                         <div class="p-4">
@@ -163,18 +125,7 @@
                       </aside>
 
                     </div><!-- /.row -->
-                    <div class="row mb-2">
-                      <div class="col-md-12">
-                        <div class="jumbotron">
-                          <h3 class="h3 mb-3 font-weight-normal">Update Your Macro Nutrient Targets</h3>
-                          
-                          
-                        </div>
-                      </div>
-                      
-                    </div>
-
-
+                   
                   </main><!-- /.container -->
                   <footer class="blog-footer">
                     <p>Copyright &copy; 2019 Team RSMS CS411 Spring 2019 UIUC</p>
