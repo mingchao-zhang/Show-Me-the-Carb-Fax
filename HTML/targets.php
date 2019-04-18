@@ -210,7 +210,6 @@
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Update Your Macro Nutrient Targets</h3>
                           <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                            <h3 class="h3 mb-3 font-weight-normal">Update Your Profile</h3>
                             <label for="inputCalories">New Daily Calorie Target</label>
                             <input type="number" id="inputCalories" class="form-control form-control-sm" name="calories" placeholder="Number of Calories" required>
                             <label for="inputProtein">New Daily Protein Target</label>
