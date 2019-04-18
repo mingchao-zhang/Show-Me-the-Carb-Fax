@@ -35,25 +35,35 @@
      mysql_close($dbconnect);
 
     if(isset($_POST['update'])){
+      $new_cals = $_POST['calories'];
+      $new_protein = $_POST['protein'];
+      $new_carbs = $_POST['carbs'];
+      $new_fat = $_POST['fat'];
 
-         // Database Connection
-        $dbconnect = mysql_connect("localhost", "root", "carbfax411");
-        if(!$dbconnect){
-            die('Cannot connect: ' . mysql_error());
-        }
+      // Database Connection
+      $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+      if(!$dbconnect){
+          die('Cannot connect: ' . mysql_error());
+      }
 
-        $db_selected = mysql_select_db("411_project_db", $dbconnect);
+      $db_selected = mysql_select_db("411_project_db", $dbconnect);
 
-        if(!$db_selected){
-            die('Cant use database: ' . mysql_error());
-        }
+      if(!$db_selected){
+          die('Cant use database: ' . mysql_error());
+      }
 
-        
+      $query = "UPDATE users SET calorie_target = '$new_cals', carb_target = '$new_cals', protein_target = '$new_protein',
+                fat_target = '$new_fat' WHERE username = '$username'";
+      
+      $result = mysql_query($query, $dbconnect);
 
+      if(!$result){
+        die('Invalid Query: ' . mysql_error());
+      }
 
-        // Close Database Connection
-        mysql_free_result($result);
-        mysql_close($dbconnect);
+      // Close Database Connection
+      mysql_free_result($result);
+      mysql_close($dbconnect);
     }
 
     
@@ -199,7 +209,18 @@
                       <div class="col-md-12">
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Update Your Macro Nutrient Targets</h3>
-                          
+                          <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                            <h3 class="h3 mb-3 font-weight-normal">Update Your Profile</h3>
+                            <label for="inputCalories">New Daily Calorie Target</label>
+                            <input type="number" id="inputCalories" class="form-control form-control-sm" name="calories" placeholder="Number of Calories" required>
+                            <label for="inputProtein">New Daily Protein Target</label>
+                            <input type="number" id="inputProtein" class="form-control form-control-sm" name="protein" placeholder="Grams of Protein" required>
+                            <label for="inputCarbs">New Daily Carbohydrate Target</label>
+                            <input type="number" id="inputCarbs" class="form-control form-control-sm" name="carbs" placeholder="Grams of Carbohydrates" required>
+                            <label for="inputFat">New Daily Fat Target</label>
+                            <input type="number" id="inputFat" class="form-control form-control-sm" name="fat" placeholder="Grams of Fat" required>
+                            <button name="update" class="btn btn-sm btn-primary btn-block" type="submit">Update Targets</button>
+                        </form>
                           
                         </div>
                       </div>
