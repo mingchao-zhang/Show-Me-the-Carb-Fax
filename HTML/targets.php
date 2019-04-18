@@ -26,9 +26,9 @@
     $height_cms = $row['height'] * 2.54;
     $weight_kgs = $row['weight'] * 0.453592;
     $cals_recmnd = (10 * $weight_kgs) + (6.25 * $height_cms) - (5 * $age) + 5;
-    $carbs_recmnd = $cals_recmnd / 50 / 4;
-    $prot_recmnd = $cals_recmnd / 25/ 4;
-    $fat_recmnd = $cals_recmnd/ 25 / 9;
+    $carbs_recmnd = ceil($cals_recmnd * 0.5 / 4);
+    $prot_recmnd = ceil($cals_recmnd * 0.25 / 4);
+    $fat_recmnd = ceil($cals_recmnd * 0.25 / 9);
 
      // Close Database Connection
      mysql_free_result($result);
