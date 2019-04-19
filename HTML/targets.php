@@ -179,6 +179,25 @@
                                 mysql_free_result($result);
                                 mysql_close($dbconnect);
                             ?>
+                            <a href="#" class="list-group-item list-group-item-action">Sugars: Less than 35 g</a>
+                            <a href="#" class="list-group-item list-group-item-action">Dietary Fiber: 29 g</a>
+                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: Less than 300 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Sodium: 2300 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Calcium: 1000 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 1.3 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 2.4 &#181g </a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin C: 85 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin D: 600 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin E: 15 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Niacin: 15 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Thiamin: 1.2 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Iron: 13 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Magnesium: 360 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Phosphorus: 700 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Potassium: 4700 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Riboflavin: 1.2 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Zinc: 9.5 mg</a>
                             </div>
                           </div>
                         </div>
@@ -186,29 +205,25 @@
                       <div class="jumbotron">
                         <h3 class="h3 mb-3 font-weight-normal">Our Recommended Daily Targets</h3>
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">Calories: <?php echo "$cals_recmnd"; ?> </a>
-                            <a href="#" class="list-group-item list-group-item-action">Protein: <?php echo "$prot_recmnd"; ?> g </a>
-                            <a href="#" class="list-group-item list-group-item-action">Carbohydrate: <?php echo "$carbs_recmnd"; ?> g </a>
-                            <a href="#" class="list-group-item list-group-item-action">Fat: <?php echo "$fat_recmnd"; ?> g </a>
-                            <a href="#" class="list-group-item list-group-item-action">Sugars: Less than 35g</a>
-                            <a href="#" class="list-group-item list-group-item-action">Dietary Fiber: 29g</a>
-                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: Less than 300mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Sodium: 2300mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Calcium: 1000mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 1.3mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Sugars: 35 g</a>
+                            <a href="#" class="list-group-item list-group-item-action">Dietary Fiber: 29 g</a>
+                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: 300 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Sodium: 2300 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Calcium: 1000 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 1.3 mg</a>
                             <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 2.4 &#181g </a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
-                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin C: 85 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin D: 600 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin E: 15 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Niacin: 15 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Thiamin: 1.2 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Iron: 13 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Magnesium: 360 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Phosphorus: 700 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Potassium: 4700 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Riboflavin: 1.2 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Zinc: 9.5 mg</a>
                         </div>
                       
                       </div>
