@@ -1,3 +1,4 @@
+
 function query_db($dbconnect,$db_name,$regex)
 {
     $query = "(SELECT foodId, name FROM '$db_name' WHERE name LIKE \"$regex\" GROUP BY LENGTH(name) LIMIT 5)";

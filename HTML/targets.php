@@ -206,7 +206,40 @@
 
                     </div><!-- /.row -->
                     <div class="row mb-2">
-                      <div class="col-md-12">
+                      <div class="col-md-6">
+                        <div class="jumbotron">
+                            <h3 class="h3 mb-3 font-weight-normal">Current Macro Nutrient Daily Targets</h3>
+                            <div class="list-group">
+                            <?php
+                                 // Database Connection
+                                $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
+                                if(!$dbconnect){
+                                    die('Cannot connect: ' . mysql_error());
+                                }
+                                $db_selected = mysql_select_db("411_project_db", $dbconnect);
+                                if(!$db_selected){
+                                    die('Cant use database: ' . mysql_error());
+                                }
+                                $query = "SELECT calorie_target, carb_target, fat_target, protein_target FROM users WHERE username = '$username'";
+                                $result = mysql_query($query, $dbconnect);
+                                if(!$result){
+                                    die('Invalid Query: ' . mysql_error());
+                                }
+                                $row = mysql_fetch_assoc($result);
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calorie Target:   " . $row['calorie_target'] . "</a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein Target:   " . $row['protein_target'] . "</a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate Target:   " . $row['carb_target'] . "</a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat Target:   " . $row['fat_target'] . "</a>";
+                                
+
+                                 // Close Database Connection
+                                mysql_free_result($result);
+                                mysql_close($dbconnect);
+                            ?>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Update Your Macro Nutrient Targets</h3>
                           <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
