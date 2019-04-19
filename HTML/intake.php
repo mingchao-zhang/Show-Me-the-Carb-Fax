@@ -30,6 +30,26 @@
           }
         }
         elseif(isset($_POST['productUPC'])){
+          $upc = $_POST['productUPC'];
+          $quantity = $_POST['quantity'];
+
+          $query1 = "SELECT foodID FROM products WHERE upc = '$upc'";
+          
+          $result = mysql_query($query1, $dbconnect);
+
+          if(!$result){
+            die("Invalid Query: " . mysql_error());
+          }
+          $row = mysql_fetch_assoc($result);
+          $newItemID = $row['foodID']
+
+          $query2 = "INSERT INTO ate(username, foodID, quantity) VALUES ('$username', '$newItemID', '$quantity')";
+
+          $result = mysql_query($query2, $dbconnect);
+
+          if(!$result){
+            die("Invalid Query: " . mysql_error());
+          }
 
         }
 
