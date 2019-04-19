@@ -209,7 +209,7 @@
                       </div>		
                       <!--Live search end-->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                            <h3 class="h3 mb-3 font-weight-normal">Add An Item</h3>
+                            <h3 class="h3 mb-3 font-weight-normal">Add An Item to Your Food Log</h3>
                             <label for="inputFoodItem">Add Item by ID</label>
                             <input type="number" id="inputFoodItem" class="form-control" name="addItemID" placeholder="Enter Item ID, Use Search Above">
                             <label for="inputProductUPC">Add Item by UPC</label>
