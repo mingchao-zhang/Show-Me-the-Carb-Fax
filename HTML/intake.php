@@ -17,7 +17,7 @@
         }
 
         // Add query to add food item HERE
-        if(isset($_POST['addItemID'])){
+        if($_POST['addItemID'] != '' ){
           $newItemID = $_POST['addItemID'];
           $quantity = $_POST['quantity'];
 
@@ -29,7 +29,7 @@
             die("Invalid Query: " . mysql_error());
           }
         }
-        elseif(isset($_POST['productUPC'])){
+        elseif($_POST['productUPC'] != ''){
           $upc = $_POST['productUPC'];
           $quantity = $_POST['quantity'];
 
@@ -42,13 +42,12 @@
           }
           $row = mysql_fetch_assoc($result);
           $newItemID = $row['foodID'];
-          echo "$newItemID";
 
           $query2 = "INSERT INTO ate(username, foodID, quantity) VALUES ('$username', '$newItemID', '$quantity')";
 
-          $result = mysql_query($query2, $dbconnect);
+          $result2 = mysql_query($query2, $dbconnect);
 
-          if(!$result){
+          if(!$result2){
             die("Invalid Query: " . mysql_error());
           }
 
@@ -57,6 +56,7 @@
 
         // Close Database Connection
         mysql_free_result($result);
+        mysql_free_result($result2)
         mysql_close($dbconnect);
     }
 
