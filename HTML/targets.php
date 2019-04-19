@@ -179,9 +179,9 @@
                                 mysql_free_result($result);
                                 mysql_close($dbconnect);
                             ?>
-                            <a href="#" class="list-group-item list-group-item-action">Sugars: Less than 35 g</a>
+                            <a href="#" class="list-group-item list-group-item-action">Sugars: 35 g</a>
                             <a href="#" class="list-group-item list-group-item-action">Dietary Fiber: 29 g</a>
-                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: Less than 300 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: 300 mg</a>
                             <a href="#" class="list-group-item list-group-item-action">Sodium: 2300 mg</a>
                             <a href="#" class="list-group-item list-group-item-action">Calcium: 1000 mg</a>
                             <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800 mg</a>
@@ -205,9 +205,13 @@
                       <div class="jumbotron">
                         <h3 class="h3 mb-3 font-weight-normal">Our Recommended Daily Targets</h3>
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">Sugars: 35 g</a>
+                            <a href="#" class="list-group-item list-group-item-action">Calories: <?php echo "$cals_recmnd"; ?> </a>
+                            <a href="#" class="list-group-item list-group-item-action">Protein: <?php echo "$prot_recmnd"; ?> g </a>
+                            <a href="#" class="list-group-item list-group-item-action">Carbohydrate: <?php echo "$carbs_recmnd"; ?> g </a>
+                            <a href="#" class="list-group-item list-group-item-action">Fat: <?php echo "$fat_recmnd"; ?> g </a>
+                            <a href="#" class="list-group-item list-group-item-action">Sugars: Less than 35 g</a>
                             <a href="#" class="list-group-item list-group-item-action">Dietary Fiber: 29 g</a>
-                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: 300 mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: Less than 300 mg</a>
                             <a href="#" class="list-group-item list-group-item-action">Sodium: 2300 mg</a>
                             <a href="#" class="list-group-item list-group-item-action">Calcium: 1000 mg</a>
                             <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800 mg</a>
