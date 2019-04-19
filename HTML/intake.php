@@ -41,7 +41,7 @@
             die("Invalid Query: " . mysql_error());
           }
           $row = mysql_fetch_assoc($result);
-          $newItemID = $row['foodID']
+          $newItemID = $row['foodID'];
 
           $query2 = "INSERT INTO ate(username, foodID, quantity) VALUES ('$username', '$newItemID', '$quantity')";
 
