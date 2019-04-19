@@ -42,6 +42,7 @@
           }
           $row = mysql_fetch_assoc($result);
           $newItemID = $row['foodID'];
+          echo "$newItemID";
 
           $query2 = "INSERT INTO ate(username, foodID, quantity) VALUES ('$username', '$newItemID', '$quantity')";
 
