@@ -153,19 +153,29 @@
                         <div class="jumbotron">
                             <h4 class="display-4">This Week's Totals</h4>
                             <div class="list-group">
-                              <a href="#" class="list-group-item list-group-item-action">Calories: 50000</a>
-                              <a href="#" class="list-group-item list-group-item-action">Protein: 800</a>
-                              <a href="#" class="list-group-item list-group-item-action">Carbohydrates: 550</a>
-                              <a href="#" class="list-group-item list-group-item-action">Fat: 85</a>
-                              <a href="#" class="list-group-item list-group-item-action">Calcium: 500</a>
-                              <a href="#" class="list-group-item list-group-item-action">Sodium: 550</a>
-                              <a href="#" class="list-group-item list-group-item-action">Cholesterol: 120</a>
-                              <a href="#" class="list-group-item list-group-item-action">Vitamin A: 440</a>
-                              <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 400</a>
-                              <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 300</a>
-                              <a href="#" class="list-group-item list-group-item-action">Vitamin C: 600</a>
-                              <a href="#" class="list-group-item list-group-item-action">Vitamin D: 300</a>
-                              <a href="#" class="list-group-item list-group-item-action">Vitamin E: 600</a>
+                              <a href="#" class="list-group-item list-group-item-action">Calories: 50000 </a>
+                              <a href="#" class="list-group-item list-group-item-action">Protein: 4000 g </a>
+                              <a href="#" class="list-group-item list-group-item-action">Carbohydrate: 5000 g </a>
+                              <a href="#" class="list-group-item list-group-item-action">Fat: 500 g </a>
+                              <a href="#" class="list-group-item list-group-item-action">Sugars:  35 g</a>
+                              <a href="#" class="list-group-item list-group-item-action">Dietary Fiber: 29 g</a>
+                              <a href="#" class="list-group-item list-group-item-action">Cholesterol: 300 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Sodium: 2300 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Calcium: 1000 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 1.3 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 2.4 &#181g </a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin C: 85 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin D: 600 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Vitamin E: 15 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Niacin: 15 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Thiamin: 1.2 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Iron: 13 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Magnesium: 360 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Phosphorus: 700 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Potassium: 4700 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Riboflavin: 1.2 mg</a>
+                              <a href="#" class="list-group-item list-group-item-action">Zinc: 9.5 mg</a>
                               <?php
                                  // Database Connection
                                 $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
