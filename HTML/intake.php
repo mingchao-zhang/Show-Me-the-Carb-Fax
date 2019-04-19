@@ -16,7 +16,7 @@
             die('Cant use database: ' . mysql_error());
         }
 
-        // Add query to add food item HERE
+        // add food item by ID
         if($_POST['addItemID'] != '' ){
           $newItemID = $_POST['addItemID'];
           $quantity = $_POST['quantity'];
@@ -29,6 +29,7 @@
             die("Invalid Query: " . mysql_error());
           }
         }
+        // Add product by UPC
         elseif($_POST['productUPC'] != ''){
           $upc = $_POST['productUPC'];
           $quantity = $_POST['quantity'];
@@ -52,7 +53,6 @@
           }
 
         }
-
 
         // Close Database Connection
         mysql_free_result($result);
