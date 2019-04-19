@@ -173,6 +173,7 @@
                       <div class="col-md-5">
                         <div class="jumbotron">
                             <h4 class="display-4">This Week's Totals</h4>
+                            <div class="col-md-3">
                             <div class="list-group">
                               <a href="#" class="list-group-item list-group-item-action">Calories: 50000 </a>
                               <a href="#" class="list-group-item list-group-item-action">Protein: 4000 g </a>
@@ -186,6 +187,10 @@
                               <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800 mg</a>
                               <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 1.3 mg</a>
                               <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 2.4 &#181g </a>
+                            </div>
+                            </div>
+                            <div class="col-md-2">
+                            <div class="list-group">
                               <a href="#" class="list-group-item list-group-item-action">Vitamin C: 85 mg</a>
                               <a href="#" class="list-group-item list-group-item-action">Vitamin D: 600 mg</a>
                               <a href="#" class="list-group-item list-group-item-action">Vitamin E: 15 mg</a>
