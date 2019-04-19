@@ -149,7 +149,7 @@
                     <div class="row mb-2">
                       <div class="col-md-5">
                         <div class="jumbotron">
-                            <h3 class="h3 mb-3 font-weight-normal">Current Macro Nutrient Daily Targets</h3>
+                            <h3 class="h3 mb-3 font-weight-normal">Your Average Daily Nutrient Intake</h3>
                             <div class="list-group">
                             <?php
                                  // Database Connection
@@ -161,6 +161,8 @@
                                 if(!$db_selected){
                                     die('Cant use database: ' . mysql_error());
                                 }
+
+                                // TODO: Get nutrient aggregates
                                 $query = "SELECT calorie_target, carb_target, fat_target, protein_target FROM users WHERE username = '$username'";
                                 $result = mysql_query($query, $dbconnect);
                                 if(!$result){
@@ -185,9 +187,28 @@
                         <h3 class="h3 mb-3 font-weight-normal">Our Recommended Daily Targets</h3>
                         <div class="list-group">
                             <a href="#" class="list-group-item list-group-item-action">Calories: <?php echo "$cals_recmnd"; ?> </a>
-                            <a href="#" class="list-group-item list-group-item-action">Protein: <?php echo "$prot_recmnd"; ?> </a>
-                            <a href="#" class="list-group-item list-group-item-action">Carbohydrate: <?php echo "$carbs_recmnd"; ?> </a>
-                            <a href="#" class="list-group-item list-group-item-action">Fat: <?php echo "$fat_recmnd"; ?> </a>
+                            <a href="#" class="list-group-item list-group-item-action">Protein: <?php echo "$prot_recmnd"; ?> g </a>
+                            <a href="#" class="list-group-item list-group-item-action">Carbohydrate: <?php echo "$carbs_recmnd"; ?> g </a>
+                            <a href="#" class="list-group-item list-group-item-action">Fat: <?php echo "$fat_recmnd"; ?> g </a>
+                            <a href="#" class="list-group-item list-group-item-action">Sugars: Less than 35g</a>
+                            <a href="#" class="list-group-item list-group-item-action">Dietary Fiber: 29g</a>
+                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: Less than 300mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Sodium: 2300mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Calcium: 1000mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 1.3mg</a>
+                            <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 2.4 &#181g </a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="#" class="list-group-item list-group-item-action"></a>
                         </div>
                       
                       </div>
