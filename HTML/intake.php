@@ -170,7 +170,7 @@
 
                 <main role="main" class="container">
                     <div class="row mb-2">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         <div class="jumbotron">
                             <h4 class="display-4">This Week's Totals</h4>
                             <div class="list-group">
@@ -218,7 +218,7 @@
                             </div>
                           </div>
                         </div>
-                      <div class="col-md-4">
+                      <div class="col-md-5">
                       <div class="jumbotron">
                       <!--Live search start-->
                       <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
