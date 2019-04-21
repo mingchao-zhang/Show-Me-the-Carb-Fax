@@ -26,6 +26,9 @@
 
     
 ?>
+
+<!-- ***** -->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -105,13 +108,19 @@
 
                 <main role="main" class="container">
                     <div class="row mb-2">
+                      <!-- form begin -->
+                      111
                       <div class="col-md-10">
+                      222
                         <div class="jumbotron">
+                        333
                             <h3 class="h3 mb-3 font-weight-normal">Recipe Creation Form</h3>
+                            444
                     Hello, world        
-                          </div>
                         </div>
-                      
+                      </div>
+                      555
+                      <!-- form end -->
 
                       <aside class="col-md-2 blog-sidebar">
                         <div class="p-4">
