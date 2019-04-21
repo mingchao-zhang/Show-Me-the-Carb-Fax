@@ -16,15 +16,10 @@
             die('Cant use database: ' . mysql_error());
         }
 
-        
-
-
         // Close Database Connection
         mysql_free_result($result);
         mysql_close($dbconnect);
     }
-
-    
 ?>
 
 <!-- ***** -->
@@ -111,10 +106,14 @@
                       <div class="col-md-10">
                         <div class="jumbotron">
                       <!-- form begin -->
-                        333
-                            <h3 class="h3 mb-3 font-weight-normal">Recipe Creation Form</h3>
-                            444
-                    Hello, world        
+                      <div id="recipe_form_container">
+                        <div id="recipe_info_box">
+                            recipe_info_box
+                        </div>
+                        <div id="added_item_box">
+                            added_item_box
+                        </div>
+                      </div>
                       <!-- form end -->
                         </div>
                       </div>
