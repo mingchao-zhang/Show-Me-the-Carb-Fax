@@ -8,6 +8,7 @@
     width: 50%;
     height: 100%;
     display: flex;
+    flex-direction: row;
     justify_content: center;
     align-items: flex-start;
     border-radius: 5px;
@@ -21,6 +22,7 @@
     width: 50%;
     height: 100%;
     display: flex;
+    flex-direction: row;
     justify_content: center;
     align-items: flex-start;
     border-radius: 5px;
