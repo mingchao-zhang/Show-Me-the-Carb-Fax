@@ -9,7 +9,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify_content: center;
+    justify-content: center;
     align-items: flex-start;
     border-radius: 5px;
     border-width: 2px;
@@ -23,7 +23,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify_content: center;
+    justify-content: center;
     align-items: flex-start;
     border-radius: 5px;
     border-width: 2px;
@@ -49,7 +49,7 @@
     height: 50px;
     display: flex;
     flex-direction: row;
-    justify_content: center;
+    justify-content: center;
     align-items: center;
     color: black;
     margin: 0px;
