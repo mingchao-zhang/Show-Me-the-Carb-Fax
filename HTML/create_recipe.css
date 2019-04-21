@@ -5,8 +5,12 @@
 }
 
 #recipe_info_box {
+    width: 50%;
     height: 100%;
-    border-radius: 35px;
+    display: flex;
+    justify_content: center;
+    aligh-items: flex-start;
+    border-radius: 5px;
     border-width: 2px;
     color: red;
     border: solid;
@@ -14,12 +18,17 @@
 }
 
 #added_item_box {
+    width: 50%;
     height: 100%;
-    border-radius: 35px;
+    display: flex;
+    justify_content: center;
+    aligh-items: flex-start;
+    border-radius: 5px;
     border-width: 2px;
     color: blue;
     border: solid;
     margin: 5px;
+
 }
 
 
