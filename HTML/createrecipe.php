@@ -108,6 +108,15 @@
                       <!-- form begin -->
                       <div id="recipe_form_container">
                         <div id="recipe_info_box">
+                      <!--Live search start-->
+                      <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
+                      <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>    
+                      <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
+                      <input type="text" id="food_search" placeholder="Enter Item Name">
+                      <div id="display_item_container">
+                        <div id="food_suggestion"></div>
+                      </div>            
+                      <!--Live search end-->
                             <p>recipe_info_box</p>
                         </div>
                         <div id="added_item_box">
