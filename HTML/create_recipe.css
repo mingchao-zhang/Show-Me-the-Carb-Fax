@@ -6,8 +6,12 @@
 
 #recipe_info_box {
     color: red;
+    border-color: black;
+    margin: 5px;
 }
 
 #added_item_box {
     color: blue;
+    border-color: orange;
+    margin: 5px;
 }
