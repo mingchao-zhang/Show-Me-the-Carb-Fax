@@ -108,10 +108,10 @@
                       <!-- form begin -->
                       <div id="recipe_form_container">
                         <div id="recipe_info_box">
-                            recipe_info_box
+                            <p>recipe_info_box</p>
                         </div>
                         <div id="added_item_box">
-                            added_item_box
+                            <p>added_item_box</p>
                         </div>
                       </div>
                       <!-- form end -->
