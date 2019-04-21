@@ -55,6 +55,7 @@
     border: solid;
 }
 
-.food_search_items p {
+.food_search_item p {
     color: green;
+    border: solid;
 }
