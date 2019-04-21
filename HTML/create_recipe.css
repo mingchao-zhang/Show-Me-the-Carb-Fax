@@ -46,12 +46,12 @@
 }
 
 .food_search_item {
-    height: 50px;
+    height: 150px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: blue;
     margin: 0px;
     padding: 0px;
     border: solid;
