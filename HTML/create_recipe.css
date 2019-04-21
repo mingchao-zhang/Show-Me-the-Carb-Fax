@@ -64,4 +64,6 @@
 .food_search_item:hover {
     transition: transform 0.5s;
     transform: scale(1.1, 1.1);
+    cursor: pointer;
+    border-color: green;
 }
