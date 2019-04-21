@@ -54,3 +54,7 @@
     padding: 0px;
     border: solid;
 }
+
+.food_search_items p {
+    color: green;
+}
