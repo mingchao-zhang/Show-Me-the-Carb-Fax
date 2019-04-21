@@ -57,17 +57,6 @@
         }
       }
 
-      #weekly_log_container, #display_item_container {
-        height: 100px; 
-        width: 350px; 
-        overflow: auto;
-        background-color: white;
-        margin-top: 15px;
-        margin-bottom: 30px;
-        border: solid;
-        border-radius: 5px;
-      }
-
     </style>
   </head>
     <body>
