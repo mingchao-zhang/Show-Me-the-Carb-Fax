@@ -96,28 +96,37 @@
                     <div class="row mb-2">
                       <div class="col-md-10">
                         <div class="jumbotron">
-                      <!-- form begin -->
-                      <div id="recipe_form_container">
-                        <div id="recipe_info_box">
-                      <!--Live search start-->
-                      <div class="flex_dummy">
-                        <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>    
-                        <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
-                      </div>
-                      <div class="flex_dummy">
-                        <input type="text" id="food_search" placeholder="Enter Item Name">
-                      </div>
-                      <div id="display_item_container">
-                        <div id="food_suggestion"></div>
-                      </div>            
-                      <!--Live search end-->
-                            <p>recipe_info_box</p>
-                        </div>
-                        <div id="added_item_box">
-                            <p>added_item_box</p>
-                        </div>
-                      </div>
-                      <!-- form end -->
+<!-- form begin -->
+<div id="recipe_form_container">
+  <div id="recipe_info_box">
+    <div class="flex_dummy">
+      <p>Recipe Name</p>
+    </div>
+    <div class="flex_dummy">
+      <input type="text" id="recipe_name_input" placeholder="Enter the Recipe Name">
+    </div>
+    <div class="flex_dummy">
+      <p>Recipe Description</p>
+    </div>
+    <div class="flex_dummy">
+      <input type="text" id="recipe_name_input" placeholder="Enter the Recipe Name">
+    </div>
+    <div class="flex_dummy">
+      <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>    
+      <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
+    </div>
+    <div class="flex_dummy">
+      <input type="text" id="food_search" placeholder="Enter Item Name">
+    </div>
+    <div id="display_item_container">
+      <div id="food_suggestion"></div>
+    </div>            
+  </div>
+  <div id="added_item_box">
+    <p>added_item_box</p>
+  </div>
+</div>
+<!-- form end -->
                         </div>
                       </div>
 
