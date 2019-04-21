@@ -49,10 +49,9 @@
     height: 40px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     color: blue;
-    margin: 10px;
     padding: 0px;
     border: solid;
 }
