@@ -46,6 +46,7 @@
 }
 
 .food_search_item {
+    height: 50px;
     display: flex;
     flex-direction: row;
     justify_content: flex-start;
