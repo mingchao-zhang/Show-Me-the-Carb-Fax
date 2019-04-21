@@ -53,10 +53,10 @@
     color: blue;
     padding: 0px;
     border: solid;
+    margin: 1px;
 }
 
 .food_search_item p {
-    border: solid;
     color: black;
 }
 
