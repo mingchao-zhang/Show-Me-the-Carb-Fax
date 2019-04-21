@@ -9,7 +9,7 @@
     height: 100%;
     display: flex;
     justify_content: center;
-    aligh-items: flex-start;
+    align-items: flex-start;
     border-radius: 5px;
     border-width: 2px;
     color: red;
@@ -22,7 +22,7 @@
     height: 100%;
     display: flex;
     justify_content: center;
-    aligh-items: flex-start;
+    align-items: flex-start;
     border-radius: 5px;
     border-width: 2px;
     color: blue;
