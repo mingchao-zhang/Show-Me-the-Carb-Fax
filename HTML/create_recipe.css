@@ -35,7 +35,7 @@
 
 
 #display_item_container {
-    height: 100px;
+    height: 200px;
     width: 100%;
     overflow: auto;
     background-color: white;
@@ -46,6 +46,9 @@
 }
 
 .food_search_item {
+    display: flex;
+    justify_content: flex-start;
+    align-items: center;
     color: black;
     margin: 0px;
     padding: 0px;
