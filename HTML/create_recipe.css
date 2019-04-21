@@ -54,10 +54,10 @@
     padding: 0px;
     border: solid;
     margin: 1px;
+    text-align: center;
 }
 
 .food_search_item p {
-    text-align: center;
     color: black;
 }
 
