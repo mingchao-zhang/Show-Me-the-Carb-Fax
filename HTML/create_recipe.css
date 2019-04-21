@@ -52,12 +52,11 @@
     justify-content: center;
     align-items: center;
     color: blue;
-    margin: 0px;
+    margin: 10px;
     padding: 0px;
     border: solid;
 }
 
 .food_search_item p {
-    color: green;
     border: solid;
 }
