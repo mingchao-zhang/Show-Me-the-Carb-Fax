@@ -5,15 +5,19 @@
 }
 
 #recipe_info_box {
+    height: 100%;
+    border-radius: 35px;
+    border-width: 2px;
     color: red;
     border: solid;
-    //border-color: black;
     margin: 5px;
 }
 
 #added_item_box {
+    height: 100%;
+    border-radius: 35px;
+    border-width: 2px;
     color: blue;
     border: solid;
-    //border-color: orange;
     margin: 5px;
 }
