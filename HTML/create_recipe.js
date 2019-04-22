@@ -31,5 +31,5 @@ $(document).on("click", ".food_search_item", function(event) {
     console.log(param_arr)
     item_name = param_arr[0]
     item_id = param_arr[1]
-    $("#item_selected_text").html(item_name.replace("_", " ") + "; " + item_id.replace("_", " ")
+    $("#item_selected_text").html(item_name.replace("_", " ") + "; " + item_id.replace("_", " "))
 })
