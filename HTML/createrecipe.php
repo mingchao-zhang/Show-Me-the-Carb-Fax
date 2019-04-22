@@ -144,6 +144,9 @@
   </div>
   <div id="added_item_box">
     <p>added_item_box</p>
+    <div class="flex_dummy">
+      <button name="submit_recipe" class="btn btn-sm btn-primary btn-block" type="submit">Submit Recipe</button> 
+    </div>
   </div>
 </div>
 <!-- form end -->
