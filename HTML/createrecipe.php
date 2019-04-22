@@ -153,7 +153,6 @@
         </tr>
       </thead>
       <tbody id="items_added_content">
-        <div id="items_added"></div>
       </tbody>
     </table>
     <div class="flex_dummy">
