@@ -44,9 +44,8 @@ function display_one_item(item) {
            "<td>" + item[0] + "</td>" + 
            "<td>" + item[1] + "</td>" + 
            "<td>" + item[2] + "</td>" + 
-           "<td>" +  
-                "<button name='add' class='btn btn-sm btn-primary btn-block recipe_item_plus_button' type='submit' id=$row_id>+</button>" + 
-                item[3] + 
+           "<td>" + item[3] + "</td>" + 
+           "<td>" + 
                 "<button name='remove' class='btn btn-sm btn-primary btn-block recipe_item_minus_button' type='submit' id=$row_id>-</button>" + 
            "</td>" + 
            "</tr>"
