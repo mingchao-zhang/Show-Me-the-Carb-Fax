@@ -58,7 +58,7 @@ function display_items() {
     for (var i=0; i < item_arr.length; i++) {
         html += display_one_item(item_arr[i])
     }
-    $("#items_added").html(html)
+    $("#items_added_content").html(html)
 }
 
 // Add the item selected to the right display area

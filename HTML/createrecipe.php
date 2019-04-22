@@ -152,7 +152,7 @@
           <th scope="col">Quantity</th>
         </tr>
       </thead>
-      <tbody id="weekly_log_content">
+      <tbody id="items_added_content">
         <div id="items_added"></div>
       </tbody>
     </table>
