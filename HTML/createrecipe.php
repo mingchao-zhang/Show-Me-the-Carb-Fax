@@ -139,7 +139,7 @@
       <input type="radio" name="quantity_unit" id="_weight" value="weight" /> weight
     </div>
     <div class="flex_dummy">
-      <button name="add_item_button" class="btn btn-sm btn-primary btn-block" type="submit">Add Item</button> 
+      <button name="add_item_button" class="btn btn-sm btn-primary btn-block" id="_add_item_button" type="submit">Add Item</button> 
     </div>
   </div>
   <div id="added_item_box">
