@@ -40,11 +40,20 @@ $(document).on("click", ".food_search_item", function(event) {
 var item_arr = []
 
 function display_one_item(item) {
-    return 
+    var s ="<tr>" + 
+           "<td>" + item[0] + "</td>" + 
+           "<td>" + item[1] + "</td>" + 
+           "<td>" + item[2] + "</td>" + 
+           "<td>" +  
+                "<button name='add' class='btn btn-sm btn-primary btn-block recipe_item_plus_button' type='submit' id=$row_id>+</button>" + 
+                item[3] + 
+                "<button name='remove' class='btn btn-sm btn-primary btn-block recipe_item_minus_button' type='submit' id=$row_id>-</button>" + 
+           "</td>" + 
+           "</tr>"
+    return s
 }
 
 function display_items() {
-        
 }
 
 
@@ -81,4 +90,5 @@ $(document).on("click", '#_add_item_button', function(event) {
     //item.push(recipe_description)
     item_arr.push(item)
     console.log(item_arr)
+    console.log(display_one_item(item))
 })
