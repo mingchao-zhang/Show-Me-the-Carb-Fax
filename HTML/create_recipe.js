@@ -28,7 +28,7 @@ $(document).on("click", ".food_search_item", function(event) {
         div_elem = event.target.id
     }
     console.log("div_elem: ", div_elem)
-    param_arr = div_elem.split(" ")
+    param_arr = div_elem.split("*")
     console.log(param_arr)
     item_name = param_arr[0]
     item_id = param_arr[1]
