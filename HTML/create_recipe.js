@@ -100,5 +100,14 @@ $(document).on("click", '#_add_item_button', function(event) {
 $(document).on('click', ".recipe_item_minus_button",  function(event) {
     const id = event.target.id
     console.log(id)
+    var index = 0
+    for (var i=0; i < item_arr.length; i++) {
+        if (item_arr[i][1] === id) {
+            index = i
+            break
+        }    
+    }
+    item_arr.splice(i, 1)
+    display_items()
  }
-);
+)
