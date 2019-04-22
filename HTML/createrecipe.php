@@ -150,7 +150,7 @@
           <th scope="col">Item ID</th>
           <th scope="col">Quantity Unit</th>
           <th scope="col">Quantity</th>
-          <th scope="col">Remove</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody id="items_added_content">
