@@ -143,7 +143,19 @@
     </div>
   </div>
   <div id="added_item_box">
-    <div id="selected_items_wrapper"></div>
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Item Name</th>
+          <th scope="col">Item ID</th>
+          <th scope="col">Date</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody id="weekly_log_content">
+        <div id="items_added"></div>
+      </tbody>
+    </table>
     <div class="flex_dummy">
       <button name="submit_recipe" class="btn btn-sm btn-primary btn-block" type="submit">Submit Recipe</button> 
     </div>

@@ -1,4 +1,4 @@
-
+// search food_item to add
 function search_food() {
     var search_option = "product";
     if ( document.getElementById('_recipe').checked ) {
@@ -17,7 +17,8 @@ function search_food() {
 $("#food_search").bind("keyup mouseenter", search_food);
 $('input[name="search_option"]').on('click change', search_food);
 
-// Display the item selected
+//---------------------------------------------
+// Display the item selected so that users don't have to enter item id on their own
 $(document).on("click", ".food_search_item", function(event) {
     div_elem = "";
     if (event.target.id === "") {
@@ -32,10 +33,22 @@ $(document).on("click", ".food_search_item", function(event) {
     $("#item_selected_text").html(item_name.replace(/_/g, " ") + "; " + item_id.replace(/_/g, " "))
 })
 
+//---------------------------------------------
 // item_arr stores food items
-// each food item is also an array; 0-index: name, 1: food id, 2: quantity, 3: quantity unit
+// each food item is also an array; 0-index: name, 1: food id, 2: quantity unit, 3: quantity
 // all values in each food item are strings
 var item_arr = []
+
+function display_one_item(item) {
+    return 
+}
+
+function display_items() {
+        
+}
+
+
+
 // Add the item selected to the right display area
 $(document).on("click", '#_add_item_button', function(event) {
     var item = []
@@ -48,12 +61,6 @@ $(document).on("click", '#_add_item_button', function(event) {
     item.push(name_and_id[0])
     item.push(name_and_id[1].slice(1))
 
-    var quantity = $("#quantity_input").val()
-    if ( !quantity ) {
-        return
-    }
-    item.push(quantity)
-
     var quantity_unit = "measurement_std"
     if ( document.getElementById("_volume").checked ) {
         quantity_unit = "volume"    
@@ -63,10 +70,15 @@ $(document).on("click", '#_add_item_button', function(event) {
     }
     item.push(quantity_unit)
 
+    var quantity = $("#quantity_input").val()
+    if ( !quantity ) {
+        return
+    }
+    item.push(quantity)
+
+
     //var recipe_description = $("#recipe_description_input").val() || "None"
     //item.push(recipe_description)
-
-   
     item_arr.push(item)
     console.log(item_arr)
 })
