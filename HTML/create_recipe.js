@@ -27,7 +27,7 @@ $(document).on("click", ".food_search_item", function(event) {
     else {
         div_elem = event.target.id
     }
-    console.log(div_elem, "hello")
-    arr = event.target.id.split("&") || event.target[0].innerHTML
-    console.log(arr)    
+    param_arr = div_elem.split("&")
+    item_name = param_arr[0]
+    item_id = param_arr[1]
 })
