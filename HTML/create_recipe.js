@@ -39,7 +39,7 @@ $(document).on("click", '#_add_item_button', function(event) {
     var name_and_id = $("#item_selected_text").html();
     name_and_id = name_and_id.split(";")
     item.push(name_and_id[0])
-    item.push(name_and_id[1].slice(1)
+    item.push(name_and_id[1].slice(1))
     item_arr.push(item)
     console.log(item_arr)
 })
