@@ -40,7 +40,8 @@ $(document).on("click", '#_add_item_button', function(event) {
     var item = []
     var name_and_id = $("#item_selected_text").html()
     var quantity = $("#recipe_description_input").val()
-    console.log(name_and_id, quantity)
+    console.log(name_and_id)
+    console.log(quantity)
 /*
     name_and_id = name_and_id.split(";")
     item.push(name_and_id[0])
