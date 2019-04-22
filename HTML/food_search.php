@@ -41,7 +41,7 @@
         $searchResults = search_db($string, $dbconnect, $db_name);
         $suggestions_string = '';
         while ($row = mysql_fetch_assoc($searchResults)) {
-            $name_and_id = $row['name'] . "*" . $row['foodId'];
+            $name_and_id = str_replace(' ', '_', $row['name']) . " " . str_replace(' ', '_', $row['foodId']);
             echo $name_and_id;
             echo "<div class='food_search_item' id=$name_and_id><p>" . $row['name'] . ", " . $row['foodId'] . "</p></div>";
         }
