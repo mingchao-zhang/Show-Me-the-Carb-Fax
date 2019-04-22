@@ -54,9 +54,12 @@ function display_one_item(item) {
 }
 
 function display_items() {
+    var html = ""
+    for (var i=0; i < item_arr.length; i++) {
+        html += display_one_item(item_arr[i])
+    }
+    $("#items_added").html(html)
 }
-
-
 
 // Add the item selected to the right display area
 $(document).on("click", '#_add_item_button', function(event) {
@@ -89,6 +92,7 @@ $(document).on("click", '#_add_item_button', function(event) {
     //var recipe_description = $("#recipe_description_input").val() || "None"
     //item.push(recipe_description)
     item_arr.push(item)
+    display_items()
     console.log(item_arr)
-    console.log(display_one_item(item))
+    //console.log(display_one_item(item))
 })
