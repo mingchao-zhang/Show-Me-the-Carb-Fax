@@ -46,7 +46,7 @@ function display_one_item(item) {
            "<td>" + item[2] + "</td>" + 
            "<td>" + item[3] + "</td>" + 
            "<td>" + 
-                "<button name='remove' class='btn btn-sm btn-primary btn-block recipe_item_minus_button' type='submit' id=$row_id>-</button>" + 
+                "<button name='remove' class='btn btn-sm btn-primary btn-block recipe_item_minus_button' type='submit' id=" + item[1] + ">-</button>" + 
            "</td>" + 
            "</tr>"
     return s
@@ -95,3 +95,10 @@ $(document).on("click", '#_add_item_button', function(event) {
     console.log(item_arr)
     //console.log(display_one_item(item))
 })
+
+
+$(document).on('click', "recipe_item_minus_button",  function(event) {
+    const id = event.target.id
+    console.log(id)
+ }
+);
