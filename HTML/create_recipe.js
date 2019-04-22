@@ -33,22 +33,40 @@ $(document).on("click", ".food_search_item", function(event) {
 })
 
 // item_arr stores food items
-// each food items is also an array; 0-index: name, 1: food id, 2: quantity, 3: quantity unit, 4: recipe description
+// each food item is also an array; 0-index: name, 1: food id, 2: quantity, 3: quantity unit, 4: recipe description
+// all values in each food item are strings
 var item_arr = []
 // Add the item selected to the right display area
 $(document).on("click", '#_add_item_button', function(event) {
     var item = []
+
     var name_and_id = $("#item_selected_text").html()
-    var quantity = $("#quantity_input").val()
-    var recipe_description = $("#recipe_description_input").val() || "None"
-    console.log(name_and_id)
-    console.log(quantity)
-    console.log(recipe_description)
-/*
+    if ( !name_and_id ) {
+        return
+    }
     name_and_id = name_and_id.split(";")
     item.push(name_and_id[0])
     item.push(name_and_id[1].slice(1))
+
+    var quantity = $("#quantity_input").val()
+    if ( !quantity ) {
+        return
+    }
+    item.push(quantity)
+
+    var quantity_unit = "measurement_std"
+    if ( document.getElementById("_volume").checked ) {
+        quantity_unit = "volume"    
+    }
+    else if ( document.getElementById("_weight").checked ) {
+        quantity_unit = "weight"    
+    }
+    item.push(quantity_unit)
+
+    var recipe_description = $("#recipe_description_input").val() || "None"
+    item.push(recipe_description)
+
+   
     item_arr.push(item)
     console.log(item_arr)
-    */
 })
