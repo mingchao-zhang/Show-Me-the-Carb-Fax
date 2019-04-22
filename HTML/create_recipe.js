@@ -33,15 +33,17 @@ $(document).on("click", ".food_search_item", function(event) {
 })
 
 // item_arr stores food items
-// each food items is also an array; 0-index: name, 1: food id, 2: quantity, 3: quantity unit
+// each food items is also an array; 0-index: name, 1: food id, 2: quantity, 3: quantity unit, 4: recipe description
 var item_arr = []
 // Add the item selected to the right display area
 $(document).on("click", '#_add_item_button', function(event) {
     var item = []
     var name_and_id = $("#item_selected_text").html()
-    var quantity = $("#recipe_description_input").val()
+    var quantity = $("#quantity_input").val()
+    var recipe_description = $("#recipe_description_input").val() || "None"
     console.log(name_and_id)
     console.log(quantity)
+    console.log(recipe_description)
 /*
     name_and_id = name_and_id.split(";")
     item.push(name_and_id[0])

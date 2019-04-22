@@ -131,7 +131,7 @@
       <p>Quantity</p>
     </div>
     <div class="flex_dummy">
-      <input type="text" id="recipe_description_input" placeholder="Enter the Quantity">
+      <input type="text" id="quantity_input" placeholder="Enter the Quantity">
     </div>
     <div class="flex_dummy">
       <input type="radio" name="quantity_unit" id="_std_unit" value="std_unit" checked="checked"/> std_unit   
