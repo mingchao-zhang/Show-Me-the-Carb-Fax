@@ -60,6 +60,7 @@
 
 .food_search_item p {
     color: black;
+    pointer-events: none;
 }
 
 .food_search_item:hover {
