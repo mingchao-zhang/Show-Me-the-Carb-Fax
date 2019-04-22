@@ -17,6 +17,7 @@ function search_food() {
 $("#food_search").bind("keyup mouseenter", search_food);
 $('input[name="search_option"]').on('click change', search_food);
 
+// Display the item selected
 $(document).on("click", ".food_search_item", function(event) {
     div_elem = "";
     if (event.target.id === "") {
@@ -31,6 +32,8 @@ $(document).on("click", ".food_search_item", function(event) {
     $("#item_selected_text").html(item_name.replace(/_/g, " ") + "; " + item_id.replace(/_/g, " "))
 })
 
+var item_arr = []
+// Add the item selected to the right display area
 $(document).on("click", '#_add_item_button', function(event) {
-    console.log("add item button clickec")    
+    console.log($("#item_selected_text").html())
 })
