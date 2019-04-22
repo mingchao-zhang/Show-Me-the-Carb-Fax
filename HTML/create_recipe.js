@@ -33,7 +33,7 @@ $(document).on("click", ".food_search_item", function(event) {
 })
 
 // item_arr stores food items
-// each food item is also an array; 0-index: name, 1: food id, 2: quantity, 3: quantity unit, 4: recipe description
+// each food item is also an array; 0-index: name, 1: food id, 2: quantity, 3: quantity unit
 // all values in each food item are strings
 var item_arr = []
 // Add the item selected to the right display area
@@ -63,8 +63,8 @@ $(document).on("click", '#_add_item_button', function(event) {
     }
     item.push(quantity_unit)
 
-    var recipe_description = $("#recipe_description_input").val() || "None"
-    item.push(recipe_description)
+    //var recipe_description = $("#recipe_description_input").val() || "None"
+    //item.push(recipe_description)
 
    
     item_arr.push(item)
