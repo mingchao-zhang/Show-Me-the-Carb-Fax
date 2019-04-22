@@ -18,8 +18,6 @@ $("#food_search").bind("keyup mouseenter", search_food);
 $('input[name="search_option"]').on('click change', search_food);
 
 $(document).on("click", ".food_search_item", function(event) {
-    console.log("clicked")
-    console.log(event.target)
     div_elem = "";
     if (event.target.id === "") {
         div_elem = event.target.parentNode.id
