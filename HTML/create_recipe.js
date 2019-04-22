@@ -22,7 +22,7 @@ $(document).on("click", ".food_search_item", function(event) {
     console.log(event.target)
     console.log(event.target[0].innerHTML)
     div_elem = "";
-    if event.target.id === "" {
+    if (event.target.id === "") {
         div_elem = event.target.parentNode.id
     }
     else {
