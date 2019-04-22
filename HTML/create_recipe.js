@@ -21,6 +21,12 @@ $(document).on("click", ".food_search_item", function(event) {
     console.log("clicked")
     console.log(event.target)
     console.log(event.target[0].innerHTML)
+    div_elem = "";
+    if event.target.id === "":
+        div_elem = event.target.parentNode.id
+    else:
+        div_elem = event.target.id
+    console.log(div_elem, "hello")
     arr = event.target.id.split("&") || event.target[0].innerHTML
     console.log(arr)    
 })
