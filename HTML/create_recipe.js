@@ -97,7 +97,7 @@ $(document).on("click", '#_add_item_button', function(event) {
 })
 
 
-$(document).on('click', "recipe_item_minus_button",  function(event) {
+$(document).on('click', ".recipe_item_minus_button",  function(event) {
     const id = event.target.id
     console.log(id)
  }
