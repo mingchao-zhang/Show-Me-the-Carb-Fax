@@ -88,18 +88,13 @@ $(document).on("click", '#_add_item_button', function(event) {
     item.push(quantity)
 
 
-    //var recipe_description = $("#recipe_description_input").val() || "None"
-    //item.push(recipe_description)
     item_arr.push(item)
     display_items()
-    console.log(item_arr)
-    //console.log(display_one_item(item))
 })
 
 
 $(document).on('click', ".recipe_item_minus_button",  function(event) {
     const id = event.target.id
-    console.log(id)
     var index = 0
     for (var i=0; i < item_arr.length; i++) {
         if (item_arr[i][1] === id) {
@@ -111,3 +106,7 @@ $(document).on('click', ".recipe_item_minus_button",  function(event) {
     display_items()
  }
 )
+
+    //TODO
+    //var recipe_description = $("#recipe_description_input").val() || "None"
+    //item.push(recipe_description)
