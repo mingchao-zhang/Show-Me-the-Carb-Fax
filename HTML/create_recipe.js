@@ -30,3 +30,7 @@ $(document).on("click", ".food_search_item", function(event) {
     item_id = param_arr[1]
     $("#item_selected_text").html(item_name.replace(/_/g, " ") + "; " + item_id.replace(/_/g, " "))
 })
+
+$(document).on("click", "input[name='add_item_button']"), function(event) {
+    console.log("add item button clickec")    
+}
