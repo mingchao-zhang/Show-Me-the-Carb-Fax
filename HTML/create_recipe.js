@@ -19,5 +19,6 @@ $('input[name="search_option"]').on('click change', search_food);
 
 $(document).on("click", ".food_search_item", function(event) {
     console.log("clicked")
-    console.log(event.target.id)    
+    arr = event.target.id.split("&")
+    console.log(arr)    
 })
