@@ -121,6 +121,21 @@
     <div id="display_item_container">
       <div id="food_suggestion"></div>
     </div>            
+    <div id="item_selected_box">
+      <div id="item_selected_text">Temp text</div>
+    </div>
+    <div class="flex_dummy">
+      <p>Quantity</p>
+    </div>
+    <div class="flex_dummy">
+      <input type="text" id="recipe_description_input" placeholder="Enter the Quantity">
+    </div>
+    <div class="flex_dummy">
+      <input type="radio" name="quantity_unit" id="_std_unit" value="std_unit" checked="checked"/> std_unit   
+      <input type="radio" name="quantity_unit" id="_volume" value="volumn" /> volume
+      <input type="radio" name="quantity_unit" id="_weight" value="weight" /> weight
+    </div>
+    
   </div>
   <div id="added_item_box">
     <p>added_item_box</p>
