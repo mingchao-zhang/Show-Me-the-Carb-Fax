@@ -121,6 +121,9 @@
     <div id="display_item_container">
       <div id="food_suggestion"></div>
     </div>            
+    <div class="flex_dummy">
+      <p>Item selected from the food suggestion box above: </p>
+    </div>
     <div id="item_selected_box">
       <div id="item_selected_text">Temp text</div>
     </div>
@@ -135,7 +138,9 @@
       <input type="radio" name="quantity_unit" id="_volume" value="volumn" /> volume
       <input type="radio" name="quantity_unit" id="_weight" value="weight" /> weight
     </div>
-    
+    <div class="flex_dummy">
+      <button name="add_item" class="btn btn-sm btn-primary btn-block" type="submit">Add Item</button> 
+    </div>
   </div>
   <div id="added_item_box">
     <p>added_item_box</p>
