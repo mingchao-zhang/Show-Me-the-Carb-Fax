@@ -14,7 +14,7 @@ function search_food() {
         }
     })
 }         
-
+console.log("what happened");
 $("#food_search").bind("keyup mouseenter", search_food);
 $('input[name="search_option"]').on('click change', search_food);
 
