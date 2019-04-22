@@ -69,3 +69,7 @@
     border-color: green;
     border-width: 2px;
 }
+
+.food_search_item > * {
+      pointer-events: none;
+}
