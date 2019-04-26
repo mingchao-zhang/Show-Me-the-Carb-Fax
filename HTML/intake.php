@@ -201,7 +201,7 @@
                                   die("Invalid Query: " . mysql_error());
                                 }
 
-                                $row = mysql_fetch_assoc($result)
+                                $row = mysql_fetch_assoc($result);
                                 $calories = $row['total_calories'];
                                 $carbs = ceil($row['total_carbohydrates']);
                                 $sugars = ceil($row['total_sugars']);
