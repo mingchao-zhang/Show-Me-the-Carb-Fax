@@ -185,9 +185,9 @@
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Height:   " . $row['height'] . "</a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Weight:   " . $row['weight'] . "</a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calorie Target:   " . $row['calorie_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate Target:   " . $row['carb_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat Target:   " . $row['fat_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein Target:   " . $row['protein_target'] . "</a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate Target:   " . $row['carb_target'] . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat Target:   " . $row['fat_target'] . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein Target:   " . $row['protein_target'] . "g </a>";
 
                                  // Close Database Connection
                                 mysql_free_result($result);

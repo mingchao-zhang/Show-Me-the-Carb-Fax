@@ -162,42 +162,78 @@
                                     die('Cant use database: ' . mysql_error());
                                 }
 
-                                // TODO: Get nutrient aggregates
-                                $query = "SELECT calorie_target, carb_target, fat_target, protein_target FROM users WHERE username = '$username'";
+                                $query = "SELECT username, SUM(total_calories) AS total_calories, SUM(total_carbohydrates) AS total_carbohydrates,
+                                          SUM(total_sugars) AS total_sugars, SUM(total_fiber) AS total_fiber, SUM(total_protein) AS total_protein, 
+                                          SUM(total_fat) AS total_fat, SUM(total_sodium) AS total_sodium, SUM(total_cholesterol) AS total_cholesterol,
+                                          SUM(total_vitaminA) AS total_vitaminA, SUM(total_vitaminB6) AS total_vitaminB6, SUM(total_vitaminB12) AS total_vitaminB12,
+                                          SUM(total_vitaminC) AS total_vitaminC, SUM(total_vitaminD) AS total_vitaminD, SUM(total_vitaminE) AS total_vitaminE, 
+                                          SUM(total_niacin) AS total_niacin, SUM(total_thiamin) AS total_thiamin, SUM(total_calcium) AS total_calcium,
+                                          SUM(total_iron) AS total_iron, SUM(total_magnesium) AS total_magnesium, SUM(total_phosphorus) AS total_phosphorus,
+                                          SUM(total_potassium) AS total_potassium, SUM(total_riboflavin) AS total_riboflavin, SUM(total_zinc) AS total_zinc
+                                          FROM ((SELECT * FROM nutrient_sum_products WHERE username = '$username') 
+                                          UNION (SELECT * FROM nutrient_sum_recipes WHERE username = '$username'))
+                                          AS totals GROUP BY username";
                                 $result = mysql_query($query, $dbconnect);
-                                if(!$result){
-                                    die('Invalid Query: ' . mysql_error());
+                                if (!$result){
+                                  die("Invalid Query: " . mysql_error());
                                 }
+
                                 $row = mysql_fetch_assoc($result);
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calories:   " . $row['calorie_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein:   " . $row['protein_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrates:   " . $row['carb_target'] . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat:   " . $row['fat_target'] . "</a>";
+                                $calories = ceil($row['total_calories'] / 7);
+                                $carbs = ceil($row['total_carbohydrates'] / 7);
+                                $sugars = ceil($row['total_sugars'] / 7);
+                                $fiber = ceil($row['total_fiber'] / 7);
+                                $protein = ceil($row['total_protein'] / 7);
+                                $fat = ceil($row['total_fat'] / 7);
+                                $sodium = ceil($row['total_sodium'] / 7);
+                                $cholesterol = ceil($row['total_cholesterol'] / 7);
+                                $vitaminA = ceil($row['total_vitaminA'] / 7);
+                                $vitaminB6 = ceil($row['total_vitaminB6'] / 7);
+                                $vitaminB12 = ceil($row['total_vitaminB12'] / 7);
+                                $vitaminC = ceil($row['total_vitaminC'] / 7);
+                                $vitaminD = ceil($row['total_vitaminD'] / 7);
+                                $vitaminE = ceil($row['total_vitaminE'] / 7);
+                                $niacin = ceil($row['total_niacin'] / 7);
+                                $thiamin = ceil($row['total_thiamin'] / 7);
+                                $calcium = ceil($row['total_calcium'] / 7);
+                                $iron = ceil($row['total_iron'] / 7);
+                                $magnesium = ceil($row['total_magnesium'] / 7);
+                                $phosphorus = ceil($row['total_phosphorus'] / 7);
+                                $potassium = ceil($row['total_potassium'] / 7);
+                                $riboflavin = ceil($row['total_riboflavin'] / 7);
+                                $zinc = ceil($row['total_zinc'] / 7);
+
+                                // TODO: OUTPUT RESULTS 
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calories: " . $calories . "</a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein: " . $protein . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate: " . $carbs . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat: " . $fat . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Sugars: " . $sugars . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Dietary Fiber: " . $fiber . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Cholesterol: " . $cholesterol . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Sodium: " . $sodium . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calcium: " . $calcium . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin A: " . $vitaminA . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin B6: " . $vitaminB6 . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin B12: " . $vitaminB12 . "&#181g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin C: " . $vitaminC .  "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin D: " . $vitaminD . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin E: " .  $vitaminE . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Niacin: " . $niacin . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Thiamin: " . $thiamin . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Iron: " .  $iron . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Magnesium: " . $magnesium . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Phosphorus: " . $phosphorus . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Potassium: " . $potassium . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Riboflavin: " . $riboflavin . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Zinc: " . $zinc . "mg </a>";
                                 
 
                                  // Close Database Connection
                                 mysql_free_result($result);
                                 mysql_close($dbconnect);
                             ?>
-                            <a href="#" class="list-group-item list-group-item-action">Sugars: 35 g</a>
-                            <a href="#" class="list-group-item list-group-item-action">Dietary Fiber: 29 g</a>
-                            <a href="#" class="list-group-item list-group-item-action">Cholesterol: 300 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Sodium: 2300 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Calcium: 1000 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Vitamin A: 800 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Vitamin B6: 1.3 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Vitamin B12: 2.4 &#181g </a>
-                            <a href="#" class="list-group-item list-group-item-action">Vitamin C: 85 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Vitamin D: 600 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Vitamin E: 15 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Niacin: 15 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Thiamin: 1.2 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Iron: 13 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Magnesium: 360 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Phosphorus: 700 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Potassium: 4700 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Riboflavin: 1.2 mg</a>
-                            <a href="#" class="list-group-item list-group-item-action">Zinc: 9.5 mg</a>
+                            
                             </div>
                           </div>
                         </div>
