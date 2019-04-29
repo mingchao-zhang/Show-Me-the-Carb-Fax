@@ -108,6 +108,7 @@
     <div class="flex_dummy">
       <p>Recipe Description</p>
     </div>
+    <hr>
     <div class="flex_dummy">
       <input type="text" id="recipe_description_input" placeholder="Enter the Recipe Description">
     </div>
@@ -120,12 +121,13 @@
     </div>
     <div id="display_item_container">
       <div id="food_suggestion"></div>
-    </div>            
+    </div>       
+    <hr>     
     <div class="flex_dummy">
       <p>Item selected from the food suggestion box above: </p>
     </div>
     <div id="item_selected_box">
-      <div id="item_selected_text">Temp text</div>
+      <div id="item_selected_text"></div>
     </div>
     <div class="flex_dummy">
       <p>Quantity</p>
@@ -138,6 +140,7 @@
       <input type="radio" name="quantity_unit" id="_volume" value="volumn" /> volume
       <input type="radio" name="quantity_unit" id="_weight" value="weight" /> weight
     </div>
+    <hr>
     <div class="flex_dummy">
       <button name="add_item_button" class="btn btn-sm btn-primary btn-block" id="_add_item_button" type="submit">Add Item</button> 
     </div>
@@ -156,7 +159,7 @@
       <tbody id="items_added_content">
       </tbody>
     </table>
-    <div class="flex_dummy">
+    <div id="submit_recipe_btn_wrapper">
       <button name="submit_recipe" class="btn btn-sm btn-primary btn-block" type="submit">Submit Recipe</button> 
     </div>
   </div>
