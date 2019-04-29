@@ -96,3 +96,7 @@
     border-top: 1px solid black;
     border-bottom: 1px solid black;
  }
+
+ #item_selected_box {
+     border: solid black;
+ }
