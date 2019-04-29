@@ -108,10 +108,10 @@
     <div class="flex_dummy">
       <p>Recipe Description</p>
     </div>
-    <hr>
     <div class="flex_dummy">
       <input type="text" id="recipe_description_input" placeholder="Enter the Recipe Description">
     </div>
+    <hr>
     <div class="flex_dummy">
       <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>    
       <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
