@@ -85,11 +85,10 @@ hr {
     display: block;
     padding: 0;
     margin: 8px auto;
-    height: 5px;
+    height: 1px;
     width: 100%;
     font-size: 1px;
     border: none;
-    border-top: 1px solid black;
     border-bottom: 1px solid black;
  }
 
