@@ -75,3 +75,8 @@
 .food_search_item > * {
       pointer-events: none;
 }
+
+#submit_recipe_btn_wrapper {
+    display:flex;
+    justify-content: center;
+}
