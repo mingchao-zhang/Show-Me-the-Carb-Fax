@@ -108,29 +108,32 @@
                       <div class="col-md-10">
                         <div class="jumbotron">
                             <h3 class="h3 mb-3 font-weight-normal">Recipes</h3>
-                                <?php
-                                 // Database Connection
-                                $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
-                                if(!$dbconnect){
-                                    die('Cannot connect: ' . mysql_error());
-                                }
-                                $db_selected = mysql_select_db("411_project_db", $dbconnect);
-                                if(!$db_selected){
-                                    die('Cant use database: ' . mysql_error());
-                                }
-                                /* TODO: Get Recipes Here
-                                $query = "SELECT calorie_target, carb_target, fat_target, protein_target FROM users WHERE username = '$username'";
-                                $result = mysql_query($query, $dbconnect);
-                                if(!$result){
-                                    die('Invalid Query: ' . mysql_error());
-                                }
-                                
-                                */
-
-                                 // Close Database Connection
-                                mysql_free_result($result);
-                                mysql_close($dbconnect);
-                            ?>
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                              <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                              </ol>
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <img class="d-block w-100" src="..." alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block w-100" src="..." alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block w-100" src="..." alt="Third slide">
+                                </div>
+                              </div>
+                              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                                </a>
+                            </div>
                             
                           </div>
                         </div>
