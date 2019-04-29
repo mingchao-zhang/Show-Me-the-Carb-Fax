@@ -98,5 +98,6 @@
  }
 
  #item_selected_box {
-     border: solid black;
+     border: solid;
+     border-color: black;
  }
