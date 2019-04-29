@@ -13,9 +13,10 @@
     align-items: flex-start;
     border-radius: 5px;
     border-width: 2px;
-    color: red;
+    color: black;
     border: solid;
     margin: 5px;
+    padding: 10px;
 }
 
 #added_item_box {
