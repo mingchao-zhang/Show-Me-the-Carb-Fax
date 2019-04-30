@@ -124,6 +124,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
     }
     else {
         $.each(item_arr, function(key, value) {
+            console.log("127 new_recipe_id: ", new_recipe_id)
             $.ajax({
                 cache: false,
                 url: "add_recipe.php",
