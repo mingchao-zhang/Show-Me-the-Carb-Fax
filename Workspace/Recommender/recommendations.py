@@ -119,6 +119,23 @@ try:
         if(p):
             prot_target = p
 
+    query = "SELECT age,height,weight WHERE username = %s;"
+    cursor.execute(query,(user_id,))
+
+    a = 0
+    h = 0
+    w = 0
+    for (a,h,w) in cursor:
+        age = float(a)
+        height = float(h)*2.54
+        weight = float(w)*0.453592;
+
+
+    cals_recmnd = ceil((10 * weight) + (6.25 *height) - (5 * age) + 5);
+    carbs_recmnd = ceil(cals_recmnd * 0.5 / 4);
+    prot_recmnd = ceil(cals_recmnd * 0.25 / 4);
+    fat_recmnd = ceil(cals_recmnd * 0.25 / 9);
+
     # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
     query = ("SELECT foodID,calories,total_carbs,sugar,protein,total_fat,sodium,cholesterol "
     "FROM recipes WHERE recipes.foodID NOT IN "
@@ -129,6 +146,11 @@ try:
     for recipe in cursor:
         recipes.append(recipe)
 
+    # We recommend those recipes that minimize the mean-square distance between the various nutrient values
+    # We assume that the standard portion is about 500 calories
+    
+    
+    
     print(daily_calories)
     print(daily_carbs)
     print(daily_sugar)
