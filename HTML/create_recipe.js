@@ -114,32 +114,32 @@ $(document).on('click', ".recipe_item_minus_button",  function(event) {
 $(document).on("click", "#submit_recipe_btn", function(event) {
     var recipe_name = $("#recipe_name_input").val()
     var recipe_description = $("#recipe_description_input").val()
-    
-    $.each(item_arr, function(key, value) {
-        console.log(recipe_name, recipe_description)
-        $.ajax({
-            cache: false,
-            url: "add_recipe.php",
-            data: "recipe_name=" + recipe_name + "&" + "recipe_description=" + recipe_description,
-            success: function(data) {
-                //Nothing
-            }
-        })
-    })
 
-    if (item_arr.length > 0 && recipe_name != "") {
+    if (item_arr.length === 0) {
+        $("#recipe_added_msg").html("Please add at least one item")
+    }
+    else if (recipe_name === "") {
+        $("#recipe_added_msg").html("Please enter the recipe name")
+    }
+    else {
+        $.each(item_arr, function(key, value) {
+            console.log(recipe_name, recipe_description)
+            $.ajax({
+                cache: false,
+                url: "add_recipe.php",
+                data: "recipe_name=" + recipe_name + "&" + "recipe_description=" + recipe_description,
+                success: function(data) {
+                    //Nothing
+                }
+            })
+        })
+
         $("#recipe_added_msg").html("Recipe Added")
         $("#item_selected_text").html("")
         $("#items_added_content").html("")
         $("#recipe_name_input").val("")
         $("#recipe_description_input").val("")
         item_arr = []
-    }
-    else if (item_arr.length === 0) {
-        $("#recipe_added_msg").html("Please add at least one item")
-    }
-    else if (recipe_name === "") {
-        $("#recipe_added_msg").html("Please enter the recipe name")
     }
 })
 
