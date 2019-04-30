@@ -135,6 +135,12 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
         $("#recipe_description_input").val("")
         item_arr = []
     }
+    else if (item_arr.length === 0) {
+        $("#recipe_added_msg").html("Please add at least one item")
+    }
+    else if (recipe_name === "") {
+        $("#recipe_added_msg").html("Please enter the recipe name")
+    }
 })
 
 /*
