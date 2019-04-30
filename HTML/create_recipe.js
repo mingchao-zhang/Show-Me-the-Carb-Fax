@@ -133,8 +133,8 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     cache: false,
                     url: "update_recipes.php",
                     data: data_str,
-                    success: function(data) {
-                        console.log(data)
+                    success: function(rv) {
+                        console.log(rv)
                         $.each(item_arr, function(key, value) {
                             var _data = "recipe_name=" + recipe_name + "&" + 
                                         "recipe_description=" + recipe_description + "&" +
