@@ -126,6 +126,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
             cache: false,
             url: "get_new_recipe_id.php",
             success: function(new_recipe_id) {
+                console.log(new_recipe_id)
                 var data_str = "recipe_name=" + recipe_name + "&" + 
                                "recipe_description=" + recipe_description + "&" +
                                "new_recipe_id=" + new_recipe_id
