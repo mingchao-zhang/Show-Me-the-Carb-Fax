@@ -1,5 +1,4 @@
 <?php
-    if ( isset($_GET['recipe_name']) && !empty($_GET['recipe_name']) ) {
         // Database Connection
         $dbconnect = mysql_connect("localhost", "root", "carbfax411");
         if(!$dbconnect){
@@ -26,5 +25,4 @@
 
         mysql_free_result($result);
         mysql_close($dbconnect);
-    }
 ?>
