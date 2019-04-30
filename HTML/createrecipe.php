@@ -160,7 +160,7 @@
       </tbody>
     </table>
     <div id="submit_recipe_btn_wrapper">
-      <button name="submit_recipe" class="btn btn-sm btn-primary btn-block" type="submit">Submit Recipe</button> 
+      <button name="submit_recipe" class="btn btn-sm btn-primary btn-block" id="submit_recipe_btn" type="submit">Submit Recipe</button> 
     </div>
   </div>
 </div>

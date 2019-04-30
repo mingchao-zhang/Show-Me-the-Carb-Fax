@@ -35,7 +35,7 @@ $(document).on("click", ".food_search_item", function(event) {
 
 //---------------------------------------------
 // item_arr stores food items
-// each food item is also an array; 0-index: name, 1: food id, 2: quantity unit, 3: quantity
+// each food item is also an array; 0-index: name, 1: food id, 2: quantity unit, 3: quantity, 4: description
 // all values in each food item are strings
 var item_arr = []
 
@@ -87,12 +87,15 @@ $(document).on("click", '#_add_item_button', function(event) {
     }
     item.push(quantity)
 
+    var recipe_description = $("#recipe_description_input").val() || " "
+    item.push(recipe_description)
+
 
     item_arr.push(item)
     display_items()
 })
 
-
+// Remove item
 $(document).on('click', ".recipe_item_minus_button",  function(event) {
     const id = event.target.id
     var index = 0
@@ -107,6 +110,38 @@ $(document).on('click', ".recipe_item_minus_button",  function(event) {
  }
 )
 
-    //TODO
-    //var recipe_description = $("#recipe_description_input").val() || "None"
-    //item.push(recipe_description)
+// Submit recipe button   
+$(document).on("click", "#submit_recipe_btn", function(event) {
+    $.each(item_arr, function( key, value ) {
+        console.log(key, value)
+    })
+    /*
+    $.ajax({
+        cache: false,
+        url: "add_recipe.php",
+        data:  ,
+        success: function(data) {
+            //TODO
+        }
+    })
+    */
+})
+
+/*
+function search_food() {
+    var search_option = "product";
+    if ( document.getElementById('_recipe').checked ) {
+        search_option = "recipe";               
+    }
+    var search_name = $("#food_search").val();
+    $.ajax({
+        cache: false,
+        url: "food_search.php",
+        data: "name=" + search_name + "&option=" + search_option,
+        success: function(data) {
+            $("#food_suggestion").html(data);
+        }
+    })
+}   
+*/
+    
