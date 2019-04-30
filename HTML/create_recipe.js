@@ -123,7 +123,6 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
         $("#recipe_added_msg").html("Please enter the recipe name")
     }
     else {
-        
         $.each(item_arr, function(key, value) {
             $.ajax({
                 cache: false,
@@ -138,8 +137,9 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                 success: function(data) {
                     if ($new_recipe_id === "undefined") {
                         $new_recipe_id = data
+                        console.log("js new_recipe_id gets assigned")
                     }
-                    console.log($new_recipe_id)
+                    console.log(data)
                 }
             })
         })
