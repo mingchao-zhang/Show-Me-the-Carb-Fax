@@ -87,10 +87,6 @@ $(document).on("click", '#_add_item_button', function(event) {
     }
     item.push(quantity)
 
-    var recipe_description = $("#recipe_description_input").val() || " "
-    item.push(recipe_description)
-
-
     item_arr.push(item)
     display_items()
 })
@@ -110,21 +106,26 @@ $(document).on('click', ".recipe_item_minus_button",  function(event) {
  }
 )
 
+//---------------------------------------------------------------
+//var recipe_description = $("#recipe_description_input").val() || " "
+//item.push(recipe_description)
+
 // Submit recipe button   
 $(document).on("click", "#submit_recipe_btn", function(event) {
-    $.each(item_arr, function( key, value ) {
-        console.log(key, value)
+    var recipe_name = $("#recipe_name_input").val()
+    var recipe_description = $("#recipe_description_input").val()
+
+    $.each(item_arr, function(key, value) {
+        $.ajax({
+            cache: false,
+            url: "add_recipe.php",
+            data: "recipe_name=" + recipe_name + "&" + 
+                  "recipe_description=" + recipe_description,
+            success: function(data) {
+                console.log(data)
+            }
+        })
     })
-    /*
-    $.ajax({
-        cache: false,
-        url: "add_recipe.php",
-        data:  ,
-        success: function(data) {
-            //TODO
-        }
-    })
-    */
 })
 
 /*
