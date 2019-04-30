@@ -87,18 +87,18 @@ try:
     # Retrieve the list of unique dates to compute a per-day average
     query = ("SELECT COUNT(DISTINCT date) FROM ate WHERE username = %s;")
     cursor.execute(query,(user_id,))
-
-    for (days,) in cursor:
-        num_days = int(days)
-
-    daily_calories /= num_days
-    daily_carbs /= num_days
-    daily_sugar /= num_days
-    daily_protein /= num_days
-    daily_fat /= num_days
-    daily_sodium /= num_days
-    daily_cholesterol /= num_days
+    
+#    for (days,) in cursor:
+#        num_days = int(days)
 #
+#    daily_calories /= num_days
+#    daily_carbs /= num_days
+#    daily_sugar /= num_days
+#    daily_protein /= num_days
+#    daily_fat /= num_days
+#    daily_sodium /= num_days
+#    daily_cholesterol /= num_days
+##
 #    # Retrieve the targets if applicable
 #    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users"
 #    "WHERE username = %s;")
