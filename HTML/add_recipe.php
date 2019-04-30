@@ -38,10 +38,13 @@
 
         $contains_insert_query = "INSERT INTO contains (`recipe_foodID`,`product_foodID`,`quantity`, `measurement_std`, `volume`, `weight`) 
         VALUES ('$new_recipe_id', '$item_id', '$quantity', '', -1, -1)";
+        $result = mysql_query($contains_insert_query, $dbconnect);
         if (!$result) {
             die("Invalid Query: " . mysql_error());
         }
 
         //echo $_GET['recipe_name'] . " " . $_GET["recipe_description"] . " " . $_GET["item_name"] . " " . $_GET["item_id"] . " " . $_GET["quantity_unit"] . " " . $_GET["quantity"];
+        mysql_free_result($result);
+        mysql_close($dbconnect);
     }
 ?>
