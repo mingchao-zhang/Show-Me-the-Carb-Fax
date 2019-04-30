@@ -68,9 +68,7 @@ $(document).on("click", '#_add_item_button', function(event) {
     if ( !name_and_id ) {
         return
     }
-    console.log("name and id: ", name_and_id)
     name_and_id = name_and_id.split("*")
-    console.log("name and id: ", name_and_id)
     item.push(name_and_id[0])
     item.push(name_and_id[1].slice(1))
 
@@ -140,7 +138,6 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     success: function(rv) {
                         for (var i = 0; i < item_arr.length; i++) {
                             value = item_arr[i]
-                            console.log(value)
                             var _data = "recipe_name=" + recipe_name + "&" + 
                                         "recipe_description=" + recipe_description + "&" +
                                         "item_name=" + value[0] + "&" +
@@ -153,7 +150,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 url: "update_contains.php",
                                 data: _data,
                                 success: function(data) {
-                                    console.log(data)
+                                    //console.log(data)
                                 }
                             })
                         }
