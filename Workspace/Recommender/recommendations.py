@@ -43,7 +43,7 @@ try:
      "FROM recipes AS R, ate as A WHERE R.foodID = A.foodID AND A.username = %s;")
     cursor.execute(query,(user_id,))
     
-    for cal,carbs,s,p,f,sod,c:
+    for cal,carbs,s,p,f,sod,c in cursor:
     
         if(cal):
             daily_calories += float(cursor[0])
