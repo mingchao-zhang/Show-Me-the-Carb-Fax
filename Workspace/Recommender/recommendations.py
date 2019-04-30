@@ -88,7 +88,7 @@ try:
     query = ("SELECT COUNT(DISTINCT date) FROM ate WHERE username = %s;")
     cursor.execute(query,(user_id,))
 
-    for (days) in cursor:
+    for (days,) in cursor:
         num_days = int(days)
 
     daily_calories /= num_days
