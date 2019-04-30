@@ -147,6 +147,9 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 cache: false,
                                 url: "update_contains.php",
                                 data: _data,
+                                success: function(data) {
+                                    console.log(data)
+                                }
                             })
                         })
                                 
