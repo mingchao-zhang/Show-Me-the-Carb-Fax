@@ -40,7 +40,7 @@ try:
     # Retrieve nutrient information from the recipes table
     query = ("SELECT SUM(R.calories * A.quantity),SUM(R.total_carbs * A.quantity),SUM(R.sugar * A.quantity)"
      ",SUM(R.protein * A.quantity),SUM(R.total_fat * A.quantity),SUM(R.sodium * A.quantity),SUM(R.cholesterol * A.quantity)"
-     "FROM recipes AS R, ate as A WHERE R.foodID = A.foodID AND A.username = %;")
+     "FROM recipes AS R, ate as A WHERE R.foodID = A.foodID AND A.username = %s;")
     cursor.execute(query,(user_id,))
      
     daily_calories += float(cursor[0])
