@@ -69,6 +69,7 @@ $(document).on("click", '#_add_item_button', function(event) {
         return
     }
     name_and_id = name_and_id.split(";")
+    console.log("name and id: ", name_and_id)
     item.push(name_and_id[0])
     item.push(name_and_id[1].slice(1))
 
