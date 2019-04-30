@@ -12,6 +12,6 @@
           die('Cant use database: ' . mysql_error());
         }
 
-        echo $_GET['recipe_name'] . " " . $_GET["recipe_description"];   
+        echo $_GET['recipe_name'] . " ??? " . $_GET["recipe_description"];   
     }
 ?>
