@@ -28,23 +28,20 @@
         }
         $new_recipe_id = mysql_fetch_array($result)[0] + 1;
         echo $new_recipe_id;
-        echo " 000 ";
-        echo $result;
-        echo "111";
-        echo $new_recipe_id[0];
-        echo "222";
-        echo $new_recipe_id[1];
-/*
+
         $recipe_insert_query = "INSERT INTO recipes (`foodID`,`name`,`calories`, `total_carbs`, `sugar`, `protein`, `total_fat`, `sodium`, `cholesterol`, `directions`) 
-        VALUES ($new_recipe_id, $recipe_name, 0, 0, 0, 0, 0, 0, 0, $recipe_description);"
+        VALUES ($new_recipe_id, $recipe_name, 0, 0, 0, 0, 0, 0, 0, $recipe_description)";
         $result = mysql_query($recipe_insert_query, $dbconnect);
         if (!$result) {
             die("Invalid Query: " . mysql_error());
         }
 
         $contains_insert_query = "INSERT INTO contains (`recipe_foodID`,`product_foodID`,`quantity`, `measurement_std`, `volume`, `weight`) 
-        VALUES ($new_recipe_id, $item_id, $quantity, "", -1, -1);"
-*/
+        VALUES ($new_recipe_id, $item_id, $quantity, '', -1, -1)";
+        if (!$result) {
+            die("Invalid Query: " . mysql_error());
+        }
+
         //echo $_GET['recipe_name'] . " " . $_GET["recipe_description"] . " " . $_GET["item_name"] . " " . $_GET["item_id"] . " " . $_GET["quantity_unit"] . " " . $_GET["quantity"];
     }
 ?>
