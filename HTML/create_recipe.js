@@ -130,6 +130,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
     if (item_arr.length > 0) {
         $("#recipe_added_msg").html("Recipe Added")
         $("#item_selected_text").html("")
+        $("#items_added_content").html("")
         item_arr = []
     }
 })
