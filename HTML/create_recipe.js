@@ -136,8 +136,8 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     url: "update_recipes.php",
                     data: data_str,
                     success: function(rv) {
-                        console.log(rv)
-                        $.each(item_arr, function(key, value) {
+                        var value
+                        for (value in item_arr) {
                             var _data = "recipe_name=" + recipe_name + "&" + 
                                         "recipe_description=" + recipe_description + "&" +
                                         "item_name=" + value[0] + "&" +
@@ -153,7 +153,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                     console.log(data)
                                 }
                             })
-                        })
+                        }
                                 
                         $("#recipe_added_msg").html("Recipe Added")
                         $("#item_selected_text").html("")
