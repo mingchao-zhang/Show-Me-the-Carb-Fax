@@ -114,7 +114,6 @@ $(document).on('click', ".recipe_item_minus_button",  function(event) {
 $(document).on("click", "#submit_recipe_btn", function(event) {
     var recipe_name = $("#recipe_name_input").val()
     var recipe_description = $("#recipe_description_input").val()
-    var new_recipe_id = "undefined"
 
     if (item_arr.length === 0) {
         $("#recipe_added_msg").html("Please add at least one item")
@@ -123,33 +122,37 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
         $("#recipe_added_msg").html("Please enter the recipe name")
     }
     else {
-        $.each(item_arr, function(key, value) {
-            console.log("127 new_recipe_id: ", new_recipe_id)
-            $.ajax({
-                cache: false,
-                url: "add_recipe.php",
-                data: "recipe_name=" + recipe_name + "&" + 
-                      "recipe_description=" + recipe_description + "&" +
-                      "item_name=" + value[0] + "&" +
-                      "item_id=" + value[1] + "&" +
-                      "quantity_unit=" + value[2] + "&" +
-                      "quantity=" + value[3] + "&" + 
-                      "new_recipe_id=" + new_recipe_id,
-                success: function(data) {
-                    if (new_recipe_id === "undefined") {
-                        new_recipe_id = data
-                        console.log("js new_recipe_id gets assigned")
-                    }
-                    console.log(data, new_recipe_id, " line 142 in js")
-                }
-            })
-        })
-
-        $("#recipe_added_msg").html("Recipe Added")
-        $("#item_selected_text").html("")
-        $("#items_added_content").html("")
-        $("#recipe_name_input").val("")
-        $("#recipe_description_input").val("")
-        item_arr = []
+        var data_str = "recipe_name=" + recipe_name + "&" + 
+                       "recipe_description=" + recipe_description + "&" +
+                       "item_name=" + value[0] + "&" +
+                       "item_id=" + value[1] + "&" +
+                       "quantity_unit=" + value[2] + "&" +
+                       "quantity=" + value[3] 
+        $.ajax({
+            cache: false,
+            url: "update_recipes.php",
+            data: data_str,
+            success: function(data) {
+                var new_recipe_id = data
+                data_str += "&" + "new_recipe_id=" + new_recipe_id
+                $.each(item_arr, function(key, value) {
+                    $.ajax({
+                        cache: false,
+                        url: "update_contains.php",
+                        data: data_str,
+                        success: function(data) {
+                            //Nothing
+                        }
+                    })
+                })
+        
+                $("#recipe_added_msg").html("Recipe Added")
+                $("#item_selected_text").html("")
+                $("#items_added_content").html("")
+                $("#recipe_name_input").val("")
+                $("#recipe_description_input").val("")
+                item_arr = []
+            }
+        })   
     }
 })
