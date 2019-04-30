@@ -39,6 +39,6 @@
         $contains_insert_query = "INSERT INTO contains (`recipe_foodID`,`product_foodID`,`quantity`, `measurement_std`, `volume`, `weight`) 
         VALUES ($new_recipe_id, $item_id, $quantity, "", -1, -1);"
 */
-        echo $_GET['recipe_name'] . " " . $_GET["recipe_description"] . " " . $_GET["item_name"] . " " . $_GET["item_id"] . " " . $_GET["quantity_unit"] . " " . $_GET["quantity"];
+        //echo $_GET['recipe_name'] . " " . $_GET["recipe_description"] . " " . $_GET["item_name"] . " " . $_GET["item_id"] . " " . $_GET["quantity_unit"] . " " . $_GET["quantity"];
     }
 ?>
