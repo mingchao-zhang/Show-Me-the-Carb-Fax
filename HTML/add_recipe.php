@@ -11,7 +11,7 @@
         if (!$db_selected) {
           die('Cant use database: ' . mysql_error());
         }
-
-        echo $_GET['recipe_name'] . " ??? " . $_GET["recipe_description"];   
+        echo "Hello?????";
+        //echo $_GET['recipe_name'] . " ??? " . $_GET["recipe_description"];   
     }
 ?>
