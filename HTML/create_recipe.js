@@ -122,6 +122,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
         $("#recipe_added_msg").html("Please enter the recipe name")
     }
     else {
+        $new_recipe_id = "undefined"
         $.each(item_arr, function(key, value) {
             $.ajax({
                 cache: false,
@@ -131,9 +132,13 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                       "item_name=" + value[0] + "&" +
                       "item_id=" + value[1] + "&" +
                       "quantity_unit=" + value[2] + "&" +
-                      "quantity=" + value[3],
+                      "quantity=" + value[3] + "&" + 
+                      "new_recipe_id=" + "undefined",
                 success: function(data) {
-                    console.log("data: ", data)
+                    if ($new_recipe_id === "undefined") {
+                        $new_recipe_id = data
+                    }
+                    console.log($new_recipe_id)
                 }
             })
         })
