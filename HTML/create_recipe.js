@@ -123,16 +123,15 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
     }
     else {
         $.each(item_arr, function(key, value) {
-            console.log(recipe_name, recipe_description)
             $.ajax({
                 cache: false,
                 url: "add_recipe.php",
                 data: "recipe_name=" + recipe_name + "&" + 
-                      "recipe_description=" + recipe_description + 
-                      "item_name=" + value[0] + 
-                      "item_id=" + value[1] + 
-                      "quantity_unit" + value[2] + 
-                      "quantity" + value[3],
+                      "recipe_description=" + recipe_description + "&" +
+                      "item_name=" + value[0] + "&" +
+                      "item_id=" + value[1] + "&" +
+                      "quantity_unit=" + value[2] + "&" +
+                      "quantity=" + value[3],
                 success: function(data) {
                     console.log(data)
                 }
