@@ -87,37 +87,37 @@ try:
     query = ("SELECT COUNT(DISTINCT (EXTRACT(DAY FROM date))) FROM ate WHERE username = %s;")
     cursor.execute(query,(user_id,))
     
-#    for (days,) in cursor:
-#        num_days = int(days)
-#
-#    daily_calories /= num_days
-#    daily_carbs /= num_days
-#    daily_sugar /= num_days
-#    daily_protein /= num_days
-#    daily_fat /= num_days
-#    daily_sodium /= num_days
-#    daily_cholesterol /= num_days
-#
-#    # Retrieve the targets if applicable
-#    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users"
-#    "WHERE username = %s;")
-#    cursor.execute(query,(user_id,))
-#
-#    cal_target = 0
-#    carb_target = 0
-#    fat_target = 0
-#    prot_target = 0
-#
-#    for  (c1,c2,f,p) in cursor:
-#
-#        if(c1):
-#            cal_target = cal
-#        if(c2):
-#            carb_target = carbs
-#        if(f):
-#            fat_target = f
-#        if(p):
-#            prot_target = p
+    for (days,) in cursor:
+        num_days = int(days)
+
+    daily_calories /= num_days
+    daily_carbs /= num_days
+    daily_sugar /= num_days
+    daily_protein /= num_days
+    daily_fat /= num_days
+    daily_sodium /= num_days
+    daily_cholesterol /= num_days
+
+    # Retrieve the targets if applicable
+    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users"
+    "WHERE username = %s;")
+    cursor.execute(query,(user_id,))
+
+    cal_target = 0
+    carb_target = 0
+    fat_target = 0
+    prot_target = 0
+
+    for  (c1,c2,f,p) in cursor:
+
+        if(c1):
+            cal_target = cal
+        if(c2):
+            carb_target = carbs
+        if(f):
+            fat_target = f
+        if(p):
+            prot_target = p
 #
 #
 #
