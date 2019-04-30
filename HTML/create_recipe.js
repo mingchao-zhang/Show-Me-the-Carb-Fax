@@ -139,7 +139,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                         new_recipe_id = data
                         console.log("js new_recipe_id gets assigned")
                     }
-                    console.log(data)
+                    console.log(data, new_recipe_id, " line 142 in js")
                 }
             })
         })
