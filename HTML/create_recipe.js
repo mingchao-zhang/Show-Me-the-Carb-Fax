@@ -114,8 +114,9 @@ $(document).on('click', ".recipe_item_minus_button",  function(event) {
 $(document).on("click", "#submit_recipe_btn", function(event) {
     var recipe_name = $("#recipe_name_input").val()
     var recipe_description = $("#recipe_description_input").val()
-
+    
     $.each(item_arr, function(key, value) {
+        console.log(recipe_name, recipe_description)
         $.ajax({
             cache: false,
             url: "add_recipe.php",
