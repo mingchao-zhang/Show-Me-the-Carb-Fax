@@ -104,13 +104,13 @@ try:
 #
 #    recipes = cursor[:]
 #
-#    print(daily_calories)
-#    print(daily_carbs)
-#    print(daily_sugar)
-#    print(daily_protein)
-#    print(daily_fat)
-#    print(daily_cholesterol)
-#    print("Done!")
+    print(daily_calories)
+    print(daily_carbs)
+    print(daily_sugar)
+    print(daily_protein)
+    print(daily_fat)
+    print(daily_cholesterol)
+    print("Done!")
 
     connection.close()
 
