@@ -119,20 +119,15 @@ try:
         if(p):
             prot_target = p
 
-
-
-
     # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
-    query = ("SELECT foodID,calories,total_carbs,sugar,protein,total_fat,sodium,cholestrol "
+    query = ("SELECT foodID,calories,total_carbs,sugar,protein,total_fat,sodium,cholesterol "
     "FROM recipes WHERE recipes.foodID NOT IN "
     "(SELECT foodID from ate WHERE username = %s);")
     cursor.execute(query,(user_id,))
     recipes = []
 
     for recipe in cursor:
-        recipe.append(cursor)
-
-    
+        recipes.append(recipe)
 
     print(daily_calories)
     print(daily_carbs)
