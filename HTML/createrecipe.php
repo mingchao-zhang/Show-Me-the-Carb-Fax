@@ -162,6 +162,8 @@
     <div id="submit_recipe_btn_wrapper">
       <button name="submit_recipe" class="btn btn-sm btn-primary btn-block" id="submit_recipe_btn" type="submit">Submit Recipe</button> 
     </div>
+    <div id="recipe_added_msg">
+    </div>
   </div>
 </div>
 <!-- form end -->
