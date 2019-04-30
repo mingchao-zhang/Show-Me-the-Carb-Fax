@@ -21,7 +21,6 @@ db_user = "root"
 db_password = "carbfax411"
 db = "411_project_db"
 user_id = sys.argv[1] # The id of the user as a string
-#user_id = "\'" + user_id + "\'"
 
 # Create a cursor that connects to the database, an execute always returns a list
 connection = mysql.connect(user=db_user, password=db_password, database=db)
@@ -88,51 +87,51 @@ try:
     query = ("SELECT COUNT(DISTINCT (EXTRACT(DAY FROM date))) FROM ate WHERE username = %s;")
     cursor.execute(query,(user_id,))
     
-    for (days,) in cursor:
-        num_days = int(days)
+#    for (days,) in cursor:
+#        num_days = int(days)
+#
+#    daily_calories /= num_days
+#    daily_carbs /= num_days
+#    daily_sugar /= num_days
+#    daily_protein /= num_days
+#    daily_fat /= num_days
+#    daily_sodium /= num_days
+#    daily_cholesterol /= num_days
+#
+#    # Retrieve the targets if applicable
+#    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users"
+#    "WHERE username = %s;")
+#    cursor.execute(query,(user_id,))
+#
+#    cal_target = 0
+#    carb_target = 0
+#    fat_target = 0
+#    prot_target = 0
+#
+#    for  (c1,c2,f,p) in cursor:
+#
+#        if(c1):
+#            cal_target = cal
+#        if(c2):
+#            carb_target = carbs
+#        if(f):
+#            fat_target = f
+#        if(p):
+#            prot_target = p
+#
+#
+#
+#
+#    # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
+#    query = ("SELECT foodID,calories,total_carbs,sugar,protein,total_fat,sodium,cholestrol"
+#    "FROM recipes WHERE recipes.foodID NOT IN"
+#    "(SELECT foodID from ate WHERE username = %s);")
+#    cursor.execute(query,(user_id,))
+#    recipes = []
+#
+#    for recipe in cursor:
+#        recipe.append(cursor)
 
-    daily_calories /= num_days
-    daily_carbs /= num_days
-    daily_sugar /= num_days
-    daily_protein /= num_days
-    daily_fat /= num_days
-    daily_sodium /= num_days
-    daily_cholesterol /= num_days
-
-    # Retrieve the targets if applicable
-    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users"
-    "WHERE username = %s;")
-    cursor.execute(query,(user_id,))
-
-    cal_target = 0
-    carb_target = 0
-    fat_target = 0
-    prot_target = 0
-
-    for  (c1,c2,f,p) in cursor:
-        
-        if(c1):
-            cal_target = cal
-        if(c2):
-            carb_target = carbs
-        if(f):
-            fat_target = f
-        if(p):
-            prot_target = p
-
-    
-
-
-    # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
-    query = ("SELECT foodID,calories,total_carbs,sugar,protein,total_fat,sodium,cholestrol"
-    "FROM recipes WHERE recipes.foodID NOT IN"
-    "(SELECT foodID from ate WHERE username = %s);")
-    cursor.execute(query,(user_id,))
-    recipes = []
-    
-    for recipe in cursor:
-        recipe.append(cursor)
-    
     
 
     print(daily_calories)
