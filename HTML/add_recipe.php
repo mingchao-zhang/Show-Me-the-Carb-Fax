@@ -28,6 +28,8 @@
         }
         $new_recipe_id = mysql_fetch_array($result);
         echo $new_recipe_id[0];
+        echo " ";
+        echo $new_recipe_id[1];
 /*
         $recipe_insert_query = "INSERT INTO recipes (`foodID`,`name`,`calories`, `total_carbs`, `sugar`, `protein`, `total_fat`, `sodium`, `cholesterol`, `directions`) 
         VALUES ($new_recipe_id, $recipe_name, 0, 0, 0, 0, 0, 0, 0, $recipe_description);"
