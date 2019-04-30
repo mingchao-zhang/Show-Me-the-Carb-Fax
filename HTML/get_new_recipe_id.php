@@ -20,6 +20,7 @@
         $new_recipe_id = mysql_fetch_array($result)[0] + 1;
 
         # echo the recipe id for insertions into contains table
+        echo $result;
         echo $new_recipe_id;
 
         mysql_free_result($result);
