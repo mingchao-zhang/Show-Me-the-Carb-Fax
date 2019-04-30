@@ -1,6 +1,6 @@
 <?php
     echo "line 2";
-    if ( isset($_GET['name']) && !empty($_GET['name']) ) {
+    if ( isset($_GET['recipe_name']) && !empty($_GET['recipe_name']) ) {
         // Database Connection
         echo "line 5";
         $dbconnect = mysql_connect("localhost", "root", "carbfax411");
