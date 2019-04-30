@@ -133,7 +133,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                       "quantity_unit=" + value[2] + "&" +
                       "quantity=" + value[3],
                 success: function(data) {
-                    console.log(data)
+                    console.log("data: ", data)
                 }
             })
         })
