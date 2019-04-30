@@ -26,7 +26,9 @@
         if (!$result) {
             die("Invalid Query: " . mysql_error());
         }
-        $new_recipe_id = mysql_fetch_array($result);
+        $new_recipe_id = mysql_fetch_array($result)[0] + 1;
+        echo $new_recipe_id;
+        echo " 000 ";
         echo $result;
         echo "111";
         echo $new_recipe_id[0];
