@@ -67,7 +67,7 @@ try:
     daily_cholesterol += float(cursor[7])
     
     # Retrieve the list of unique dates to compute a per-day average
-    query = ("SELECT COUNT(DISTINCT date) FROM ate WHERE username = %;")
+    query = ("SELECT COUNT(DISTINCT date) FROM ate WHERE username = %s;")
     cursor.execute(query,(user_id,))
 
     num_days = int(cursor[0])
@@ -82,7 +82,7 @@ try:
 
     # Retrieve the targets if applicable
     query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users"
-    "WHERE username = %;")
+    "WHERE username = %s;")
     cursor.execute(query,(user_id,))
     
     
@@ -90,7 +90,7 @@ try:
     # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
     query = ("SELECT foodID,calories,total_carbs,sugar,protein,total_fat,sodium,cholestrol"
     "FROM recipes WHERE recipes.foodID NOT IN"
-    "(SELECT foodID from ate WHERE username = %);")
+    "(SELECT foodID from ate WHERE username = %s);")
     cursor.execute(query,(user_id,))
 
     recipes = cursor[:]
