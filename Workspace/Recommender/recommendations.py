@@ -46,21 +46,21 @@ try:
     for cal,carbs,s,p,f,sod,c in cursor:
     
         if(cal):
-            daily_calories += float(cursor[0])
+            daily_calories += float(cal)
         if(carbs):
-            daily_carbs += float(cursor[1])
+            daily_carbs += float(carbs)
         if(s):
-            daily_sugar += float(cursor[2])
+            daily_sugar += float(s)
         if(p):
-            daily_protein += float(cursor[3])
+            daily_protein += float(p)
         if(f):
-            daily_fat += float(cursor[4])
+            daily_fat += float(f)
         if(sod):
-            daily_sodium += float(cursor[5])
+            daily_sodium += float(sod)
         if(c):
-           daily_cholesterol += float(cursor[7])
+           daily_cholesterol += float(c)
      
-
+"""
     # Retrieve nutrient information from the products table
     query = ("SELECT SUM(P.calories * A.quantity),SUM(P.total_carbs * A.quantity),SUM(P.sugars * A.quantity)"
      ",SUM(P.protein * A.quantity),SUM(P.total_fat * A.quantity),SUM(P.sodium * A.quantity),SUM(P.cholesterol * A.quantity)"
@@ -111,7 +111,7 @@ try:
     print(daily_fat)
     print(daily_cholesterol)
     print("Done!")
-    
+"""
     connection.close()
 
 
