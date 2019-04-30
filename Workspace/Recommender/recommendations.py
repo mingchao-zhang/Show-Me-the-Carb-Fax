@@ -57,8 +57,8 @@ try:
             daily_fat += float(cursor[4])
         if(sod):
             daily_sodium += float(cursor[5])
-        if(
-        daily_cholesterol += float(cursor[7])
+        if(c):
+           daily_cholesterol += float(cursor[7])
      
 
     # Retrieve nutrient information from the products table
