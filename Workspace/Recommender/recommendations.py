@@ -55,7 +55,7 @@ try:
     # Retrieve nutrient information from the products table
     query = ("SELECT SUM(P.calories * A.quantity),SUM(P.total_carbs * A.quantity),SUM(P.sugars * A.quantity)"
      ",SUM(P.protein * A.quantity),SUM(P.total_fat * A.quantity),SUM(P.sodium * A.quantity),SUM(P.cholesterol * A.quantity)"
-     "FROM products AS P, ate as A WHERE P.foodID = A.foodID AND A.username = %;")
+     "FROM products AS P, ate as A WHERE P.foodID = A.foodID AND A.username = %s;")
     cursor.execute(query,(user_id,))
     
     daily_calories += float(cursor[0])
