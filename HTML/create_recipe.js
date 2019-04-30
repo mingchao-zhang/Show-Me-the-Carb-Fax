@@ -114,7 +114,7 @@ $(document).on('click', ".recipe_item_minus_button",  function(event) {
 $(document).on("click", "#submit_recipe_btn", function(event) {
     var recipe_name = $("#recipe_name_input").val()
     var recipe_description = $("#recipe_description_input").val()
-    $new_recipe_id = "undefined"
+    var new_recipe_id = "undefined"
 
     if (item_arr.length === 0) {
         $("#recipe_added_msg").html("Please add at least one item")
@@ -133,7 +133,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                       "item_id=" + value[1] + "&" +
                       "quantity_unit=" + value[2] + "&" +
                       "quantity=" + value[3] + "&" + 
-                      "new_recipe_id=" + "undefined",
+                      "new_recipe_id=" + new_recipe_id,
                 success: function(data) {
                     if ($new_recipe_id === "undefined") {
                         $new_recipe_id = data
