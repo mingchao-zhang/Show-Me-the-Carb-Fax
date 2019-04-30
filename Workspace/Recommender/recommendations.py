@@ -99,32 +99,32 @@ try:
     daily_cholesterol /= num_days
 
 #    # Retrieve the targets if applicable
-#    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users"
-#    "WHERE username = %s;")
-#    cursor.execute(query,(user_id,))
-#
-#    cal_target = 0
-#    carb_target = 0
-#    fat_target = 0
-#    prot_target = 0
-#
-#    for  (c1,c2,f,p) in cursor:
-#
-#        if(c1):
-#            cal_target = cal
-#        if(c2):
-#            carb_target = carbs
-#        if(f):
-#            fat_target = f
-#        if(p):
-#            prot_target = p
-#
-#
-#
-#
+    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users "
+    "WHERE username = %s;")
+    cursor.execute(query,(user_id,))
+
+    cal_target = 0
+    carb_target = 0
+    fat_target = 0
+    prot_target = 0
+
+    for  (c1,c2,f,p) in cursor:
+
+        if(c1):
+            cal_target = cal
+        if(c2):
+            carb_target = carbs
+        if(f):
+            fat_target = f
+        if(p):
+            prot_target = p
+
+
+
+
     # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
-    query = ("SELECT foodID,calories,total_carbs,sugar,protein,total_fat,sodium,cholestrol"
-    "FROM recipes WHERE recipes.foodID NOT IN"
+    query = ("SELECT foodID,calories,total_carbs,sugar,protein,total_fat,sodium,cholestrol "
+    "FROM recipes WHERE recipes.foodID NOT IN "
     "(SELECT foodID from ate WHERE username = %s);")
     cursor.execute(query,(user_id,))
     recipes = []
