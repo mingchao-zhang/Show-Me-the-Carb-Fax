@@ -138,6 +138,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     success: function(rv) {
                         var value
                         for (value in item_arr) {
+                            console.log(value)
                             var _data = "recipe_name=" + recipe_name + "&" + 
                                         "recipe_description=" + recipe_description + "&" +
                                         "item_name=" + value[0] + "&" +
