@@ -30,7 +30,7 @@ $(document).on("click", ".food_search_item", function(event) {
     param_arr = div_elem.split("*")
     item_name = param_arr[0]
     item_id = param_arr[1]
-    $("#item_selected_text").html(item_name.replace(/_/g, " ") + "; " + item_id.replace(/_/g, " "))
+    $("#item_selected_text").html(item_name.replace(/_/g, " ") + "* " + item_id.replace(/_/g, " "))
 })
 
 //---------------------------------------------
@@ -69,7 +69,7 @@ $(document).on("click", '#_add_item_button', function(event) {
         return
     }
     console.log("name and id: ", name_and_id)
-    name_and_id = name_and_id.split(";")
+    name_and_id = name_and_id.split("*")
     console.log("name and id: ", name_and_id)
     item.push(name_and_id[0])
     item.push(name_and_id[1].slice(1))
