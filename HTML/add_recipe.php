@@ -21,6 +21,8 @@
         $quantity = $_GET["quantity"];
         $new_recipe_id = $_GET["new_recipe_id"];
 
+        // first time $new_recipe_id is created;
+        // there can be only one insertion into the recipe table
         if ($new_recipe_id == "undefined") {
             $get_recipe_id_query = "SELECT MAX(foodID) FROM recipes";
             $result = mysql_query($get_recipe_id_query, $dbconnect);
@@ -28,21 +30,20 @@
                 die("Invalid Query: " . mysql_error());
             }
             $new_recipe_id = mysql_fetch_array($result)[0] + 1;
+
+            $recipe_insert_query = "INSERT INTO recipes (`foodID`, `name`, `calories`, `total_carbs`, `sugar`, `protein`, `total_fat`, `sodium`, `cholesterol`, `directions`) 
+            VALUES ('$new_recipe_id', '$recipe_name', 0, 0, 0, 0, 0, 0, 0, '$recipe_description')";
+            $result = mysql_query($recipe_insert_query, $dbconnect);
+            if (!$result) {
+                die("Invalid Query: " . mysql_error());
+            }
+            # for subsequent contains insertions
+            echo $new_recipe_id;
         }
         else {
             $new_recipe_id = (int) $new_recipe_id;
         }
-        # for subsequent contains insertions
-        echo $new_recipe_id;
-
-        // Do queries
-        $recipe_insert_query = "INSERT INTO recipes (`foodID`, `name`, `calories`, `total_carbs`, `sugar`, `protein`, `total_fat`, `sodium`, `cholesterol`, `directions`) 
-        VALUES ('$new_recipe_id', '$recipe_name', 0, 0, 0, 0, 0, 0, 0, '$recipe_description')";
-        $result = mysql_query($recipe_insert_query, $dbconnect);
-        if (!$result) {
-            die("Invalid Query: " . mysql_error());
-        }
-
+        
         $contains_insert_query = "INSERT INTO contains (`recipe_foodID`,`product_foodID`,`quantity`, `measurement_std`, `volume`, `weight`) 
         VALUES ('$new_recipe_id', '$item_id', '$quantity', '', -1, -1)";
         $result = mysql_query($contains_insert_query, $dbconnect);
