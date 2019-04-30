@@ -68,6 +68,7 @@ $(document).on("click", '#_add_item_button', function(event) {
     if ( !name_and_id ) {
         return
     }
+    console.log("name and id: ", name_and_id)
     name_and_id = name_and_id.split(";")
     console.log("name and id: ", name_and_id)
     item.push(name_and_id[0])
