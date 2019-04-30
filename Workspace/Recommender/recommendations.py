@@ -21,7 +21,7 @@ db_user = "root"
 db_password = "carbfax411"
 db = "411_project_db"
 user_id = sys.argv[1] # The id of the user as a string
-user_id = "\'" + user_id + "\'"
+#user_id = "\'" + user_id + "\'"
 
 # Create a cursor that connects to the database, an execute always returns a list
 connection = mysql.connect(user=db_user, password=db_password, database=db)
@@ -44,7 +44,7 @@ try:
     cursor.execute(query,(user_id,))
     
     for (cal,carbs,s,p,f,sod,c) in cursor:
-    
+        
         if(cal):
             daily_calories += float(cal)
         if(carbs):
