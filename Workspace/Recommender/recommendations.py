@@ -42,14 +42,23 @@ try:
      ",SUM(R.protein * A.quantity),SUM(R.total_fat * A.quantity),SUM(R.sodium * A.quantity),SUM(R.cholesterol * A.quantity)"
      "FROM recipes AS R, ate as A WHERE R.foodID = A.foodID AND A.username = %s;")
     cursor.execute(query,(user_id,))
-     
-    daily_calories += float(cursor[0])
-    daily_carbs += float(cursor[1])
-    daily_sugar += float(cursor[2])
-    daily_protein += float(cursor[3])
-    daily_fat += float(cursor[4])
-    daily_sodium += float(cursor[5])
-    daily_cholesterol += float(cursor[7])
+    
+    for cal,carbs,s,p,f,sod,c:
+    
+        if(cal):
+            daily_calories += float(cursor[0])
+        if(carbs):
+            daily_carbs += float(cursor[1])
+        if(s):
+            daily_sugar += float(cursor[2])
+        if(p):
+            daily_protein += float(cursor[3])
+        if(f):
+            daily_fat += float(cursor[4])
+        if(sod):
+            daily_sodium += float(cursor[5])
+        if(
+        daily_cholesterol += float(cursor[7])
      
 
     # Retrieve nutrient information from the products table
