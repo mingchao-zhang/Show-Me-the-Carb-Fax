@@ -135,8 +135,8 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                       "quantity=" + value[3] + "&" + 
                       "new_recipe_id=" + new_recipe_id,
                 success: function(data) {
-                    if ($new_recipe_id === "undefined") {
-                        $new_recipe_id = data
+                    if (new_recipe_id === "undefined") {
+                        new_recipe_id = data
                         console.log("js new_recipe_id gets assigned")
                     }
                     console.log(data)
