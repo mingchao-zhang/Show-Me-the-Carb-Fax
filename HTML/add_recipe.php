@@ -21,7 +21,7 @@
         $quantity = $_GET["quantity"];
 
         // Do queries
-        $get_recipe_id_query = "(SELECT MAX(foodID) FROM recipes) + 1";
+        $get_recipe_id_query = "SELECT MAX(foodID) FROM recipes";
         $result = mysql_query($get_recipe_id_query, $dbconnect);
         if (!$result) {
             die("Invalid Query: " . mysql_error());
