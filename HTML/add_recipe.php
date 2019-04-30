@@ -27,8 +27,10 @@
             die("Invalid Query: " . mysql_error());
         }
         $new_recipe_id = mysql_fetch_array($result);
+        echo $result;
+        echo "111";
         echo $new_recipe_id[0];
-        echo " ";
+        echo "222";
         echo $new_recipe_id[1];
 /*
         $recipe_insert_query = "INSERT INTO recipes (`foodID`,`name`,`calories`, `total_carbs`, `sugar`, `protein`, `total_fat`, `sodium`, `cholesterol`, `directions`) 
