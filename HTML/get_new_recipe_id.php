@@ -21,6 +21,7 @@
 
         # echo the recipe id for insertions into contains table
         echo $result;
+        echo "What the heck?";
         echo $new_recipe_id;
 
         mysql_free_result($result);

@@ -128,6 +128,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
             data: "",
             success: function(data) {
                 var new_recipe_id = data
+                console.log("data: ", data)
                 console.log("new_recipe_id: ", new_recipe_id)
                 /*
                 var data_str = "recipe_name=" + recipe_name + "&" + 
