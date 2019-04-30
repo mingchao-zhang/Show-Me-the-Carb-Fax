@@ -122,10 +122,16 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
             url: "add_recipe.php",
             data: "recipe_name=" + recipe_name + "&" + "recipe_description=" + recipe_description,
             success: function(data) {
-                $("#recipe_added_msg").html("Recipe Added")
+                //Nothing
             }
         })
     })
+
+    if (item_arr.length > 0) {
+        $("#recipe_added_msg").html("Recipe Added")
+        $("#item_selected_text").html("")
+        item_arr = []
+    }
 })
 
 /*
