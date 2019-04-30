@@ -136,8 +136,8 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     url: "update_recipes.php",
                     data: data_str,
                     success: function(rv) {
-                        var value
-                        for (value in item_arr) {
+                        for (var i = 0; i < item_arr.length; i++) {
+                            value = item_arr[i]
                             console.log(value)
                             var _data = "recipe_name=" + recipe_name + "&" + 
                                         "recipe_description=" + recipe_description + "&" +
