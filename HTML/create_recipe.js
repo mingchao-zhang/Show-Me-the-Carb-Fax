@@ -127,7 +127,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
         })
     })
 
-    if (item_arr.length > 0) {
+    if (item_arr.length > 0 && recipe_name != "") {
         $("#recipe_added_msg").html("Recipe Added")
         $("#item_selected_text").html("")
         $("#items_added_content").html("")
