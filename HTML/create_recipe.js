@@ -120,8 +120,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
         $.ajax({
             cache: false,
             url: "add_recipe.php",
-            data: "recipe_name=" + recipe_name + "&" + 
-                  "recipe_description=" + recipe_description,
+            data: "recipe_name=" + recipe_name + "&" + "recipe_description=" + recipe_description,
             success: function(data) {
                 console.log(data)
             }
