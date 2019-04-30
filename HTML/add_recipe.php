@@ -36,7 +36,6 @@
             die("Invalid Query: " . mysql_error());
         }
 
-        echo "recipe insert succeeded";
         $contains_insert_query = "INSERT INTO contains (`recipe_foodID`,`product_foodID`,`quantity`, `measurement_std`, `volume`, `weight`) 
         VALUES ('$new_recipe_id', '$item_id', '$quantity', '', -1, -1)";
         if (!$result) {
