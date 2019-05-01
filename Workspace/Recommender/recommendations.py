@@ -37,8 +37,8 @@ try:
     daily_cholesterol = 0
     
     # Retrieve nutrient information from the recipes table
-    query = ("SELECT SUM(R.calories * A.quantity),SUM(R.total_carbs * A.quantity),SUM(R.sugar * A.quantity)"
-     ",SUM(R.protein * A.quantity),SUM(R.total_fat * A.quantity),SUM(R.sodium * A.quantity),SUM(R.cholesterol * A.quantity)"
+    query = ("SELECT SUM(R.calories * A.quantity),SUM(R.total_carbs * A.quantity),SUM(R.sugar * A.quantity) "
+     ",SUM(R.protein * A.quantity),SUM(R.total_fat * A.quantity),SUM(R.sodium * A.quantity),SUM(R.cholesterol * A.quantity) "
      "FROM recipes AS R, ate as A WHERE R.foodID = A.foodID AND A.username = %s;")
     cursor.execute(query,(user_id,))
     
@@ -61,8 +61,8 @@ try:
      
 
     # Retrieve nutrient information from the products table
-    query = ("SELECT SUM(P.calories * A.quantity),SUM(P.total_carbs * A.quantity),SUM(P.sugars * A.quantity)"
-     ",SUM(P.protein * A.quantity),SUM(P.total_fat * A.quantity),SUM(P.sodium * A.quantity),SUM(P.cholesterol * A.quantity)"
+    query = ("SELECT SUM(P.calories * A.quantity),SUM(P.total_carbs * A.quantity),SUM(P.sugars * A.quantity) "
+     ",SUM(P.protein * A.quantity),SUM(P.total_fat * A.quantity),SUM(P.sodium * A.quantity),SUM(P.cholesterol * A.quantity) "
      "FROM products AS P, ate as A WHERE P.foodID = A.foodID AND A.username = %s;")
     cursor.execute(query,(user_id,))
 
