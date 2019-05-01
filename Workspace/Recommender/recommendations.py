@@ -170,8 +170,12 @@ try:
 
     recommendations = []
     for recipe in recipes:
+        print(recipe[2])
         
-        factor = 500/recipe[2] #Factor to standardize all recipes
+        if(recipe[2] != 0):
+            factor = 500/recipe[2] #Factor to standardize all recipes
+        else:
+            factor = 0.5
 
         diff = (0.15*(fat_target/4 - recipe[6]*factor)**2 + 0.15*(prot_target/4 - recipe[5]*factor)**2 + 0.15*(sod_target/4 - recipe[7]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15*(carb_target/4 - recipe[3]*factor)**2)
 
