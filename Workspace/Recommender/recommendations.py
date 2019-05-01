@@ -187,17 +187,17 @@ try:
 
     res = ""
     for i in range(10):
-        res += recommendations[i][1]
+        res += str(recommendations[i][1])
 
-    print(res)
-
-    print(daily_calories)
-    print(daily_carbs)
-    print(daily_sugar)
-    print(daily_protein)
-    print(daily_fat)
-    print(daily_cholesterol)
-    print("Done!")
+#    print(res)
+#
+#    print(daily_calories)
+#    print(daily_carbs)
+#    print(daily_sugar)
+#    print(daily_protein)
+#    print(daily_fat)
+#    print(daily_cholesterol)
+#    print("Done!")
 
     connection.close()
 
