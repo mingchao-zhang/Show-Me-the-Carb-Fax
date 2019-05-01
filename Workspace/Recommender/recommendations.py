@@ -15,6 +15,7 @@
 """
 
 import sys
+import math
 import mysql.connector as mysql
 
 db_user = "root"
@@ -131,10 +132,10 @@ try:
         weight = float(w)*0.453592;
 
 
-    cals_recmnd = ceil((10 * weight) + (6.25 *height) - (5 * age) + 5);
-    carbs_recmnd = ceil(cals_recmnd * 0.5 / 4);
-    prot_recmnd = ceil(cals_recmnd * 0.25 / 4);
-    fat_recmnd = ceil(cals_recmnd * 0.25 / 9);
+    cals_recmnd = math.ceil((10 * weight) + (6.25 *height) - (5 * age) + 5);
+    carbs_recmnd = math.ceil(cals_recmnd * 0.5 / 4);
+    prot_recmnd = math.ceil(cals_recmnd * 0.25 / 4);
+    fat_recmnd = math.ceil(cals_recmnd * 0.25 / 9);
 
     if(carb_target == 0):
 
