@@ -189,7 +189,7 @@ try:
     for i in range(10):
         res += str(recommendations[i][1]) + ","
 
-    print(res)
+    print(res[:-1])
 #
 #    print(daily_calories)
 #    print(daily_carbs)
