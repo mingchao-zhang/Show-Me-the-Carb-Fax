@@ -173,11 +173,11 @@ try:
         
         factor = 500/recipe[2] #Factor to standardize all recipes
 
-        diff = (0.15*(fat_target/4 - recipe[6]*factor)**2 + 0.15*(prot_target/4 - recipe[5]*factor)**2 + 0.15*(sod_target/4 - recipe[7]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15(carb_target/4 - recipe[3]*factor)**2)
+        diff = (0.15*(fat_target/4 - recipe[6]*factor)**2 + 0.15*(prot_target/4 - recipe[5]*factor)**2 + 0.15*(sod_target/4 - recipe[7]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15*(carb_target/4 - recipe[3]*factor)**2)
 
         recommendations.append(diff,recipe[0],recipe[1])
 
-    recommendations.sort(key=lambda tup: tup[0])
+    recommendations.sort(key = lambda tup: tup[0])
 
     for i in range(10):
         print(recommendations[i][2])
