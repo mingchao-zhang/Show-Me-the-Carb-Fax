@@ -170,7 +170,6 @@ try:
 
     recommendations = []
     for recipe in recipes:
-        print(recipe[2])
         
         if(recipe[2] != 0):
             factor = 500/recipe[2] #Factor to standardize all recipes
@@ -185,6 +184,12 @@ try:
 
     for i in range(10):
         print(recommendations[i][2])
+
+    res = ""
+    for i in range(10):
+        res += recommendations[i][1]
+
+    print(res)
 
     print(daily_calories)
     print(daily_carbs)
