@@ -97,60 +97,60 @@ try:
     daily_fat /= num_days
     daily_sodium /= num_days
     daily_cholesterol /= num_days
-#
-##    # Retrieve the targets if applicable
-#    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users "
-#    "WHERE username = %s;")
-#    cursor.execute(query,(user_id,))
-#
-#    cal_target = 0
-#    carb_target = 0
-#    fat_target = 0
-#    prot_target = 0
-#
-#    for  (c1,c2,f,p) in cursor:
-#
-#        if(c1):
-#            cal_target = cal
-#        if(c2):
-#            carb_target = carbs
-#        if(f):
-#            fat_target = f
-#        if(p):
-#            prot_target = p
-#
-#    query = "SELECT age,height,weight WHERE username = %s;"
-#    cursor.execute(query,(user_id,))
-#
-#    a = 0
-#    h = 0
-#    w = 0
-#    for (a,h,w) in cursor:
-#        age = float(a)
-#        height = float(h)*2.54
-#        weight = float(w)*0.453592;
-#
-#
-#    cals_recmnd = ceil((10 * weight) + (6.25 *height) - (5 * age) + 5);
-#    carbs_recmnd = ceil(cals_recmnd * 0.5 / 4);
-#    prot_recmnd = ceil(cals_recmnd * 0.25 / 4);
-#    fat_recmnd = ceil(cals_recmnd * 0.25 / 9);
-#
-#    if(carb_target == 0):
-#
-#        carb_target = carbs_recmnd
-#
-#    if(fat_target == 0):
-#
-#        fat_target = fat_recmnd
-#
-#    if(prot_target == 0):
-#
-#        prot_target = prot_recmnd
-#
-#    # Based on average estimate
-#    sod_target = 2500
-#    cholesterol_target = 250
+
+   # Retrieve the targets if applicable
+    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users "
+    "WHERE username = %s;")
+    cursor.execute(query,(user_id,))
+
+    cal_target = 0
+    carb_target = 0
+    fat_target = 0
+    prot_target = 0
+
+    for  (c1,c2,f,p) in cursor:
+
+        if(c1):
+            cal_target = cal
+        if(c2):
+            carb_target = carbs
+        if(f):
+            fat_target = f
+        if(p):
+            prot_target = p
+
+    query = "SELECT age,height,weight WHERE username = %s;"
+    cursor.execute(query,(user_id,))
+
+    a = 0
+    h = 0
+    w = 0
+    for (a,h,w) in cursor:
+        age = float(a)
+        height = float(h)*2.54
+        weight = float(w)*0.453592;
+
+
+    cals_recmnd = ceil((10 * weight) + (6.25 *height) - (5 * age) + 5);
+    carbs_recmnd = ceil(cals_recmnd * 0.5 / 4);
+    prot_recmnd = ceil(cals_recmnd * 0.25 / 4);
+    fat_recmnd = ceil(cals_recmnd * 0.25 / 9);
+
+    if(carb_target == 0):
+
+        carb_target = carbs_recmnd
+
+    if(fat_target == 0):
+
+        fat_target = fat_recmnd
+
+    if(prot_target == 0):
+
+        prot_target = prot_recmnd
+
+    # Based on average estimate
+    sod_target = 2500
+    cholesterol_target = 250
 #
 #
 #    # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
