@@ -119,7 +119,7 @@ try:
         if(p):
             prot_target = p
 
-    query = "SELECT age,height,weight WHERE username = %s;"
+    query = "SELECT age,height,weight FROM users WHERE username = %s;"
     cursor.execute(query,(user_id,))
 
     a = 0
@@ -151,45 +151,45 @@ try:
     # Based on average estimate
     sod_target = 2500
     cholesterol_target = 250
-#
-#
-#    # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
-#    query = ("SELECT foodID,name,calories,total_carbs,sugar,protein,total_fat,sodium,cholesterol "
-#    "FROM recipes WHERE recipes.foodID NOT IN "
-#    "(SELECT foodID from ate WHERE username = %s);")
-#    cursor.execute(query,(user_id,))
-#    recipes = []
-#
-#    for (id,name,c,tc,s,p,f,sod,ch) in cursor:
-#        recipes.append([id,name,float(c),float(tc),float(s),float(p),float(f),float(sod),float(ch)])
-#
-#
-#    # We recommend those recipes that minimize the mean-squared distance between the various nutrient values and recommendations
-#    # We assume that the standard portion is about 500 calories and multiply all the values o
-#
-#    recommendations = []
-#    for recipe in recipes:
-#        
-#        factor = 500/recipe[2] #Factor to standardize all recipes
-#
-#        diff = (0.15*(fat_target/4 - recipe[6]*factor)**2 + 0.15*(prot_target/4 - recipe[5]*factor)**2 + 0.15*(sod_target/4 - recipe[7]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15(carb_target/4 - recipe[3]*factor)**2)
-#
-#        recommendations.append(diff,recipe[0],recipe[1])
-#
-#    recommendations.sort(key=lambda tup: tup[0])
-#
-#    for i in range(10):
-#        print(recommendations[i][2])
-#
-#    print(daily_calories)
-#    print(daily_carbs)
-#    print(daily_sugar)
-#    print(daily_protein)
-#    print(daily_fat)
-#    print(daily_cholesterol)
-#    print("Done!")
-#
-#    connection.close()
+
+
+    # Retrieve a list of potential recipes i.e. recipes that the user has not consumed
+    query = ("SELECT foodID,name,calories,total_carbs,sugar,protein,total_fat,sodium,cholesterol "
+    "FROM recipes WHERE recipes.foodID NOT IN "
+    "(SELECT foodID from ate WHERE username = %s);")
+    cursor.execute(query,(user_id,))
+    recipes = []
+
+    for (id,name,c,tc,s,p,f,sod,ch) in cursor:
+        recipes.append([id,name,float(c),float(tc),float(s),float(p),float(f),float(sod),float(ch)])
+
+
+    # We recommend those recipes that minimize the mean-squared distance between the various nutrient values and recommendations
+    # We assume that the standard portion is about 500 calories and multiply all the values o
+
+    recommendations = []
+    for recipe in recipes:
+        
+        factor = 500/recipe[2] #Factor to standardize all recipes
+
+        diff = (0.15*(fat_target/4 - recipe[6]*factor)**2 + 0.15*(prot_target/4 - recipe[5]*factor)**2 + 0.15*(sod_target/4 - recipe[7]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15(carb_target/4 - recipe[3]*factor)**2)
+
+        recommendations.append(diff,recipe[0],recipe[1])
+
+    recommendations.sort(key=lambda tup: tup[0])
+
+    for i in range(10):
+        print(recommendations[i][2])
+
+    print(daily_calories)
+    print(daily_carbs)
+    print(daily_sugar)
+    print(daily_protein)
+    print(daily_fat)
+    print(daily_cholesterol)
+    print("Done!")
+
+    connection.close()
 
 
 except mysql.Error as e:
