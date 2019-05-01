@@ -60,43 +60,43 @@ try:
            daily_cholesterol += float(c)
      
 
-#    # Retrieve nutrient information from the products table
-#    query = ("SELECT SUM(P.calories * A.quantity),SUM(P.total_carbs * A.quantity),SUM(P.sugars * A.quantity) "
-#     ",SUM(P.protein * A.quantity),SUM(P.total_fat * A.quantity),SUM(P.sodium * A.quantity),SUM(P.cholesterol * A.quantity) "
-#     "FROM products AS P, ate as A WHERE P.foodID = A.foodID AND A.username = %s;")
-#    cursor.execute(query,(user_id,))
-#
-#    for (cal,carbs,s,p,f,sod,c) in cursor:
-#
-#        if(cal):
-#            daily_calories += float(cal)
-#        if(carbs):
-#            daily_carbs += float(carbs)
-#        if(s):
-#            daily_sugar += float(s)
-#        if(p):
-#            daily_protein += float(p)
-#        if(f):
-#            daily_fat += float(f)
-#        if(sod):
-#            daily_sodium += float(sod)
-#        if(c):
-#            daily_cholesterol += float(c)
-#
-#    # Retrieve the list of unique dates to compute a per-day average
-#    query = ("SELECT COUNT(DISTINCT (EXTRACT(DAY FROM date))) FROM ate WHERE username = %s;")
-#    cursor.execute(query,(user_id,))
-#    
-#    for (days,) in cursor:
-#        num_days = int(days)
-#
-#    daily_calories /= num_days
-#    daily_carbs /= num_days
-#    daily_sugar /= num_days
-#    daily_protein /= num_days
-#    daily_fat /= num_days
-#    daily_sodium /= num_days
-#    daily_cholesterol /= num_days
+    # Retrieve nutrient information from the products table
+    query = ("SELECT SUM(P.calories * A.quantity),SUM(P.total_carbs * A.quantity),SUM(P.sugars * A.quantity) "
+     ",SUM(P.protein * A.quantity),SUM(P.total_fat * A.quantity),SUM(P.sodium * A.quantity),SUM(P.cholesterol * A.quantity) "
+     "FROM products AS P, ate as A WHERE P.foodID = A.foodID AND A.username = %s;")
+    cursor.execute(query,(user_id,))
+
+    for (cal,carbs,s,p,f,sod,c) in cursor:
+
+        if(cal):
+            daily_calories += float(cal)
+        if(carbs):
+            daily_carbs += float(carbs)
+        if(s):
+            daily_sugar += float(s)
+        if(p):
+            daily_protein += float(p)
+        if(f):
+            daily_fat += float(f)
+        if(sod):
+            daily_sodium += float(sod)
+        if(c):
+            daily_cholesterol += float(c)
+
+    # Retrieve the list of unique dates to compute a per-day average
+    query = ("SELECT COUNT(DISTINCT (EXTRACT(DAY FROM date))) FROM ate WHERE username = %s;")
+    cursor.execute(query,(user_id,))
+    
+    for (days,) in cursor:
+        num_days = int(days)
+
+    daily_calories /= num_days
+    daily_carbs /= num_days
+    daily_sugar /= num_days
+    daily_protein /= num_days
+    daily_fat /= num_days
+    daily_sodium /= num_days
+    daily_cholesterol /= num_days
 #
 ##    # Retrieve the targets if applicable
 #    query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users "
