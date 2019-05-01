@@ -187,9 +187,9 @@ try:
 
     res = ""
     for i in range(10):
-        res += str(recommendations[i][1])
+        res += str(recommendations[i][1]) + ","
 
-#    print(res)
+    print(res)
 #
 #    print(daily_calories)
 #    print(daily_carbs)
