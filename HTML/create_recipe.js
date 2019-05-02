@@ -122,6 +122,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
         $("#recipe_added_msg").html("Please enter the recipe name")
     }
     else {
+        console.log("line 125")
         $.ajax({
             cache: false,
             url: "get_new_recipe_id.php",
@@ -150,7 +151,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 url: "update_contains.php",
                                 data: _data,
                                 success: function(data) {
-                                    //console.log(data)
+                                    console.log(_data)
                                 }
                             })
                         }
