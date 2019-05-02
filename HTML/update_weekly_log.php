@@ -17,7 +17,7 @@
     $add = intval($_GET['add']);
     // update quantity and delete items with quantity 0
     // date: yyyy-mm-dd
- echo "<h4>TEST1</h4>";
+ // echo "<h4>TEST1</h4>";
 //     try {
 //         echo "<h4>TEST2</h4>";
 //         $this->pdo->beginTransaction();
