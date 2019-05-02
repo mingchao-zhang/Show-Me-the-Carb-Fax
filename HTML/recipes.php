@@ -131,11 +131,11 @@
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
                                     <ul class="list-group list-group-flush">
-                                      <li>Ingredient</li>
-                                      <li>Ingredient</li>
-                                      <li>Ingredient</li>
-                                      <li>Ingredient</li>
-                                      <li>Ingredient</li>
+                                      <li class="list-group-item">Ingredient</li>
+                                      <li class="list-group-item">Ingredient</li>
+                                      <li class="list-group-item">Ingredient</li>
+                                      <li class="list-group-item">Ingredient</li>
+                                      <li class="list-group-item">Ingredient</li>
                                     </ul>
                                 </div>
                                 <div class="carousel-item text-center p-4">
