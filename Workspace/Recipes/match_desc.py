@@ -14,6 +14,7 @@ output_file = "Data/descriptions.csv"
 delimiter = "~"
 
 descriptions = {}
+description_nums = set()
 recipes = {}
 
 with open(recipes_file, "r") as f:
@@ -27,7 +28,8 @@ with open(dataset_file) as file:
     for each_recipe in data:
         try:
             recipe_title = each_recipe["title"].strip()
-
+            description_nums.add(recipes[recipe_title][0])
+            
             if(each_recipe["desc"]):
                 descriptions[recipes[recipe_title][0]] = (recipes[recipe_title] + [each_recipe["desc"]])
             else:
@@ -54,4 +56,7 @@ with open(contains_file, "r") as f:
 with open(output_file, "w") as output:
     writer = csv.writer(output, delimiter = delimiter,lineterminator='\n')
     for each_line in contains.keys():
-        writer.writerow(contains[each_line])
+
+        if(str(contains[each_line][0]) in description_nums):
+
+            writer.writerow(contains[each_line])
