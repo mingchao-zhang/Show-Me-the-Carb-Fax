@@ -178,7 +178,7 @@ try:
             factor = 500/recipe[2] #Factor to standardize all recipes
 
         diff = (0.15*(fat_target/4 - recipe[7]*factor)**2 + 0.15*(prot_target/4 - recipe[6]*factor)**2 + 0.15*(sod_target/4 - recipe[6]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15*(carb_target/4 - recipe[4]*factor)**2)
-
+        print(diff)
         recommendations.append((diff,recipe[0],recipe[1]))
 
     recommendations.sort(key = lambda tup: tup[0])
@@ -194,27 +194,31 @@ try:
               "thiamin,calcium,iron,magnesium,phosphorus,potassium,riboflavin,zinc "
               "FROM products WHERE products.foodID = %s;")
 
-#    for recipe in top_recommendations:
-#        cursor.execute(query1,(int(recipe[1]),))
-#
-#        for ingredient in cursor:
-#            cursor2.execute(query2,(int(ingredient[1],)))
-#
-#            for ingredient_val in cursor2:
-#                print(ingredient_val)
+    for recipe in top_recommendations:
+        cursor.execute(query1,(int(recipe[1]),))
 
-    for i in range(10):
-        print(recommendations[i][2])
+        for ingredient in cursor:
+            cursor2.execute(query2,(int(ingredient[0]),))
+
+            for ingredient_val in cursor2:
+
+                total = sum(ingredient_val[:8]) + 0.5*(sum(ingredient_val[8:]))
+                
+                
+
+
 
     res = ""
     the_set = set()
-    for i in range(10):
+    for i in range(5):
         if(recommendations[i][2] not in the_set):
             res += str(recommendations[i][1]) + ","
             the_set.add(recommendations[i][2])
 
     print(res[:-1])
 
+#    for i in range(10):
+#        print(recommendations[i][2])
 #    print(daily_calories)
 #    print(daily_carbs)
 #    print(daily_sugar)
