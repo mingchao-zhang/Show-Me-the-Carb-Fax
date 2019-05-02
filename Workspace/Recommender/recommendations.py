@@ -221,9 +221,8 @@ try:
     max_tot = max(top_recommendations_micro,key=lambda item:item[1])[1]
     
     top_recommendations_micro = map(lambda x:(x[0]/max_diff, x[1]/max_tot, 0 , x[3] , x[4]), top_recommendations_micro)
-    top_recommendations_micro = map(lambda x:(x[0], x[1], x[0] + x[1], x[3], x[4]), top_recommendations_micro)
+    top_recommendations_micro = map(lambda x:(x[0], x[1], x[0] - 0.1*x[1], x[3], x[4]), top_recommendations_micro)
     top_recommendations_micro.sort(key = lambda tup: tup[2])
-    top_recommendations_micro = top_recommendations_micro[::-1]
 
 
     res = ""
