@@ -95,7 +95,7 @@
                 <main role="main" class="container">
                     <div class="row mb-2">
                       <div class="col-md-10">
-                        <div class="jumbotron" style="padding: 64px 64px 64px 64px;">
+                        <div class="jumbotron" style="width: 924px;">
 <!-- form begin -->
 <div id="recipe_form_container">
   <div id="recipe_info_box">
