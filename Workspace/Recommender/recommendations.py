@@ -25,9 +25,9 @@ user_id = sys.argv[1] # The id of the user as a string
 
 # Create a cursor that connects to the database, an execute always returns a list
 connection = mysql.connect(user=db_user, password=db_password, database=db)
-cursor = connection.cursor()
+cursor = connection.cursor(buffered=True)
 connection2 = mysql.connect(user=db_user, password=db_password, database=db)
-cursor2 = connection.cursor()
+cursor2 = connection2.cursor(buffered=True)
 
 # We enclose it in a try-catch block for efficient error handling
 try:
@@ -178,7 +178,7 @@ try:
             factor = 500/recipe[2] #Factor to standardize all recipes
 
         diff = (0.15*(fat_target/4 - recipe[7]*factor)**2 + 0.15*(prot_target/4 - recipe[6]*factor)**2 + 0.15*(sod_target/4 - recipe[6]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15*(carb_target/4 - recipe[4]*factor)**2)
-        print(diff)
+
         recommendations.append((diff,recipe[0],recipe[1]))
 
     recommendations.sort(key = lambda tup: tup[0])
@@ -203,7 +203,7 @@ try:
             for ingredient_val in cursor2:
 
                 total = sum(ingredient_val[:8]) + 0.5*(sum(ingredient_val[8:]))
-                
+                print(total)
                 
 
 
