@@ -18,34 +18,61 @@
     // update quantity
     // date: yyyy-mm-dd
     echo "TEST";
-    $update_query = "UPDATE ate
-                     SET quantity = quantity + $add, date = date
-                     WHERE username = '$username' AND
-                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
-                     SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
-                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
-                     foodID = '$foodId'
-                    ";
-    $update_result = mysql_query($update_query, $dbconnect);
 
-    if ( !$update_result ) {
-        die('Invalid Query: ' . mysql_error());
-    }
+    echo "<h4>TEST1</h4>";
+       try {
+           echo "<h4>TEST2</h4>";
+           $this->pdo->beginTransaction();
+           echo "<h4>TEST3</h4>";
+           $update_query = "UPDATE ate
+                               SET quantity = quantity + $add, date = date
+                               WHERE username = '$username' AND
+                               DATEDIFF(date, '$date') = 0 AND
+                               foodID = '$foodID'";
+   echo "<h4>TEST4</h4>";
+           $delete_query = "DELETE FROM ate
+                               WHERE username = '$username' AND
+                               DATEDIFF(date, '$date') = 0 AND
+                               foodID = '$foodID'
+                               AND quantity = 0";
+                               echo "<h4>TEST5</h4>";
+           $this->pdo->commit();
+           echo "<h4>TEST6</h4>";
+       } catch(PDOException $e) {
+           $this->pdo->rollback();
+           echo "<h4>TEST7</h4>";
+           die($e->getMessage());
+       }
 
-    // delete the item with the quantity 0
-    $delete_query = "DELETE FROM ate
-                     WHERE username = '$username' AND
-                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
-                     SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
-                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
-                     foodID = '$foodId' AND
-                     quantity = 0
-                    ";
 
-    $delete_result = mysql_query($delete_query, $dbconnect);
-    if ( !$delete_result ) {
-        die('Invalid Query: ' . mysql_error());
-    }
+    // $update_query = "UPDATE ate
+    //                  SET quantity = quantity + $add, date = date
+    //                  WHERE username = '$username' AND
+    //                  SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
+    //                  SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
+    //                  SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
+    //                  foodID = '$foodId'
+    //                 ";
+    // $update_result = mysql_query($update_query, $dbconnect);
+    //
+    // if ( !$update_result ) {
+    //     die('Invalid Query: ' . mysql_error());
+    // }
+    //
+    // // delete the item with the quantity 0
+    // $delete_query = "DELETE FROM ate
+    //                  WHERE username = '$username' AND
+    //                  SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
+    //                  SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
+    //                  SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
+    //                  foodID = '$foodId' AND
+    //                  quantity = 0
+    //                 ";
+    //
+    // $delete_result = mysql_query($delete_query, $dbconnect);
+    // if ( !$delete_result ) {
+    //     die('Invalid Query: ' . mysql_error());
+    // }
 
 
     // Query to Get Eaten Items
