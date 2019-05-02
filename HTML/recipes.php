@@ -150,9 +150,16 @@
                                     if(!$db_selected){
                                       die('Cant use database: ' . mysql_error());
                                     }
+                                    $query = "SELECT name, descriptions FROM recipes WHERE foodID = '$recipe_IDS[1]'";
+                                    $result = mysql_query($query, $dbconnect);
+                                    if(!$result){
+                                      die("Invalid Query: " . mysql_error());
+                                    }
+                                    $row = mysql_fetch_assoc($result);
+                                    echo "<h4>" . $row['name'] ."</h4>";
+                                    echo "<p>" . $row['descriptions'] ."</p>";
+                                  
                                     /*
-                                    <h4>Recipe Name</h4>
-                                    <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
@@ -178,9 +185,15 @@
                                     if(!$db_selected){
                                       die('Cant use database: ' . mysql_error());
                                     }
+                                    $query = "SELECT name, descriptions FROM recipes WHERE foodID = '$recipe_IDS[2]'";
+                                    $result = mysql_query($query, $dbconnect);
+                                    if(!$result){
+                                      die("Invalid Query: " . mysql_error());
+                                    }
+                                    $row = mysql_fetch_assoc($result);
+                                    echo "<h4>" . $row['name'] ."</h4>";
+                                    echo "<p>" . $row['descriptions'] ."</p>";
                                     /*
-                                    <h4>Recipe Name</h4>
-                                    <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
@@ -205,9 +218,15 @@
                                     if(!$db_selected){
                                       die('Cant use database: ' . mysql_error());
                                     }
+                                    $query = "SELECT name, descriptions FROM recipes WHERE foodID = '$recipe_IDS[3]'";
+                                    $result = mysql_query($query, $dbconnect);
+                                    if(!$result){
+                                      die("Invalid Query: " . mysql_error());
+                                    }
+                                    $row = mysql_fetch_assoc($result);
+                                    echo "<h4>" . $row['name'] ."</h4>";
+                                    echo "<p>" . $row['descriptions'] ."</p>";
                                     /*
-                                    <h4>Recipe Name</h4>
-                                    <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
@@ -232,9 +251,15 @@
                                     if(!$db_selected){
                                       die('Cant use database: ' . mysql_error());
                                     }
+                                    $query = "SELECT name, descriptions FROM recipes WHERE foodID = '$recipe_IDS[4]'";
+                                    $result = mysql_query($query, $dbconnect);
+                                    if(!$result){
+                                      die("Invalid Query: " . mysql_error());
+                                    }
+                                    $row = mysql_fetch_assoc($result);
+                                    echo "<h4>" . $row['name'] ."</h4>";
+                                    echo "<p>" . $row['descriptions'] ."</p>";
                                     /*
-                                    <h4>Recipe Name</h4>
-                                    <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
