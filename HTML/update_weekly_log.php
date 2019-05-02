@@ -39,9 +39,9 @@
            $this->pdo->commit();
            echo "<h4>TEST6</h4>";
        } catch(PDOException $e) {
-           $this->pdo->rollback();
            echo "<h4>TEST7</h4>";
-           die($e->getMessage());
+           $this->pdo->rollback();
+           die("invaliddd");
        }
 
 
