@@ -134,9 +134,9 @@ try:
     query = "SELECT age,height,weight FROM users WHERE username = %s;"
     cursor.execute(query,(user_id,))
 
-    a = 0
-    h = 0
-    w = 0
+    age = 0
+    height = 0
+    weight = 0
     for (a,h,w) in cursor:
         age = float(a)
         height = float(h)*2.54
