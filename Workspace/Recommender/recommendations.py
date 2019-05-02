@@ -113,13 +113,13 @@ try:
 
     for (c1,c2,f,p) in cursor:
 
-        if(c1 is not None):
+        if c1 is not None:
             cal_target = cal
-        if(c2 is not None):
+        if c2 is not None:
             carb_target = carbs
-        if(f is not None):
+        if f is not None:
             fat_target = f
-        if(p is not None):
+        if p is not None:
             prot_target = p
 
     query = "SELECT age,height,weight FROM users WHERE username = %s;"
