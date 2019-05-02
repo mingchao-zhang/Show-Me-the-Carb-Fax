@@ -194,14 +194,14 @@ try:
               "thiamin,calcium,iron,magnesium,phosphorus,potassium,riboflavin,zinc "
               "FROM products WHERE products.foodID = %s;")
 
-    for recipe in top_recommendations:
-        cursor.execute(query1,(int(recipe[1]),))
-
-        for ingredient in cursor:
-            cursor2.execute(query2,(int(ingredient[1],)))
-            
-            for ingredient_val in cursor2:
-                print(ingredient_val)
+#    for recipe in top_recommendations:
+#        cursor.execute(query1,(int(recipe[1]),))
+#
+#        for ingredient in cursor:
+#            cursor2.execute(query2,(int(ingredient[1],)))
+#            
+#            for ingredient_val in cursor2:
+#                print(ingredient_val)
 
     for i in range(5):
         print(recommendations[i][2])
