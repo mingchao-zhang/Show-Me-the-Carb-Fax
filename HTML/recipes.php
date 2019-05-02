@@ -23,8 +23,6 @@
         mysql_free_result($result);
         mysql_close($dbconnect);
     }
-
-    
 ?>
 <!doctype html>
 <html lang="en">
@@ -130,13 +128,10 @@
                                   
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
-                                    <ul style="list-style: none;">
-                                      <li>Ingredient</li>
-                                      <li>Ingredient</li>
-                                      <li>Ingredient</li>
-                                      <li>Ingredient</li>
-                                      <li>Ingredient</li>
-                                    </ul>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
                                 </div>
                                 <div class="carousel-item text-center p-4">
                                   
