@@ -123,55 +123,30 @@
                               <div class="carousel-inner">
                                 <div class="carousel-item active">
                                   <div class="carousel-caption">
-                                  <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
-                                  <p class= "font-weight-normal">Description</p>
-                                  <ul class="list-group">
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                  </ul>
+                                    <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
+                                    <span class= "font-weight-normal">Description</span>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <div class="carousel-caption">
+                                    <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
+                                    <p class= "font-weight-normal">Description</p>
                                   </div>
                                 </div>
                                 <div class="carousel-item">
                                   <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
                                   <p class= "font-weight-normal">Description</p>
-                                  <ul class="list-group">
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                  </ul>
+                                 
                                 </div>
                                 <div class="carousel-item">
                                   <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
                                   <p class= "font-weight-normal">Description</p>
-                                  <ul class="list-group">
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                  </ul>
-                                </div>
-                                <div class="carousel-item">
-                                  <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
-                                  <p class= "font-weight-normal">Description</p>
-                                  <ul class="list-group">
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                  </ul>
+                                  
                                 </div>
                                 <div class="carousel-item">
                                  <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
                                  <p class= "font-weight-normal">Description</p>
-                                 <ul class="list-group">
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                    <li>Ingredient</li>
-                                  </ul>
+                                
                                 </div>
                               </div>
                               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
