@@ -203,7 +203,7 @@
                                 }
                                 */
 
-                                $link = mysqli_connect("localhost", "my_user", "root", "411_project_db");
+                                $link = mysqli_connect("localhost", "root", "carbfax411", "411_project_db");
                                 if (mysqli_connect_errno()) {
                                   echo "Connect failed:" . mysqli_connect_error();
                                   exit();
