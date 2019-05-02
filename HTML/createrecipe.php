@@ -86,7 +86,7 @@
                     </nav>
                 </div>
 
-                <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+                <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" style="padding: 64px 64px;">
                     <div class="col-md-6 px-0">
                         <h1 class="display-4 font-italic">Create a Recipe</h1>
                     </div>
