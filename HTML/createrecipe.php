@@ -90,6 +90,16 @@
                     <div class="col-md-6 px-0">
                         <h1 class="display-4 font-italic">Create a Recipe</h1>
                     </div>
+                    <aside class="col-md-2 blog-sidebar">
+                        <div class="p-4">
+                          <h4 class="font-italic">Elsewhere</h4>
+                          <ol class="list-unstyled">
+                            <li><a href="https://wiki.illinois.edu//wiki/display/cs411changsp19">CS411 Homepage</a></li>
+                            <li><a href="https://wiki.illinois.edu/wiki/display/CS411ChangSP19/Project+Show+Me+the+Carb+Fax">Team Project Page</a></li>
+                            <li><a href="#">Github</a></li>
+                          </ol>
+                        </div>
+                      </aside>
                 </div>
 
                 <main role="main" class="container">
@@ -169,7 +179,7 @@
 <!-- form end -->
                         </div>
                       </div>
-
+<!--
                       <aside class="col-md-2 blog-sidebar">
                         <div class="p-4">
                           <h4 class="font-italic">Elsewhere</h4>
@@ -180,7 +190,8 @@
                           </ol>
                         </div>
                       </aside>
-
+-->
+                      <div></div>
                     </div><!-- /.row -->
                    
                   </main><!-- /.container -->
