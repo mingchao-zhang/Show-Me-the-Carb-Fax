@@ -24,12 +24,13 @@
                             SET quantity = quantity + $add, date = date
                             WHERE username = '$username' AND
                             DATEDIFF(date, '$date') = 0 AND
-                            foodID = '$foodID';"
+                            foodID = '$foodID'";
+
         $delete_query = "DELETE FROM ate
                             WHERE username = '$username' AND
                             DATEDIFF(date, '$date') = 0 AND
                             foodID = '$foodID'
-                            AND quantity = 0;"
+                            AND quantity = 0";
         $this->pdo->commit();
     } catch {
         $this->pdo->rollback();
