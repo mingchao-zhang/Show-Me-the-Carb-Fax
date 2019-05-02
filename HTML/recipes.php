@@ -111,7 +111,7 @@
                     <div class="row mb-2">
                       <div class="col-md-10">
                         <div class="jumbotron">
-                            <h3 class="h3 mb-3 font-weight-normal">Recipes</h3>
+                            
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                               <ol class="carousel-indicators">
                                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -122,6 +122,7 @@
                               </ol>
                               <div class="carousel-inner">
                                 <div class="carousel-item active">
+                                  <div class="carousel-caption">
                                   <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
                                   <p class= "font-weight-normal">Description</p>
                                   <ul class="list-group">
@@ -130,6 +131,7 @@
                                     <li>Ingredient</li>
                                     <li>Ingredient</li>
                                   </ul>
+                                  </div>
                                 </div>
                                 <div class="carousel-item">
                                   <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
