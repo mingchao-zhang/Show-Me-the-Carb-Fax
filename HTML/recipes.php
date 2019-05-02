@@ -118,19 +118,54 @@
                               </ol>
                               <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                  <img class="d-block w-100" src="..." alt="First slide">
+                                  <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                  <p class= "font-weight-normal">Description</p>
+                                  <ul class="list-group">
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                  </ul>
                                 </div>
                                 <div class="carousel-item">
-                                  <img class="d-block w-100" src="..." alt="Second slide">
+                                  <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                  <p class= "font-weight-normal">Description</p>
+                                  <ul class="list-group">
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                  </ul>
                                 </div>
                                 <div class="carousel-item">
-                                  <img class="d-block w-100" src="..." alt="Third slide">
+                                  <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                  <p class= "font-weight-normal">Description</p>
+                                  <ul class="list-group">
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                  </ul>
                                 </div>
                                 <div class="carousel-item">
-                                  <img class="d-block w-100" src="..." alt="Fourth slide">
+                                  <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                  <p class= "font-weight-normal">Description</p>
+                                  <ul class="list-group">
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                  </ul>
                                 </div>
                                 <div class="carousel-item">
-                                  <img class="d-block w-100" src="..." alt="Fifth slide">
+                                 <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                 <p class= "font-weight-normal">Description</p>
+                                 <ul class="list-group">
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                    <li>Ingredient</li>
+                                  </ul>
                                 </div>
                               </div>
                               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
