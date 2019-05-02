@@ -15,41 +15,67 @@
     $foodId = $_GET['id'];
     $date = $_GET['date'];
     $add = intval($_GET['add']);
-    // update quantity
+    // update quantity and delete items with quantity 0
     // date: yyyy-mm-dd
-    $update_query = "UPDATE ate 
-                     SET quantity = quantity + $add, date = date
-                     WHERE username = '$username' AND 
-                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND 
-                     SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND 
-                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
-                     foodID = '$foodId'
-                    ";
-    $update_result = mysql_query($update_query, $dbconnect);
+    $update_delete_query = "DELIMITER $
+                            START TRANSACTION;
+                            UPDATE ate
+                            SET quantity = quantity + $add, date = date
+                            WHERE username = '$username' AND
+                            DATEDIFF(date, '$date') = 0 AND
+                            foodID = '$foodID';
 
-    if ( !$update_result ) {
+                            DELETE FROM ate
+                            WHERE username = '$username' AND
+                            DATEDIFF(date, '$date') = 0 AND
+                            foodID = '$foodID'
+                            AND quantity = 0;
+
+                            COMMIT$
+                            DELIMITER ;
+                            ";
+
+    $update_delete_result = mysql_query($update_delete_query, $dbconnect);
+
+    if ( !$update_delete_result ) {
         die('Invalid Query: ' . mysql_error());
     }
+
     
+
+    // $update_query = "UPDATE ate
+    //                  SET quantity = quantity + $add, date = date
+    //                  WHERE username = '$username' AND
+    //                  SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
+    //                  SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
+    //                  SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
+    //                  foodID = '$foodId'
+    //                 ";
+    // $update_result = mysql_query($update_query, $dbconnect);
+    //
+    // if ( !$update_result ) {
+    //     die('Invalid Query: ' . mysql_error());
+    // }
+
     // delete the item with the quantity 0
-    $delete_query = "DELETE FROM ate 
-                     WHERE username = '$username' AND
-                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND 
-                     SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND 
-                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
-                     foodID = '$foodId' AND
-                     quantity = 0
-                    ";
+    // $delete_query = "DELETE FROM ate
+    //                  WHERE username = '$username' AND
+    //                  SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
+    //                  SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
+    //                  SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
+    //                  foodID = '$foodId' AND
+    //                  quantity = 0
+    //                 ";
+    //
+    // $delete_result = mysql_query($delete_query, $dbconnect);
+    // if ( !$delete_result ) {
+    //     die('Invalid Query: ' . mysql_error());
+    // }
 
-    $delete_result = mysql_query($delete_query, $dbconnect);
-    if ( !$delete_result ) {
-        die('Invalid Query: ' . mysql_error());
-    }
-    
 
     // Query to Get Eaten Items
     // Copied code from weekley_log.php
-    
+
     $queryAte = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, products WHERE username = '$username' and ate.foodID = products.foodID";
     $ateResult = mysql_query($queryAte, $dbconnect);
 
@@ -65,9 +91,9 @@
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>" . $row['ID'] . "</td>";
         echo "<td>" . $row['date'] . "</td>";
-        echo "<td>" . 
+        echo "<td>" .
         "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_plus_button' type='submit' id=$row_id>+</button>"
-        . $row['quantity'] 
+        . $row['quantity']
         . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_minus_button' type='submit' id=$row_id>-</button>"
         . "</td>";
         echo "</tr>";
@@ -88,14 +114,14 @@
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>" . $row['ID'] . "</td>";
         echo "<td>" . $row['date'] . "</td>";
-        echo "<td>" . 
+        echo "<td>" .
         "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_plus_button' type='submit' id=$row_id>+</button>"
-        . $row['quantity'] 
+        . $row['quantity']
         . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_minus_button' type='submit' id=$row_id>-</button>"
         . "</td>";
         echo "</tr>";
     }
-    
+
     // Close Database Connection
     mysql_free_result($recipeResult);
     mysql_free_result($update_result);
