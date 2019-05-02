@@ -3,7 +3,7 @@
     $username = $_SESSION['username'];
     $name = $_SESSION['name'];
     if(isset($_POST['update'])){
-
+//DELETE COMMENT
          // Database Connection
         $dbconnect = mysql_connect("localhost", "root", "carbfax411");
         if(!$dbconnect){
@@ -35,7 +35,7 @@
           $quantity = $_POST['quantity'];
 
           $query1 = "SELECT foodID FROM products WHERE upc = '$upc'";
-          
+
           $result = mysql_query($query1, $dbconnect);
 
           if(!$result){
@@ -102,7 +102,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="blog.css">
-    <!-- weekly_log css -->  
+    <!-- weekly_log css -->
     <!-- Latest compiled and minified CSS -->
     <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -125,8 +125,8 @@
       }
 
       #weekly_log_container, #display_item_container {
-        height: 400px; 
-        width: 350px; 
+        height: 400px;
+        width: 350px;
         overflow: auto;
         background-color: white;
         margin-top: 15px;
@@ -176,7 +176,7 @@
                             <div class="list-group">
                               <?php
                                  // Database Connection
-                                
+
                                  $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
                                 if(!$dbconnect){
                                     die('Cannot connect: ' . mysql_error());
@@ -187,21 +187,21 @@
                                 }
                                 // TODO: ADD QUERY TO GET NUTRIENT AGGREGATION
                                 $query = "SELECT username, SUM(total_calories) AS total_calories, SUM(total_carbohydrates) AS total_carbohydrates,
-                                          SUM(total_sugars) AS total_sugars, SUM(total_fiber) AS total_fiber, SUM(total_protein) AS total_protein, 
+                                          SUM(total_sugars) AS total_sugars, SUM(total_fiber) AS total_fiber, SUM(total_protein) AS total_protein,
                                           SUM(total_fat) AS total_fat, SUM(total_sodium) AS total_sodium, SUM(total_cholesterol) AS total_cholesterol,
                                           SUM(total_vitaminA) AS total_vitaminA, SUM(total_vitaminB6) AS total_vitaminB6, SUM(total_vitaminB12) AS total_vitaminB12,
-                                          SUM(total_vitaminC) AS total_vitaminC, SUM(total_vitaminD) AS total_vitaminD, SUM(total_vitaminE) AS total_vitaminE, 
+                                          SUM(total_vitaminC) AS total_vitaminC, SUM(total_vitaminD) AS total_vitaminD, SUM(total_vitaminE) AS total_vitaminE,
                                           SUM(total_niacin) AS total_niacin, SUM(total_thiamin) AS total_thiamin, SUM(total_calcium) AS total_calcium,
                                           SUM(total_iron) AS total_iron, SUM(total_magnesium) AS total_magnesium, SUM(total_phosphorus) AS total_phosphorus,
                                           SUM(total_potassium) AS total_potassium, SUM(total_riboflavin) AS total_riboflavin, SUM(total_zinc) AS total_zinc
-                                          FROM ((SELECT * FROM nutrient_sum_products WHERE username = '$username') 
+                                          FROM ((SELECT * FROM nutrient_sum_products WHERE username = '$username')
                                           UNION (SELECT * FROM nutrient_sum_recipes WHERE username = '$username'))
                                           AS totals GROUP BY username";
                                 $result = mysql_query($query, $dbconnect);
                                 if (!$result){
                                   die("Invalid Query: " . mysql_error());
                                 }
-                                
+
                                 $row = mysql_fetch_assoc($result);
                                 $calories = $row['total_calories'];
                                 $carbs = ceil($row['total_carbohydrates']);
@@ -226,8 +226,8 @@
                                 $potassium = ceil($row['total_potassium']);
                                 $riboflavin = ceil($row['total_riboflavin']);
                                 $zinc = ceil($row['total_zinc']);
-                                
-                                // TODO: OUTPUT RESULTS 
+
+                                // TODO: OUTPUT RESULTS
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calories: " . $calories . "</a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein: " . $protein . "g </a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate: " . $carbs . "g </a>";
@@ -251,11 +251,11 @@
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Potassium: " . $potassium . "mg </a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Riboflavin: " . $riboflavin . "mg </a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Zinc: " . $zinc . "mg </a>";
-                              
+
                                  // Close Database Connection
                                 mysql_free_result($result);
                                 mysql_close($dbconnect);
-                                
+
                               ?>
                             </div>
                           </div>
@@ -264,12 +264,12 @@
                       <div class="jumbotron">
                       <!--Live search start-->
                       <h3 class="h3 mb-3 font-weight-normal">Search Item IDs</h3>
-                      <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>	
+                      <input type="radio" name="search_option" id="_product" value="product" checked="checked"/> Product<br>
                       <input type="radio" name="search_option" id="_recipe" value="recipe" /> Recipe<br>
                       <input type="text" id="food_search" placeholder="Enter Item Name">
                       <div id="display_item_container">
                         <div id="food_suggestion"></div>
-                      </div>		
+                      </div>
                       <!--Live search end-->
                         <form class="form-group" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <h3 class="h3 mb-3 font-weight-normal">Add An Item to Your Food Log</h3>
@@ -300,12 +300,12 @@
                       <div class="col-md-6">
                         <div class="jumbotron">
                           <h3 class="h3 mb-3 font-weight-normal">Your Weekly Log</h3>
-                          
 
 
 
-                          
-                          <!-- food item table start -->                    
+
+
+                          <!-- food item table start -->
                           <table class="table table-hover table-dark">
                             <thead>
                               <tr>
@@ -320,7 +320,7 @@
                             </tbody>
                           </table>
                           <!-- food item table end -->
-                          
+
                         </div>
                       </div>
                       <div class="col-md-6">

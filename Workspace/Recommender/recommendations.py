@@ -92,23 +92,17 @@ try:
     
     for (days,) in cursor:
         num_days = int(days)
+
     if(num_days == 0):
         num_days = 1
-        daily_calories = 2000
-        daily_carbs = 300
-        daily_sugar = 35
-        daily_protein = 65
-        daily_fat = 60
-        daily_sodium = 3000
-        daily_cholesterol = 200
-    else:
-        daily_calories /= num_days
-        daily_carbs /= num_days
-        daily_sugar /= num_days
-        daily_protein /= num_days
-        daily_fat /= num_days
-        daily_sodium /= num_days
-        daily_cholesterol /= num_days
+
+    daily_calories /= num_days
+    daily_carbs /= num_days
+    daily_sugar /= num_days
+    daily_protein /= num_days
+    daily_fat /= num_days
+    daily_sodium /= num_days
+    daily_cholesterol /= num_days
 
    # Retrieve the targets if applicable
     query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users "
@@ -160,7 +154,7 @@ try:
 
         prot_target = prot_recmnd
 
-    # Based on average estimate
+    # Based on average estimates
     sod_target = 2500
     cholesterol_target = 250
 
@@ -219,11 +213,11 @@ try:
                 
     max_diff = max(top_recommendations_micro,key=lambda item:item[0])[0]
     max_tot = max(top_recommendations_micro,key=lambda item:item[1])[1]
-    
-    top_recommendations_micro = map(lambda x:(x[0]/max_diff, x[1]/max_tot, 0 , x[3] , x[4]), top_recommendations_micro)
-    top_recommendations_micro = map(lambda x:(x[0], x[1], x[0] - 0.1*x[1], x[3], x[4]), top_recommendations_micro)
-    top_recommendations_micro.sort(key = lambda tup: tup[0])
 
+    # The weighting ensures that the algorithm provides some variations in its recommendations, not just the outliers in the dataset
+    top_recommendations_micro = map(lambda x:(x[0]/max_diff, x[1]/max_tot, 0 , x[3] , x[4]), top_recommendations_micro)
+    top_recommendations_micro = map(lambda x:(x[0], x[1], 0.5*x[1] - 0.5*x[0], x[3], x[4]), top_recommendations_micro)
+    top_recommendations_micro.sort(key = lambda tup: tup[2])
 
     res = ""
     num = 0
@@ -239,7 +233,7 @@ try:
     print(res[:-1])
 
     for i in range(10):
-        print(top_recommendations_micro[i])
+        print(top_recommendations_micro[i][4])
 
 #    print(daily_calories)
 #    print(daily_carbs)
