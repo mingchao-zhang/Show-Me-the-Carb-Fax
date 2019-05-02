@@ -152,7 +152,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 data: _data,
                                 success: function(data) {
                                     done_count += 1
-                                    if (count === item_arr.length) {
+                                    if (done_count === item_arr.length) {
                                         console.log("async????????????????")
                                         $("#recipe_added_msg").html("Recipe Added")
                                         $("#item_selected_text").html("")
