@@ -20,7 +20,7 @@
     echo "TEST";
        try {
            echo "TEST1";
-           // $this->pdo->beginTransaction();
+           $this->pdo->beginTransaction();
            // $update_query = "UPDATE ate
            //                     SET quantity = quantity + $add, date = date
            //                     WHERE username = '$username' AND
@@ -32,7 +32,7 @@
            //                     DATEDIFF(date, '$date') = 0 AND
            //                     foodID = '$foodID'
            //                     AND quantity = 0";
-           // $this->pdo->commit();
+           $this->pdo->commit();
        } catch(PDOException $e) {
            // $this->pdo->rollback();
            // die("invaliddd");
