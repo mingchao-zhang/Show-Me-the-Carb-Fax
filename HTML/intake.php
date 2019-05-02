@@ -21,7 +21,7 @@
           $newItemID = $_POST['addItemID'];
           $quantity = $_POST['quantity'];
 
-          $query = "INSERT INTO ate(username, foodID, quantity) VALUES('$username', '$newItemID', '$quantity')";
+          $query = "INSERT INTO ate (username, foodID, quantity) VALUES ('$username', '$newItemID', '$quantity') ON DUPLICATE KEY UPDATE quantity = quantity + $quantity;";
 
           $result = mysql_query($query, $dbconnect);
 
@@ -44,7 +44,7 @@
           $row = mysql_fetch_assoc($result);
           $newItemID = $row['foodID'];
 
-          $query2 = "INSERT INTO ate(username, foodID, quantity) VALUES ('$username', '$newItemID', '$quantity')";
+          $query2 = "INSERT INTO ate (username, foodID, quantity) VALUES ('$username', '$newItemID', '$quantity') ON DUPLICATE KEY UPDATE quantity = quantity + $quantity;";
 
           $result2 = mysql_query($query2, $dbconnect);
 
