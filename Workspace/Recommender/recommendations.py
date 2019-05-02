@@ -111,15 +111,15 @@ try:
     fat_target = 0
     prot_target = 0
 
-    for  (c1,c2,f,p) in cursor:
+    for (c1,c2,f,p) in cursor:
 
-        if(c1):
+        if(c1 is not None):
             cal_target = cal
-        if(c2):
+        if(c2 is not None):
             carb_target = carbs
-        if(f):
+        if(f is not None):
             fat_target = f
-        if(p):
+        if(p is not None):
             prot_target = p
 
     query = "SELECT age,height,weight FROM users WHERE username = %s;"
@@ -176,12 +176,6 @@ try:
         factor = 0.5
         if(recipe[2] != 0):
             factor = 500/recipe[2] #Factor to standardize all recipes
-
-        print(fat_target)
-        print(prot_target)
-        print(sod_target)
-        print(cholesterol_target)
-        print(cal_target)
 
         diff = (0.15*(fat_target/4 - recipe[7]*factor)**2 + 0.15*(prot_target/4 - recipe[6]*factor)**2 + 0.15*(sod_target/4 - recipe[6]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15*(carb_target/4 - recipe[4]*factor)**2)
 
