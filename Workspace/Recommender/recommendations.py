@@ -182,12 +182,15 @@ try:
 
     recommendations.sort(key = lambda tup: tup[0])
 
-    for i in range(10):
+    for i in range(5):
         print(recommendations[i][2])
 
     res = ""
-    for i in range(10):
-        res += str(recommendations[i][1]) + ","
+    the_set = set()
+    for i in range(5):
+        if(recipe[i][2] not in set):
+            res += str(recommendations[i][1]) + ","
+            set.add(recipe[i][2])
 
     print(res[:-1])
 #

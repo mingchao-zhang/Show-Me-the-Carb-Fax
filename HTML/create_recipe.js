@@ -137,8 +137,8 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     url: "update_recipes.php",
                     data: data_str,
                     success: function(rv) {
-                        for (var i = 0; i < item_arr.length; i++) {
-                            value = item_arr[i]
+                        var done_count = 0
+                        $.each(item_arr, function(key, value) {
                             var _data = "recipe_name=" + recipe_name + "&" + 
                                         "recipe_description=" + recipe_description + "&" +
                                         "item_name=" + value[0] + "&" +
@@ -150,18 +150,23 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 cache: false,
                                 url: "update_contains.php",
                                 data: _data,
-                                success: function(data) {
-                                    console.log(_data)
+                                success: function(data) {            
+                                    done_count += 1
+                                    console.log(data)
+                                    console.log(_data, done_count)
+                                    console.log(item_arr)
+                                    if (done_count === item_arr.length) {
+                                        console.log("async????????????????")
+                                        $("#recipe_added_msg").html("Recipe Added")
+                                        $("#item_selected_text").html("")
+                                        $("#items_added_content").html("")
+                                        $("#recipe_name_input").val("")
+                                        $("#recipe_description_input").val("")
+                                        item_arr = []
+                                    }
                                 }
                             })
-                        }
-                                
-                        $("#recipe_added_msg").html("Recipe Added")
-                        $("#item_selected_text").html("")
-                        $("#items_added_content").html("")
-                        $("#recipe_name_input").val("")
-                        $("#recipe_description_input").val("")
-                        item_arr = []
+                        })     
                     }
                 })  
             }
