@@ -153,15 +153,19 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                     console.log(_data)
                                 }
                             })
+                            .promise()
+                            .done( function() { 
+                                console.log("async????????????????")
+                                $("#recipe_added_msg").html("Recipe Added")
+                                $("#item_selected_text").html("")
+                                $("#items_added_content").html("")
+                                $("#recipe_name_input").val("")
+                                $("#recipe_description_input").val("")
+                                item_arr = []
+                            })
                         })
                            
-                        console.log("async????????????????")
-                        $("#recipe_added_msg").html("Recipe Added")
-                        $("#item_selected_text").html("")
-                        $("#items_added_content").html("")
-                        $("#recipe_name_input").val("")
-                        $("#recipe_description_input").val("")
-                        item_arr = []
+                        
                     }
                 })  
             }
