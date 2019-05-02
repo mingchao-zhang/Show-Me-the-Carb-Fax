@@ -137,6 +137,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     url: "update_recipes.php",
                     data: data_str,
                     success: function(rv) {
+                        var done_count = 0
                         $.each(item_arr, function(key, value) {
                             var _data = "recipe_name=" + recipe_name + "&" + 
                                         "recipe_description=" + recipe_description + "&" +
@@ -150,20 +151,19 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 url: "update_contains.php",
                                 data: _data,
                                 success: function(data) {
-                                    console.log(_data)
+                                    done_count += 1
+                                    if (count === item_arr.length) {
+                                        console.log("async????????????????")
+                                        $("#recipe_added_msg").html("Recipe Added")
+                                        $("#item_selected_text").html("")
+                                        $("#items_added_content").html("")
+                                        $("#recipe_name_input").val("")
+                                        $("#recipe_description_input").val("")
+                                        item_arr = []
+                                    }
                                 }
                             })
-                        })
-                        .promise()
-                            .done( function() { 
-                                console.log("async????????????????")
-                                $("#recipe_added_msg").html("Recipe Added")
-                                $("#item_selected_text").html("")
-                                $("#items_added_content").html("")
-                                $("#recipe_name_input").val("")
-                                $("#recipe_description_input").val("")
-                                item_arr = []
-                        })          
+                        })     
                     }
                 })  
             }
