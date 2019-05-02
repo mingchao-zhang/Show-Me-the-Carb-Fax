@@ -177,7 +177,12 @@ try:
         if(recipe[2] != 0):
             factor = 500/recipe[2] #Factor to standardize all recipes
 
-        print(recipe)
+        print(fat_target)
+        print(prot_target)
+        print(sod_target)
+        print(cholesterol_target)
+        print(cal_target)
+
         diff = (0.15*(fat_target/4 - recipe[7]*factor)**2 + 0.15*(prot_target/4 - recipe[6]*factor)**2 + 0.15*(sod_target/4 - recipe[6]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15*(carb_target/4 - recipe[4]*factor)**2)
 
         recommendations.append((diff,recipe[0],recipe[1]))
