@@ -19,22 +19,23 @@
     // date: yyyy-mm-dd
     echo "TEST";
        try {
-           $this->pdo->beginTransaction();
-           $update_query = "UPDATE ate
-                               SET quantity = quantity + $add, date = date
-                               WHERE username = '$username' AND
-                               DATEDIFF(date, '$date') = 0 AND
-                               foodID = '$foodID'";
-
-           $delete_query = "DELETE FROM ate
-                               WHERE username = '$username' AND
-                               DATEDIFF(date, '$date') = 0 AND
-                               foodID = '$foodID'
-                               AND quantity = 0";
-           $this->pdo->commit();
+           echo "TEST1";
+           // $this->pdo->beginTransaction();
+           // $update_query = "UPDATE ate
+           //                     SET quantity = quantity + $add, date = date
+           //                     WHERE username = '$username' AND
+           //                     DATEDIFF(date, '$date') = 0 AND
+           //                     foodID = '$foodID'";
+           //
+           // $delete_query = "DELETE FROM ate
+           //                     WHERE username = '$username' AND
+           //                     DATEDIFF(date, '$date') = 0 AND
+           //                     foodID = '$foodID'
+           //                     AND quantity = 0";
+           // $this->pdo->commit();
        } catch(PDOException $e) {
-           $this->pdo->rollback();
-           die("invaliddd");
+           // $this->pdo->rollback();
+           // die("invaliddd");
        }
 
 
