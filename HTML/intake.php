@@ -176,7 +176,7 @@
                             <div class="list-group">
                               <?php
                                  // Database Connection
-                                /*
+                                
                                  $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
                                 if(!$dbconnect){
                                     die('Cannot connect: ' . mysql_error());
@@ -201,8 +201,8 @@
                                 if (!$result){
                                   die("Invalid Query: " . mysql_error());
                                 }
-                                */
-
+                                
+                                /*
                                 $link = mysqli_connect("localhost", "root", "carbfax411", "411_project_db");
                                 if (mysqli_connect_errno()) {
                                   echo "Connect failed:" . mysqli_connect_error();
@@ -225,8 +225,8 @@
                                   $vitaminA, $vitaminB6, $vitaminB12, $vitaminC, $vitaminD, $vitaminE, $niacin, $thiamin, $calcium, $iron, 
                                   $magnesium, $phosphorus, $potassium, $riboflavin, $zinc);
                                   mysqli_stmt_fetch($stmt);
+                                */
                                 
-                                /*
                                 $row = mysql_fetch_assoc($result);
                                 $calories = $row['total_calories'];
                                 $carbs = ceil($row['total_carbohydrates']);
@@ -251,7 +251,7 @@
                                 $potassium = ceil($row['total_potassium']);
                                 $riboflavin = ceil($row['total_riboflavin']);
                                 $zinc = ceil($row['total_zinc']);
-                                */
+                                
                                 // TODO: OUTPUT RESULTS 
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calories: " . ceil($calories) . "</a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein: " . ceil($protein) . "g </a>";
@@ -279,9 +279,9 @@
                                 mysqli_stmt_close($stmt);
                               }
                                  // Close Database Connection
-                                //mysql_free_result($result);
-                                //mysql_close($dbconnect);
-                                mysqli_close_link($link);
+                                mysql_free_result($result);
+                                mysql_close($dbconnect);
+                                //mysqli_close_link($link);
                               ?>
                             </div>
                           </div>
