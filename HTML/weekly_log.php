@@ -33,6 +33,7 @@
         . "</td>";
         echo "</tr>";
     }
+    // Display Recipes
     $queryRecipes = "SELECT recipes.name, ate.foodID, ate.date, ate.quantity FROM ate, recipes WHERE username = '$username' and ate.foodID = recipes.foodID";
     $recipeResult = mysql_query($queryRecipes, $dbconnect);
 
