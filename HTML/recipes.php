@@ -5,6 +5,7 @@
     $command = escapeshellcmd("python recommendations.py '$username' ");
     $output = shell_exec($command);
     $recipe_IDS = explode(",", $output);
+    echo $recipe_IDS;
 ?>
 <!doctype html>
 <html lang="en">
