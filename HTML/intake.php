@@ -205,7 +205,7 @@
 
                                 $link = mysqli_connect("localhost", "my_user", "root", "411_project_db");
                                 if (mysqli_connect_errno()) {
-                                  echo "Connect failed:" . mysqli_connect_error());
+                                  echo "Connect failed:" . mysqli_connect_error();
                                   exit();
                                 }
                                 if ($stmt = mysqli_prepare($link, "SELECT username, SUM(total_calories) AS total_calories, SUM(total_carbohydrates) AS total_carbohydrates,
