@@ -152,6 +152,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 data: _data,
                                 success: function(data) {            
                                     done_count += 1
+                                    console.log(data)
                                     console.log(_data, done_count)
                                     console.log(item_arr)
                                     if (done_count === item_arr.length) {

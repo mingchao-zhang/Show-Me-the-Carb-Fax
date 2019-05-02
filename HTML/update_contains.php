@@ -28,7 +28,7 @@
             die("Invalid Query: " . mysql_error());
         }
 
-        echo $item_name . " " . $recipe_name . " " . $new_recipe_id;
+        echo "in update_contains.php" . $item_name . " " . $recipe_name . " " . $new_recipe_id;
         mysql_free_result($result);
         mysql_close($dbconnect);
     }
