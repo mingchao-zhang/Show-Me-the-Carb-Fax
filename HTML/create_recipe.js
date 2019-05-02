@@ -122,7 +122,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
         $("#recipe_added_msg").html("Please enter the recipe name")
     }
     else {
-        console.log("line 125")
+        //console.log("line 125")
         $.ajax({
             cache: false,
             url: "get_new_recipe_id.php",
@@ -137,7 +137,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     url: "update_recipes.php",
                     data: data_str,
                     success: function(rv) {
-                        console.log(rv)
+                        //console.log(rv)
                         var done_count = 0
                         $.each(item_arr, function(key, value) {
                             var _data = "recipe_name=" + recipe_name + "&" + 
@@ -153,11 +153,11 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 data: _data,
                                 success: function(data) {            
                                     done_count += 1
-                                    console.log(data)
-                                    console.log(_data, done_count)
-                                    console.log(item_arr)
+                                    //console.log(data)
+                                    //console.log(_data, done_count)
+                                    //console.log(item_arr)
                                     if (done_count === item_arr.length) {
-                                        console.log("async????????????????")
+                                        //console.log("async????????????????")
                                         $("#recipe_added_msg").html("Recipe Added")
                                         $("#item_selected_text").html("")
                                         $("#items_added_content").html("")
