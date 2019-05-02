@@ -122,7 +122,7 @@
                               </ol>
                               <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                  <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                  <h4 class="h4 mb-2 font-weight-normal text-align-center">Recipe Name</h4>
                                   <p class= "font-weight-normal">Description</p>
                                   <ul class="list-group">
                                     <li>Ingredient</li>
@@ -132,7 +132,7 @@
                                   </ul>
                                 </div>
                                 <div class="carousel-item">
-                                  <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                  <h4 class="h4 mb-2 font-weight-normal text-align-center">Recipe Name</h4>
                                   <p class= "font-weight-normal">Description</p>
                                   <ul class="list-group">
                                     <li>Ingredient</li>
@@ -142,7 +142,7 @@
                                   </ul>
                                 </div>
                                 <div class="carousel-item">
-                                  <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                  <h4 class="h4 mb-2 font-weight-normal text-align-center">Recipe Name</h4>
                                   <p class= "font-weight-normal">Description</p>
                                   <ul class="list-group">
                                     <li>Ingredient</li>
@@ -152,7 +152,7 @@
                                   </ul>
                                 </div>
                                 <div class="carousel-item">
-                                  <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                  <h4 class="h4 mb-2 font-weight-normal text-align-center">Recipe Name</h4>
                                   <p class= "font-weight-normal">Description</p>
                                   <ul class="list-group">
                                     <li>Ingredient</li>
@@ -162,7 +162,7 @@
                                   </ul>
                                 </div>
                                 <div class="carousel-item">
-                                 <h4 class="h4 mb-2 font-weight-normal">Recipe Name</h4>
+                                 <h4 class="h4 mb-2 font-weight-normal text-align-center">Recipe Name</h4>
                                  <p class= "font-weight-normal">Description</p>
                                  <ul class="list-group">
                                     <li>Ingredient</li>
