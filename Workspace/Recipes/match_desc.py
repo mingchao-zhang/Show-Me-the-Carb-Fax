@@ -41,3 +41,17 @@ with open(output_file, "w") as output:
     writer = csv.writer(output, delimiter = delimiter,lineterminator='\n')
     for each_recipe in descriptions.keys():
         writer.writerow(descriptions[each_recipe])
+
+
+contains_file = "Data/matched_ingredients.csv"
+output_file = "Data/contains2.csv"
+contains = {}
+with open(contains_file, "r") as f:
+    contains_reader = csv.reader(f, delimiter="~")
+    for line in contains_reader:
+        contains[str(line[0]) + str(line[1])] = line
+
+with open(output_file, "w") as output:
+    writer = csv.writer(output, delimiter = delimiter,lineterminator='\n')
+    for each_line in contains.keys():
+        writer.writerow(contains[each_line])
