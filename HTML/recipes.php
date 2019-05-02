@@ -123,14 +123,14 @@
                               <div class="carousel-inner">
                                 <div class="carousel-item active">
                                   <div class="carousel-caption">
-                                    <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
-                                    <span class= "font-weight-normal">Description</span>
+                                    <h4>Recipe Name</h4>
+                                    <p>Description</p>
                                   </div>
                                 </div>
                                 <div class="carousel-item">
                                   <div class="carousel-caption">
-                                    <h4 class="h4 mb-2 font-weight-normal mx-auto">Recipe Name</h4>
-                                    <p class= "font-weight-normal">Description</p>
+                                    <h4>Recipe Name</h4>
+                                    <p>Description</p>
                                   </div>
                                 </div>
                                 <div class="carousel-item">
