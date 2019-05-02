@@ -92,6 +92,7 @@ try:
     
     for (days,) in cursor:
         num_days = int(days)
+
     if(num_days == 0):
         num_days = 1
 
@@ -153,7 +154,7 @@ try:
 
         prot_target = prot_recmnd
 
-    # Based on average estimate
+    # Based on average estimates
     sod_target = 2500
     cholesterol_target = 250
 
@@ -232,7 +233,7 @@ try:
     print(res[:-1])
 
     for i in range(10):
-        print(top_recommendations_micro[i])
+        print(recommendations[i])
 
     print(daily_calories)
     print(daily_carbs)
