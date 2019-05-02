@@ -13,14 +13,13 @@ recipes_file = "Data/formatted_recipes.csv" # recip_id,name,description,directio
 output_file = "Data/descriptions.csv"
 delimiter = "~"
 
-descriptions = []
+descriptions = {}
 recipes = {}
 
 with open(recipes_file, "r") as f:
     recipe_reader = csv.reader(f, delimiter="~")
     for recipe in recipe_reader:
         recipes[recipe[1]] = recipe
-        print(recipe)
 
 with open(dataset_file) as file:
     data = json.load(file)
@@ -30,9 +29,9 @@ with open(dataset_file) as file:
             recipe_title = each_recipe["title"].strip()
 
             if(each_recipe["desc"]):
-                descriptions.append(recipes[recipe_title] + [each_recipe["desc"]])
+                descriptions[recipes[recipe_title][0]] = (recipes[recipe_title] + [each_recipe["desc"]])
             else:
-                descriptions.append(recipes[recipe_title] + ["Highly recommended!"])
+                descriptions[recipes[recipe_title][0]] = (recipes[recipe_title] + ["Highly recommended!"])
     
         except Exception as e:
             print(e)
@@ -40,5 +39,5 @@ with open(dataset_file) as file:
 
 with open(output_file, "w") as output:
     writer = csv.writer(output, delimiter = delimiter,lineterminator='\n')
-    for each_recipe in descriptions:
-        writer.writerow(each_recipe)
+    for each_recipe in descriptions.keys():
+        writer.writerow(descriptions[each_recipe])
