@@ -199,19 +199,19 @@ try:
 #
 #        for ingredient in cursor:
 #            cursor2.execute(query2,(int(ingredient[1],)))
-#            
+#
 #            for ingredient_val in cursor2:
 #                print(ingredient_val)
 
-    for i in range(5):
+    for i in range(10):
         print(recommendations[i][2])
 
     res = ""
     the_set = set()
-    for i in range(5):
-        if(recommendations[i][2] not in set):
+    for i in range(10):
+        if(recommendations[i][2] not in the_set):
             res += str(recommendations[i][1]) + ","
-            set.add(recommendations[i][2])
+            the_set.add(recommendations[i][2])
 
     print(res[:-1])
 
