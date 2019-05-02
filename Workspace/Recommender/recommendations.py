@@ -198,15 +198,15 @@ try:
     for recipe in top_recommendations:
         cursor.execute(query1,(int(recipe[1]),))
 
+        ingredient_total = 0
         for ingredient in cursor:
             cursor2.execute(query2,(int(ingredient[0]),))
 
-            ingredient_total = 0
             for ingredient_val in cursor2:
 
-                ingredient_total = sum(ingredient_val[:8]) + 0.5*(sum(ingredient_val[8:]))
+                ingredient_total += sum(ingredient_val[:8]) + 0.5*(sum(ingredient_val[8:]))
 
-            top_recommendations_micro.append((recipe[0],ingredient_total,0,recipe[1],recipe[2]))
+        top_recommendations_micro.append((recipe[0],ingredient_total,0,recipe[1],recipe[2]))
                 
     max_diff = max(top_recommendations_micro,key=lambda item:item[0])[0]
     max_tot = max(top_recommendations_micro,key=lambda item:item[1])[1]
@@ -219,17 +219,20 @@ try:
 
     res = ""
     num = 0
+    i = 0
     the_set = set()
     while num < 5:
-        if(recommendations[i][4] not in the_set):
-            res += str(recommendations[i][3]) + ","
-            the_set.add(recommendations[i][2])
+        if(top_recommendations_micro[i][4] not in the_set):
+            res += str(top_recommendations_micro[i][3]) + ","
+            the_set.add(top_recommendations_micro[i][2])
             num += 1
+        i += 1
 
     print(res[:-1])
 
     for i in range(10):
-        print(recommendations[i][2])
+        print(top_recommendations_micro)
+
 #    print(daily_calories)
 #    print(daily_carbs)
 #    print(daily_sugar)
