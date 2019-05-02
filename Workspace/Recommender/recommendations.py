@@ -220,7 +220,7 @@ try:
     max_diff = max(top_recommendations_micro,key=lambda item:item[0])[0]
     max_tot = max(top_recommendations_micro,key=lambda item:item[1])[1]
     
-    map(lambda x:(x[0]/max_diff, x[1]/max_tot, 0 , x[3] , x[4]), top_recommendations_micro)
+    map(lambda x:(x[0]/max_diff, 0.25*x[1]/max_tot, 0 , x[3] , x[4]), top_recommendations_micro)
     map(lambda x:(x[0], x[1], x[0] + x[1], x[3], x[4]), top_recommendations_micro)
 
     top_recommendations_micro.sort(key = lambda tup: tup[2])
