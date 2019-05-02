@@ -153,7 +153,8 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                     console.log(_data)
                                 }
                             })
-                            .promise()
+                        })
+                        .promise()
                             .done( function() { 
                                 console.log("async????????????????")
                                 $("#recipe_added_msg").html("Recipe Added")
@@ -162,10 +163,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 $("#recipe_name_input").val("")
                                 $("#recipe_description_input").val("")
                                 item_arr = []
-                            })
-                        })
-                           
-                        
+                        })          
                     }
                 })  
             }
