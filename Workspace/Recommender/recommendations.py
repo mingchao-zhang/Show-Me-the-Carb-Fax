@@ -206,7 +206,7 @@ try:
 
                 ingredient_total = sum(ingredient_val[:8]) + 0.5*(sum(ingredient_val[8:]))
 
-            top_recommendations_micro.append(recipe[0],ingredient_total,0,recipe[1],recipe[2])
+            top_recommendations_micro.append((recipe[0],ingredient_total,0,recipe[1],recipe[2]))
                 
     max_diff = max(top_recommendations_micro,key=lambda item:item[0])[0]
     max_tot = max(top_recommendations_micro,key=lambda item:item[1])[1]
