@@ -17,31 +17,24 @@
     $add = intval($_GET['add']);
     // update quantity and delete items with quantity 0
     // date: yyyy-mm-dd
-    $update_delete_query = "DELIMITER $
-                            START TRANSACTION;
-                            UPDATE ate
+
+    try {
+        $this->pdo->beginTransaction();
+        $update_query = "UPDATE ate
                             SET quantity = quantity + $add, date = date
                             WHERE username = '$username' AND
                             DATEDIFF(date, '$date') = 0 AND
-                            foodID = '$foodID';
-
-                            DELETE FROM ate
+                            foodID = '$foodID';"
+        $delete_query = "DELETE FROM ate
                             WHERE username = '$username' AND
                             DATEDIFF(date, '$date') = 0 AND
                             foodID = '$foodID'
-                            AND quantity = 0;
-
-                            COMMIT$
-                            DELIMITER ;
-                            ";
-
-    $update_delete_result = mysql_query($update_delete_query, $dbconnect);
-
-    if ( !$update_delete_result ) {
-        die('Invalid Query: ' . mysql_error());
+                            AND quantity = 0;"
+        $this->pdo->commit();
+    } catch {
+        $this->pdo->rollback();
     }
 
-    
 
     // $update_query = "UPDATE ate
     //                  SET quantity = quantity + $add, date = date
