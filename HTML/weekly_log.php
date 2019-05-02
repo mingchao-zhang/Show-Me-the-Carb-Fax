@@ -39,7 +39,7 @@
     if (!$recipeResult){
         die("Invalid Query:" . mysql_error());
     }
-    while ( $row = mysql_fetch_assoc($ateResult) ) {
+    while ( $row = mysql_fetch_assoc($recipeResult) ) {
         $food_id = $row['ate.foodID'];
         $date = $row['ate.date'];
         $row_id = $username . "&" . $food_id . "&" . $date;
