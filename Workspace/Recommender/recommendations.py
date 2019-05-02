@@ -219,17 +219,20 @@ try:
 
     res = ""
     num = 0
+    i = 0
     the_set = set()
     while num < 5:
-        if(recommendations[i][4] not in the_set):
-            res += str(recommendations[i][3]) + ","
-            the_set.add(recommendations[i][2])
+        if(top_recommendations_micro[i][4] not in the_set):
+            res += str(top_recommendations_micro[i][3]) + ","
+            the_set.add(top_recommendations_micro[i][2])
             num += 1
+        i += 1
 
     print(res[:-1])
 
     for i in range(10):
-        print(recommendations[i][2])
+        print(top_recommendations_micro[i][4])
+
 #    print(daily_calories)
 #    print(daily_carbs)
 #    print(daily_sugar)
