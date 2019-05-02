@@ -59,6 +59,10 @@
         }
       }
 
+      .carousel {
+        height: 300px;
+      }
+
       #weekly_log_container, #display_item_container {
         height: 100px; 
         width: 350px; 
