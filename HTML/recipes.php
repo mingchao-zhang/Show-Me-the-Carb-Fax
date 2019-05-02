@@ -128,10 +128,10 @@
                                     $row = mysql_fetch_assoc($result);
                                     echo "<h4>" . $row['name'] ."</h4>";
                                     echo "<p>" . $row['descriptions'] ."</p>";
-                                    Ingredient<br>
-                                    Ingredient<br>
-                                    Ingredient<br>
-                                    Ingredient<br>
+                                    //Ingredient<br>
+                                    //Ingredient<br>
+                                    //Ingredient<br>
+                                    //Ingredient<br>
                                     // Close Database Connection
                                     mysql_free_result($result);
                                     mysql_close($dbconnect);
@@ -150,12 +150,14 @@
                                     if(!$db_selected){
                                       die('Cant use database: ' . mysql_error());
                                     }
+                                    /*
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
+                                    */
                                     // Close Database Connection
                                     mysql_free_result($result);
                                     mysql_close($dbconnect);
@@ -176,12 +178,14 @@
                                     if(!$db_selected){
                                       die('Cant use database: ' . mysql_error());
                                     }
+                                    /*
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
+                                    */
                                     // Close Database Connection
                                     mysql_free_result($result);
                                     mysql_close($dbconnect);
@@ -201,12 +205,14 @@
                                     if(!$db_selected){
                                       die('Cant use database: ' . mysql_error());
                                     }
+                                    /*
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
+                                    */
                                     // Close Database Connection
                                     mysql_free_result($result);
                                     mysql_close($dbconnect);
@@ -226,12 +232,14 @@
                                     if(!$db_selected){
                                       die('Cant use database: ' . mysql_error());
                                     }
+                                    /*
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
+                                    */
                                     // Close Database Connection
                                     mysql_free_result($result);
                                     mysql_close($dbconnect);
