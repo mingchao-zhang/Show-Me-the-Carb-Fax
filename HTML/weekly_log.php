@@ -34,23 +34,23 @@
         echo "</tr>";
     }
     // Display Recipes
-    $queryRecipes = "SELECT recipes.name, ate.foodID, ate.date, ate.quantity FROM ate, recipes WHERE username = '$username' and ate.foodID = recipes.foodID";
+    $queryRecipes = "SELECT recipes.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity FROM ate, recipes WHERE username = '$username' and ate.foodID = recipes.foodID";
     $recipeResult = mysql_query($queryRecipes, $dbconnect);
 
     if (!$recipeResult){
         die("Invalid Query:" . mysql_error());
     }
     while ( $row = mysql_fetch_assoc($recipeResult) ) {
-        $food_id = $row['ate.foodID'];
-        $date = $row['ate.date'];
+        $food_id = $row['ID'];
+        $date = $row['date'];
         $row_id = $username . "&" . $food_id . "&" . $date;
         echo "<tr>";
-        echo "<td>" . $row['recipes.name'] . "</td>";
-        echo "<td>" . $row['ate.foodID'] . "</td>";
-        echo "<td>" . $row['ate.date'] . "</td>";
+        echo "<td>" . $row['name'] . "</td>";
+        echo "<td>" . $row['ID'] . "</td>";
+        echo "<td>" . $row['date'] . "</td>";
         echo "<td>" . 
         "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_plus_button' type='submit' id=$row_id>+</button>"
-        . $row['ate.quantity'] 
+        . $row['quantity'] 
         . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_minus_button' type='submit' id=$row_id>-</button>"
         . "</td>";
         echo "</tr>";
