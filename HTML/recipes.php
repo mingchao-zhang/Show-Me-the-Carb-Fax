@@ -2,27 +2,9 @@
     session_start();
     $username = $_SESSION['username'];
     $name = $_SESSION['name'];
-    if(isset($_POST['update'])){
-
-         // Database Connection
-        $dbconnect = mysql_connect("localhost", "root", "carbfax411");
-        if(!$dbconnect){
-            die('Cannot connect: ' . mysql_error());
-        }
-
-        $db_selected = mysql_select_db("411_project_db", $dbconnect);
-
-        if(!$db_selected){
-            die('Cant use database: ' . mysql_error());
-        }
-
-        
-
-
-        // Close Database Connection
-        mysql_free_result($result);
-        mysql_close($dbconnect);
-    }
+    $command = escapeshellcmd("python recommendations.py '$username' ");
+    $output = shell_exec($command);
+    $recipe_IDS = explode(",", $output);
 ?>
 <!doctype html>
 <html lang="en">
@@ -125,33 +107,135 @@
                               </ol>
                               <div class="carousel-inner">
                                 <div class="carousel-item active text-center p-4">
-                                  
+                                  <?php
+                                     // Database Connection
+                                     $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+                                    if(!$dbconnect){
+                                      die('Cannot connect: ' . mysql_error());
+                                    }
+
+                                    $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+                                    if(!$db_selected){
+                                      die('Cant use database: ' . mysql_error());
+                                    }
+
+                                    $query = "SELECT name, descriptions FROM recipes WHERE foodID = '$recipe_IDS[0]'";
+                                    $result = mysql_query($query, $dbconnect);
+                                    if(!$result){
+                                      die("Invalid Query: " . mysql_error());
+                                    }
+                                    $row = mysql_fetch_assoc($result);
+                                    echo "<h4>" . $row['name'] ."</h4>";
+                                    echo "<p>" . $row['descriptions'] ."</p>";
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    // Close Database Connection
+                                    mysql_free_result($result);
+                                    mysql_close($dbconnect);
+                                  ?>
+                                </div>
+                                <div class="carousel-item text-center p-4">
+                                  <?php
+                                     // Database Connection
+                                     $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+                                    if(!$dbconnect){
+                                      die('Cannot connect: ' . mysql_error());
+                                    }
+
+                                    $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+                                    if(!$db_selected){
+                                      die('Cant use database: ' . mysql_error());
+                                    }
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
                                     Ingredient<br>
-                                </div>
-                                <div class="carousel-item text-center p-4">
+                                    // Close Database Connection
+                                    mysql_free_result($result);
+                                    mysql_close($dbconnect);
+                                  ?>
                                   
-                                  <h4>Recipe Name</h4>
-                                  <p>Description</p>
-                                  
-                                </div>
-                                <div class="carousel-item text-center p-4">
-                                  <h4>Recipe Name</h4>
-                                  <p>Description</p>
-                                 
-                                </div>
-                                <div class="carousel-item text-center p-4">
-                                  <h4>Recipe Name</h4>
-                                  <p>Description</p>
                                   
                                 </div>
                                 <div class="carousel-item text-center p-4">
-                                 <h4>Recipe Name</h4>
-                                 <p>Description</p>
+                                  <?php
+                                     // Database Connection
+                                     $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+                                    if(!$dbconnect){
+                                      die('Cannot connect: ' . mysql_error());
+                                    }
+
+                                    $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+                                    if(!$db_selected){
+                                      die('Cant use database: ' . mysql_error());
+                                    }
+                                    <h4>Recipe Name</h4>
+                                    <p>Description</p>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    // Close Database Connection
+                                    mysql_free_result($result);
+                                    mysql_close($dbconnect);
+                                  ?>
+
+                                </div>
+                                <div class="carousel-item text-center p-4">
+                                  <?php
+                                     // Database Connection
+                                     $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+                                    if(!$dbconnect){
+                                      die('Cannot connect: ' . mysql_error());
+                                    }
+
+                                    $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+                                    if(!$db_selected){
+                                      die('Cant use database: ' . mysql_error());
+                                    }
+                                    <h4>Recipe Name</h4>
+                                    <p>Description</p>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    // Close Database Connection
+                                    mysql_free_result($result);
+                                    mysql_close($dbconnect);
+                                  ?>
+
+                                </div>
+                                <div class="carousel-item text-center p-4">
+                                  <?php
+                                     // Database Connection
+                                     $dbconnect = mysql_connect("localhost", "root", "carbfax411");
+                                    if(!$dbconnect){
+                                      die('Cannot connect: ' . mysql_error());
+                                    }
+
+                                    $db_selected = mysql_select_db("411_project_db", $dbconnect);
+
+                                    if(!$db_selected){
+                                      die('Cant use database: ' . mysql_error());
+                                    }
+                                    <h4>Recipe Name</h4>
+                                    <p>Description</p>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    Ingredient<br>
+                                    // Close Database Connection
+                                    mysql_free_result($result);
+                                    mysql_close($dbconnect);
+                                  ?>
                                 
                                 </div>
                               </div>
