@@ -188,17 +188,17 @@ try:
     # From the top 100 macro recommendations, we select the top 5 recipes based on micro-nutrient information from the contains table
 
     query1 = ("SELECT product_foodID,quantity,volume,weight FROM contains "
-              "WHERE contains.recipe_foodID = %d;")
+              "WHERE contains.recipe_foodID = %s;")
         
     query2 = ("SELECT vitaminA, vitaminB6,vitaminB12,vitaminC,vitaminD,vitaminE,niacin, "
               "thiamin,calcium,iron,magnesium,phosphorus,potassium,riboflavin,zinc "
-              "FROM products WHERE products.foodID = %d;")
+              "FROM products WHERE products.foodID = %s;")
 
     for recipe in top_recommendations:
         cursor.execute(query1,(int(recipe[1]),))
 
-#        for ingredient in cursor:
-#            cursor2.execute(query2,(int(ingredient[1],)))
+        for ingredient in cursor:
+            cursor2.execute(query2,(int(ingredient[1],)))
 
 
     for i in range(5):
