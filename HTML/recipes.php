@@ -73,6 +73,11 @@
         border: solid;
         border-radius: 5px;
       }
+      .carousel-item.active,
+      .carousel-item-next,
+      .carousel-item-prev {
+      display:block;
+    }
 
     </style>
   </head>
@@ -121,29 +126,29 @@
                                 <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                               </ol>
                               <div class="carousel-inner">
-                                <div class="carousel-item active">
+                                <div class="carousel-item active text-center p-4">
                                   
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
                                   
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item text-center p-4">
                                   
                                   <h4>Recipe Name</h4>
                                   <p>Description</p>
                                   
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item text-center p-4">
                                   <h4>Recipe Name</h4>
                                   <p>Description</p>
                                  
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item text-center p-4">
                                   <h4>Recipe Name</h4>
                                   <p>Description</p>
                                   
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item text-center p-4">
                                  <h4>Recipe Name</h4>
                                  <p>Description</p>
                                 
