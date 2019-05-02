@@ -137,6 +137,7 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                     url: "update_recipes.php",
                     data: data_str,
                     success: function(rv) {
+                        console.log(rv)
                         var done_count = 0
                         $.each(item_arr, function(key, value) {
                             var _data = "recipe_name=" + recipe_name + "&" + 
