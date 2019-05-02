@@ -114,9 +114,9 @@ try:
     for (c1,c2,f,p) in cursor:
 
         if c1 is not None:
-            cal_target = cal
+            cal_target = c1
         if c2 is not None:
-            carb_target = carbs
+            carb_target = c2
         if f is not None:
             fat_target = f
         if p is not None:
