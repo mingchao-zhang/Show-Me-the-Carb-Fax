@@ -200,6 +200,8 @@ try:
         for ingredient in cursor:
             cursor2.execute(query2,(int(ingredient[1],)))
 
+            for val in cursor2:
+                pass
 
     for i in range(5):
         print(recommendations[i][2])
