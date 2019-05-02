@@ -209,9 +209,9 @@ try:
     res = ""
     the_set = set()
     for i in range(5):
-        if(recipe[i][2] not in set):
+        if(recommendations[i][2] not in set):
             res += str(recommendations[i][1]) + ","
-            set.add(recipe[i][2])
+            set.add(recommendations[i][2])
 
     print(res[:-1])
 
