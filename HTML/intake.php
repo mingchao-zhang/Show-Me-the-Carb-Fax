@@ -176,7 +176,8 @@
                             <div class="list-group">
                               <?php
                                  // Database Connection
-                                $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
+                                /*
+                                 $dbconnect = mysql_connect('localhost', 'root', 'carbfax411');
                                 if(!$dbconnect){
                                     die('Cannot connect: ' . mysql_error());
                                 }
@@ -200,7 +201,32 @@
                                 if (!$result){
                                   die("Invalid Query: " . mysql_error());
                                 }
+                                */
 
+                                $link = mysqli_connect("localhost", "my_user", "root", "411_project_db");
+                                if (mysqli_connect_errno()) {
+                                  echo "Connect failed:" . mysqli_connect_error();
+                                  exit();
+                                }
+                                if ($stmt = mysqli_prepare($link, "SELECT username, SUM(total_calories) AS total_calories, SUM(total_carbohydrates) AS total_carbohydrates,
+                                SUM(total_sugars) AS total_sugars, SUM(total_fiber) AS total_fiber, SUM(total_protein) AS total_protein, 
+                                SUM(total_fat) AS total_fat, SUM(total_sodium) AS total_sodium, SUM(total_cholesterol) AS total_cholesterol,
+                                SUM(total_vitaminA) AS total_vitaminA, SUM(total_vitaminB6) AS total_vitaminB6, SUM(total_vitaminB12) AS total_vitaminB12,
+                                SUM(total_vitaminC) AS total_vitaminC, SUM(total_vitaminD) AS total_vitaminD, SUM(total_vitaminE) AS total_vitaminE, 
+                                SUM(total_niacin) AS total_niacin, SUM(total_thiamin) AS total_thiamin, SUM(total_calcium) AS total_calcium,
+                                SUM(total_iron) AS total_iron, SUM(total_magnesium) AS total_magnesium, SUM(total_phosphorus) AS total_phosphorus,
+                                SUM(total_potassium) AS total_potassium, SUM(total_riboflavin) AS total_riboflavin, SUM(total_zinc) AS total_zinc
+                                FROM ((SELECT * FROM nutrient_sum_products WHERE username = ?) 
+                                UNION (SELECT * FROM nutrient_sum_recipes WHERE username = ?))
+                                AS totals GROUP BY username")){
+                                  mysqli_stmt_bind_param($stmt, "ss", $username, $username);
+                                  mysqli_stmt_execute($stmt);
+                                  mysqli_stmt_bind_result($stmt, $calories, $carbs, $sugars, $fiber, $protein, $fat, $sodium, $cholesterol, 
+                                  $vitaminA, $vitaminB6, $vitaminB12, $vitaminC, $vitaminD, $vitaminE, $niacin, $thiamin, $calcium, $iron, 
+                                  $magnesium, $phosphorus, $potassium, $riboflavin, $zinc);
+                                  mysqli_stmt_fetch($stmt);
+                                
+                                /*
                                 $row = mysql_fetch_assoc($result);
                                 $calories = $row['total_calories'];
                                 $carbs = ceil($row['total_carbohydrates']);
@@ -225,7 +251,7 @@
                                 $potassium = ceil($row['total_potassium']);
                                 $riboflavin = ceil($row['total_riboflavin']);
                                 $zinc = ceil($row['total_zinc']);
-
+                                */
                                 // TODO: OUTPUT RESULTS 
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calories: " . $calories . "</a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein: " . $protein . "g </a>";
@@ -250,10 +276,12 @@
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Potassium: " . $potassium . "mg </a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Riboflavin: " . $riboflavin . "mg </a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Zinc: " . $zinc . "mg </a>";
-
+                                mysqli_stmt_close($stmt);
+                              }
                                  // Close Database Connection
-                                mysql_free_result($result);
-                                mysql_close($dbconnect);
+                                //mysql_free_result($result);
+                                //mysql_close($dbconnect);
+                                mysqli_close_link($link);
                               ?>
                             </div>
                           </div>
