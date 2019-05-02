@@ -92,14 +92,23 @@ try:
     
     for (days,) in cursor:
         num_days = int(days)
-
-    daily_calories /= num_days
-    daily_carbs /= num_days
-    daily_sugar /= num_days
-    daily_protein /= num_days
-    daily_fat /= num_days
-    daily_sodium /= num_days
-    daily_cholesterol /= num_days
+    if(num_days == 0):
+        num_days = 1
+        daily_calories = 2000
+        daily_carbs = 300
+        daily_sugar = 35
+        daily_protein = 65
+        daily_fat = 60
+        daily_sodium = 3000
+        daily_cholesterol = 200
+    else:
+        daily_calories /= num_days
+        daily_carbs /= num_days
+        daily_sugar /= num_days
+        daily_protein /= num_days
+        daily_fat /= num_days
+        daily_sodium /= num_days
+        daily_cholesterol /= num_days
 
    # Retrieve the targets if applicable
     query = ("SELECT calorie_target,carb_target,fat_target,protein_target FROM users "
