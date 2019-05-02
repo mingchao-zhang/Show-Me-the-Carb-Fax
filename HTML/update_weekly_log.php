@@ -17,23 +17,28 @@
     $add = intval($_GET['add']);
     // update quantity and delete items with quantity 0
     // date: yyyy-mm-dd
-
+ echo "TEST1";
     try {
+        echo "TEST2";
         $this->pdo->beginTransaction();
+        echo "TEST3";
         $update_query = "UPDATE ate
                             SET quantity = quantity + $add, date = date
                             WHERE username = '$username' AND
                             DATEDIFF(date, '$date') = 0 AND
                             foodID = '$foodID'";
-
+echo "TEST4";
         $delete_query = "DELETE FROM ate
                             WHERE username = '$username' AND
                             DATEDIFF(date, '$date') = 0 AND
                             foodID = '$foodID'
                             AND quantity = 0";
+                            echo "TEST5";
         $this->pdo->commit();
+        echo "TEST6";
     } catch(PDOException $e) {
         $this->pdo->rollback();
+        echo "TEST7";
         die($e->getMessage());
     }
 
