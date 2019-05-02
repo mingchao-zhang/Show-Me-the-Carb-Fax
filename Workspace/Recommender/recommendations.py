@@ -194,31 +194,42 @@ try:
               "thiamin,calcium,iron,magnesium,phosphorus,potassium,riboflavin,zinc "
               "FROM products WHERE products.foodID = %s;")
 
+    top_recommendations_micro = []
     for recipe in top_recommendations:
         cursor.execute(query1,(int(recipe[1]),))
 
         for ingredient in cursor:
             cursor2.execute(query2,(int(ingredient[0]),))
 
+            ingredient_total = 0
             for ingredient_val in cursor2:
 
-                total = sum(ingredient_val[:8]) + 0.5*(sum(ingredient_val[8:]))
-                print(total)
-                
+                ingredient_total = sum(ingredient_val[:8]) + 0.5*(sum(ingredient_val[8:]))
 
+            top_recommendations_micro.append(recipe[0],ingredient_total,0,recipe[1],recipe[2])
+                
+    max_diff = max(top_recommendations_micro,key=lambda item:item[0])[0]
+    max_tot = max(top_recommendations_micro,key=lambda item:item[1])[1]
+    
+    map(lambda x:(x[0]/max_diff, x[1]/max_tot, 0 , x[3] , x[4]), top_recommendations_micro)
+    map(lambda x:(x[0], x[1], x[0] + x[1], x[3], x[4]), top_recommendations_micro)
+
+    top_recommendations_micro.sort(key = lambda tup: tup[2])
 
 
     res = ""
+    num = 0
     the_set = set()
-    for i in range(5):
-        if(recommendations[i][2] not in the_set):
-            res += str(recommendations[i][1]) + ","
+    while num < 5:
+        if(recommendations[i][4] not in the_set):
+            res += str(recommendations[i][3]) + ","
             the_set.add(recommendations[i][2])
+            num += 1
 
     print(res[:-1])
 
-#    for i in range(10):
-#        print(recommendations[i][2])
+    for i in range(10):
+        print(recommendations[i][2])
 #    print(daily_calories)
 #    print(daily_carbs)
 #    print(daily_sugar)
