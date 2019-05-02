@@ -197,8 +197,8 @@ try:
     for recipe in top_recommendations:
         cursor.execute(query1,(int(recipe[1]),))
 
-      for ingredient in cursor:
-        print(ingredient)
+        for ingredient in cursor:
+            print(ingredient)
 #            cursor2.execute(query2,(int(ingredient[1],)))
 #
 #            for val in cursor2:
