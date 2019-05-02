@@ -32,8 +32,9 @@
                             foodID = '$foodID'
                             AND quantity = 0";
         $this->pdo->commit();
-    } catch {
+    } catch(PDOException $e) {
         $this->pdo->rollback();
+        die($e->getMessage());
     }
 
 
