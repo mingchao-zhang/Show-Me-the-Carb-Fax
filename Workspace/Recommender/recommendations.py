@@ -240,7 +240,7 @@ try:
     print(res[:-1])
 
     for i in range(10):
-        print(top_recommendations_micro[i][2])
+        print(top_recommendations_micro[i][4])
 
 #    print(daily_calories)
 #    print(daily_carbs)
