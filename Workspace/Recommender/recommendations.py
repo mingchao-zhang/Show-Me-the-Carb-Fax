@@ -26,6 +26,8 @@ user_id = sys.argv[1] # The id of the user as a string
 # Create a cursor that connects to the database, an execute always returns a list
 connection = mysql.connect(user=db_user, password=db_password, database=db)
 cursor = connection.cursor()
+connection2 = mysql.connect(user=db_user, password=db_password, database=db)
+cursor2 = connection.cursor()
 
 # We enclose it in a try-catch block for efficient error handling
 try:
@@ -109,15 +111,15 @@ try:
     fat_target = 0
     prot_target = 0
 
-    for  (c1,c2,f,p) in cursor:
+    for (c1,c2,f,p) in cursor:
 
-        if(c1):
-            cal_target = cal
-        if(c2):
-            carb_target = carbs
-        if(f):
+        if c1 is not None:
+            cal_target = c1
+        if c2 is not None:
+            carb_target = c2
+        if f is not None:
             fat_target = f
-        if(p):
+        if p is not None:
             prot_target = p
 
     query = "SELECT age,height,weight FROM users WHERE username = %s;"
@@ -167,20 +169,40 @@ try:
 
     # We recommend those recipes that minimize the mean-squared distance between the various nutrient values and recommendations
     # We assume that the standard portion is about 500 calories and multiply all the values o
-
+    # This computes the Macro-Nutrient Score
     recommendations = []
     for recipe in recipes:
         
+        factor = 0.5
         if(recipe[2] != 0):
             factor = 500/recipe[2] #Factor to standardize all recipes
-        else:
-            factor = 0.5
 
-        diff = (0.15*(fat_target/4 - recipe[6]*factor)**2 + 0.15*(prot_target/4 - recipe[5]*factor)**2 + 0.15*(sod_target/4 - recipe[7]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15*(carb_target/4 - recipe[3]*factor)**2)
+        diff = (0.15*(fat_target/4 - recipe[7]*factor)**2 + 0.15*(prot_target/4 - recipe[6]*factor)**2 + 0.15*(sod_target/4 - recipe[6]*factor)**2 + 0.15*(cholesterol_target/4 - recipe[8]*factor)**2 + 0.15*(carb_target/4 - recipe[4]*factor)**2)
 
         recommendations.append((diff,recipe[0],recipe[1]))
 
     recommendations.sort(key = lambda tup: tup[0])
+
+    top_recommendations = recommendations[:250]
+
+    # From the top 100 macro recommendations, we select the top 5 recipes based on micro-nutrient information from the contains table
+
+    query1 = ("SELECT product_foodID,quantity,volume,weight FROM contains "
+              "WHERE contains.recipe_foodID = %s;")
+        
+    query2 = ("SELECT vitaminA, vitaminB6,vitaminB12,vitaminC,vitaminD,vitaminE,niacin, "
+              "thiamin,calcium,iron,magnesium,phosphorus,potassium,riboflavin,zinc "
+              "FROM products WHERE products.foodID = %s;")
+
+    for recipe in top_recommendations:
+        cursor.execute(query1,(int(recipe[1]),))
+
+      for ingredient in cursor:
+        print(ingredient)
+#            cursor2.execute(query2,(int(ingredient[1],)))
+#
+#            for val in cursor2:
+#                next = val
 
     for i in range(5):
         print(recommendations[i][2])
