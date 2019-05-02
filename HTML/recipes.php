@@ -60,7 +60,7 @@
       }
 
       .carousel {
-        height: 300px;
+        height: 500px;
       }
 
       #weekly_log_container, #display_item_container {
@@ -130,7 +130,13 @@
                                   
                                     <h4>Recipe Name</h4>
                                     <p>Description</p>
-                                  
+                                    <ul class="list-group list-group-flush">
+                                      <li>Ingredient</li>
+                                      <li>Ingredient</li>
+                                      <li>Ingredient</li>
+                                      <li>Ingredient</li>
+                                      <li>Ingredient</li>
+                                    </ul>
                                 </div>
                                 <div class="carousel-item text-center p-4">
                                   
