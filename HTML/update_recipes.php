@@ -17,7 +17,7 @@
         $recipe_description = $_GET["recipe_description"];
         $new_recipe_id = $_GET["new_recipe_id"];
 
-        $recipe_insert_query = "INSERT INTO recipes (`foodID`, `name`, `calories`, `total_carbs`, `sugar`, `protein`, `total_fat`, `sodium`, `cholesterol`, `directions`) 
+        $recipe_insert_query = "INSERT INTO recipes (`foodID`, `name`, `calories`, `total_carbs`, `sugar`, `protein`, `total_fat`, `sodium`, `cholesterol`, `descriptions`) 
         VALUES ('$new_recipe_id', '$recipe_name', 0, 0, 0, 0, 0, 0, 0, '$recipe_description')";
         $result = mysql_query($recipe_insert_query, $dbconnect);
         if (!$result) {
