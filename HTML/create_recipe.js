@@ -151,7 +151,9 @@ $(document).on("click", "#submit_recipe_btn", function(event) {
                                 url: "update_contains.php",
                                 data: _data,
                                 success: function(data) {
+                                    
                                     done_count += 1
+                                    console.log(_data, done_count)
                                     if (done_count === item_arr.length) {
                                         console.log("async????????????????")
                                         $("#recipe_added_msg").html("Recipe Added")
