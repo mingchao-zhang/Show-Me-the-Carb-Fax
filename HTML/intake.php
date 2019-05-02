@@ -3,7 +3,7 @@
     $username = $_SESSION['username'];
     $name = $_SESSION['name'];
     if(isset($_POST['update'])){
-//DELETE COMMENT
+        
          // Database Connection
         $dbconnect = mysql_connect("localhost", "root", "carbfax411");
         if(!$dbconnect){
