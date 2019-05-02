@@ -277,7 +277,7 @@
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Riboflavin: " . ceil($riboflavin) . "mg </a>";
                                 echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Zinc: " . ceil($zinc) . "mg </a>";
                                 mysqli_stmt_close($stmt);
-                              }
+                              //}
                                  // Close Database Connection
                                 mysql_free_result($result);
                                 mysql_close($dbconnect);
