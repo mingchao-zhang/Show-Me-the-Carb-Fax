@@ -128,10 +128,10 @@
                                     $row = mysql_fetch_assoc($result);
                                     echo "<h4>" . $row['name'] ."</h4>";
                                     echo "<p>" . $row['descriptions'] ."</p>";
-                                    Ingredient<br>
-                                    Ingredient<br>
-                                    Ingredient<br>
-                                    Ingredient<br>
+                                    //Ingredient<br>
+                                    //Ingredient<br>
+                                    //Ingredient<br>
+                                    //Ingredient<br>
                                     // Close Database Connection
                                     mysql_free_result($result);
                                     mysql_close($dbconnect);
