@@ -110,7 +110,6 @@
     </div>
     <div class="flex_dummy">
       <textarea style="height:200px;" id="recipe_description_input" placeholder="Enter the Recipe Description"></textarea>
-      <!--<input type="text" id="recipe_description_input" placeholder="Enter the Recipe Description">-->
     </div>
     <hr>
     <div class="flex_dummy">
