@@ -90,12 +90,13 @@
                     <div class="col-md-6 px-0">
                         <h1 class="display-4 font-italic">Create a Recipe</h1>
                     </div>
+
                 </div>
 
                 <main role="main" class="container">
                     <div class="row mb-2">
                       <div class="col-md-10">
-                        <div class="jumbotron" style="width: 924px;">
+                        <div class="jumbotron" style="width: 1100px;">
 <!-- form begin -->
 <div id="recipe_form_container">
   <div id="recipe_info_box">
@@ -169,7 +170,7 @@
 <!-- form end -->
                         </div>
                       </div>
-
+<!--
                       <aside class="col-md-2 blog-sidebar">
                         <div class="p-4">
                           <h4 class="font-italic">Elsewhere</h4>
@@ -180,7 +181,8 @@
                           </ol>
                         </div>
                       </aside>
-
+-->
+                      <div></div>
                     </div><!-- /.row -->
                    
                   </main><!-- /.container -->
