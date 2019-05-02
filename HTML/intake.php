@@ -253,29 +253,29 @@
                                 $zinc = ceil($row['total_zinc']);
                                 */
                                 // TODO: OUTPUT RESULTS 
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calories: " . $calories . "</a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein: " . $protein . "g </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate: " . $carbs . "g </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat: " . $fat . "g </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Sugars: " . $sugars . "g </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Dietary Fiber: " . $fiber . "g </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Cholesterol: " . $cholesterol . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Sodium: " . $sodium . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calcium: " . $calcium . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin A: " . $vitaminA . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin B6: " . $vitaminB6 . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin B12: " . $vitaminB12 . "&#181g </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin C: " . $vitaminC .  "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin D: " . $vitaminD . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin E: " .  $vitaminE . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Niacin: " . $niacin . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Thiamin: " . $thiamin . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Iron: " .  $iron . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Magnesium: " . $magnesium . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Phosphorus: " . $phosphorus . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Potassium: " . $potassium . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Riboflavin: " . $riboflavin . "mg </a>";
-                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Zinc: " . $zinc . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calories: " . ceil($calories) . "</a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Protein: " . ceil($protein) . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Carbohydrate: " . ceil($carbs) . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Fat: " . ceil($fat) . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Sugars: " . ceil($sugars) . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Dietary Fiber: " . ceil($fiber) . "g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Cholesterol: " . ceil($cholesterol) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Sodium: " . ceil($sodium) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Calcium: " . ceil($calcium) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin A: " . ceil($vitaminA) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin B6: " . ceil($vitaminB6) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin B12: " . ceil($vitaminB12) . "&#181g </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin C: " . ceil($vitaminC) .  "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin D: " . ceil($vitaminD) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Vitamin E: " .  ceil($vitaminE) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Niacin: " . ceil($niacin) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Thiamin: " . ceil($thiamin) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Iron: " .  ceil($iron) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Magnesium: " . ceil($magnesium) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Phosphorus: " . ceil($phosphorus) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Potassium: " . ceil($potassium) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Riboflavin: " . ceil($riboflavin) . "mg </a>";
+                                echo "<a href=\"#\" class=\"list-group-item list-group-item-action\">Zinc: " . ceil($zinc) . "mg </a>";
                                 mysqli_stmt_close($stmt);
                               }
                                  // Close Database Connection
