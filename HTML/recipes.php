@@ -40,7 +40,7 @@
       }
 
       .carousel {
-        height: 500px;
+        height: 400px;
       }
 
       #weekly_log_container, #display_item_container {
