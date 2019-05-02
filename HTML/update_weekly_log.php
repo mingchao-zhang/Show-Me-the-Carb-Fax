@@ -23,6 +23,7 @@
            $DB = new PDO('mysql:host=localhost; dbname=411_project_db','root', 'carbfax411');
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
+           echo "TEST2";
            // $update_query = "UPDATE ate
            //                     SET quantity = quantity + $add, date = date
            //                     WHERE username = '$username' AND
@@ -36,6 +37,7 @@
            //                     AND quantity = 0";
            $DB->commit();
        } catch(PDOException $e) {
+           echo "TEST_CATCH";
            // $this->pdo->rollback();
            // die("invaliddd");
        }
