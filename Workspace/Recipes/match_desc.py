@@ -45,7 +45,7 @@ with open(output_file, "w") as output:
         writer.writerow(descriptions[each_recipe])
 
 
-contains_file = "Data/matched_ingredients.csv"
+contains_file = "Data/quantified_ingredients.csv"
 output_file = "Data/contains2.csv"
 contains = {}
 with open(contains_file, "r") as f:
