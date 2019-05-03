@@ -25,6 +25,12 @@
                         DATEDIFF(date, '$date') = 0 AND
                         foodID = '$foodID'
                         AND quantity = 0";
+
+    $test_query = "SELECT * FROM ate
+                        WHERE username = ? AND
+                        DATEDIFF(date, ?) = 0 AND
+                        foodID = ?";
+
     // update quantity and delete if quantity = 0
     // date: yyyy-mm-dd
     echo "TEST";
@@ -34,11 +40,12 @@
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
            echo "TEST2";
-           $stmt = $DB->prepare($update_query);
+           $stmt = $DB->prepare($test_query);
            echo "TEST3";
-           $stmt->execute([$add, $username, $date, $foodID]);
+           $stmt->execute([$username, $date, $foodID]);
            echo "TEST4";
-           // $result = $stmt->fetch();
+           $result = $stmt->fetch();
+           echo $result['username'] . "\n";
            echo "TEST5";
            echo $result;
            echo "TEST6";
