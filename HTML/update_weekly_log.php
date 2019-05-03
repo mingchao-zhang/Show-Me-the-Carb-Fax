@@ -24,12 +24,12 @@
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
            echo "TEST2";
-           // $update_query = "UPDATE ate
-           //                     SET quantity = quantity + $add, date = date
-           //                     WHERE username = '$username' AND
-           //                     DATEDIFF(date, '$date') = 0 AND
-           //                     foodID = '$foodID'";
-           //
+           $update_query = "UPDATE ate
+                               SET quantity = quantity + $add, date = date
+                               WHERE username = '$username' AND
+                               DATEDIFF(date, '$date') = 0 AND
+                               foodID = '$foodID'";
+
            // $delete_query = "DELETE FROM ate
            //                     WHERE username = '$username' AND
            //                     DATEDIFF(date, '$date') = 0 AND
