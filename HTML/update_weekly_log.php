@@ -45,6 +45,9 @@
            $stmt->execute([$username, $date, $foodID]);
            echo "TEST4";
            $result = $stmt->fetch();
+           echo $username . "\n";
+           echo $date . "\n";
+           echo $foodID . "\n";
            echo $result['username'] . "\n";
            echo "TEST5";
            echo $result;
