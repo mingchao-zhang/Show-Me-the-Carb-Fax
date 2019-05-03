@@ -38,7 +38,7 @@
            echo "TEST3";
            $stmt->execute([$add, $username, $date, $foodID]);
            echo "TEST4";
-           $result = $stmt->fetch();
+           // $result = $stmt->fetch();
            echo "TEST5";
            echo $result;
            echo "TEST6";
