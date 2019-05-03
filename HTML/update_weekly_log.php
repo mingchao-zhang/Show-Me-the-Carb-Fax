@@ -15,7 +15,11 @@
     $foodId = $_GET['id'];
     $date = $_GET['date'];
     $add = intval($_GET['add']);
-
+    $update_query = "UPDATE ate
+                        SET quantity = quantity + ?, date = date
+                        WHERE username = ? AND
+                        DATEDIFF(date, ?) = 0 AND
+                        foodID = ?";
     $delete_query = "DELETE FROM ate
                         WHERE username = '$username' AND
                         DATEDIFF(date, '$date') = 0 AND
@@ -30,16 +34,11 @@
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
            echo "TEST2";
-           $stmt = $DB->query('SELECT username FROM ate');
-            while ($row = $stmt->fetch())
-            {
-                echo $row['username'] . "\n";
-            }
-           // $update_query = "UPDATE ate
-           //                     SET quantity = quantity + $add, date = date
-           //                     WHERE username = '$username' AND
-           //                     DATEDIFF(date, '$date') = 0 AND
-           //                     foodID = '$foodID'";
+           $stmt = $DB->prepare($update_query);
+           $stmt->execute([$add, $username, $date, $foodID]);
+           $result = $stmt->fetch();
+           echo $result;
+
            // $DB->query($update_query);
            echo "TEST3";
            // $DB->query($delete_query);
