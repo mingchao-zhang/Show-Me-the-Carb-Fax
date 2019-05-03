@@ -35,12 +35,16 @@
            $DB->beginTransaction();
            echo "TEST2";
            $stmt = $DB->prepare($update_query);
+           echo "TEST3";
            $stmt->execute([$add, $username, $date, $foodID]);
+           echo "TEST4";
            $result = $stmt->fetch();
+           echo "TEST5";
            echo $result;
+           echo "TEST6";
 
            // $DB->query($update_query);
-           echo "TEST3";
+           echo "TEST7";
            // $DB->query($delete_query);
            // echo "TEST4";
            // $price = $DB->query("SELECT quantity FROM ate WHERE username = '$username' AND DATEDIFF(date, '$date') = 0 AND foodID = '$foodID'");
@@ -48,7 +52,7 @@
            // echo $result['quantity'];
            // echo "TEST6";
            $DB->commit();
-           echo "TEST6";
+           echo "TEST8";
        } catch(PDOException $e) {
            echo "TEST_CATCH";
            // $this->pdo->rollback();
