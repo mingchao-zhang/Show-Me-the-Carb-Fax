@@ -39,8 +39,12 @@
            echo "TEST3";
            $DB->query($delete_query);
            echo "TEST4";
+           $price = $DB->query("SELECT quantity FROM ate WHERE username = '$username' AND DATEDIFF(date, '$date') = 0 AND foodID = '$foodID'");
+           $result = mysql_fetch_array($price);
+           echo $result['quantity'];
+           echo "TEST6";
            $DB->commit();
-           echo "TEST5";
+           echo "TEST6";
        } catch(PDOException $e) {
            echo "TEST_CATCH";
            // $this->pdo->rollback();
