@@ -31,7 +31,7 @@
     echo "TEST";
        try {
            echo "TEST1";
-           $DB = new PDO('mysql:host=localhost; dbname=411_project_db','root', 'carbfax411');
+           $DB = new PDO('mysql:host=localhost; dbname=411_project_db','root', 'carbfax411e');
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
            echo "TEST2";
