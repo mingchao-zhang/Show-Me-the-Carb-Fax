@@ -28,55 +28,53 @@
 
     // update quantity and delete if quantity = 0
     // date: yyyy-mm-dd
-    echo "TEST";
-       try {
-           echo "TEST1";
-           $DB = new PDO('mysql:host=localhost; dbname=411_project_db','root', 'carbfax411');
-           $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           $DB->beginTransaction();
-
-           $stmt = $DB->prepare($update_query);
-           $stmt->execute([$add, $username, $date, $foodID]);
-
-           $stmt = $DB->prepare($delete_query);
-           $stmt->execute([$username, $date, $foodID]);
-
-           $DB->commit();
-       } catch(PDOException $e) {
-           echo "TEST_CATCH";
-           $this->pdo->rollback();
-           die("Invalid Query In Transaction");
-       }
-
-
-    // $update_query = "UPDATE ate
-    //                  SET quantity = quantity + $add, date = date
-    //                  WHERE username = '$username' AND
-    //                  SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
-    //                  SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
-    //                  SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
-    //                  foodID = '$foodID'
-    //                 ";
-    // $update_result = mysql_query($update_query, $dbconnect);
+    // try {
+    //     $DB = new PDO('mysql:host=localhost; dbname=411_project_db','root', 'carbfax411');
+    //     $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //     $DB->beginTransaction();
     //
-    // if ( !$update_result ) {
-    //     die('Invalid Query: ' . mysql_error());
+    //     $stmt = $DB->prepare($update_query);
+    //     $stmt->execute([$add, $username, $date, $foodID]);
+    //
+    //     $stmt = $DB->prepare($delete_query);
+    //     $stmt->execute([$username, $date, $foodID]);
+    //
+    //     $DB->commit();
+    // } catch(PDOException $e) {
+    //     echo "TEST_CATCH";
+    //     $this->pdo->rollback();
+    //     die("Invalid Query In Transaction");
     // }
-    //
-    // // delete the item with the quantity 0
-    // $delete_query = "DELETE FROM ate
-    //                  WHERE username = '$username' AND
-    //                  SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
-    //                  SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
-    //                  SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
-    //                  foodID = '$foodID' AND
-    //                  quantity = 0
-    //                 ";
-    //
-    // $delete_result = mysql_query($delete_query, $dbconnect);
-    // if ( !$delete_result ) {
-    //     die('Invalid Query: ' . mysql_error());
-    // }
+
+
+    $update_query = "UPDATE ate
+                     SET quantity = quantity + $add, date = date
+                     WHERE username = '$username' AND
+                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
+                     SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
+                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
+                     foodID = '$foodID'
+                    ";
+    $update_result = mysql_query($update_query, $dbconnect);
+
+    if ( !$update_result ) {
+        die('Invalid Query: ' . mysql_error());
+    }
+
+    // delete the item with the quantity 0
+    $delete_query = "DELETE FROM ate
+                     WHERE username = '$username' AND
+                     SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
+                     SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
+                     SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
+                     foodID = '$foodID' AND
+                     quantity = 0
+                    ";
+
+    $delete_result = mysql_query($delete_query, $dbconnect);
+    if ( !$delete_result ) {
+        die('Invalid Query: ' . mysql_error());
+    }
 
 
     // Query to Get Eaten Items
