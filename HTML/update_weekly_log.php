@@ -30,7 +30,7 @@
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
            echo "TEST2";
-           $stmt = $pdo->query('SELECT username FROM ate');
+           $stmt = $DB->query('SELECT username FROM ate');
             while ($row = $stmt->fetch())
             {
                 echo $row['username'] . "\n";
