@@ -170,8 +170,8 @@
                                           SUM(total_niacin) AS total_niacin, SUM(total_thiamin) AS total_thiamin, SUM(total_calcium) AS total_calcium,
                                           SUM(total_iron) AS total_iron, SUM(total_magnesium) AS total_magnesium, SUM(total_phosphorus) AS total_phosphorus,
                                           SUM(total_potassium) AS total_potassium, SUM(total_riboflavin) AS total_riboflavin, SUM(total_zinc) AS total_zinc
-                                          FROM ((SELECT * FROM nutrient_sum_products WHERE username = '$username') 
-                                          UNION (SELECT * FROM nutrient_sum_recipes WHERE username = '$username'))
+                                          FROM ((SELECT * FROM nutrient_sum_products_2 WHERE username = '$username') 
+                                          UNION (SELECT * FROM nutrient_sum_recipes_1 WHERE username = '$username'))
                                           AS totals GROUP BY username";
                                 $result = mysql_query($query, $dbconnect);
                                 if (!$result){
