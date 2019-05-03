@@ -21,15 +21,10 @@
                         DATEDIFF(date, ?) = 0 AND
                         foodID = ?";
     $delete_query = "DELETE FROM ate
-                        WHERE username = '$username' AND
-                        DATEDIFF(date, '$date') = 0 AND
-                        foodID = '$foodID'
-                        AND quantity = 0";
-
-    $test_query = "SELECT * FROM ate
                         WHERE username = ? AND
                         DATEDIFF(date, ?) = 0 AND
-                        foodID = ?";
+                        foodID = ?
+                        AND quantity = 0";
 
     // update quantity and delete if quantity = 0
     // date: yyyy-mm-dd
@@ -39,30 +34,18 @@
            $DB = new PDO('mysql:host=localhost; dbname=411_project_db','root', 'carbfax411');
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
-           echo "TEST2";
-           $stmt = $DB->prepare($update_query);
-           echo "TEST3";
-           $stmt->execute([$add, $username, $date, $foodID]);
-           echo "TEST4";
-           // $result = $stmt->fetch();
-           echo "TEST5";
-           echo $result;
-           echo "TEST6";
 
-           // $DB->query($update_query);
-           echo "TEST7";
-           // $DB->query($delete_query);
-           // echo "TEST4";
-           // $price = $DB->query("SELECT quantity FROM ate WHERE username = '$username' AND DATEDIFF(date, '$date') = 0 AND foodID = '$foodID'");
-           // $result = mysql_fetch_array($price);
-           // echo $result['quantity'];
-           // echo "TEST6";
+           $stmt = $DB->prepare($update_query);
+           $stmt->execute([$add, $username, $date, $foodID]);
+
+           $stmt = $DB->prepare($delete_query);
+           $stmt->execute([$username, $date, $foodID]);
+
            $DB->commit();
-           echo "TEST8";
        } catch(PDOException $e) {
            echo "TEST_CATCH";
-           // $this->pdo->rollback();
-           // die("invaliddd");
+           $this->pdo->rollback();
+           die("Invalid Query In Transaction");
        }
 
 
