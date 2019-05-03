@@ -40,15 +40,11 @@
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
            echo "TEST2";
-           $stmt = $DB->prepare($test_query);
+           $stmt = $DB->prepare($update_query);
            echo "TEST3";
-           $stmt->execute([$username, $date, $foodID]);
+           $stmt->execute([$add, $username, $date, $foodID]);
            echo "TEST4";
-           $result = $stmt->fetch();
-           echo $username . "\n";
-           echo $date . "\n";
-           echo $foodID . "\n";
-           echo $result['username'] . "\n";
+           // $result = $stmt->fetch();
            echo "TEST5";
            echo $result;
            echo "TEST6";
