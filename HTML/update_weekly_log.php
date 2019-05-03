@@ -25,9 +25,12 @@
                         DATEDIFF(date, ?) = 0 AND
                         foodID = ?
                         AND quantity = 0";
-    $ate_query = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity
-                        FROM ate, products
-                        WHERE username = ? AND ate.foodID = products.foodID";
+    $ate_products_query = "SELECT products.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity
+                            FROM ate, products
+                            WHERE username = ? AND ate.foodID = products.foodID";
+    $ate_recipes_query = "SELECT recipes.name AS name, ate.foodID AS ID, ate.date AS date, ate.quantity AS quantity
+                            FROM ate, recipes
+                            WHERE username = ? AND ate.foodID = recipes.foodID";
 
 
     // update quantity and delete if quantity = 0
@@ -43,7 +46,25 @@
         $stmt = $DB->prepare($delete_query);
         $stmt->execute([$username, $date, $foodID]);
 
-        $stmt = $DB->prepare($ate_query);
+        $stmt = $DB->prepare($ate_products_query);
+        $stmt->execute([$username]);
+        while ($row = $stmt->fetch()) {
+            $food_id = $row['ID'];
+            $date = $row['date'];
+            $row_id = $username . "&" . $food_id . "&" . $date;
+            echo "<tr>";
+            echo "<td>" . $row['name'] . "</td>";
+            echo "<td>" . $row['ID'] . "</td>";
+            echo "<td>" . $row['date'] . "</td>";
+            echo "<td>" .
+            "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_plus_button' type='submit' id=$row_id>+</button>"
+            . $row['quantity']
+            . "<button name='remove' class='btn btn-sm btn-primary btn-block weekly_log_minus_button' type='submit' id=$row_id>-</button>"
+            . "</td>";
+            echo "</tr>";
+        }
+
+        $stmt = $DB->prepare($ate_recipes_query);
         $stmt->execute([$username]);
         while ($row = $stmt->fetch()) {
             $food_id = $row['ID'];
