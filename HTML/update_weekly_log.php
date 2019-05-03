@@ -12,7 +12,7 @@
 
     //get parameters
     $username = $_GET['username'];
-    $foodId = $_GET['id'];
+    $foodID = $_GET['id'];
     $date = $_GET['date'];
     $add = intval($_GET['add']);
     $update_query = "UPDATE ate
@@ -76,7 +76,7 @@
     //                  SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
     //                  SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
     //                  SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
-    //                  foodID = '$foodId'
+    //                  foodID = '$foodID'
     //                 ";
     // $update_result = mysql_query($update_query, $dbconnect);
     //
@@ -90,7 +90,7 @@
     //                  SUBSTRING(date, 1, 4) = SUBSTRING('$date', 1, 4) AND
     //                  SUBSTRING(date, 6, 2) = SUBSTRING('$date', 6, 2) AND
     //                  SUBSTRING(date, 9, 2) = SUBSTRING('$date', 9, 2) AND
-    //                  foodID = '$foodId' AND
+    //                  foodID = '$foodID' AND
     //                  quantity = 0
     //                 ";
     //
