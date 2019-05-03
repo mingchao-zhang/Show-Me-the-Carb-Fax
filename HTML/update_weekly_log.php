@@ -37,12 +37,12 @@
            echo "TEST2";
            $DB->query($update_query);
            echo "TEST3";
-           $DB->query($delete_query);
-           echo "TEST4";
-           $price = $DB->query("SELECT quantity FROM ate WHERE username = '$username' AND DATEDIFF(date, '$date') = 0 AND foodID = '$foodID'");
-           $result = mysql_fetch_array($price);
-           echo $result['quantity'];
-           echo "TEST6";
+           // $DB->query($delete_query);
+           // echo "TEST4";
+           // $price = $DB->query("SELECT quantity FROM ate WHERE username = '$username' AND DATEDIFF(date, '$date') = 0 AND foodID = '$foodID'");
+           // $result = mysql_fetch_array($price);
+           // echo $result['quantity'];
+           // echo "TEST6";
            $DB->commit();
            echo "TEST6";
        } catch(PDOException $e) {
