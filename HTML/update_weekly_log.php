@@ -30,12 +30,17 @@
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
            echo "TEST2";
-           $update_query = "UPDATE ate
-                               SET quantity = quantity + $add, date = date
-                               WHERE username = '$username' AND
-                               DATEDIFF(date, '$date') = 0 AND
-                               foodID = '$foodID'";
-           $DB->query($update_query);
+           $stmt = $pdo->query('SELECT username FROM ate');
+            while ($row = $stmt->fetch())
+            {
+                echo $row['username'] . "\n";
+            }
+           // $update_query = "UPDATE ate
+           //                     SET quantity = quantity + $add, date = date
+           //                     WHERE username = '$username' AND
+           //                     DATEDIFF(date, '$date') = 0 AND
+           //                     foodID = '$foodID'";
+           // $DB->query($update_query);
            echo "TEST3";
            // $DB->query($delete_query);
            // echo "TEST4";
