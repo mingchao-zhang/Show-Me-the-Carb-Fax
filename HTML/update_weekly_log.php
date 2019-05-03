@@ -15,27 +15,32 @@
     $foodId = $_GET['id'];
     $date = $_GET['date'];
     $add = intval($_GET['add']);
-    // update quantity
+    $update_query = "UPDATE ate
+                        SET quantity = quantity + $add, date = date
+                        WHERE username = '$username' AND
+                        DATEDIFF(date, '$date') = 0 AND
+                        foodID = '$foodID'";
+
+    $delete_query = "DELETE FROM ate
+                        WHERE username = '$username' AND
+                        DATEDIFF(date, '$date') = 0 AND
+                        foodID = '$foodID'
+                        AND quantity = 0";
+    // update quantity and delete if quantity = 0
     // date: yyyy-mm-dd
     echo "TEST";
        try {
            echo "TEST1";
-           $DB = new PDO('mysql:host=localhost; dbname=411_project_d','root', 'carbfax411');
+           $DB = new PDO('mysql:host=localhost; dbname=411_project_db','root', 'carbfax411');
            $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            $DB->beginTransaction();
            echo "TEST2";
-           $update_query = "UPDATE ate
-                               SET quantity = quantity + $add, date = date
-                               WHERE username = '$username' AND
-                               DATEDIFF(date, '$date') = 0 AND
-                               foodID = '$foodID'";
-
-           // $delete_query = "DELETE FROM ate
-           //                     WHERE username = '$username' AND
-           //                     DATEDIFF(date, '$date') = 0 AND
-           //                     foodID = '$foodID'
-           //                     AND quantity = 0";
+           $DB->query($update_query);
+           echo "TEST3";
+           $DB->query($delete_query);
+           echo "TEST4";
            $DB->commit();
+           echo "TEST5";
        } catch(PDOException $e) {
            echo "TEST_CATCH";
            // $this->pdo->rollback();
