@@ -222,25 +222,28 @@ try:
     i = 0
     the_set = set()
 
-    while num < 5:
-        if(top_recommendations_micro[i][4] not in the_set):
-            res += str(top_recommendations_micro[i][3]) + ","
-            the_set.add(top_recommendations_micro[i][2])
-            num += 1
-        i += 1
+    for i in range(5):
+        print(recommendations[i][1])
 
-    print(res[:-1])
-
-    for i in range(10):
-        print(top_recommendations_micro[i][4])
-
-    print(daily_calories)
-    print(daily_carbs)
-    print(daily_sugar)
-    print(daily_protein)
-    print(daily_fat)
-    print(daily_cholesterol)
-    print("Done!")
+#    while num < 5:
+#        if(top_recommendations_micro[i][4] not in the_set):
+#            res += str(top_recommendations_micro[i][3]) + ","
+#            the_set.add(top_recommendations_micro[i][2])
+#            num += 1
+#        i += 1
+#
+#    print(res[:-1])
+#
+#    for i in range(10):
+#        print(top_recommendations_micro[i][4])
+#
+#    print(daily_calories)
+#    print(daily_carbs)
+#    print(daily_sugar)
+#    print(daily_protein)
+#    print(daily_fat)
+#    print(daily_cholesterol)
+#    print("Done!")
 
     connection.close()
 
