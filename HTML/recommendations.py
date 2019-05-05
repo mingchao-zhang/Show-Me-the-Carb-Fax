@@ -223,7 +223,7 @@ try:
     the_set = set()
 
     for i in range(5):
-        print(recommendations[i][2])
+        print(recommendations[i][0])
 
 #    while num < 5:
 #        if(top_recommendations_micro[i][4] not in the_set):
