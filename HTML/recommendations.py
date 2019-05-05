@@ -230,6 +230,7 @@ try:
             res += str(top_recommendations_micro[i][3]) + ","
             the_set.add(top_recommendations_micro[i][2])
             num += 1
+            print(top_recommendations_micro[i][4])
 
     print(res[:-1])
 
