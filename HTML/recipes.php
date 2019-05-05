@@ -129,14 +129,14 @@
                                     echo "<h4>" . $row['name'] ."</h4>";
                                     echo "<p>" . $row['descriptions'] ."</p>";
 
-                                    $query = "SELECT products.name AS name, contains.quantity AS quantity FROM contains, products
+                                    $query = "SELECT products.name AS name, contains.quantity AS quantity, contains.measurement_std AS measurement FROM contains, products
                                      WHERE contains.recipe_foodID = '$recipe_IDS[0]' AND contains.product_foodID = products.foodID";
                                     $ingredient_result = mysql_query($query, $dbconnect);
                                     if(!$ingredient_result){
                                       die("Invalid Query: " . mysql_error());
                                     }
                                     while ($row = mysql_fetch_assoc($ingredient_result)){
-                                      echo $row['quantity'] . " " . $row['name'] . "<br>";
+                                      echo $row['quantity'] . " " . $row['measurement'] . " " . $row['name'] . "<br>";
                                     }
                                     // Close Database Connection
                                     mysql_free_result($result);
@@ -166,14 +166,14 @@
                                     echo "<h4>" . $row['name'] ."</h4>";
                                     echo "<p>" . $row['descriptions'] ."</p>";
                                   
-                                    $query = "SELECT products.name AS name, contains.quantity AS quantity FROM contains, products
+                                    $query = "SELECT products.name AS name, contains.quantity AS quantity, contains.measurement_std AS measurement FROM contains, products
                                      WHERE contains.recipe_foodID = '$recipe_IDS[1]' AND contains.product_foodID = products.foodID";
                                     $ingredient_result = mysql_query($query, $dbconnect);
                                     if(!$ingredient_result){
                                       die("Invalid Query: " . mysql_error());
                                     }
                                     while ($row = mysql_fetch_assoc($ingredient_result)){
-                                      echo $row['quantity'] . " " . $row['name'] . "<br>";
+                                      echo $row['quantity'] . " " . $row['measurement'] . " " . $row['name'] . "<br>";
                                     }
                                     // Close Database Connection
                                     mysql_free_result($result);
@@ -205,14 +205,14 @@
                                     echo "<h4>" . $row['name'] ."</h4>";
                                     echo "<p>" . $row['descriptions'] ."</p>";
                                     
-                                    $query = "SELECT products.name AS name, contains.quantity AS quantity FROM contains, products
+                                    $query = "SELECT products.name AS name, contains.quantity AS quantity, contains.measurement_std AS measurement FROM contains, products
                                      WHERE contains.recipe_foodID = '$recipe_IDS[2]' AND contains.product_foodID = products.foodID";
                                     $ingredient_result = mysql_query($query, $dbconnect);
                                     if(!$ingredient_result){
                                       die("Invalid Query: " . mysql_error());
                                     }
                                     while ($row = mysql_fetch_assoc($ingredient_result)){
-                                      echo $row['quantity'] . " " . $row['name'] . "<br>";
+                                      echo $row['quantity'] . " " . $row['measurement'] . " " . $row['name'] . "<br>";
                                     }
                                     // Close Database Connection
                                     mysql_free_result($result);
@@ -243,14 +243,14 @@
                                     echo "<h4>" . $row['name'] ."</h4>";
                                     echo "<p>" . $row['descriptions'] ."</p>";
                                    
-                                    $query = "SELECT products.name AS name, contains.quantity AS quantity FROM contains, products
+                                    $query = "SELECT products.name AS name, contains.quantity AS quantity, contains.measurement_std AS measurement FROM contains, products
                                      WHERE contains.recipe_foodID = '$recipe_IDS[3]' AND contains.product_foodID = products.foodID";
                                     $ingredient_result = mysql_query($query, $dbconnect);
                                     if(!$ingredient_result){
                                       die("Invalid Query: " . mysql_error());
                                     }
                                     while ($row = mysql_fetch_assoc($ingredient_result)){
-                                      echo $row['quantity'] . " " . $row['name'] . "<br>";
+                                      echo $row['quantity'] . " " . $row['measurement'] . " " . $row['name'] . "<br>";
                                     }
                                     // Close Database Connection
                                     mysql_free_result($result);
@@ -281,14 +281,14 @@
                                     echo "<h4>" . $row['name'] ."</h4>";
                                     echo "<p>" . $row['descriptions'] ."</p>";
                                     
-                                    $query = "SELECT products.name AS name, contains.quantity AS quantity FROM contains, products
+                                    $query = "SELECT products.name AS name, contains.quantity AS quantity, contains.measurement_std AS measurement FROM contains, products
                                      WHERE contains.recipe_foodID = '$recipe_IDS[4]' AND contains.product_foodID = products.foodID";
                                     $ingredient_result = mysql_query($query, $dbconnect);
                                     if(!$ingredient_result){
                                       die("Invalid Query: " . mysql_error());
                                     }
                                     while ($row = mysql_fetch_assoc($ingredient_result)){
-                                      echo $row['quantity'] . " " . $row['name'] . "<br>";
+                                      echo $row['quantity'] . " " . $row['measurement'] . " " . $row['name'] . "<br>";
                                     }
                                     // Close Database Connection
                                     mysql_free_result($result);
