@@ -221,14 +221,15 @@ try:
     res = ""
     num = 0
     the_set = set()
-
+    index_set = set()
     # We shuffle the recipes a little to remove outliers
 
     while num < 5:
         i = np.random.randint(50)
-        if(top_recommendations_micro[i][4] not in the_set):
+        if(top_recommendations_micro[i][4] not in the_set and i not in index_set):
             res += str(top_recommendations_micro[i][3]) + ","
             the_set.add(top_recommendations_micro[i][2])
+            index_set.add(i)
             num += 1
 
     print(res[:-1])
