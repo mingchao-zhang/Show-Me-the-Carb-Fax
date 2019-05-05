@@ -39,7 +39,7 @@ try:
     daily_sodium = 0
     daily_cholesterol = 0
     
-    # Retrieve nutrient information from the recipes table
+    # Retrieve nutrient aggregates from the recipes table
     query = ("SELECT SUM(R.calories * A.quantity),SUM(R.total_carbs * A.quantity),SUM(R.sugar * A.quantity) "
      ",SUM(R.protein * A.quantity),SUM(R.total_fat * A.quantity),SUM(R.sodium * A.quantity),SUM(R.cholesterol * A.quantity) "
      "FROM recipes AS R, ate as A WHERE R.foodID = A.foodID AND A.username = %s;")
@@ -63,7 +63,7 @@ try:
            daily_cholesterol += float(c)
      
 
-    # Retrieve nutrient information from the products table
+    # Retrieve nutrient aggregates from the products table
     query = ("SELECT SUM(P.calories * A.quantity),SUM(P.total_carbs * A.quantity),SUM(P.sugars * A.quantity) "
      ",SUM(P.protein * A.quantity),SUM(P.total_fat * A.quantity),SUM(P.sodium * A.quantity),SUM(P.cholesterol * A.quantity) "
      "FROM products AS P, ate as A WHERE P.foodID = A.foodID AND A.username = %s;")
@@ -143,18 +143,16 @@ try:
     fat_recmnd = math.ceil(cals_recmnd * 0.25 / 9);
 
     if(carb_target == 0):
-
         carb_target = carbs_recmnd
 
     if(fat_target == 0):
-
         fat_target = fat_recmnd
 
     if(prot_target == 0):
-
         prot_target = prot_recmnd
 
     # Based on average estimates
+    # The calorie target aspect is taken
     sod_target = 2500
     cholesterol_target = 250
 
@@ -223,6 +221,7 @@ try:
     num = 0
     i = 0
     the_set = set()
+
     while num < 5:
         if(top_recommendations_micro[i][4] not in the_set):
             res += str(top_recommendations_micro[i][3]) + ","
@@ -232,16 +231,16 @@ try:
 
     print(res[:-1])
 
-#    for i in range(10):
-#        print(top_recommendations_micro[i][4])
-#
-#    print(daily_calories)
-#    print(daily_carbs)
-#    print(daily_sugar)
-#    print(daily_protein)
-#    print(daily_fat)
-#    print(daily_cholesterol)
-#    print("Done!")
+    for i in range(10):
+        print(top_recommendations_micro[i][4])
+
+    print(daily_calories)
+    print(daily_carbs)
+    print(daily_sugar)
+    print(daily_protein)
+    print(daily_fat)
+    print(daily_cholesterol)
+    print("Done!")
 
     connection.close()
 
