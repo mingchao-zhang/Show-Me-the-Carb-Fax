@@ -318,7 +318,7 @@
                           <ol class="list-unstyled">
                             <li><a href="https://wiki.illinois.edu//wiki/display/cs411changsp19">CS411 Homepage</a></li>
                             <li><a href="https://wiki.illinois.edu/wiki/display/CS411ChangSP19/Project+Show+Me+the+Carb+Fax">Team Project Page</a></li>
-                            <li><a href="#">Github</a></li>
+                            <li><a href="https://github.com/mingchao-zhang/cs411-final-project">Github</a></li>
                           </ol>
                         </div>
                       </aside>
