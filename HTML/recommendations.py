@@ -16,6 +16,7 @@
 
 import sys
 import math
+import numpy as np
 import mysql.connector as mysql
 
 db_user = "root"
@@ -219,21 +220,19 @@ try:
 
     res = ""
     num = 0
-    i = 0
     the_set = set()
 
-    for i in range(5):
-        print(recommendations[i][2])
+    # We shuffle the recipes a little to remove outliers
 
-#    while num < 5:
-#        if(top_recommendations_micro[i][4] not in the_set):
-#            res += str(top_recommendations_micro[i][3]) + ","
-#            the_set.add(top_recommendations_micro[i][2])
-#            num += 1
-#        i += 1
-#
-#    print(res[:-1])
-#
+    while num < 5:
+        i = np.random.randint(50)
+        if(top_recommendations_micro[i][4] not in the_set):
+            res += str(top_recommendations_micro[i][3]) + ","
+            the_set.add(top_recommendations_micro[i][2])
+            num += 1
+
+    print(res[:-1])
+
 #    for i in range(10):
 #        print(top_recommendations_micro[i][4])
 #
