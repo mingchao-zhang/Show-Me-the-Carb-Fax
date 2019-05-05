@@ -16,6 +16,7 @@
 
 import sys
 import math
+import numpy as np
 import mysql.connector as mysql
 
 db_user = "root"
@@ -219,28 +220,29 @@ try:
 
     res = ""
     num = 0
-    i = 0
     the_set = set()
 
+    # We shuffle the recipes a little to remove outliers
+
     while num < 5:
+        i = np.random.randint(50)
         if(top_recommendations_micro[i][4] not in the_set):
             res += str(top_recommendations_micro[i][3]) + ","
             the_set.add(top_recommendations_micro[i][2])
             num += 1
-        i += 1
 
     print(res[:-1])
 
-    for i in range(10):
-        print(top_recommendations_micro[i][4])
-
-    print(daily_calories)
-    print(daily_carbs)
-    print(daily_sugar)
-    print(daily_protein)
-    print(daily_fat)
-    print(daily_cholesterol)
-    print("Done!")
+#    for i in range(10):
+#        print(top_recommendations_micro[i][4])
+#
+#    print(daily_calories)
+#    print(daily_carbs)
+#    print(daily_sugar)
+#    print(daily_protein)
+#    print(daily_fat)
+#    print(daily_cholesterol)
+#    print("Done!")
 
     connection.close()
 
